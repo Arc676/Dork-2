@@ -125,6 +125,7 @@
 		715FF6B41FBEE3FF005B1ED4 /* Entities.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Entities.ini; sourceTree = "<group>"; };
 		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
 		715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scenes.ini; sourceTree = "<group>"; };
+		715FF6BC1FBEEA73005B1ED4 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 		715FF5CB1FBEDE44005B1ED4 = {
 			isa = PBXGroup;
 			children = (
+				715FF6BB1FBEEA55005B1ED4 /* Sprites */,
 				715FF6441FBEDFB7005B1ED4 /* Meta */,
 				715FF6A61FBEDFE7005B1ED4 /* lib */,
 				715FF6471FBEDFDF005B1ED4 /* inc */,
@@ -409,6 +411,14 @@
 				715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */,
 			);
 			path = bin;
+			sourceTree = "<group>";
+		};
+		715FF6BB1FBEEA55005B1ED4 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				715FF6BC1FBEEA73005B1ED4 /* wall.png */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
