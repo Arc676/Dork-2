@@ -10,6 +10,7 @@
 		715FF6AC1FBEE005005B1ED4 /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
+		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +112,7 @@
 		715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liborx.dylib; sourceTree = "<group>"; };
 		715FF6A91FBEDFE7005B1ED4 /* liborxd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liborxd.dylib; sourceTree = "<group>"; };
 		715FF6AE1FBEE088005B1ED4 /* StandAlone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandAlone.h; sourceTree = "<group>"; };
+		715FF6B01FBEE205005B1ED4 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		715FF5D61FBEDE44005B1ED4 /* Dork 2 */ = {
 			isa = PBXGroup;
 			children = (
+				715FF6B01FBEE205005B1ED4 /* Main.cpp */,
 				715FF6AE1FBEE088005B1ED4 /* StandAlone.h */,
 				715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */,
 			);
@@ -441,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

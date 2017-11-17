@@ -21,6 +21,8 @@
 
 #include "StandAlone.h"
 
+StandAlone* StandAlone::m_Instance = nullptr;
+
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != nullptr) {
 		return m_Instance;
