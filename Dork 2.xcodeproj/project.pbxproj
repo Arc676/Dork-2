@@ -11,6 +11,10 @@
 		715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
+		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; };
+		715FF6B81FBEE509005B1ED4 /* Entities.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B41FBEE3FF005B1ED4 /* Entities.ini */; };
+		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; };
+		715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +25,10 @@
 			dstSubfolderSpec = 16;
 			files = (
 				715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */,
+				715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */,
+				715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */,
+				715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */,
+				715FF6B81FBEE509005B1ED4 /* Entities.ini in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -113,6 +121,10 @@
 		715FF6A91FBEDFE7005B1ED4 /* liborxd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liborxd.dylib; sourceTree = "<group>"; };
 		715FF6AE1FBEE088005B1ED4 /* StandAlone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandAlone.h; sourceTree = "<group>"; };
 		715FF6B01FBEE205005B1ED4 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dork 2.ini"; sourceTree = "<group>"; };
+		715FF6B41FBEE3FF005B1ED4 /* Entities.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Entities.ini; sourceTree = "<group>"; };
+		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
+		715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scenes.ini; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +145,7 @@
 				715FF6441FBEDFB7005B1ED4 /* Meta */,
 				715FF6A61FBEDFE7005B1ED4 /* lib */,
 				715FF6471FBEDFDF005B1ED4 /* inc */,
+				715FF6B21FBEE3FF005B1ED4 /* bin */,
 				715FF5D61FBEDE44005B1ED4 /* Dork 2 */,
 				715FF5D51FBEDE44005B1ED4 /* Products */,
 			);
@@ -385,6 +398,17 @@
 				715FF6A91FBEDFE7005B1ED4 /* liborxd.dylib */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		715FF6B21FBEE3FF005B1ED4 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */,
+				715FF6B41FBEE3FF005B1ED4 /* Entities.ini */,
+				715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */,
+				715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */,
+			);
+			path = bin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
