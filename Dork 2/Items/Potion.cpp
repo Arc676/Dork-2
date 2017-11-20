@@ -1,9 +1,9 @@
 //
-//  Enums.h
+//  Potion.cpp
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 20/11/2017.
-//      <alesvinciguerra@gmail.com>
+///      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
 //This program is free software: you can redistribute it and/or modify
@@ -19,38 +19,27 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Enums_h
-#define Enums_h
+#include "Potion.h"
 
-#define WEAPONCOUNT 7
-enum WeaponType {
-	SWORD,
-	CLUB,
-	SCYTHE,
-	SICKLE,
-	DAGGER,
-	AXE,
-	LANCE
-};
-
-enum EntityType {
-	MAGIC,
-	RANGE,
-	MELEE,
-	SPEED,
-	NOTYPE
-};
-
-enum PotionType {//potion save codes in comments
-	QUICKHEAL_2, //0
-	QUICKHEAL_5, //1
-	QUICKHEAL_10, //2
-	QUICKHEAL_20, //3
-	QUICKHEAL_50, //4
-
-	SPEEDBOOST, //5
-	STRBOOST, //6
-	DEFBOOST, //7; designated last item
-};
-
-#endif
+std::string Potion::typeToString(PotionType type) {
+	switch (type) {
+		case QUICKHEAL_2:
+			return "Quick heal (2 pts)";
+		case QUICKHEAL_5:
+			return "Quick heal (5 pts)";
+		case QUICKHEAL_10:
+			return "Quick heal (10 pts)";
+		case QUICKHEAL_20:
+			return "Quick heal (20 pts)";
+		case QUICKHEAL_50:
+			return "Quick heal (50 pts)";
+		case SPEEDBOOST:
+			return "Speed boost";
+		case STRBOOST:
+			return "Strength boost";
+		case DEFBOOST:
+			return "Defense boost";
+		default:
+			return "Unknown potion type";
+	}
+}

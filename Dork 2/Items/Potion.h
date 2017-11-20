@@ -1,5 +1,5 @@
 //
-//  Enums.h
+//  Potion.hpp
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 20/11/2017.
@@ -19,38 +19,21 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Enums_h
-#define Enums_h
+#ifndef Potion_h
+#define Potion_h
 
-#define WEAPONCOUNT 7
-enum WeaponType {
-	SWORD,
-	CLUB,
-	SCYTHE,
-	SICKLE,
-	DAGGER,
-	AXE,
-	LANCE
-};
+#include "Enums.h"
+#include <string>
 
-enum EntityType {
-	MAGIC,
-	RANGE,
-	MELEE,
-	SPEED,
-	NOTYPE
-};
+class Potion {
+	static std::string typeToString(PotionType);
 
-enum PotionType {//potion save codes in comments
-	QUICKHEAL_2, //0
-	QUICKHEAL_5, //1
-	QUICKHEAL_10, //2
-	QUICKHEAL_20, //3
-	QUICKHEAL_50, //4
-
-	SPEEDBOOST, //5
-	STRBOOST, //6
-	DEFBOOST, //7; designated last item
+	int price;
+	PotionType type;
+public:
+	int getPrice();
+	PotionType getType();
+	std::string getName();
 };
 
 #endif

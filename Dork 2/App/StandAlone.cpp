@@ -34,7 +34,7 @@ StandAlone* StandAlone::Instance() {
 StandAlone::StandAlone() {}
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
-	orxViewport_CreateFromConfig("Viewport");
+	camera = orxViewport_GetCamera(orxViewport_CreateFromConfig("Viewport"));
 	orxConfig_Load("Scenes.ini");
 	orxObject_CreateFromConfig("Scene1");
 
@@ -77,7 +77,11 @@ orxOBJECT* StandAlone::GetObjectByName(orxSTRING objName) {
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
-	//
+	//update camera position
+	orxVECTOR camPos = {0, 0, 0};
+	orxCamera_GetPosition(camera, &camPos);
+	//get player pos
+	orxCamera_SetPosition(camera, &camPos);
 }
 
 //orxVECTOR orxFASTCALL StandAlone::GetMouseWorldPosition() {

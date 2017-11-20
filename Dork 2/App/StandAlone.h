@@ -46,6 +46,8 @@ protected:
 	StandAlone& operator= (const StandAlone&);
 private:
 	static StandAlone* m_Instance;
+
+	static orxCAMERA* camera;
 };
 
 #endif /* StandAlone_h */
