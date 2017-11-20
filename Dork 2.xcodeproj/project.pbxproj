@@ -17,6 +17,7 @@
 		715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
+		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +133,8 @@
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		716D1AF81FC2757900D827D1 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		716D1AF91FC2757900D827D1 /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Weapon.cpp; sourceTree = "<group>"; };
+		716D1AFD1FC29E2B00D827D1 /* Weapon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		715FF5D61FBEDE44005B1ED4 /* Dork 2 */ = {
 			isa = PBXGroup;
 			children = (
+				716D1AFB1FC29E1B00D827D1 /* Items */,
 				716D1AF31FC2753F00D827D1 /* Entities */,
 				716D1AF41FC2754600D827D1 /* App */,
 			);
@@ -447,6 +451,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		716D1AFB1FC29E1B00D827D1 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				716D1AFD1FC29E2B00D827D1 /* Weapon.h */,
+				716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,6 +519,7 @@
 			files = (
 				716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */,
 				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
+				716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */,
 				716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
 			);

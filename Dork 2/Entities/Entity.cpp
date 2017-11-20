@@ -20,3 +20,44 @@
 //See README and LICENSE for more details
 
 #include "Entity.h"
+#include "Weapon.h"
+
+int Entity::dodge(Entity* blo, Entity* att) {
+	if (blo->getSpeed() < att->getSpeed()){
+		return 0;
+	}
+	int lim = 2 * (blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod()));
+	while (lim > 100) lim *= (float)(arc4random_uniform(8) + 1) / 10;
+	if (arc4random_uniform(100) < arc4random_uniform(lim)){
+		return 1;
+	}
+	return 0;
+}
+
+orxSTRING Entity::getName() {
+	return name;
+}
+
+int Entity::getHP() {
+	return HP;
+}
+
+int Entity::getSpeed() {
+	return speed;
+}
+
+int Entity::getStrength() {
+	return strength;
+}
+
+int Entity::getDefense() {
+	return defense;
+}
+
+double Entity::getLevel() {
+	return level;
+}
+
+EntityType Entity::getType() {
+	return type;
+}

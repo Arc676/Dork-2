@@ -22,6 +22,16 @@
 #ifndef Enemy_h
 #define Enemy_h
 
+enum EnemyType {
+	Goblin,
+	Ghost,
+	Orc,
+	Imp,
+	Ogre,
+	Ghoul,
+	Troll
+}
+
 #include "Entity.h"
 
 class Enemy : public Entity {

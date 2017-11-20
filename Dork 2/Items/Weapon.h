@@ -1,5 +1,5 @@
 //
-//  Entity.hpp
+//  Weapon.hpp
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 20/11/2017.
@@ -19,42 +19,24 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Entity_h
-#define Entity_h
+#ifndef Weapon_h
+#define Weapon_h
 
 #include "orx.h"
+#include "Entity.h"
 
-class Weapon;
-
-enum EntityType{
-	Magic,
-	Range,
-	Melee,
-	Speed,
-	NoType
-};
-
-class Entity {
-	orxSTRING name;
-	int HP;
-	int speed;
-	int strength;
-	int defense;
-	Weapon* weapon;
-	int gold;
-	double level;
+class Weapon {
+	double strMod;
+	double defMod;
+	double speedMod;
+	int price;
 	EntityType type;
 public:
-	static int dodge(Entity*, Entity*);
-
-	orxSTRING getName();
-	int getHP();
-	int getSpeed();
-	int getStrength();
-	int getDefense();
-	double getLevel();
+	double getStrMod();
+	double getDefMod();
+	double getSpeedMod();
+	int getPrice();
 	EntityType getType();
-	Weapon* getWeapon();
 };
 
 #endif
