@@ -23,19 +23,20 @@
 #define Entity_h
 
 #include "orx.h"
+#include <string>
 
 class Weapon;
 
 enum EntityType{
-	Magic,
-	Range,
-	Melee,
-	Speed,
-	NoType
+	MAGIC,
+	RANGE,
+	MELEE,
+	SPEED,
+	NOTYPE
 };
 
 class Entity {
-	orxSTRING name;
+	std::string name;
 	int HP;
 	int speed;
 	int strength;
@@ -47,7 +48,10 @@ class Entity {
 public:
 	static int dodge(Entity*, Entity*);
 
-	orxSTRING getName();
+	static std::string typeToString(EntityType);
+	static EntityType weaknessForType(EntityType);
+
+	std::string getName();
 	int getHP();
 	int getSpeed();
 	int getStrength();

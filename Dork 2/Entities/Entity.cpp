@@ -34,7 +34,37 @@ int Entity::dodge(Entity* blo, Entity* att) {
 	return 0;
 }
 
-orxSTRING Entity::getName() {
+EntityType Entity::weaknessForType(EntityType type) {
+	switch (type) {
+		case MAGIC:
+			return SPEED;
+		case SPEED:
+			return MELEE;
+		case RANGE:
+			return MAGIC;
+		case MELEE:
+			return RANGE;
+		default:
+			return NOTYPE;
+	}
+}
+
+std::string Entity::typeToString(EntityType type) {
+	switch (type) {
+		case MAGIC:
+			return "Magic";
+		case RANGE:
+			return "Range";
+		case SPEED:
+			return "Speed";
+		case MELEE:
+			return "Melee";
+		default:
+			return "No type";
+	}
+}
+
+std::string Entity::getName() {
 	return name;
 }
 
