@@ -23,19 +23,23 @@
 #define Enemy_h
 
 enum EnemyType {
-	Goblin,
-	Ghost,
-	Orc,
-	Imp,
-	Ogre,
-	Ghoul,
-	Troll
+	GOBLIN,
+	GHOST,
+	ORC,
+	IMP,
+	OGRE,
+	GHOUL,
+	TROLL
 }
 
 #include "Entity.h"
 
 class Enemy : public Entity {
+	Weapon* preferredWeapon;
+	EnemyType type;
 public:
+	static std::string typeToString(EnemyType);
+	EnemyType getType();
 };
 
 #endif

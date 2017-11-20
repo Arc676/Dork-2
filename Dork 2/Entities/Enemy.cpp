@@ -20,3 +20,28 @@
 //See README and LICENSE for more details
 
 #include "Enemy.h"
+
+EnemyType Enemy::getType() {
+	return type;
+}
+
+std::string Enemy::typeToString(EnemyType type) {
+	switch (type) {
+		case GOBLIN:
+			return "Goblin";
+		case GHOST:
+			return "Ghost";
+		case ORC:
+			return "Orc";
+		case IMP:
+			return "Imp";
+		case OGRE:
+			return "Ogre";
+		case GHOUL:
+			return "Ghoul";
+		case TROLL:
+			return "Troll";
+		default:
+			return "Unknown enemy type";
+	}
+}

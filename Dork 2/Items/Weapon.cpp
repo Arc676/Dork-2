@@ -21,6 +21,31 @@
 
 #include "Weapon.h"
 
+std::string Weapon::getWeaponName(WeaponType type) {
+	switch (type) {
+		case SWORD:
+			return "Sword";
+		case CLUB:
+			return "Club";
+		case SCYTHE:
+			return "Scythe";
+		case SICKLE:
+			return "Sickle";
+		case DAGGER:
+			return "Dagger";
+		case AXE:
+			return "Axe";
+		case LANCE:
+			return "Lance";
+		default:
+			return "Unknown weapon";
+	}
+}
+
+std::string Weapon::getName() {
+	return Weapon::getWeaponName(weapon);
+}
+
 double Weapon::getStrMod() {
 	return strMod;
 }

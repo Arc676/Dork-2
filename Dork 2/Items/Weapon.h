@@ -25,13 +25,27 @@
 #include "orx.h"
 #include "Entity.h"
 
+enum WeaponType {
+	SWORD,
+	CLUB,
+	SCYTHE,
+	SICKLE,
+	DAGGER,
+	AXE,
+	LANCE
+};
+
 class Weapon {
 	double strMod;
 	double defMod;
 	double speedMod;
 	int price;
 	EntityType type;
+	WeaponType weapon;
 public:
+	static std::string getWeaponName(WeaponType);
+
+	std::string getName();
 	double getStrMod();
 	double getDefMod();
 	double getSpeedMod();
