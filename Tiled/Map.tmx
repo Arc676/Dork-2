@@ -3,9 +3,14 @@
  <tileset firstgid="1" name="Tiles" tilewidth="32" tileheight="32">
   <image source="../../../../../../../Users/Ale/Downloads/LPC_forest_0/LPC_forest/forest_tiles.png" width="512" height="512"/>
  </tileset>
- <layer name="Tile Layer 1" width="100" height="100">
+ <layer name="Terrain" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1TtKgwEQRtHfRxbgawFRs1t3EFILYi+4Osc2mECqXOIpTj9w4ZvvZVk+Sfgau3FFwlaPFD1ajvW4HjfjdqwCt/4HerTo0XJqD406Pe7G/XgYj+MpcP+lOaXHejyPl/E6NoH7L82hHvstbFOrh206X4+//oRtOl+P9eJPlHqgB3oU6dGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR8tvj4/xRsL7+AG9nBnU
+   eJzt3Mtu1DAUxvEwgChSN8yAKMtyEfQxgGdCqA/AhssSEALWSFzWSDwdZ9RGSi3bsZ1z7C+eb/FfgARJ/ZuMM46n/4Zh+M0g+it9l64xiL7SAyp6YBXz2EjXpRvSTYBzPYTogRU92jQd2yUeNMLxuCNtpZ10V7oH8HOttU3AJMfjVHooPZIeS08Afi6EbklHM912/s0208O14HtTuPvSyUwPZsY416Pn96aU13fs9W7t4Zsnen5vShnP2Phae5wOhzVPtPKYvuZjHodWKw9f9KAHWvTAih5Y0SPc7rKax3wqPcvsrAOP3RAf7xYWGq3VI+ayVosePHwua7B4J72XPjh/n/J+d5Z4DLT5A7n9WH0zHi96pPdruNgj9Yces41rtO5zhrVl6VFzbhjn1NR5U7PQvILkMXWoYTLOqanzpmaa84qlR+zPCIX2FOSmOa9YeLj3sYgWmh6aWc/nPg+fVwuz0J6C3j1y3FJsNO+lQvtuevSwet1r3ku1uEZix7P2sPh/te+lal4j++P4npvX8FhL25kxqmVBj3qlWPTqgbZ2kmrRq0fLtZMlFr16tFw78VkcugdKJfcJ9MCKHlihe4zPFkJpPHNACt1jfLYQCvnce/Y4pgdE7vXhuiCfe88evD4w4vyB1fhsOpTlXqhYVuvz6B6obQab5yb0KGs7SdOFHno2GtcMPfRdXJscH3rUs0kxoUcdm1QTetQ1ocdFCHveWu9nQNn7h3IeKVl6aN+bLzmPGvur0D2mY2H1eXau3P0dras1f1h8lu3NoqaH64KwNxOxHu+vSvY9aR6b6yVXW+LwSnouvZBeSueXvc449pL3ZXpc7c3gf+71tuAcSlx69FiSlofPhetXOh7HCzymLlwv0fFYcn34TFp9X22NjR7ufhYNj9Ek5kIPv4fF9eFz4e/fjfdR+iR9cfo81FlXoEd6NdZ66JFe7r0rPeq5cD8cVvTQG0eNecDq2UHvHu4+qOk+nKVrvxbzSc8e7vhbrb9rXis9e9R8/sH9onhpPJOmh51LybVJD6zogdWaPFrt4aKHv9D3K3qysfCoMVauTS8mGh6Wn4FTbUq/j4RWqUdo/FvtCezlein1aD3+c+eGdk7WHowehxA9sKJHPPe+raScewt6xHPvHUvi7xddb/TAih5Y0QMremC19/g5xH/nMKvXD+k/i+2SDg==
+  </data>
+ </layer>
+ <layer name="Shrubs" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3EFOg1AUBdCuwKU4aZOuRwcOnOkOdAe6YhnYpDaFQCtwH/+c5OUP+eHmAoGE3Q4AAAAAhr2svYFC9gscQx7j7c9mLvKYbs5c5HE7edxnievNvVrJ4zKD1ExayCO9E+dayKMSebBVj1dmiyo8F520kEcF17rRUh6VOrOEfc+stY80rfWjgqmZPFwMOeTBFO7fmeQCAPdxD83gmSaHHDLoBABDnrp5XnsTI3108zlireytm/e1NzHSVzffI9bK9COLfmSp1I8WVOpHC/Qji35k0Y8s+pFFP7LoRxb9yKIfwK2Oa2+AP447maSRSR6ZANRzeocw18o0p3cIc61AtteBAQAA4HZ9/xdc+3+DLXGe/9/hd8hx6JmKqn8L6MuiaibVvwVUPOdDqvdja6r3Y2v0I4t+ZNGPLPqRRT+y6EcW/ciiHwAAAKT5Ac5LiqM=
   </data>
  </layer>
 </map>
