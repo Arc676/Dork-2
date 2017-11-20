@@ -47,6 +47,7 @@ class Entity {
 	EntityType type;
 public:
 	static int dodge(Entity*, Entity*);
+	static int maxDmg(Entity*, Entity*);
 
 	static std::string typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);

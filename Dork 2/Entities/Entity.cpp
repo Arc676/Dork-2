@@ -34,6 +34,14 @@ int Entity::dodge(Entity* blo, Entity* att) {
 	return 0;
 }
 
+int Entity::maxDmg(Entity* attacker, Entity* blocker){
+	int str = attacker->strength;
+	if (Entity::weaknessForType(blocker->type) == attacker->type) str *= 1.1;
+	int def = blocker->defense;
+	if (Entity::weaknessForType(attacker->type) == blocker->type) def *= 1.1;
+	return str * (1 + attacker->weapon->getStrMod()) - (def * (1 + blocker->weapon->getDefMod()))/4;
+}
+
 EntityType Entity::weaknessForType(EntityType type) {
 	switch (type) {
 		case MAGIC:

@@ -35,6 +35,11 @@ enum EnemyType {
 };
 
 class Enemy : public Entity {
+	static const int healthBounds[8];
+	static const int speeds[8];
+	static const int strengthBounds[8];
+	static const int defenseBounds[8];
+	static const int rewardBounds[8];
 	Weapon* preferredWeapon;
 	EnemyType type;
 public:
