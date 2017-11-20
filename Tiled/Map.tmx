@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Tiles" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../Users/Ale/Downloads/LPC_forest_0/LPC_forest/forest_tiles.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1TtKgwEQRtHfRxbgawFRs1t3EFILYi+4Osc2mECqXOIpTj9w4ZvvZVk+Sfgau3FFwlaPFD1ajvW4HjfjdqwCt/4HerTo0XJqD406Pe7G/XgYj+MpcP+lOaXHejyPl/E6NoH7L82hHvstbFOrh206X4+//oRtOl+P9eJPlHqgB3oU6dGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR4seLXq06NGiR8tvj4/xRsL7+AG9nBnU
+  </data>
+ </layer>
+</map>

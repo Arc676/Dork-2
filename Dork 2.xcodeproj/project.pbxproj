@@ -15,6 +15,8 @@
 		715FF6B81FBEE509005B1ED4 /* Entities.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B41FBEE3FF005B1ED4 /* Entities.ini */; };
 		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; };
 		715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */; };
+		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
+		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +128,10 @@
 		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
 		715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scenes.ini; sourceTree = "<group>"; };
 		715FF6BC1FBEEA73005B1ED4 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
+		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		716D1AF81FC2757900D827D1 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		716D1AF91FC2757900D827D1 /* Enemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +170,8 @@
 		715FF5D61FBEDE44005B1ED4 /* Dork 2 */ = {
 			isa = PBXGroup;
 			children = (
-				715FF6B01FBEE205005B1ED4 /* Main.cpp */,
-				715FF6AE1FBEE088005B1ED4 /* StandAlone.h */,
-				715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */,
+				716D1AF31FC2753F00D827D1 /* Entities */,
+				716D1AF41FC2754600D827D1 /* App */,
 			);
 			path = "Dork 2";
 			sourceTree = "<group>";
@@ -421,6 +426,27 @@
 			path = Sprites;
 			sourceTree = "<group>";
 		};
+		716D1AF31FC2753F00D827D1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				716D1AF61FC2755B00D827D1 /* Entity.h */,
+				716D1AF51FC2755B00D827D1 /* Entity.cpp */,
+				716D1AF91FC2757900D827D1 /* Enemy.h */,
+				716D1AF81FC2757900D827D1 /* Enemy.cpp */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		716D1AF41FC2754600D827D1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				715FF6B01FBEE205005B1ED4 /* Main.cpp */,
+				715FF6AE1FBEE088005B1ED4 /* StandAlone.h */,
+				715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -478,7 +504,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */,
 				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
+				716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
