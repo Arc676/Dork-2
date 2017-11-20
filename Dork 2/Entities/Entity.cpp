@@ -64,6 +64,10 @@ std::string Entity::typeToString(EntityType type) {
 	}
 }
 
+Weapon* Entity::getWeapon() {
+	return weapon;
+}
+
 std::string Entity::getName() {
 	return name;
 }

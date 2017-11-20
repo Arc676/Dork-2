@@ -22,6 +22,8 @@
 #ifndef Enemy_h
 #define Enemy_h
 
+#include "Entity.h"
+
 enum EnemyType {
 	GOBLIN,
 	GHOST,
@@ -30,9 +32,7 @@ enum EnemyType {
 	OGRE,
 	GHOUL,
 	TROLL
-}
-
-#include "Entity.h"
+};
 
 class Enemy : public Entity {
 	Weapon* preferredWeapon;

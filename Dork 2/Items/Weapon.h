@@ -22,7 +22,6 @@
 #ifndef Weapon_h
 #define Weapon_h
 
-#include "orx.h"
 #include "Entity.h"
 
 enum WeaponType {
