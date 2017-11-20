@@ -42,6 +42,42 @@ std::string Weapon::getWeaponName(WeaponType type) {
 	}
 }
 
+EntityType Weapon::getTypeForWeapon(WeaponType weaponType) {
+	switch (weaponType) {
+		case SWORD:
+			return MELEE;
+		case CLUB:
+			return MELEE;
+		case SCYTHE:
+			return MELEE;
+		case SICKLE:
+			return MELEE;
+		case DAGGER:
+			return SPEED;
+		case AXE:
+			return MELEE;
+		case LANCE:
+			return RANGE;
+		default:
+			return NOTYPE;
+	}
+}
+
+Weapon::Weapon(WeaponType weaponType, double str, double def, double speed, int price) : weapon(weaponType), strMod(str), defMod(def), speedMod(speed), price(price) {}
+
+Weapon* Weapon::copy() {
+	return new Weapon(weapon, strMod, defMod, speedMod, price);
+}
+
+Weapon* Weapon::copyOf(WeaponType type) {
+	switch (type) {
+		case SWORD:
+			return Weapon::sword->copy();
+		default:
+			return nullptr;
+	}
+}
+
 std::string Weapon::getName() {
 	return Weapon::getWeaponName(weapon);
 }
@@ -63,5 +99,5 @@ int Weapon::getPrice() {
 }
 
 EntityType Weapon::getType() {
-	return type;
+	return Weapon::getTypeForWeapon(weapon);
 }

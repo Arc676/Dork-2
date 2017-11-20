@@ -22,27 +22,30 @@
 #ifndef Weapon_h
 #define Weapon_h
 
-#include "Entity.h"
-
-enum WeaponType {
-	SWORD,
-	CLUB,
-	SCYTHE,
-	SICKLE,
-	DAGGER,
-	AXE,
-	LANCE
-};
+#include "Enums.h"
+#include <string>
 
 class Weapon {
+	static Weapon* sword;
+	static Weapon* club;
+	static Weapon* scythe;
+	static Weapon* sickle;
+	static Weapon* axe;
+	static Weapon* dagger;
+	static Weapon* lance;
+	Weapon* copy();
+
 	double strMod;
 	double defMod;
 	double speedMod;
 	int price;
-	EntityType type;
 	WeaponType weapon;
 public:
 	static std::string getWeaponName(WeaponType);
+	static Weapon* copyOf(WeaponType);
+	static EntityType getTypeForWeapon(WeaponType);
+
+	Weapon(WeaponType, double, double, double, int);
 
 	std::string getName();
 	double getStrMod();

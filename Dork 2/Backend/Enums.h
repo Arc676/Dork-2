@@ -1,5 +1,5 @@
 //
-//  Entity.hpp
+//  Enums.h
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 20/11/2017.
@@ -19,39 +19,26 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Entity_h
-#define Entity_h
+#ifndef Enums_h
+#define Enums_h
 
-#include "orx.h"
-#include "Weapon.h"
-#include <string>
+#define WEAPONCOUNT 7
+enum WeaponType {
+	SWORD,
+	CLUB,
+	SCYTHE,
+	SICKLE,
+	DAGGER,
+	AXE,
+	LANCE
+};
 
-class Entity {
-protected:
-	std::string name;
-	int HP;
-	int speed;
-	int strength;
-	int defense;
-	Weapon* weapon;
-	int gold;
-	double level;
-	EntityType type;
-public:
-	static int dodge(Entity*, Entity*);
-	static int maxDmg(Entity*, Entity*);
-
-	static std::string typeToString(EntityType);
-	static EntityType weaknessForType(EntityType);
-
-	std::string getName();
-	int getHP();
-	int getSpeed();
-	int getStrength();
-	int getDefense();
-	double getLevel();
-	EntityType getType();
-	Weapon* getWeapon();
+enum EntityType{
+	MAGIC,
+	RANGE,
+	MELEE,
+	SPEED,
+	NOTYPE
 };
 
 #endif

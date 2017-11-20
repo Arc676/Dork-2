@@ -27,6 +27,46 @@ const int Enemy::strengthBounds[] = {15, 40, 15, 15, 25, 22, 25};
 const int Enemy::defenseBounds[]  = {15, 30, 10, 5,  12, 15, 15};
 const int Enemy::rewardBounds[]   = {3,  10, 2,  3,  4,  7,  7};
 
+const WeaponType Enemy::preferredWeapons[] = {
+	LANCE,
+	DAGGER,
+	AXE,
+	SWORD,
+	DAGGER,
+	LANCE,
+	CLUB
+};
+
+Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, double level) : type(type) {
+	this->HP = HP;
+	this->speed = speed;
+	this->strength = str;
+	this->defense = def;
+	weapon = w;
+	this->gold = gold;
+	this->level = level;
+}
+
+Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl) {
+	double level = (double)arc4random_uniform(5 * (playerLvl + 1)) / 10 + 0.5 * playerLvl;
+	WeaponType weaponOnSpawn = preferredWeapons[type];
+	if (arc4random_uniform(100) < 40) {
+		weaponOnSpawn = (WeaponType)arc4random_uniform(WEAPONCOUNT);
+	}
+	Weapon* weapon = Weapon::copyOf(weaponOnSpawn);
+	Enemy* e = new Enemy(
+		type,
+		arc4random_uniform(healthBounds[(int)type]) + arc4random_uniform(level / 4) + level / 3,
+		arc4random_uniform(speeds[(int)type]/2 + level/2) + speeds[(int)type],
+		arc4random_uniform(strengthBounds[(int)type]) + level * 0.6,
+		arc4random_uniform(defenseBounds[(int)type]) + level * 0.6,
+		weapon,
+		arc4random_uniform(rewardBounds[(int)type]) + level * 0.5,
+		level
+	);
+	return e;
+}
+
 EnemyType Enemy::getType() {
 	return type;
 }

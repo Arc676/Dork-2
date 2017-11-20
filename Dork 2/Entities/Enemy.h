@@ -40,10 +40,14 @@ class Enemy : public Entity {
 	static const int strengthBounds[8];
 	static const int defenseBounds[8];
 	static const int rewardBounds[8];
-	Weapon* preferredWeapon;
+	static const WeaponType preferredWeapons[8];
 	EnemyType type;
 public:
 	static std::string typeToString(EnemyType);
+	static Enemy* createRandomEnemy(EnemyType, double);
+
+	Enemy(EnemyType, int, int, int, int, Weapon*, int, double);
+
 	EnemyType getType();
 };
 
