@@ -33,6 +33,8 @@ class Player : public Entity {
 public:
 	Player(const std::string&, EntityType);
 	virtual std::string getName();
+
+	void update(bool, bool, bool, bool, float);
 };
 
 #endif

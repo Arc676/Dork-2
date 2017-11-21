@@ -20,6 +20,8 @@
 		716D1B031FC3045000D827D1 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1B011FC3045000D827D1 /* Potion.cpp */; };
 		718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71F208371FC43BEB0001AB3F /* Map1.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57DF1FC43D4300A457C8 /* forest_tiles.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718B57E61FC457D800A457C8 /* idle.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57E51FC457D400A457C8 /* idle.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				718B57E61FC457D800A457C8 /* idle.png in CopyFiles */,
+				718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */,
 				715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */,
 				718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */,
 				718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */,
@@ -143,6 +147,7 @@
 		718B57DF1FC43D4300A457C8 /* forest_tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tiles.png; sourceTree = "<group>"; };
 		718B57E21FC443AD00A457C8 /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = "<group>"; };
 		718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainGuySpriteSheet.png; sourceTree = "<group>"; };
+		718B57E51FC457D400A457C8 /* idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idle.png; sourceTree = "<group>"; };
 		71F208341FC3FA190001AB3F /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		71F208351FC3FA190001AB3F /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		71F208371FC43BEB0001AB3F /* Map1.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Map1.ini; sourceTree = "<group>"; };
@@ -480,6 +485,7 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				718B57E51FC457D400A457C8 /* idle.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,
 				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
 			);

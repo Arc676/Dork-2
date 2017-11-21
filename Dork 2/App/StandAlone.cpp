@@ -141,6 +141,21 @@ orxOBJECT* StandAlone::GetObjectByName(orxSTRING objName) {
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
+	orxFLOAT delta = clockInfo->fDT;
+	for (
+		 orxOBJECT *obj = (orxOBJECT*)orxStructure_GetFirst(orxSTRUCTURE_ID_OBJECT);
+		 obj != orxNULL;
+		 obj = orxOBJECT(orxStructure_GetNext(obj))
+		 ) {
+		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
+		if (orxString_Compare(name, "Player") == 0) {
+			player->update(orxInput_IsActive("GoUp"),
+						   orxInput_IsActive("GoDown"),
+						   orxInput_IsActive("GoLeft"),
+						   orxInput_IsActive("GoRight"),
+						   delta);
+		}
+	}
 	//update camera position
 	orxVECTOR camPos = {0, 0, 0};
 	orxCamera_GetPosition(camera, &camPos);
