@@ -23,6 +23,7 @@
 
 StandAlone* StandAlone::m_Instance = nullptr;
 orxCAMERA* StandAlone::camera = nullptr;
+Player* StandAlone::player = nullptr;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != nullptr) {
@@ -34,21 +35,23 @@ StandAlone* StandAlone::Instance() {
 
 StandAlone::StandAlone() {}
 
-int StandAlone::getTotalFromMap(const orxSTRING mapSectionName) {
-	orxConfig_PushSection(mapSectionName);
+//written by Wayne "Sausage" Johnson
+//int StandAlone::getTotalFromMap(const orxSTRING mapSectionName) {
+//	orxConfig_PushSection(mapSectionName);
+//
+//	orxU32 totalItemCount = 0;
+//	orxU32 propertyCount = orxConfig_GetKeyCounter();
+//
+//	for (int x = 1; x < propertyCount + 1; x++) {
+//		orxCHAR property[30]; //good maximum length
+//		orxString_Print(property, "MapSection%d", x);
+//		totalItemCount += orxConfig_GetListCounter(property);
+//	}
+//	orxConfig_PopSection();
+//	return totalItemCount;
+//}
 
-	orxU32 totalItemCount = 0;
-	orxU32 propertyCount = orxConfig_GetKeyCounter();
-
-	for (int x = 1; x < propertyCount + 1; x++) {
-		orxCHAR property[30]; //good maximum length
-		orxString_Print(property, "MapSection%d", x);
-		totalItemCount += orxConfig_GetListCounter(property);
-	}
-	orxConfig_PopSection();
-	return totalItemCount;
-}
-
+//written by Wayne "Sausage" Johnson
 void StandAlone::paintTiles(const orxSTRING mapSection) {
 	int tilesWide = 100;
 	int tileSize = 32;
@@ -56,18 +59,17 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 
 	orxConfig_PushSection(mapSection);
 
-	orxU32 baseMapCount = getTotalFromMap(mapSection);
 	orxU32 baseMapIndex = 0;
 
 	orxU32 propertyCount = orxConfig_GetKeyCounter();
 
-	for (orxS32 propertyIndex=1; propertyIndex < propertyCount+1; propertyIndex++){
+	for (orxS32 propertyIndex = 1; propertyIndex < propertyCount + 1; propertyIndex++) {
 		orxCHAR property[30]; //good maximum length
 		orxString_Print(property, "MapPart%d", propertyIndex);
 
 		orxU32 listCount = orxConfig_GetListCounter(property);
 
-		for (int listIndex = 0; listIndex < listCount; listIndex++){
+		for (int listIndex = 0; listIndex < listCount; listIndex++) {
 			const orxSTRING tile = orxConfig_GetListString(property, listIndex);
 
 			position.fX = (baseMapIndex % tilesWide) * tileSize;
@@ -80,7 +82,7 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 
 			orxOBJECT *obj = orxObject_CreateFromConfig(formattedTileObject);
 
-			if (obj != orxNULL){
+			if (obj != orxNULL) {
 				orxVECTOR tilePos = orxVECTOR_0;
 				orxObject_GetPosition(obj, &tilePos);
 				position.fZ = tilePos.fZ;
@@ -100,9 +102,9 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Colliders");
 	paintTiles("Shrubs");
 
-	orxConfig_Load("Entities.ini");
-//
-//	player = new Player();
+	orxConfig_Load("Player.ini");
+
+	player = new Player("Bob", MAGIC);
 //	environment = new Environment();
 //
 //	orxConfig_Load("UI.ini");
@@ -142,7 +144,8 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 	//update camera position
 	orxVECTOR camPos = {0, 0, 0};
 	orxCamera_GetPosition(camera, &camPos);
-	//get player pos
+	camPos.fX = player->getPosition().fX;
+	camPos.fY = player->getPosition().fY;
 	orxCamera_SetPosition(camera, &camPos);
 }
 

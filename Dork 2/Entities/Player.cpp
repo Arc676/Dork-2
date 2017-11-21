@@ -28,6 +28,9 @@ Player::Player(const std::string& name, EntityType type) : name(name) {
 	strength = 15;
 	defense = 15;
 
+	entity = orxObject_CreateFromConfig("Player");
+	orxObject_GetPosition(entity, &position);
+
 	ownedPotions = std::vector<int>(POTIONCOUNT);
 	ownedWeapons = std::vector<bool>(WEAPONCOUNT);
 }

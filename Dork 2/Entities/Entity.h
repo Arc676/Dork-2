@@ -48,6 +48,8 @@ public:
 	static std::string typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);
 
+	orxVECTOR getPosition();
+
 	virtual std::string getName() = 0;
 	int getHP();
 	int getSpeed();

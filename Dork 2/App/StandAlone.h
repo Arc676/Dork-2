@@ -23,12 +23,13 @@
 #define StandAlone_h
 
 #include "orx.h"
+#include "Player.h"
 
 class StandAlone {
 public:
 	static StandAlone* Instance();
 
-	static int getTotalFromMap(const orxSTRING);
+//	static int getTotalFromMap(const orxSTRING);
 	static void paintTiles(const orxSTRING);
 	
 	static orxSTATUS orxFASTCALL Init();
@@ -50,6 +51,7 @@ protected:
 private:
 	static StandAlone* m_Instance;
 
+	static Player* player;
 	static orxCAMERA* camera;
 };
 

@@ -89,6 +89,10 @@ Weapon* Entity::getWeapon() {
 	return weapon;
 }
 
+orxVECTOR Entity::getPosition() {
+	return position;
+}
+
 int Entity::getHP() {
 	return HP;
 }
