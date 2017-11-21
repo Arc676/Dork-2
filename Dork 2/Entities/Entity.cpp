@@ -23,23 +23,36 @@
 #include "Weapon.h"
 
 int Entity::dodge(Entity* blo, Entity* att) {
-	if (blo->getSpeed() < att->getSpeed()){
+	if (blo->getSpeed() < att->getSpeed()) {
 		return 0;
 	}
 	int lim = 2 * (blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod()));
 	while (lim > 100) lim *= (float)(arc4random_uniform(8) + 1) / 10;
-	if (arc4random_uniform(100) < arc4random_uniform(lim)){
+	if (arc4random_uniform(100) < arc4random_uniform(lim)) {
 		return 1;
 	}
 	return 0;
 }
 
-int Entity::maxDmg(Entity* attacker, Entity* blocker){
+int Entity::maxDamage(Entity* attacker, Entity* blocker){
 	int str = attacker->strength;
 	if (Entity::weaknessForType(blocker->type) == attacker->type) str *= 1.1;
 	int def = blocker->defense;
 	if (Entity::weaknessForType(attacker->type) == blocker->type) def *= 1.1;
 	return str * (1 + attacker->weapon->getStrMod()) - (def * (1 + blocker->weapon->getDefMod()))/4;
+}
+
+int Entity::enemyAttacks(Entity* enemy, Entity* player){
+	int maxDmg = maxDamage(enemy, player);
+	if (maxDmg <= 0) {
+		maxDmg = 1;
+	}
+	int damageTaken = arc4random_uniform(maxDmg);
+	if (dodge(player, enemy)) {
+		damageTaken = 0;
+	}
+	player->HP -= damageTaken;
+	return damageTaken;
 }
 
 EntityType Entity::weaknessForType(EntityType type) {

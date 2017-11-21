@@ -40,8 +40,10 @@ protected:
 	double level;
 	EntityType type;
 public:
+	//combat mechanics
 	static int dodge(Entity*, Entity*);
-	static int maxDmg(Entity*, Entity*);
+	static int maxDamage(Entity*, Entity*);
+	static int enemyAttacks(Entity*, Entity*);
 
 	static std::string typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);
