@@ -1,5 +1,5 @@
 //
-//  Weapon.hpp
+//  Weapon.h
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 20/11/2017.

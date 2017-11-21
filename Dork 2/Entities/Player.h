@@ -1,5 +1,5 @@
 //
-//  Player.hpp
+//  Player.h
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 21/11/2017.
