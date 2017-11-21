@@ -47,6 +47,27 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	this->level = level;
 }
 
+EntityType Enemy::entityTypeForEnemy(EnemyType type) {
+	switch (type) {
+		case GOBLIN:
+			return MAGIC;
+		case GHOST:
+			return SPEED;
+		case ORC:
+			return RANGE;
+		case IMP:
+			return MELEE;
+		case OGRE:
+			return SPEED;
+		case GHOUL:
+			return RANGE;
+		case TROLL:
+			return MELEE;
+		default:
+			return NOTYPE;
+	}
+}
+
 Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl) {
 	double level = (double)arc4random_uniform(5 * (playerLvl + 1)) / 10 + 0.5 * playerLvl;
 	WeaponType weaponOnSpawn = preferredWeapons[type];
@@ -69,6 +90,10 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl) {
 
 EnemyType Enemy::getType() {
 	return type;
+}
+
+EntityType Enemy::getEntityType() {
+	return Enemy::entityTypeForEnemy(type);
 }
 
 std::string Enemy::typeToString(EnemyType type) {

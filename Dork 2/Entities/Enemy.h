@@ -44,11 +44,13 @@ class Enemy : public Entity {
 	EnemyType type;
 public:
 	static std::string typeToString(EnemyType);
+	static EntityType entityTypeForEnemy(EnemyType);
 	static Enemy* createRandomEnemy(EnemyType, double);
 
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, double);
 
 	EnemyType getType();
+	EntityType getEntityType();
 };
 
 #endif
