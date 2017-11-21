@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		715FF6AC1FBEE005005B1ED4 /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
-		715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -22,6 +20,8 @@
 		718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57DF1FC43D4300A457C8 /* forest_tiles.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718B57E61FC457D800A457C8 /* idle.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57E51FC457D400A457C8 /* idle.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718B57EA1FC4661B00A457C8 /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
+		718B57EB1FC4662F00A457C8 /* liborx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
 /* End PBXBuildFile section */
 
@@ -32,9 +32,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				718B57EB1FC4662F00A457C8 /* liborx.dylib in CopyFiles */,
 				718B57E61FC457D800A457C8 /* idle.png in CopyFiles */,
 				718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */,
-				715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */,
 				718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */,
 				718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */,
 				715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */,
@@ -158,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				715FF6AC1FBEE005005B1ED4 /* liborx.dylib in Frameworks */,
+				718B57EA1FC4661B00A457C8 /* liborx.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +175,7 @@
 				715FF6B21FBEE3FF005B1ED4 /* bin */,
 				715FF5D61FBEDE44005B1ED4 /* Dork 2 */,
 				715FF5D51FBEDE44005B1ED4 /* Products */,
+				718B57E71FC465E700A457C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -490,6 +491,13 @@
 				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		718B57E71FC465E700A457C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
