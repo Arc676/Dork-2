@@ -130,7 +130,6 @@
 		715FF6B41FBEE3FF005B1ED4 /* Entities.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Entities.ini; sourceTree = "<group>"; };
 		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
 		715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scenes.ini; sourceTree = "<group>"; };
-		715FF6BC1FBEEA73005B1ED4 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		716D1AF81FC2757900D827D1 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
@@ -140,8 +139,10 @@
 		716D1B001FC2F47D00D827D1 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		716D1B011FC3045000D827D1 /* Potion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Potion.cpp; sourceTree = "<group>"; };
 		716D1B021FC3045000D827D1 /* Potion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Potion.h; sourceTree = "<group>"; };
+		718B57DF1FC43D4300A457C8 /* forest_tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tiles.png; sourceTree = "<group>"; };
 		71F208341FC3FA190001AB3F /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		71F208351FC3FA190001AB3F /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		71F208371FC43BEB0001AB3F /* Map1.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Map1.ini; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +160,7 @@
 		715FF5CB1FBEDE44005B1ED4 = {
 			isa = PBXGroup;
 			children = (
-				715FF6BB1FBEEA55005B1ED4 /* Sprites */,
+				718B57DE1FC43D4300A457C8 /* Sprites */,
 				715FF6441FBEDFB7005B1ED4 /* Meta */,
 				715FF6A61FBEDFE7005B1ED4 /* lib */,
 				715FF6471FBEDFDF005B1ED4 /* inc */,
@@ -426,16 +427,9 @@
 				715FF6B41FBEE3FF005B1ED4 /* Entities.ini */,
 				715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */,
 				715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */,
+				71F208371FC43BEB0001AB3F /* Map1.ini */,
 			);
 			path = bin;
-			sourceTree = "<group>";
-		};
-		715FF6BB1FBEEA55005B1ED4 /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-				715FF6BC1FBEEA73005B1ED4 /* wall.png */,
-			);
-			path = Sprites;
 			sourceTree = "<group>";
 		};
 		716D1AF31FC2753F00D827D1 /* Entities */ = {
@@ -478,6 +472,14 @@
 				716D1B001FC2F47D00D827D1 /* Enums.h */,
 			);
 			path = Backend;
+			sourceTree = "<group>";
+		};
+		718B57DE1FC43D4300A457C8 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
