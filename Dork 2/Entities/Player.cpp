@@ -34,8 +34,6 @@ Player::Player(const std::string& name, EntityType type) : name(name) {
 	position.fZ = -0.1;
 	orxObject_SetPosition(entity, &position);
 
-	orxObject_SetTargetAnim(entity, "WalkRight");
-
 	ownedPotions = std::vector<int>(POTIONCOUNT);
 	ownedWeapons = std::vector<bool>(WEAPONCOUNT);
 }
@@ -48,17 +46,17 @@ void Player::update(bool up, bool down, bool left, bool right, float dt) {
 	orxObject_GetPosition(entity, &position);
 	if (up) {
 		position.fY -= 60 * dt;
-//		orxObject_SetTargetAnim(entity, "WalkUp");
+		orxObject_SetTargetAnim(entity, "WalkUpAnim");
 	} else if (down) {
 		position.fY += 60 * dt;
-//		orxObject_SetTargetAnim(entity, "WalkDown");
+		orxObject_SetTargetAnim(entity, "WalkDownAnim");
 	}
 	if (left) {
 		position.fX -= 60 * dt;
-//		orxObject_SetTargetAnim(entity, "WalkLeft");
+		orxObject_SetTargetAnim(entity, "WalkLeftAnim");
 	} else if (right) {
 		position.fX += 60 * dt;
-//		orxObject_SetTargetAnim(entity, "WalkRight");
+		orxObject_SetTargetAnim(entity, "WalkRightAnim");
 	}
 	if (!(up | down | left | right)) {
 		orxObject_SetTargetAnim(entity, orxNULL);
