@@ -14,28 +14,30 @@
 		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6B81FBEE509005B1ED4 /* Entities.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B41FBEE3FF005B1ED4 /* Entities.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
 		716D1B031FC3045000D827D1 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1B011FC3045000D827D1 /* Potion.cpp */; };
+		718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71F208371FC43BEB0001AB3F /* Map1.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57DF1FC43D4300A457C8 /* forest_tiles.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		715FF5D21FBEDE44005B1ED4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
 				715FF6AD1FBEE01C005B1ED4 /* liborx.dylib in CopyFiles */,
+				718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */,
+				718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */,
 				715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */,
-				715FF6BA1FBEE50D005B1ED4 /* Scenes.ini in CopyFiles */,
 				715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */,
 				715FF6B81FBEE509005B1ED4 /* Entities.ini in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -129,7 +131,6 @@
 		715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dork 2.ini"; sourceTree = "<group>"; };
 		715FF6B41FBEE3FF005B1ED4 /* Entities.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Entities.ini; sourceTree = "<group>"; };
 		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
-		715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scenes.ini; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		716D1AF81FC2757900D827D1 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
@@ -426,7 +427,6 @@
 				715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */,
 				715FF6B41FBEE3FF005B1ED4 /* Entities.ini */,
 				715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */,
-				715FF6B61FBEE3FF005B1ED4 /* Scenes.ini */,
 				71F208371FC43BEB0001AB3F /* Map1.ini */,
 			);
 			path = bin;

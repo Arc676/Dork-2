@@ -28,6 +28,9 @@ class StandAlone {
 public:
 	static StandAlone* Instance();
 
+	static int getTotalFromMap(const orxSTRING);
+	static void paintTiles(const orxSTRING);
+	
 	static orxSTATUS orxFASTCALL Init();
 	static orxSTATUS orxFASTCALL Run();
 

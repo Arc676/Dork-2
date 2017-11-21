@@ -22,6 +22,7 @@
 #include "StandAlone.h"
 
 StandAlone* StandAlone::m_Instance = nullptr;
+orxCAMERA* StandAlone::camera = nullptr;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != nullptr) {
@@ -33,10 +34,71 @@ StandAlone* StandAlone::Instance() {
 
 StandAlone::StandAlone() {}
 
+int StandAlone::getTotalFromMap(const orxSTRING mapSectionName) {
+	orxConfig_PushSection(mapSectionName);
+
+	orxU32 totalItemCount = 0;
+	orxU32 propertyCount = orxConfig_GetKeyCounter();
+
+	for (int x = 1; x < propertyCount + 1; x++) {
+		orxCHAR property[30]; //good maximum length
+		orxString_Print(property, "MapSection%d", x);
+		totalItemCount += orxConfig_GetListCounter(property);
+	}
+	orxConfig_PopSection();
+	return totalItemCount;
+}
+
+void StandAlone::paintTiles(const orxSTRING mapSection) {
+	int tilesWide = 100;
+	int tileSize = 32;
+	orxVECTOR position = orxVECTOR_0;
+
+	orxConfig_PushSection(mapSection);
+
+	orxU32 baseMapCount = getTotalFromMap(mapSection);
+	orxU32 baseMapIndex = 0;
+
+	orxU32 propertyCount = orxConfig_GetKeyCounter();
+
+	for (orxS32 propertyIndex=1; propertyIndex < propertyCount+1; propertyIndex++){
+		orxCHAR property[30]; //good maximum length
+		orxString_Print(property, "MapPart%d", propertyIndex);
+
+		orxU32 listCount = orxConfig_GetListCounter(property);
+
+		for (int listIndex = 0; listIndex < listCount; listIndex++){
+			const orxSTRING tile = orxConfig_GetListString(property, listIndex);
+
+			position.fX = (baseMapIndex % tilesWide) * tileSize;
+			position.fY = (baseMapIndex / tilesWide) * tileSize;
+
+			orxCHAR formattedTileObject[30]; //good maximum length
+			orxString_Print(formattedTileObject, "%sObject", tile);
+
+			//orxLOG(formattedTileObject);
+
+			orxOBJECT *obj = orxObject_CreateFromConfig(formattedTileObject);
+
+			if (obj != orxNULL){
+				orxVECTOR tilePos = orxVECTOR_0;
+				orxObject_GetPosition(obj, &tilePos);
+				position.fZ = tilePos.fZ;
+
+				orxObject_SetPosition(obj, &position);
+			}
+			baseMapIndex++;
+		}
+	}
+	orxConfig_PopSection();
+}
+
 orxSTATUS orxFASTCALL StandAlone::Init() {
 	camera = orxViewport_GetCamera(orxViewport_CreateFromConfig("Viewport"));
-	orxConfig_Load("Scenes.ini");
-	orxObject_CreateFromConfig("Scene1");
+	orxConfig_Load("Map1.ini");
+	paintTiles("Terrain");
+	paintTiles("Colliders");
+	paintTiles("Shrubs");
 
 	orxConfig_Load("Entities.ini");
 //
