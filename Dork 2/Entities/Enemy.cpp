@@ -37,7 +37,7 @@ const WeaponType Enemy::preferredWeapons[] = {
 	CLUB
 };
 
-Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, double level) : type(type) {
+Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, double level, orxVECTOR position) : type(type) {
 	this->HP = HP;
 	this->speed = speed;
 	this->strength = str;
@@ -45,6 +45,9 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	weapon = w;
 	this->gold = gold;
 	this->level = level;
+
+	entity = orxObject_CreateFromConfig(getName().c_str());
+	orxVector_Copy(&(this->position), &position);
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {
@@ -68,7 +71,7 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	}
 }
 
-Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl) {
+Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
 	double level = (double)arc4random_uniform(5 * (playerLvl + 1)) / 10 + 0.5 * playerLvl;
 	WeaponType weaponOnSpawn = preferredWeapons[type];
 	if (arc4random_uniform(100) < 40) {
@@ -83,7 +86,8 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl) {
 		arc4random_uniform(defenseBounds[(int)type]) + level * 0.6,
 		weapon,
 		arc4random_uniform(rewardBounds[(int)type]) + level * 0.5,
-		level
+		level,
+		pos
 	);
 	return e;
 }
@@ -94,6 +98,10 @@ EnemyType Enemy::getType() {
 
 EntityType Enemy::getEntityType() {
 	return Enemy::entityTypeForEnemy(type);
+}
+
+std::string Enemy::getName() {
+	return Enemy::typeToString(type);
 }
 
 std::string Enemy::typeToString(EnemyType type) {

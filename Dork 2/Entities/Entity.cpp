@@ -76,10 +76,6 @@ Weapon* Entity::getWeapon() {
 	return weapon;
 }
 
-std::string Entity::getName() {
-	return name;
-}
-
 int Entity::getHP() {
 	return HP;
 }

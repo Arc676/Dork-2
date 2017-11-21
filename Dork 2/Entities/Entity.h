@@ -28,7 +28,9 @@
 
 class Entity {
 protected:
-	std::string name;
+	orxOBJECT* entity;
+	orxVECTOR position;
+
 	int HP;
 	int speed;
 	int strength;
@@ -44,7 +46,7 @@ public:
 	static std::string typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);
 
-	std::string getName();
+	virtual std::string getName() = 0;
 	int getHP();
 	int getSpeed();
 	int getStrength();

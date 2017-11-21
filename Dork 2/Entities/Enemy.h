@@ -45,10 +45,11 @@ class Enemy : public Entity {
 public:
 	static std::string typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
-	static Enemy* createRandomEnemy(EnemyType, double);
+	static Enemy* createRandomEnemy(EnemyType, double, orxVECTOR);
 
-	Enemy(EnemyType, int, int, int, int, Weapon*, int, double);
+	Enemy(EnemyType, int, int, int, int, Weapon*, int, double, orxVECTOR);
 
+	virtual std::string getName();
 	EnemyType getType();
 	EntityType getEntityType();
 };
