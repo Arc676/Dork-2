@@ -22,14 +22,16 @@
 #ifndef Player_h
 #define Player_h
 
-#include <map>
+#include <vector>
 
 #include "Entity.h"
 
 class Player : public Entity {
-	std::map<PotionType, int> ownedPotions;
+	std::vector<int> ownedPotions;
+	std::vector<bool> ownedWeapons;
 	std::string name;
 public:
+	Player(const std::string&, EntityType);
 	virtual std::string getName();
 };
 

@@ -35,9 +35,9 @@ protected:
 	int speed;
 	int strength;
 	int defense;
-	Weapon* weapon;
-	int gold;
-	double level;
+	Weapon* weapon = nullptr;
+	int gold = 0;
+	double level = 0;
 	EntityType type;
 public:
 	//combat mechanics

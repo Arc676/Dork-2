@@ -21,6 +21,17 @@
 
 #include "Player.h"
 
+Player::Player(const std::string& name, EntityType type) : name(name) {
+	this->type = type;
+	HP = 30;
+	speed = 10;
+	strength = 15;
+	defense = 15;
+
+	ownedPotions = std::vector<int>(POTIONCOUNT);
+	ownedWeapons = std::vector<bool>(WEAPONCOUNT);
+}
+
 std::string Player::getName() {
 	return name;
 }

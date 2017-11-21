@@ -41,6 +41,7 @@ enum EntityType {
 	NOTYPE
 };
 
+#define POTIONCOUNT 8
 enum PotionType {//potion save codes in comments
 	QUICKHEAL_2, //0
 	QUICKHEAL_5, //1
