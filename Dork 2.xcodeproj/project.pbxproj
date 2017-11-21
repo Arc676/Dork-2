@@ -19,6 +19,7 @@
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
 		716D1B031FC3045000D827D1 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1B011FC3045000D827D1 /* Potion.cpp */; };
+		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,6 +140,8 @@
 		716D1B001FC2F47D00D827D1 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		716D1B011FC3045000D827D1 /* Potion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Potion.cpp; sourceTree = "<group>"; };
 		716D1B021FC3045000D827D1 /* Potion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Potion.h; sourceTree = "<group>"; };
+		71F208341FC3FA190001AB3F /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		71F208351FC3FA190001AB3F /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +445,8 @@
 				716D1AF51FC2755B00D827D1 /* Entity.cpp */,
 				716D1AF91FC2757900D827D1 /* Enemy.h */,
 				716D1AF81FC2757900D827D1 /* Enemy.cpp */,
+				71F208351FC3FA190001AB3F /* Player.h */,
+				71F208341FC3FA190001AB3F /* Player.cpp */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */,
+				71F208361FC3FA190001AB3F /* Player.cpp in Sources */,
 				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
 				716D1B031FC3045000D827D1 /* Potion.cpp in Sources */,
 				716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */,
