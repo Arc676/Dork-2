@@ -36,23 +36,7 @@ StandAlone* StandAlone::Instance() {
 StandAlone::StandAlone() {}
 
 //written by Wayne "Sausage" Johnson
-//int StandAlone::getTotalFromMap(const orxSTRING mapSectionName) {
-//	orxConfig_PushSection(mapSectionName);
-//
-//	orxU32 totalItemCount = 0;
-//	orxU32 propertyCount = orxConfig_GetKeyCounter();
-//
-//	for (int x = 1; x < propertyCount + 1; x++) {
-//		orxCHAR property[30]; //good maximum length
-//		orxString_Print(property, "MapSection%d", x);
-//		totalItemCount += orxConfig_GetListCounter(property);
-//	}
-//	orxConfig_PopSection();
-//	return totalItemCount;
-//}
-
-//written by Wayne "Sausage" Johnson
-void StandAlone::paintTiles(const orxSTRING mapSection) {
+void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 	int tilesWide = 100;
 	int tileSize = 32;
 	orxVECTOR position = orxVECTOR_0;
@@ -74,6 +58,7 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 
 			position.fX = (baseMapIndex % tilesWide) * tileSize;
 			position.fY = (baseMapIndex / tilesWide) * tileSize;
+			position.fZ = fZ;
 
 			orxCHAR formattedTileObject[30]; //good maximum length
 			orxString_Print(formattedTileObject, "%sObject", tile);
@@ -85,7 +70,6 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 			if (obj != orxNULL) {
 				orxVECTOR tilePos = orxVECTOR_0;
 				orxObject_GetPosition(obj, &tilePos);
-				position.fZ = tilePos.fZ;
 
 				orxObject_SetPosition(obj, &position);
 			}
@@ -98,9 +82,9 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 orxSTATUS orxFASTCALL StandAlone::Init() {
 	camera = orxViewport_GetCamera(orxViewport_CreateFromConfig("Viewport"));
 	orxConfig_Load("Map1.ini");
-	paintTiles("Terrain");
-	paintTiles("Colliders");
-	paintTiles("Shrubs");
+	paintTiles("Terrain", 0);
+	paintTiles("Colliders", -0.1f);
+	paintTiles("Shrubs", -0.2f);
 
 	orxConfig_Load("Player.ini");
 
