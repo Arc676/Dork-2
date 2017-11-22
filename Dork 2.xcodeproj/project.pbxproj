@@ -21,7 +21,7 @@
 		718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718B57EB1FC4662F00A457C8 /* liborx.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
-		71F921B71FC5080D0037725A /* liborxd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A91FBEDFE7005B1ED4 /* liborxd.dylib */; };
+		71F921B81FC59B1D0037725A /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71F921B71FC5080D0037725A /* liborxd.dylib in Frameworks */,
+				71F921B81FC59B1D0037725A /* liborx.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
