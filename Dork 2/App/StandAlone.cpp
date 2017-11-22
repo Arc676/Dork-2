@@ -81,7 +81,9 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
 	camera = orxViewport_GetCamera(orxViewport_CreateFromConfig("Viewport"));
+
 	orxConfig_Load("Map1.ini");
+	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain", 0);
 	paintTiles("Colliders", -0.1f);
 	paintTiles("Shrubs", -0.2f);
