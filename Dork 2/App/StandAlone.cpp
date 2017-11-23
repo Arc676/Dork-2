@@ -22,8 +22,11 @@
 #include "StandAlone.h"
 
 StandAlone* StandAlone::m_Instance = nullptr;
+
 orxCAMERA* StandAlone::camera = nullptr;
 Player* StandAlone::player = nullptr;
+
+orxSOUND* StandAlone::music = nullptr;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != nullptr) {
@@ -87,6 +90,9 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Terrain", 0);
 	paintTiles("Colliders", -0.1f);
 	paintTiles("Shrubs", -0.2f);
+
+	music = orxSound_CreateFromConfig("BackgroundMusic1");
+	orxSound_Play(music);
 
 	orxConfig_Load("Player.ini");
 

@@ -52,6 +52,8 @@ private:
 
 	static Player* player;
 	static orxCAMERA* camera;
+
+	static orxSOUND* music;
 };
 
 #endif /* StandAlone_h */
