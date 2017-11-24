@@ -39,6 +39,9 @@ public:
 		return player;
 	}
 
+	virtual void activate() = 0;
+	virtual void deactivate() = 0;
+	
 	virtual SceneType update(const orxCLOCK_INFO*) = 0;
 	virtual SceneType getSceneType() = 0;
 	Scene* getNextScene() {

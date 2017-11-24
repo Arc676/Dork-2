@@ -20,9 +20,19 @@
 //See README and LICENSE for more details
 
 #include "Exploration.h"
+#include "Combat.h"
 
 Exploration::Exploration(Player* player, orxCAMERA* camera) : camera(camera) {
 	loadPlayerData(player);
+	music = orxSound_CreateFromConfig("BackgroundMusic1");
+}
+
+void Exploration::activate() {
+	orxSound_Play(music);
+}
+
+void Exploration::deactivate() {
+	orxSound_Stop(music);
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {

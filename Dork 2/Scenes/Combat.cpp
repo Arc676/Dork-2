@@ -20,3 +20,15 @@
 //See README and LICENSE for more details
 
 #include "Combat.h"
+
+Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
+	loadPlayerData(player);
+}
+
+SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
+	return COMBAT;
+}
+
+SceneType Combat::getSceneType() {
+	return COMBAT;
+}

@@ -23,11 +23,14 @@
 #define Combat_h
 
 #include "Scene.h"
+#include "Enemy.h"
 
 class Combat : public Scene {
+	Enemy* enemy;
 public:
-	Combat();
+	Combat(Player*, Enemy*);
 	virtual SceneType update(const orxCLOCK_INFO*);
+	virtual SceneType getSceneType();
 };
 
 #endif

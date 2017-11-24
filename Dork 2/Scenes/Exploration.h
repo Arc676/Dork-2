@@ -27,8 +27,13 @@
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
+	orxSOUND* music;
 public:
 	Exploration(Player*, orxCAMERA*);
+
+	virtual void activate();
+	virtual void deactivate();
+	
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();
 };

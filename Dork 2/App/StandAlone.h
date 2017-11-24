@@ -68,8 +68,6 @@ private:
 
 	static orxVIEWPORT* shopViewport;
 	static orxCAMERA* shopCam;
-
-	static orxSOUND* music;
 };
 
 #endif

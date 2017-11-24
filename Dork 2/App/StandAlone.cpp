@@ -39,8 +39,6 @@ orxCAMERA* StandAlone::shopCam = nullptr;
 
 Player* StandAlone::player = nullptr;
 
-orxSOUND* StandAlone::music = nullptr;
-
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != nullptr) {
 		return m_Instance;
@@ -99,21 +97,17 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	mainViewport = orxViewport_CreateFromConfig("Viewport");
 	camera = orxViewport_GetCamera(mainViewport);
 
-//	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
-//	combatCam = orxViewport_GetCamera(combatViewport);
+	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
+	combatCam = orxViewport_GetCamera(combatViewport);
 
-//	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
-//	shopCam = orxViewport_GetCamera(shopViewport);
+	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
+	shopCam = orxViewport_GetCamera(shopViewport);
 
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain", 0);
 	paintTiles("Colliders", -0.1f);
 	paintTiles("Shrubs", -0.2f);
-
-	music = orxSound_CreateFromConfig("BackgroundMusic1");
-
-	orxSound_Play(music);
 
 	orxConfig_Load("Player.ini");
 
@@ -123,6 +117,7 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	currentCamera = camera;
 	explorationScene = new Exploration(player, camera);
 	currentScene = explorationScene;
+	currentScene->activate();
 
 //	environment = new Environment();
 //
@@ -163,6 +158,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 	SceneType nextScene = currentScene->update(clockInfo);
 	if (nextScene != currentScene->getSceneType()) {
 		orxViewport_Enable(currentViewport, orxFALSE);
+		currentScene->deactivate();
 		switch (nextScene) {
 			case EXPLORATION:
 				currentViewport = mainViewport;
@@ -186,6 +182,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				break;
 		}
 		orxViewport_Enable(currentViewport, orxTRUE);
+		currentScene->activate();
 	}
 }
 
