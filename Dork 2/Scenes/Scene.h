@@ -29,7 +29,7 @@
 
 class Scene {
 protected:
-	Scene* nextScene;
+	Scene* nextScene = orxNULL;
 	Player* player;
 public:
 	void loadPlayerData(Player* player) {

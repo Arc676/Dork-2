@@ -173,12 +173,17 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			case COMBAT:
 				currentViewport = combatViewport;
 				currentCamera = combatCam;
-				currentScene = currentScene->getNextScene();
+				Scene* next = currentScene->getNextScene();
+				if (next != orxNULL) {
+					currentScene = next;
+				}
 				break;
 
 			case SHOP:
 				currentViewport = shopViewport;
 				currentCamera = shopCam;
+				shopScene->loadPlayerData(currentScene->getPlayerData());
+				currentScene = shopScene;
 				break;
 
 			default:

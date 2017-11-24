@@ -30,8 +30,8 @@ Player::Player(const std::string& name, EntityType type) : name(name) {
 
 	orxInput_Load(orxSTRING_EMPTY);
 	entity = orxObject_CreateFromConfig("Player");
-	orxObject_GetPosition(entity, &position);
-	position.fZ = -0.3;
+
+	position = {96, 96, -0.3};
 	orxObject_SetPosition(entity, &position);
 
 	ownedPotions = std::vector<int>(POTIONCOUNT);
@@ -40,6 +40,14 @@ Player::Player(const std::string& name, EntityType type) : name(name) {
 
 std::string Player::getName() {
 	return name;
+}
+
+std::vector<int> Player::getPotions() {
+	return ownedPotions;
+}
+
+std::vector<bool> Player::getWeapons() {
+	return ownedWeapons;
 }
 
 void Player::update(bool up, bool down, bool left, bool right, float dt) {

@@ -34,6 +34,9 @@ public:
 	Player(const std::string&, EntityType);
 	virtual std::string getName();
 
+	std::vector<int> getPotions();
+	std::vector<bool> getWeapons();
+
 	void update(bool, bool, bool, bool, float);
 };
 
