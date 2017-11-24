@@ -21,6 +21,11 @@
 
 #include "Combat.h"
 
+Move Combat::moves[2][2] = {
+	{ATTACK, SPECIAL_MOVE},
+	{USE_ITEM, RUN}
+};
+
 Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 	loadPlayerData(player);
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet

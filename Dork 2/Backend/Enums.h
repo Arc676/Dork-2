@@ -42,22 +42,29 @@ enum EntityType {
 };
 
 #define POTIONCOUNT 8
-enum PotionType {//potion save codes in comments
-	QUICKHEAL_2, //0
-	QUICKHEAL_5, //1
-	QUICKHEAL_10, //2
-	QUICKHEAL_20, //3
-	QUICKHEAL_50, //4
+enum PotionType {
+	QUICKHEAL_2,
+	QUICKHEAL_5,
+	QUICKHEAL_10,
+	QUICKHEAL_20,
+	QUICKHEAL_50,
 
-	SPEEDBOOST, //5
-	STRBOOST, //6
-	DEFBOOST, //7; designated last item
+	SPEEDBOOST,
+	STRBOOST,
+	DEFBOOST,
 };
 
 enum SceneType {
 	EXPLORATION,
 	COMBAT,
 	SHOP
+};
+
+enum Move {
+	ATTACK,
+	SPECIAL_MOVE,
+	RUN,
+	USE_ITEM
 };
 
 #endif

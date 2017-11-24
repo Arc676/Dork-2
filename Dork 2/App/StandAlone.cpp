@@ -106,6 +106,8 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	shopCam = orxViewport_GetCamera(shopViewport);
 	orxViewport_Enable(shopViewport, orxFALSE);
 
+	orxConfig_Load("Enemies.ini");
+
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain", 0);

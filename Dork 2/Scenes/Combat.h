@@ -28,6 +28,8 @@
 class Combat : public Scene {
 	Enemy* enemy;
 	orxSOUND* music;
+
+	static Move moves[2][2];
 public:
 	Combat(Player*, Enemy*);
 
