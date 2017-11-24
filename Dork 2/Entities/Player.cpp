@@ -58,15 +58,13 @@ void Player::update(bool up, bool down, bool left, bool right, float dt) {
 	} else if (down) {
 		position.fY += 60 * dt;
 		orxObject_SetTargetAnim(entity, "WalkDownAnim");
-	}
-	if (left) {
+	} else if (left) {
 		position.fX -= 60 * dt;
 		orxObject_SetTargetAnim(entity, "WalkLeftAnim");
 	} else if (right) {
 		position.fX += 60 * dt;
 		orxObject_SetTargetAnim(entity, "WalkRightAnim");
-	}
-	if (!(up | down | left | right)) {
+	} else {
 		orxObject_SetTargetAnim(entity, orxNULL);
 	}
 	orxObject_SetPosition(entity, &position);

@@ -21,6 +21,45 @@
 
 #include "Potion.h"
 
+Potion* Potion::quickheal2 = new Potion(QUICKHEAL_2, 2, 5);
+Potion* Potion::quickheal5 = new Potion(QUICKHEAL_5, 5, 10);
+Potion* Potion::quickheal10 = new Potion(QUICKHEAL_10, 10, 18);
+Potion* Potion::quickheal20 = new Potion(QUICKHEAL_20, 20, 35);
+Potion* Potion::quickheal50 = new Potion(QUICKHEAL_50, 50, 60);
+
+Potion* Potion::strboost = new Potion(STRBOOST, 1.1, 10);
+Potion* Potion::defboost = new Potion(DEFBOOST, 1.1, 15);
+Potion* Potion::speedboost = new Potion(SPEEDBOOST, 1.1, 12);
+
+Potion* Potion::getCopyOf(PotionType type) {
+	switch (type) {
+		case QUICKHEAL_2:
+			return quickheal2->copy();
+		case QUICKHEAL_5:
+			return quickheal5->copy();
+		case QUICKHEAL_10:
+			return quickheal10->copy();
+		case QUICKHEAL_20:
+			return quickheal20->copy();
+		case QUICKHEAL_50:
+			return quickheal50->copy();
+		default:
+			return nullptr;
+	}
+}
+
+Potion* Potion::copy() {
+	return new Potion(type, amount, price);
+}
+
+double Potion::getAmount() {
+	return amount;
+}
+
+std::string Potion::getName() {
+	return Potion::typeToString(type);
+}
+
 std::string Potion::typeToString(PotionType type) {
 	switch (type) {
 		case QUICKHEAL_2:

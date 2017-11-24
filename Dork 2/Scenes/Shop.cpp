@@ -23,12 +23,47 @@
 
 Shop::Shop(Player* player) {
 	loadPlayerData(player);
+	selectorArrow = orxObject_CreateFromConfig("Selector");
+	orxVECTOR pos = {100, 100, 0};
+	orxObject_SetPosition(selectorArrow, &pos);
 }
 
 void Shop::activate() {}
 void Shop::deactivate() {}
 
+orxBOOL Shop::getKeyDown(orxSTRING key) {
+	return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
+}
+
+void Shop::makePurchase() {
+	//
+}
+
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
+	orxVECTOR pos;
+	orxBOOL selectionChanged = orxTRUE;
+	orxObject_GetPosition(selectorArrow, &pos);
+	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT + 1) {
+		pos.fY -= 60;
+		quantity = 1;
+	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection >= 0) {
+		pos.fY += 60;
+		quantity = 1;
+	} else if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
+		quantity--;
+	} else if (getKeyDown((orxSTRING)"GoRight")) {
+		quantity++;
+	} else if (getKeyDown((orxSTRING)"Enter")) {
+		if (currentSelection == POTIONCOUNT) {
+			return EXPLORATION;
+		}
+		//
+	} else {
+		selectionChanged = orxFALSE;
+	}
+	if (selectionChanged) {
+		orxObject_SetPosition(selectorArrow, &pos);
+	}
 	return SHOP;
 }
 

@@ -26,14 +26,32 @@
 #include <string>
 
 class Potion {
+	static Potion* quickheal2;
+	static Potion* quickheal5;
+	static Potion* quickheal10;
+	static Potion* quickheal20;
+	static Potion* quickheal50;
+
+	static Potion* strboost;
+	static Potion* defboost;
+	static Potion* speedboost;
+
 	static std::string typeToString(PotionType);
 
 	int price;
 	PotionType type;
+	double amount;
+
+	Potion* copy();
 public:
+	Potion(PotionType, double, int);
+
 	int getPrice();
+	double getAmount();
 	PotionType getType();
 	std::string getName();
+
+	static Potion* getCopyOf(PotionType);
 };
 
 #endif

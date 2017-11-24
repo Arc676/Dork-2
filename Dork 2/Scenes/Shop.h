@@ -25,6 +25,14 @@
 #include "Scene.h"
 
 class Shop : public Scene {
+	int currentSelection = 0;
+	int quantity = 1;
+
+	orxOBJECT* selectorArrow;
+
+	orxBOOL getKeyDown(orxSTRING);
+
+	void makePurchase();
 public:
 	Shop(Player*);
 
