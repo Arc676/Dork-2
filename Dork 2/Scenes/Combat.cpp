@@ -1,8 +1,8 @@
 //
-//  Enums.h
+//  Combat.cpp
 //  Dork 2
 //
-//  Created by Alessandro Vinciguerra on 20/11/2017.
+//  Created by Alessandro Vinciguerra on 24/11/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
@@ -19,45 +19,4 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Enums_h
-#define Enums_h
-
-#define WEAPONCOUNT 7
-enum WeaponType {
-	SWORD,
-	CLUB,
-	SCYTHE,
-	SICKLE,
-	DAGGER,
-	AXE,
-	LANCE
-};
-
-enum EntityType {
-	MAGIC,
-	RANGE,
-	MELEE,
-	SPEED,
-	NOTYPE
-};
-
-#define POTIONCOUNT 8
-enum PotionType {//potion save codes in comments
-	QUICKHEAL_2, //0
-	QUICKHEAL_5, //1
-	QUICKHEAL_10, //2
-	QUICKHEAL_20, //3
-	QUICKHEAL_50, //4
-
-	SPEEDBOOST, //5
-	STRBOOST, //6
-	DEFBOOST, //7; designated last item
-};
-
-enum SceneType {
-	EXPLORATION,
-	COMBAT,
-	SHOP
-};
-
-#endif
+#include "Combat.h"

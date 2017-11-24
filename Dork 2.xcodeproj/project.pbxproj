@@ -12,6 +12,8 @@
 		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6B81FBEE509005B1ED4 /* Player.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B41FBEE3FF005B1ED4 /* Player.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F141FC7A56900EBD228 /* Exploration.cpp */; };
+		71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F171FC7A59E00EBD228 /* Combat.cpp */; };
 		716CC8361FC6EFDF00197944 /* Background.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716CC8351FC6EF1400197944 /* Background.ogg */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
@@ -135,6 +137,11 @@
 		715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dork 2.ini"; sourceTree = "<group>"; };
 		715FF6B41FBEE3FF005B1ED4 /* Player.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Player.ini; sourceTree = "<group>"; };
 		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
+		71620F121FC7A51F00EBD228 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		71620F141FC7A56900EBD228 /* Exploration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Exploration.cpp; sourceTree = "<group>"; };
+		71620F151FC7A56900EBD228 /* Exploration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exploration.h; sourceTree = "<group>"; };
+		71620F171FC7A59E00EBD228 /* Combat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Combat.cpp; sourceTree = "<group>"; };
+		71620F181FC7A59E00EBD228 /* Combat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Combat.h; sourceTree = "<group>"; };
 		716CC8351FC6EF1400197944 /* Background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.ogg; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -191,6 +198,7 @@
 		715FF5D61FBEDE44005B1ED4 /* Dork 2 */ = {
 			isa = PBXGroup;
 			children = (
+				71620F101FC7A50700EBD228 /* Scenes */,
 				716D1AFF1FC2F47400D827D1 /* Backend */,
 				716D1AFB1FC29E1B00D827D1 /* Items */,
 				716D1AF31FC2753F00D827D1 /* Entities */,
@@ -442,6 +450,18 @@
 			path = bin;
 			sourceTree = "<group>";
 		};
+		71620F101FC7A50700EBD228 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				71620F121FC7A51F00EBD228 /* Scene.h */,
+				71620F151FC7A56900EBD228 /* Exploration.h */,
+				71620F141FC7A56900EBD228 /* Exploration.cpp */,
+				71620F181FC7A59E00EBD228 /* Combat.h */,
+				71620F171FC7A59E00EBD228 /* Combat.cpp */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		716CC8341FC6EF1400197944 /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +586,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */,
+				71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */,
+				71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */,
 				71F208361FC3FA190001AB3F /* Player.cpp in Sources */,
 				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
 				716D1B031FC3045000D827D1 /* Potion.cpp in Sources */,

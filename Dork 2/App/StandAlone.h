@@ -23,6 +23,9 @@
 #define StandAlone_h
 
 #include "orx.h"
+
+#include "Exploration.h"
+#include "Combat.h"
 #include "Player.h"
 
 class StandAlone {
@@ -51,9 +54,22 @@ private:
 	static StandAlone* m_Instance;
 
 	static Player* player;
+
+	static Scene* currentScene;
+	static orxVIEWPORT* currentViewport;
+	static orxCAMERA* currentCamera;
+
+	static orxVIEWPORT* mainViewport;
 	static orxCAMERA* camera;
+	static Exploration* explorationScene;
+
+	static orxVIEWPORT* combatViewport;
+	static orxCAMERA* combatCam;
+
+	static orxVIEWPORT* shopViewport;
+	static orxCAMERA* shopCam;
 
 	static orxSOUND* music;
 };
 
-#endif /* StandAlone_h */
+#endif

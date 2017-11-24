@@ -23,7 +23,20 @@
 
 StandAlone* StandAlone::m_Instance = nullptr;
 
+Scene* StandAlone::currentScene = nullptr;
+orxVIEWPORT* StandAlone::currentViewport = nullptr;
+orxCAMERA* StandAlone::currentCamera = nullptr;
+
+orxVIEWPORT* StandAlone::mainViewport = nullptr;
 orxCAMERA* StandAlone::camera = nullptr;
+Exploration* StandAlone::explorationScene = nullptr;
+
+orxVIEWPORT* StandAlone::combatViewport = nullptr;
+orxCAMERA* StandAlone::combatCam = nullptr;
+
+orxVIEWPORT* StandAlone::shopViewport = nullptr;
+orxCAMERA* StandAlone::shopCam = nullptr;
+
 Player* StandAlone::player = nullptr;
 
 orxSOUND* StandAlone::music = nullptr;
@@ -83,7 +96,14 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 }
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
-	camera = orxViewport_GetCamera(orxViewport_CreateFromConfig("Viewport"));
+	mainViewport = orxViewport_CreateFromConfig("Viewport");
+	camera = orxViewport_GetCamera(mainViewport);
+
+//	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
+//	combatCam = orxViewport_GetCamera(combatViewport);
+
+//	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
+//	shopCam = orxViewport_GetCamera(shopViewport);
 
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
@@ -92,11 +112,18 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Shrubs", -0.2f);
 
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
+
 	orxSound_Play(music);
 
 	orxConfig_Load("Player.ini");
 
 	player = new Player("Bob", MAGIC);
+
+	currentViewport = mainViewport;
+	currentCamera = camera;
+	explorationScene = new Exploration(player, camera);
+	currentScene = explorationScene;
+
 //	environment = new Environment();
 //
 //	orxConfig_Load("UI.ini");
@@ -133,27 +160,33 @@ orxOBJECT* StandAlone::GetObjectByName(orxSTRING objName) {
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
-	orxFLOAT delta = clockInfo->fDT;
-	for (
-		 orxOBJECT *obj = (orxOBJECT*)orxStructure_GetFirst(orxSTRUCTURE_ID_OBJECT);
-		 obj != orxNULL;
-		 obj = orxOBJECT(orxStructure_GetNext(obj))
-		 ) {
-		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
-		if (orxString_Compare(name, "Player") == 0) {
-			player->update(orxInput_IsActive("GoUp"),
-						   orxInput_IsActive("GoDown"),
-						   orxInput_IsActive("GoLeft"),
-						   orxInput_IsActive("GoRight"),
-						   delta);
+	SceneType nextScene = currentScene->update(clockInfo);
+	if (nextScene != currentScene->getSceneType()) {
+		orxViewport_Enable(currentViewport, orxFALSE);
+		switch (nextScene) {
+			case EXPLORATION:
+				currentViewport = mainViewport;
+				currentCamera = camera;
+				explorationScene->loadPlayerData(currentScene->getPlayerData());
+				currentScene = explorationScene;
+				break;
+
+			case COMBAT:
+				currentViewport = combatViewport;
+				currentCamera = combatCam;
+				currentScene = currentScene->getNextScene();
+				break;
+
+			case SHOP:
+				currentViewport = shopViewport;
+				currentCamera = shopCam;
+				break;
+
+			default:
+				break;
 		}
+		orxViewport_Enable(currentViewport, orxTRUE);
 	}
-	//update camera position
-	orxVECTOR camPos = {0, 0, 0};
-	orxCamera_GetPosition(camera, &camPos);
-	camPos.fX = player->getPosition().fX;
-	camPos.fY = player->getPosition().fY;
-	orxCamera_SetPosition(camera, &camPos);
 }
 
 //orxVECTOR orxFASTCALL StandAlone::GetMouseWorldPosition() {
