@@ -52,8 +52,14 @@ Potion* Potion::copy() {
 	return new Potion(type, amount, price);
 }
 
+Potion::Potion(PotionType type, double amt, int price) : type(type), amount(amt), price(price) {}
+
 double Potion::getAmount() {
 	return amount;
+}
+
+int Potion::getPrice() {
+	return price;
 }
 
 std::string Potion::getName() {

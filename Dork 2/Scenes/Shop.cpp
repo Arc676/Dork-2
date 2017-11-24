@@ -35,8 +35,14 @@ orxBOOL Shop::getKeyDown(orxSTRING key) {
 	return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
 }
 
-void Shop::makePurchase() {
-	//
+orxBOOL Shop::makePurchase() {
+	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
+	if (player->getGold() >= quantity * potion->getPrice()) {
+		player->transaction(quantity * potion->getPrice());
+		player->getPotions()[currentSelection] += quantity;
+		return orxTRUE;
+	}
+	return orxFALSE;
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
@@ -57,7 +63,8 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		if (currentSelection == POTIONCOUNT) {
 			return EXPLORATION;
 		}
-		//
+		makePurchase();
+		// play a sound depending on success
 	} else {
 		selectionChanged = orxFALSE;
 	}

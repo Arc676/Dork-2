@@ -109,6 +109,14 @@ int Entity::getDefense() {
 	return defense;
 }
 
+int Entity::getGold() {
+	return gold;
+}
+
+void Entity::transaction(int delta) {
+	gold += delta;
+}
+
 double Entity::getLevel() {
 	return level;
 }

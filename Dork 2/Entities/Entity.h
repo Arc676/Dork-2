@@ -51,11 +51,17 @@ public:
 	orxVECTOR getPosition();
 
 	virtual std::string getName() = 0;
+
 	int getHP();
 	int getSpeed();
 	int getStrength();
 	int getDefense();
+
+	int getGold();
+	void transaction(int);
+
 	double getLevel();
+
 	EntityType getType();
 	Weapon* getWeapon();
 };

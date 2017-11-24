@@ -23,6 +23,7 @@
 #define Shop_h
 
 #include "Scene.h"
+#include "Potion.h"
 
 class Shop : public Scene {
 	int currentSelection = 0;
@@ -32,7 +33,7 @@ class Shop : public Scene {
 
 	orxBOOL getKeyDown(orxSTRING);
 
-	void makePurchase();
+	orxBOOL makePurchase();
 public:
 	Shop(Player*);
 
