@@ -9,4 +9,6 @@ Dork 2 was created for [Maximum Monster Month](https://itch.io/jam/maximum-monst
 
 Project available under GPLv3. The source code for the original Dork is currently proprietary because it's so bad it's not worth sharing. However, a lot of the original Dork's source code will be reused in Dork 2. In any case, if people are interested, the source code for the original game can be released as well.
 
+Orx game engine available under Zlib license (see [the repository](https://github.com/orx/orx) for details).
+
 Assets used in the game are available under Creative Commons licenses. See CREDITS for more details.

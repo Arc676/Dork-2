@@ -11,7 +11,7 @@
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6B81FBEE509005B1ED4 /* Player.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B41FBEE3FF005B1ED4 /* Player.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		715FF6B91FBEE50B005B1ED4 /* Main.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* Main.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F141FC7A56900EBD228 /* Exploration.cpp */; };
 		71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F171FC7A59E00EBD228 /* Combat.cpp */; };
 		71620F1C1FC7B19800EBD228 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F1A1FC7B19800EBD228 /* Shop.cpp */; };
@@ -41,7 +41,7 @@
 				718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */,
 				718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */,
 				715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */,
-				715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */,
+				715FF6B91FBEE50B005B1ED4 /* Main.ini in CopyFiles */,
 				715FF6B81FBEE509005B1ED4 /* Player.ini in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +137,7 @@
 		715FF6B01FBEE205005B1ED4 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 		715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dork 2.ini"; sourceTree = "<group>"; };
 		715FF6B41FBEE3FF005B1ED4 /* Player.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Player.ini; sourceTree = "<group>"; };
-		715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
+		715FF6B51FBEE3FF005B1ED4 /* Main.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Main.ini; sourceTree = "<group>"; };
 		71620F121FC7A51F00EBD228 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		71620F141FC7A56900EBD228 /* Exploration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Exploration.cpp; sourceTree = "<group>"; };
 		71620F151FC7A56900EBD228 /* Exploration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exploration.h; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 		71620F181FC7A59E00EBD228 /* Combat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Combat.h; sourceTree = "<group>"; };
 		71620F1A1FC7B19800EBD228 /* Shop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
 		71620F1B1FC7B19800EBD228 /* Shop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		71620F1D1FC7BB4C00EBD228 /* Selector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Selector.png; sourceTree = "<group>"; };
 		716CC8351FC6EF1400197944 /* Background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.ogg; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -447,7 +448,7 @@
 			children = (
 				715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */,
 				715FF6B41FBEE3FF005B1ED4 /* Player.ini */,
-				715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */,
+				715FF6B51FBEE3FF005B1ED4 /* Main.ini */,
 				71F208371FC43BEB0001AB3F /* Map1.ini */,
 			);
 			path = bin;
@@ -520,6 +521,7 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,
 				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
 			);
