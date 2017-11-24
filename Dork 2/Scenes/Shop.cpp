@@ -24,8 +24,7 @@
 Shop::Shop(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {100, 100, 0};
-	orxObject_SetPosition(selectorArrow, &pos);
+	orxObject_CreateFromConfig("ShopHelp");
 }
 
 void Shop::activate() {}
@@ -49,12 +48,16 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 	orxVECTOR pos;
 	orxBOOL selectionChanged = orxTRUE;
 	orxObject_GetPosition(selectorArrow, &pos);
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT + 1) {
-		pos.fY -= 60;
-		quantity = 1;
-	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection >= 0) {
+	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) {
 		pos.fY += 60;
+		orxObject_SetPosition(selectorArrow, &pos);
 		quantity = 1;
+		currentSelection++;
+	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
+		pos.fY -= 60;
+		orxObject_SetPosition(selectorArrow, &pos);
+		quantity = 1;
+		currentSelection--;
 	} else if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
 		quantity--;
 	} else if (getKeyDown((orxSTRING)"GoRight")) {
@@ -67,9 +70,6 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		// play a sound depending on success
 	} else {
 		selectionChanged = orxFALSE;
-	}
-	if (selectionChanged) {
-		orxObject_SetPosition(selectorArrow, &pos);
 	}
 	return SHOP;
 }

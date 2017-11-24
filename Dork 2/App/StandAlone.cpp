@@ -100,9 +100,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
 	combatCam = orxViewport_GetCamera(combatViewport);
+	orxViewport_Enable(combatViewport, orxFALSE);
 
 	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
 	shopCam = orxViewport_GetCamera(shopViewport);
+	orxViewport_Enable(shopViewport, orxFALSE);
 
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
