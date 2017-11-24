@@ -23,6 +23,7 @@
 #include "Weapon.h"
 
 int Entity::dodge(Entity* blo, Entity* att) {
+	// defending entity must be faster than attacker
 	if (blo->getSpeed() < att->getSpeed()) {
 		return 0;
 	}
@@ -35,23 +36,30 @@ int Entity::dodge(Entity* blo, Entity* att) {
 }
 
 int Entity::maxDamage(Entity* attacker, Entity* blocker){
+	// attacks are more or less effective when one entity has a type advantage over the other
 	int str = attacker->strength;
-	if (Entity::weaknessForType(blocker->type) == attacker->type) str *= 1.1;
+	if (Entity::weaknessForType(blocker->type) == attacker->type) {
+		str *= 1.1;
+	}
 	int def = blocker->defense;
-	if (Entity::weaknessForType(attacker->type) == blocker->type) def *= 1.1;
+	if (Entity::weaknessForType(attacker->type) == blocker->type) {
+		def *= 1.1;
+	}
+	// strength, boosted by weapon, minus defense, boosted by weapon
 	return str * (1 + attacker->weapon->getStrMod()) - (def * (1 + blocker->weapon->getDefMod()))/4;
 }
 
-int Entity::enemyAttacks(Entity* enemy, Entity* player){
-	int maxDmg = maxDamage(enemy, player);
+int Entity::entityAttack(Entity* attacker, Entity* blocker){
+	int maxDmg = maxDamage(attacker, blocker);
 	if (maxDmg <= 0) {
 		maxDmg = 1;
 	}
 	int damageTaken = arc4random_uniform(maxDmg);
-	if (dodge(player, enemy)) {
+	if (dodge(blocker, attacker)) {
 		damageTaken = 0;
+	} else {
+		blocker->HP -= damageTaken;
 	}
-	player->HP -= damageTaken;
 	return damageTaken;
 }
 
@@ -91,6 +99,10 @@ Weapon* Entity::getWeapon() {
 
 orxVECTOR Entity::getPosition() {
 	return position;
+}
+
+void Entity::despawn() {
+	orxObject_SetLifeTime(entity, 0);
 }
 
 int Entity::getHP() {

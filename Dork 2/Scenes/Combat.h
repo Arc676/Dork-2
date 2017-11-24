@@ -26,10 +26,16 @@
 #include "Enemy.h"
 
 class Combat : public Scene {
+	static Move moves[2][2];
+
 	Enemy* enemy;
 	orxSOUND* music;
 
-	static Move moves[2][2];
+	orxOBJECT* selector;
+	int x = 0, y = 0;
+	int specialMoveCooldown = 0;
+
+	SceneType makeMove(Move);
 public:
 	Combat(Player*, Enemy*);
 

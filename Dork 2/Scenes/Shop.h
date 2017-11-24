@@ -31,8 +31,6 @@ class Shop : public Scene {
 
 	orxOBJECT* selectorArrow;
 
-	orxBOOL getKeyDown(orxSTRING);
-
 	orxBOOL makePurchase();
 public:
 	Shop(Player*);

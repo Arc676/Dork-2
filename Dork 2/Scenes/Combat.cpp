@@ -28,6 +28,9 @@ Move Combat::moves[2][2] = {
 
 Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 	loadPlayerData(player);
+	selector = orxObject_CreateFromConfig("Selector");
+	orxVECTOR pos = {-1400, 500, -0.3};
+	orxObject_SetPosition(selector, &pos);
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 }
 
@@ -36,10 +39,79 @@ void Combat::activate() {
 }
 
 void Combat::deactivate() {
+	orxObject_SetLifeTime(selector, 0);
+	enemy->despawn();
 //	orxSound_Stop(music);
 }
 
+SceneType Combat::makeMove(Move move) {
+	switch (move) {
+		case RUN:
+			return EXPLORATION;
+		case ATTACK:
+//			player.speed += modifiers[0];
+//			player.strength += modifiers[1];
+//			player.defense += modifiers[2];
+			Entity::entityAttack(player, enemy);
+			if (enemy->getHP() > 0){
+				Entity::entityAttack(enemy, player);
+			}
+//			player.speed -= modifiers[0];
+//			player.strength -= modifiers[1];
+//			player.defense -= modifiers[2];
+			if (specialMoveCooldown > 0) {
+				specialMoveCooldown--;
+			}
+			break;
+		case SPECIAL_MOVE:
+			if (specialMoveCooldown > 0) {
+				break;
+			}
+			switch (player->getType()) {
+				case MAGIC:
+					break;
+				case SPEED:
+					break;
+				case MELEE:
+					break;
+				case RANGE:
+					break;
+				default:
+					break;
+			}
+			Entity::entityAttack(enemy, player);
+			break;
+		case USE_ITEM:
+			break;
+	}
+	return COMBAT;
+}
+
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
+	orxVECTOR pos;
+	orxBOOL selChanged = orxTRUE;
+	orxObject_GetPosition(selector, &pos);
+	if (getKeyDown((orxSTRING)"GoDown") && y < 1) {
+		pos.fY += 60;
+		y++;
+	} else if (getKeyDown((orxSTRING)"GoUp") && y > 0) {
+		pos.fY -= 60;
+		y--;
+	} else if (getKeyDown((orxSTRING)"GoLeft") && x > 0) {
+		pos.fX -= 300;
+		x--;
+	} else if (getKeyDown((orxSTRING)"GoRight") && x < 1) {
+		pos.fX += 300;
+		x++;
+	} else {
+		selChanged = orxFALSE;
+		if (getKeyDown((orxSTRING)"Enter")) {
+			return makeMove(moves[y][x]);
+		}
+	}
+	if (selChanged) {
+		orxObject_SetPosition(selector, &pos);
+	}
 	return COMBAT;
 }
 

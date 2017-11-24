@@ -43,12 +43,13 @@ public:
 	//combat mechanics
 	static int dodge(Entity*, Entity*);
 	static int maxDamage(Entity*, Entity*);
-	static int enemyAttacks(Entity*, Entity*);
+	static int entityAttack(Entity*, Entity*);
 
 	static std::string typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);
 
 	orxVECTOR getPosition();
+	void despawn();
 
 	virtual std::string getName() = 0;
 

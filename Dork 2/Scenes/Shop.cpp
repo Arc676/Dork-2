@@ -24,15 +24,13 @@
 Shop::Shop(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
+	orxVECTOR pos = {-1300, -650, -0.3};
+	orxObject_SetPosition(selectorArrow, &pos);
 	orxObject_CreateFromConfig("ShopHelp");
 }
 
 void Shop::activate() {}
 void Shop::deactivate() {}
-
-orxBOOL Shop::getKeyDown(orxSTRING key) {
-	return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
-}
 
 orxBOOL Shop::makePurchase() {
 	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
@@ -46,7 +44,6 @@ orxBOOL Shop::makePurchase() {
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 	orxVECTOR pos;
-	orxBOOL selectionChanged = orxTRUE;
 	orxObject_GetPosition(selectorArrow, &pos);
 	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) {
 		pos.fY += 60;
@@ -68,8 +65,6 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		}
 		makePurchase();
 		// play a sound depending on success
-	} else {
-		selectionChanged = orxFALSE;
 	}
 	return SHOP;
 }
