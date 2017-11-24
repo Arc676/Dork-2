@@ -14,6 +14,7 @@
 		715FF6B91FBEE50B005B1ED4 /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B51FBEE3FF005B1ED4 /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F141FC7A56900EBD228 /* Exploration.cpp */; };
 		71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F171FC7A59E00EBD228 /* Combat.cpp */; };
+		71620F1C1FC7B19800EBD228 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F1A1FC7B19800EBD228 /* Shop.cpp */; };
 		716CC8361FC6EFDF00197944 /* Background.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716CC8351FC6EF1400197944 /* Background.ogg */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
@@ -142,6 +143,8 @@
 		71620F151FC7A56900EBD228 /* Exploration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exploration.h; sourceTree = "<group>"; };
 		71620F171FC7A59E00EBD228 /* Combat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Combat.cpp; sourceTree = "<group>"; };
 		71620F181FC7A59E00EBD228 /* Combat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Combat.h; sourceTree = "<group>"; };
+		71620F1A1FC7B19800EBD228 /* Shop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
+		71620F1B1FC7B19800EBD228 /* Shop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		716CC8351FC6EF1400197944 /* Background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.ogg; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				71620F141FC7A56900EBD228 /* Exploration.cpp */,
 				71620F181FC7A59E00EBD228 /* Combat.h */,
 				71620F171FC7A59E00EBD228 /* Combat.cpp */,
+				71620F1B1FC7B19800EBD228 /* Shop.h */,
+				71620F1A1FC7B19800EBD228 /* Shop.cpp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 				716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */,
 				716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
+				71620F1C1FC7B19800EBD228 /* Shop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

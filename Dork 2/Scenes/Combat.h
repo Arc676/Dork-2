@@ -27,8 +27,13 @@
 
 class Combat : public Scene {
 	Enemy* enemy;
+	orxSOUND* music;
 public:
 	Combat(Player*, Enemy*);
+
+	virtual void activate();
+	virtual void deactivate();
+
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();
 };

@@ -23,6 +23,15 @@
 
 Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 	loadPlayerData(player);
+//	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
+}
+
+void Combat::activate() {
+//	orxSound_Play(music);
+}
+
+void Combat::deactivate() {
+//	orxSound_Stop(music);
 }
 
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {

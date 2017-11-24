@@ -1,5 +1,5 @@
 //
-//  Exploration.h
+//  Shop.cpp
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 24/11/2017.
@@ -19,22 +19,19 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Exploration_h
-#define Exploration_h
+#include "Shop.h"
 
-#include "Scene.h"
+Shop::Shop(Player* player) {
+	loadPlayerData(player);
+}
 
-class Exploration : public Scene {
-	orxCAMERA* camera;
-	orxSOUND* music;
-public:
-	Exploration(Player*, orxCAMERA*);
+void Shop::activate() {}
+void Shop::deactivate() {}
 
-	virtual void activate();
-	virtual void deactivate();
-	
-	virtual SceneType update(const orxCLOCK_INFO*);
-	virtual SceneType getSceneType();
-};
+SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
+	return SHOP;
+}
 
-#endif
+SceneType Shop::getSceneType() {
+	return SHOP;
+}

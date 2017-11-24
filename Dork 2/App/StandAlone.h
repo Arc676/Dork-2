@@ -26,6 +26,8 @@
 
 #include "Exploration.h"
 #include "Combat.h"
+#include "Shop.h"
+
 #include "Player.h"
 
 class StandAlone {
@@ -68,6 +70,7 @@ private:
 
 	static orxVIEWPORT* shopViewport;
 	static orxCAMERA* shopCam;
+	static Shop* shopScene;
 };
 
 #endif

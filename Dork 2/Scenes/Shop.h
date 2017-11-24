@@ -1,5 +1,5 @@
 //
-//  Exploration.h
+//  Shop.h
 //  Dork 2
 //
 //  Created by Alessandro Vinciguerra on 24/11/2017.
@@ -19,20 +19,18 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Exploration_h
-#define Exploration_h
+#ifndef Shop_h
+#define Shop_h
 
 #include "Scene.h"
 
-class Exploration : public Scene {
-	orxCAMERA* camera;
-	orxSOUND* music;
+class Shop : public Scene {
 public:
-	Exploration(Player*, orxCAMERA*);
+	Shop(Player*);
 
 	virtual void activate();
 	virtual void deactivate();
-	
+
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();
 };

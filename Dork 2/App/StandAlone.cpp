@@ -36,6 +36,7 @@ orxCAMERA* StandAlone::combatCam = nullptr;
 
 orxVIEWPORT* StandAlone::shopViewport = nullptr;
 orxCAMERA* StandAlone::shopCam = nullptr;
+Shop* StandAlone::shopScene = nullptr;
 
 Player* StandAlone::player = nullptr;
 
@@ -118,6 +119,8 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	explorationScene = new Exploration(player, camera);
 	currentScene = explorationScene;
 	currentScene->activate();
+
+	shopScene = new Shop(player);
 
 //	environment = new Environment();
 //
