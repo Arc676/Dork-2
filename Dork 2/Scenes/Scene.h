@@ -51,6 +51,10 @@ public:
 	Scene* getNextScene() {
 		return nextScene;
 	};
+
+	virtual orxSTATUS EventHandler(const orxEVENT*) {
+		return orxSTATUS_SUCCESS;
+	};
 };
 
 #endif

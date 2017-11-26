@@ -126,7 +126,6 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);
 
 	orxEvent_AddHandler(orxEVENT_TYPE_PHYSICS, StandAlone::EventHandler);
-	orxEvent_AddHandler(orxEVENT_TYPE_INPUT, StandAlone::EventHandler);
 
 	return orxSTATUS_SUCCESS;
 }
@@ -193,14 +192,5 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 //}
 
 orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* currentEvent) {
-	switch(currentEvent->eType) {
-		case orxEVENT_TYPE_INPUT:
-			break;
-		case orxEVENT_TYPE_PHYSICS:
-			break;
-		default:
-			break;
-	}
-
-	return orxSTATUS_SUCCESS;
+	return currentScene->EventHandler(currentEvent);
 }

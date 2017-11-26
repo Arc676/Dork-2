@@ -28,6 +28,7 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : camera(camera) {
 }
 
 void Exploration::activate() {
+	nextSceneType = EXPLORATION;
 	orxSound_Play(music);
 }
 
@@ -100,7 +101,36 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	camPos.fX = player->getPosition().fX;
 	camPos.fY = player->getPosition().fY;
 	orxCamera_SetPosition(camera, &camPos);
-	return EXPLORATION;
+	return nextSceneType;
+}
+
+orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
+	switch(currentEvent->eType) {
+		case orxEVENT_TYPE_PHYSICS:
+			switch (currentEvent->eID) {
+				case orxPHYSICS_EVENT_CONTACT_ADD:
+					orxOBJECT* objs[] = {
+						orxOBJECT(currentEvent->hSender),
+						orxOBJECT(currentEvent->hRecipient)
+					};
+					for (int i = 0; i < 2; i++) {
+						orxSTRING name = (orxSTRING)orxObject_GetName(objs[i]);
+						orxConfig_PushSection(name);
+						if (orxConfig_GetBool("IsEnemy")) {
+							Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
+							nextScene = new Combat(player, e);
+							nextSceneType = COMBAT;
+							return orxSTATUS_SUCCESS;
+						}
+					}
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+
+	return orxSTATUS_SUCCESS;
 }
 
 SceneType Exploration::getSceneType() {
