@@ -27,6 +27,7 @@
 #include "Exploration.h"
 #include "Combat.h"
 #include "Shop.h"
+#include "Armory.h"
 
 #include "Player.h"
 
@@ -71,6 +72,10 @@ private:
 	static orxVIEWPORT* shopViewport;
 	static orxCAMERA* shopCam;
 	static Shop* shopScene;
+
+	static orxVIEWPORT* armoryViewport;
+	static orxCAMERA* armoryCam;
+	static Armory* armoryScene;
 };
 
 #endif

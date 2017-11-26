@@ -38,6 +38,10 @@ orxVIEWPORT* StandAlone::shopViewport = nullptr;
 orxCAMERA* StandAlone::shopCam = nullptr;
 Shop* StandAlone::shopScene = nullptr;
 
+orxVIEWPORT* StandAlone::armoryViewport = nullptr;
+orxCAMERA* StandAlone::armoryCam = nullptr;
+Armory* StandAlone::armoryScene = nullptr;
+
 Player* StandAlone::player = nullptr;
 
 StandAlone* StandAlone::Instance() {
@@ -78,8 +82,6 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 			orxCHAR formattedTileObject[30]; //good maximum length
 			orxString_Print(formattedTileObject, "%sObject", tile);
 
-			//orxLOG(formattedTileObject);
-
 			orxOBJECT *obj = orxObject_CreateFromConfig(formattedTileObject);
 
 			if (obj != orxNULL) {
@@ -105,6 +107,10 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
 	shopCam = orxViewport_GetCamera(shopViewport);
 	orxViewport_Enable(shopViewport, orxFALSE);
+
+	armoryViewport = orxViewport_CreateFromConfig("ArmoryViewport");
+	armoryCam = orxViewport_GetCamera(armoryViewport);
+	orxViewport_Enable(armoryViewport, orxFALSE);
 
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
@@ -175,6 +181,13 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				currentCamera = shopCam;
 				shopScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = shopScene;
+				break;
+
+			case ARMORY:
+				currentViewport = armoryViewport;
+				currentCamera = armoryCam;
+				armoryScene->loadPlayerData(currentScene->getPlayerData());
+				currentScene = armoryScene;
 				break;
 		}
 		orxViewport_Enable(currentViewport, orxTRUE);
