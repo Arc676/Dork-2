@@ -74,24 +74,28 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 }
 
 Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
-	double level = (double)arc4random_uniform(5 * (playerLvl + 1)) / 10 + 0.5 * playerLvl;
+	double level = orxMath_GetRandomU32(0, 5 * (playerLvl + 1) - 1) / 10 + 0.5 * playerLvl;
 	WeaponType weaponOnSpawn = preferredWeapons[type];
-	if (arc4random_uniform(100) < 40) {
-		weaponOnSpawn = (WeaponType)arc4random_uniform(WEAPONCOUNT);
+	if (orxMath_GetRandomU32(0, 99) < 40) {
+		weaponOnSpawn = (WeaponType)orxMath_GetRandomU32(0, WEAPONCOUNT - 1);
 	}
 	Weapon* weapon = Weapon::copyOf(weaponOnSpawn);
 	Enemy* e = new Enemy(
 		type,
-		arc4random_uniform(healthBounds[(int)type]) + arc4random_uniform(level / 4) + level / 3,
-		arc4random_uniform(speeds[(int)type]/2 + level/2) + speeds[(int)type],
-		arc4random_uniform(strengthBounds[(int)type]) + level * 0.6,
-		arc4random_uniform(defenseBounds[(int)type]) + level * 0.6,
+		orxMath_GetRandomU32(0, healthBounds[(int)type] - 1) + orxMath_GetRandomU32(0, level / 4) + level / 3,
+		orxMath_GetRandomU32(0, speeds[(int)type]/2 + level/2 - 1) + speeds[(int)type],
+		orxMath_GetRandomU32(0, strengthBounds[(int)type] - 1) + level * 0.6,
+		orxMath_GetRandomU32(0, defenseBounds[(int)type] - 1) + level * 0.6,
 		weapon,
-		arc4random_uniform(rewardBounds[(int)type]) + level * 0.5,
+		orxMath_GetRandomU32(0, rewardBounds[(int)type] - 1) + level * 0.5,
 		level,
 		pos
 	);
 	return e;
+}
+
+void Enemy::update(float dt) {
+	//
 }
 
 EnemyType Enemy::getType() {

@@ -28,8 +28,9 @@ int Entity::dodge(Entity* blo, Entity* att) {
 		return 0;
 	}
 	int lim = 2 * (blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod()));
-	while (lim > 100) lim *= (float)(arc4random_uniform(8) + 1) / 10;
-	if (arc4random_uniform(100) < arc4random_uniform(lim)) {
+	// TODO: this loop is fcking stupid. FIX IT!
+	while (lim > 100) lim *= orxMath_GetRandomFloat(1, 9) / 10;
+	if (orxMath_GetRandomU32(0, 99) < orxMath_GetRandomU32(0, lim)) {
 		return 1;
 	}
 	return 0;
@@ -54,7 +55,7 @@ int Entity::entityAttack(Entity* attacker, Entity* blocker){
 	if (maxDmg <= 0) {
 		maxDmg = 1;
 	}
-	int damageTaken = arc4random_uniform(maxDmg);
+	int damageTaken = orxMath_GetRandomU32(0, maxDmg);
 	if (dodge(blocker, attacker)) {
 		damageTaken = 0;
 	} else {
