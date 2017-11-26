@@ -24,6 +24,7 @@
 
 #include "Entity.h"
 
+#define ENEMYCOUNT 7
 enum EnemyType {
 	GOBLIN,
 	GHOST,

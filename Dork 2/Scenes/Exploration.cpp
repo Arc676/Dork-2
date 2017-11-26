@@ -36,7 +36,23 @@ void Exploration::deactivate() {
 }
 
 void Exploration::spawnEnemy() {
-	//
+	orxVECTOR ds = {
+		orxMath_GetRandomFloat(510, 710),
+		orxMath_GetRandomFloat(310, 510),
+		0
+	};
+	orxVECTOR pos;
+	orxVECTOR ppos = player->getPosition();
+	orxVector_Add(&pos, &ppos, &ds);
+	if (pos.fX < 0 || pos.fX > 3200 || pos.fY < 0 || pos.fY > 3200) {
+		return;
+	}
+	Enemy::createRandomEnemy(
+							 GOBLIN,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
+							 player->getLevel(),
+							 pos
+							 );
+	enemiesInExistence++;
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
@@ -57,9 +73,25 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 			orxConfig_PushSection(name);
 			if (orxConfig_GetBool("IsEnemy")) {
 				Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-				e->update(delta);
+				orxVECTOR distance;
+				orxVECTOR ppos = player->getPosition();
+				orxVECTOR epos = e->getPosition();
+				orxVector_Sub(&distance, &ppos, &epos);
+				if (orxVector_GetSize(&distance) > 700) {
+					e->despawn();
+					enemiesInExistence--;
+				} else {
+					e->update(delta);
+				}
 			}
 			orxConfig_PopSection();
+		}
+	}
+	if (enemiesInExistence < 15) {
+		timeSinceEnemySpawn += delta;
+		if (timeSinceEnemySpawn > 10) {
+			timeSinceEnemySpawn = 0;
+			spawnEnemy();
 		}
 	}
 	//update camera position
