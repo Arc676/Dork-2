@@ -25,6 +25,7 @@
 #include <vector>
 
 #include "Entity.h"
+#include "Enemy.h"
 
 class Player : public Entity {
 	std::vector<int> ownedPotions;
@@ -36,6 +37,8 @@ public:
 
 	std::vector<int> getPotions();
 	std::vector<bool> getWeapons();
+
+	void defeat(Enemy*);
 
 	void update(bool, bool, bool, bool, float);
 };

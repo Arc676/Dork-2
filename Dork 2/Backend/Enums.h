@@ -58,7 +58,8 @@ enum PotionType {
 enum SceneType {
 	EXPLORATION,
 	COMBAT,
-	SHOP
+	SHOP,
+	ARMORY
 };
 
 enum Move {

@@ -74,7 +74,7 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 }
 
 Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
-	double level = orxMath_GetRandomU32(0, 5 * (playerLvl + 1) - 1) / 10 + 0.5 * playerLvl;
+	double level = orxMath_GetRandomFloat(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl;
 	WeaponType weaponOnSpawn = preferredWeapons[type];
 	if (orxMath_GetRandomU32(0, 99) < 40) {
 		weaponOnSpawn = (WeaponType)orxMath_GetRandomU32(0, WEAPONCOUNT - 1);

@@ -85,6 +85,9 @@ SceneType Combat::makeMove(Move move) {
 			break;
 	}
 	if (enemy->getHP() < 0 || player->getHP() < 0) {
+		if (enemy->getHP() < 0) {
+			player->defeat(enemy);
+		}
 		return EXPLORATION;
 	}
 	return COMBAT;

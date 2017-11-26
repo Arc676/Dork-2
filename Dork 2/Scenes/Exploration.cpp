@@ -117,15 +117,22 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 						orxSTRING name = (orxSTRING)orxObject_GetName(objs[i]);
 						orxSTRING name2 = (orxSTRING)orxObject_GetName(objs[1 - i]);
 						if (orxString_Compare(name2, "Player") == 0){
-							orxConfig_PushSection(name);
-							orxBOOL isEnemy = orxConfig_GetBool("IsEnemy");
-							orxConfig_PopSection();
-							if (isEnemy) {
-								Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
-								nextScene = new Combat(player, e);
-								nextSceneType = COMBAT;
-								enemiesInExistence--;
+							if (orxString_Compare(name, "Shop") == 0) {
+								nextSceneType = SHOP;
 								return orxSTATUS_SUCCESS;
+							} else if (orxString_Compare(name, "Armory") == 0) {
+								//
+							} else {
+								orxConfig_PushSection(name);
+								orxBOOL isEnemy = orxConfig_GetBool("IsEnemy");
+								orxConfig_PopSection();
+								if (isEnemy) {
+									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
+									nextScene = new Combat(player, e);
+									nextSceneType = COMBAT;
+									enemiesInExistence--;
+									return orxSTATUS_SUCCESS;
+								}
 							}
 						}
 					}
