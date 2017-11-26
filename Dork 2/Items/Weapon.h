@@ -33,6 +33,8 @@ class Weapon {
 	static Weapon* axe;
 	static Weapon* dagger;
 	static Weapon* lance;
+
+	static Weapon* noWeapon;
 	Weapon* copy();
 
 	double strMod;

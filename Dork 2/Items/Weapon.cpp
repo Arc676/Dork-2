@@ -43,6 +43,10 @@ Weapon* Weapon::lance = new Weapon(
 	LANCE, 0.4, 0.1, -0.1, 700
 );
 
+Weapon* Weapon::noWeapon = new Weapon(
+	NOWEAPON, 0, 0, 0, 0
+);
+
 Weapon::Weapon(WeaponType weaponType, double str, double def, double speed, int price) : weapon(weaponType), strMod(str), defMod(def), speedMod(speed), price(price) {}
 
 std::string Weapon::getWeaponName(WeaponType type) {
@@ -62,7 +66,7 @@ std::string Weapon::getWeaponName(WeaponType type) {
 		case LANCE:
 			return "Lance";
 		default:
-			return "Unknown weapon";
+			return "Unknown or no weapon";
 	}
 }
 
@@ -95,8 +99,20 @@ Weapon* Weapon::copyOf(WeaponType type) {
 	switch (type) {
 		case SWORD:
 			return Weapon::sword->copy();
+		case CLUB:
+			return Weapon::club->copy();
+		case SCYTHE:
+			return Weapon::scythe->copy();
+		case SICKLE:
+			return Weapon::sickle->copy();
+		case DAGGER:
+			return Weapon::dagger->copy();
+		case AXE:
+			return Weapon::axe->copy();
+		case LANCE:
+			return Weapon::lance->copy();
 		default:
-			return nullptr;
+			return Weapon::noWeapon->copy();
 	}
 }
 

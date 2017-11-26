@@ -30,7 +30,8 @@ enum WeaponType {
 	SICKLE,
 	DAGGER,
 	AXE,
-	LANCE
+	LANCE,
+	NOWEAPON
 };
 
 enum EntityType {
