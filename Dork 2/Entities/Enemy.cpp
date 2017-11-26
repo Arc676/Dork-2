@@ -49,6 +49,7 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	entity = orxObject_CreateFromConfig(getName().c_str());
 	orxVector_Copy(&(this->position), &position);
 	orxObject_SetPosition(entity, &position);
+	orxObject_SetUserData(entity, this);
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {

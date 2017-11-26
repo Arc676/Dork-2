@@ -35,6 +35,10 @@ void Exploration::deactivate() {
 	orxSound_Stop(music);
 }
 
+void Exploration::spawnEnemy() {
+	//
+}
+
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	orxFLOAT delta = clockInfo->fDT;
 	for (
@@ -49,6 +53,13 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 						   orxInput_IsActive("GoLeft"),
 						   orxInput_IsActive("GoRight"),
 						   delta);
+		} else {
+			orxConfig_PushSection(name);
+			if (orxConfig_GetBool("IsEnemy")) {
+				Enemy* e = (Enemy*)orxObject_GetUserData(obj);
+				e->update(delta);
+			}
+			orxConfig_PopSection();
 		}
 	}
 	//update camera position

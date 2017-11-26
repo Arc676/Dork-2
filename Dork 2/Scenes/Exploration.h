@@ -27,6 +27,11 @@
 class Exploration : public Scene {
 	orxCAMERA* camera;
 	orxSOUND* music;
+
+	int enemiesInExistence = 0;
+	orxFLOAT timeSinceEnemySpawn = 0;
+
+	void spawnEnemy();
 public:
 	Exploration(Player*, orxCAMERA*);
 

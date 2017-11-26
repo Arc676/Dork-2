@@ -52,6 +52,8 @@ public:
 	virtual std::string getName();
 	EnemyType getType();
 	EntityType getEntityType();
+
+	void update(float);
 };
 
 #endif

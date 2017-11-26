@@ -104,10 +104,10 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 		pos.fX += 300;
 		x++;
 	} else {
-		selChanged = orxFALSE;
 		if (getKeyDown((orxSTRING)"Enter")) {
 			return makeMove(moves[y][x]);
 		}
+		selChanged = orxFALSE;
 	}
 	if (selChanged) {
 		orxObject_SetPosition(selector, &pos);
