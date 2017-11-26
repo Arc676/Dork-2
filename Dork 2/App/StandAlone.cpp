@@ -106,15 +106,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	shopCam = orxViewport_GetCamera(shopViewport);
 	orxViewport_Enable(shopViewport, orxFALSE);
 
-	orxConfig_Load("Enemies.ini");
-
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain", 0);
 	paintTiles("Colliders", -0.1f);
 	paintTiles("Shrubs", -0.2f);
-
-	orxConfig_Load("Player.ini");
 
 	player = new Player("Bob", MAGIC);
 
@@ -126,13 +122,6 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	shopScene = new Shop(player);
 
-//	environment = new Environment();
-//
-//	orxConfig_Load("UI.ini");
-//	scoreLabel = orxObject_CreateFromConfig("ScoreLabel");
-//
-//	orxConfig_Load("Items.ini");
-//
 	orxCLOCK* upClock = orxClock_FindFirst(-1.0f, orxCLOCK_TYPE_CORE);
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);
 

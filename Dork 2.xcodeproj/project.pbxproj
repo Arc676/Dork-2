@@ -19,7 +19,7 @@
 		71620F201FC81CBE00EBD228 /* ShopHelp.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F1F1FC81CBB00EBD228 /* ShopHelp.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F221FC8250200EBD228 /* GoblinSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F251FC8290600EBD228 /* Goblin.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F231FC8251600EBD228 /* Goblin.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		71620F261FC8290900EBD228 /* Enemies.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F241FC827D400EBD228 /* Enemies.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71620F261FC8290900EBD228 /* Entities.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F241FC827D400EBD228 /* Entities.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F281FCA5BD200EBD228 /* GenericEntity.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F271FCA5B0A00EBD228 /* GenericEntity.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F3D1FCA68FC00EBD228 /* Ghost.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F3A1FCA673700EBD228 /* Ghost.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F3E1FCA68FC00EBD228 /* Ghoul.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F391FCA673700EBD228 /* Ghoul.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -60,7 +60,7 @@
 				718B57E41FC4552300A457C8 /* MainGuySpriteSheet.png in CopyFiles */,
 				71620F221FC8250200EBD228 /* GoblinSpriteMap.png in CopyFiles */,
 				71620F281FCA5BD200EBD228 /* GenericEntity.ini in CopyFiles */,
-				71620F261FC8290900EBD228 /* Enemies.ini in CopyFiles */,
+				71620F261FC8290900EBD228 /* Entities.ini in CopyFiles */,
 				71620F251FC8290600EBD228 /* Goblin.ini in CopyFiles */,
 				718B57E11FC43F5300A457C8 /* forest_tiles.png in CopyFiles */,
 				718B57E01FC43F5000A457C8 /* Map1.ini in CopyFiles */,
@@ -173,7 +173,7 @@
 		71620F1F1FC81CBB00EBD228 /* ShopHelp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShopHelp.png; sourceTree = "<group>"; };
 		71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoblinSpriteMap.png; sourceTree = "<group>"; };
 		71620F231FC8251600EBD228 /* Goblin.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Goblin.ini; sourceTree = "<group>"; };
-		71620F241FC827D400EBD228 /* Enemies.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Enemies.ini; sourceTree = "<group>"; };
+		71620F241FC827D400EBD228 /* Entities.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Entities.ini; sourceTree = "<group>"; };
 		71620F271FCA5B0A00EBD228 /* GenericEntity.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = GenericEntity.ini; sourceTree = "<group>"; };
 		71620F371FCA673700EBD228 /* Troll.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Troll.ini; sourceTree = "<group>"; };
 		71620F381FCA673700EBD228 /* Imp.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Imp.ini; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 				71F208371FC43BEB0001AB3F /* Map1.ini */,
 				71620F271FCA5B0A00EBD228 /* GenericEntity.ini */,
 				715FF6B41FBEE3FF005B1ED4 /* Player.ini */,
-				71620F241FC827D400EBD228 /* Enemies.ini */,
+				71620F241FC827D400EBD228 /* Entities.ini */,
 				71620F231FC8251600EBD228 /* Goblin.ini */,
 				71620F3A1FCA673700EBD228 /* Ghost.ini */,
 				71620F391FCA673700EBD228 /* Ghoul.ini */,

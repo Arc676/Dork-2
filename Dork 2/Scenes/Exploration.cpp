@@ -77,7 +77,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 				orxVECTOR ppos = player->getPosition();
 				orxVECTOR epos = e->getPosition();
 				orxVector_Sub(&distance, &ppos, &epos);
-				if (orxVector_GetSize(&distance) > 700) {
+				if (orxVector_GetSize(&distance) > 900) {
 					e->despawn();
 					enemiesInExistence--;
 				} else {
@@ -89,7 +89,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	}
 	if (enemiesInExistence < 15) {
 		timeSinceEnemySpawn += delta;
-		if (timeSinceEnemySpawn > 10) {
+		if (timeSinceEnemySpawn > 5) {
 			timeSinceEnemySpawn = 0;
 			spawnEnemy();
 		}
