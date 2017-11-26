@@ -1,8 +1,8 @@
 //
-//  Shop.cpp
+//  Armory.cpp
 //  Dork 2
 //
-//  Created by Alessandro Vinciguerra on 24/11/2017.
+//  Created by Alessandro Vinciguerra on 26/11/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
@@ -19,46 +19,40 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#include "Shop.h"
+#include "Armory.h"
 
-Shop::Shop(Player* player) {
+Armory::Armory(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1300, -650, -0.3};
+	orxVECTOR pos = {-1300, 50, -0.3};
 	orxObject_SetPosition(selectorArrow, &pos);
 	orxObject_CreateFromConfig("ShopHelp");
 }
 
-void Shop::activate() {}
-void Shop::deactivate() {}
+void Armory::activate() {}
+void Armory::deactivate() {}
 
-orxBOOL Shop::makePurchase() {
-	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
-	if (player->getGold() >= quantity * potion->getPrice()) {
-		player->transaction(-quantity * potion->getPrice());
-		player->getPotions()[currentSelection] += quantity;
+orxBOOL Armory::makePurchase() {
+	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
+	if (player->getGold() >= weapon->getPrice() && !player->getWeapons()[currentSelection]) {
+		player->transaction(-weapon->getPrice());
+		player->getWeapons()[currentSelection] = true;
 		return orxTRUE;
 	}
 	return orxFALSE;
 }
 
-SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
+SceneType Armory::update(const orxCLOCK_INFO* clockInfo) {
 	orxVECTOR pos;
 	orxObject_GetPosition(selectorArrow, &pos);
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) {
+	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < WEAPONCOUNT) {
 		pos.fY += 60;
 		orxObject_SetPosition(selectorArrow, &pos);
-		quantity = 1;
 		currentSelection++;
 	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
 		pos.fY -= 60;
 		orxObject_SetPosition(selectorArrow, &pos);
-		quantity = 1;
 		currentSelection--;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
-		quantity--;
-	} else if (getKeyDown((orxSTRING)"GoRight")) {
-		quantity++;
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == POTIONCOUNT) {
 			return EXPLORATION;
@@ -67,9 +61,9 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_AddSound(player->getEntity(), "Kaching");
 		}
 	}
-	return SHOP;
+	return ARMORY;
 }
 
-SceneType Shop::getSceneType() {
-	return SHOP;
+SceneType Armory::getSceneType() {
+	return ARMORY;
 }

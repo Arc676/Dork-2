@@ -53,6 +53,7 @@ public:
 
 	virtual std::string getName() = 0;
 
+	orxOBJECT* getEntity();
 	int getHP();
 	int getSpeed();
 	int getStrength();

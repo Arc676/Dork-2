@@ -106,6 +106,10 @@ void Entity::despawn() {
 	orxObject_SetLifeTime(entity, 0);
 }
 
+orxOBJECT* Entity::getEntity() {
+	return entity;
+}
+
 int Entity::getHP() {
 	return HP;
 }

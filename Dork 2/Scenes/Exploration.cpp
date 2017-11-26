@@ -33,7 +33,7 @@ void Exploration::activate() {
 }
 
 void Exploration::deactivate() {
-	orxSound_Stop(music);
+	orxSound_Pause(music);
 }
 
 void Exploration::spawnEnemy() {

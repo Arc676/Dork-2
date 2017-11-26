@@ -27,6 +27,8 @@
 		71620F401FCA68FC00EBD228 /* Ogre.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F3B1FCA673700EBD228 /* Ogre.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F411FCA68FC00EBD228 /* Orc.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F3C1FCA673700EBD228 /* Orc.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71620F421FCA68FC00EBD228 /* Troll.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F371FCA673700EBD228 /* Troll.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71620F461FCAD99600EBD228 /* Armory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F441FCAD99600EBD228 /* Armory.cpp */; };
+		71620F481FCADCF500EBD228 /* kaching.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71620F471FCADC5D00EBD228 /* kaching.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716CC8361FC6EFDF00197944 /* Background.ogg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 716CC8351FC6EF1400197944 /* Background.ogg */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
@@ -47,6 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				71620F481FCADCF500EBD228 /* kaching.wav in CopyFiles */,
 				71620F3D1FCA68FC00EBD228 /* Ghost.ini in CopyFiles */,
 				71620F3E1FCA68FC00EBD228 /* Ghoul.ini in CopyFiles */,
 				71620F3F1FCA68FC00EBD228 /* Imp.ini in CopyFiles */,
@@ -181,6 +184,9 @@
 		71620F3A1FCA673700EBD228 /* Ghost.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ghost.ini; sourceTree = "<group>"; };
 		71620F3B1FCA673700EBD228 /* Ogre.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ogre.ini; sourceTree = "<group>"; };
 		71620F3C1FCA673700EBD228 /* Orc.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Orc.ini; sourceTree = "<group>"; };
+		71620F441FCAD99600EBD228 /* Armory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Armory.cpp; sourceTree = "<group>"; };
+		71620F451FCAD99600EBD228 /* Armory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Armory.h; sourceTree = "<group>"; };
+		71620F471FCADC5D00EBD228 /* kaching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaching.wav; sourceTree = "<group>"; };
 		716CC8351FC6EF1400197944 /* Background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.ogg; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -508,6 +514,8 @@
 				71620F171FC7A59E00EBD228 /* Combat.cpp */,
 				71620F1B1FC7B19800EBD228 /* Shop.h */,
 				71620F1A1FC7B19800EBD228 /* Shop.cpp */,
+				71620F451FCAD99600EBD228 /* Armory.h */,
+				71620F441FCAD99600EBD228 /* Armory.cpp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -515,6 +523,7 @@
 		716CC8341FC6EF1400197944 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				71620F471FCADC5D00EBD228 /* kaching.wav */,
 				716CC8351FC6EF1400197944 /* Background.ogg */,
 			);
 			path = Music;
@@ -647,6 +656,7 @@
 				716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */,
 				716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
+				71620F461FCAD99600EBD228 /* Armory.cpp in Sources */,
 				71620F1C1FC7B19800EBD228 /* Shop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
