@@ -35,7 +35,7 @@ protected:
 	int speed;
 	int strength;
 	int defense;
-	Weapon* weapon = nullptr;
+	Weapon* weapon = Weapon::copyOf(NOWEAPON);
 	int gold = 0;
 	double level = 0;
 	EntityType type;
