@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Dork 2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="cbbin/Debug/Dork 2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="cbobj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="cbbin/Release/Dork 2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="cbobj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="inc" />
+			<Add directory="Dork 2/App" />
+			<Add directory="Dork 2/Backend" />
+			<Add directory="Dork 2/Entities" />
+			<Add directory="Dork 2/Items" />
+			<Add directory="Dork 2/Scenes" />
+		</Compiler>
+		<Linker>
+			<Add library="lib/liborx.a" />
+		</Linker>
+		<Unit filename="Dork 2/App/Main.cpp" />
+		<Unit filename="Dork 2/App/StandAlone.cpp" />
+		<Unit filename="Dork 2/App/StandAlone.h" />
+		<Unit filename="Dork 2/Backend/Enums.h" />
+		<Unit filename="Dork 2/Entities/Enemy.cpp" />
+		<Unit filename="Dork 2/Entities/Enemy.h" />
+		<Unit filename="Dork 2/Entities/Entity.cpp" />
+		<Unit filename="Dork 2/Entities/Entity.h" />
+		<Unit filename="Dork 2/Entities/Player.cpp" />
+		<Unit filename="Dork 2/Entities/Player.h" />
+		<Unit filename="Dork 2/Items/Potion.cpp" />
+		<Unit filename="Dork 2/Items/Potion.h" />
+		<Unit filename="Dork 2/Items/Weapon.cpp" />
+		<Unit filename="Dork 2/Items/Weapon.h" />
+		<Unit filename="Dork 2/Scenes/Armory.cpp" />
+		<Unit filename="Dork 2/Scenes/Armory.h" />
+		<Unit filename="Dork 2/Scenes/Combat.cpp" />
+		<Unit filename="Dork 2/Scenes/Combat.h" />
+		<Unit filename="Dork 2/Scenes/Exploration.cpp" />
+		<Unit filename="Dork 2/Scenes/Exploration.h" />
+		<Unit filename="Dork 2/Scenes/Scene.h" />
+		<Unit filename="Dork 2/Scenes/Shop.cpp" />
+		<Unit filename="Dork 2/Scenes/Shop.h" />
+		<Unit filename="Music/Background.ogg" />
+		<Unit filename="Music/kaching.wav" />
+		<Unit filename="Sprites/GoblinSpriteMap.png" />
+		<Unit filename="Sprites/MainGuySpriteSheet.png" />
+		<Unit filename="Sprites/Selector.png" />
+		<Unit filename="Sprites/ShopHelp.png" />
+		<Unit filename="Sprites/forest_tiles.png" />
+		<Unit filename="bin/Dork 2.ini" />
+		<Unit filename="bin/Entities.ini" />
+		<Unit filename="bin/GenericEntity.ini" />
+		<Unit filename="bin/Ghost.ini" />
+		<Unit filename="bin/Ghoul.ini" />
+		<Unit filename="bin/Goblin.ini" />
+		<Unit filename="bin/Imp.ini" />
+		<Unit filename="bin/Main.ini" />
+		<Unit filename="bin/Map1.ini" />
+		<Unit filename="bin/Ogre.ini" />
+		<Unit filename="bin/Orc.ini" />
+		<Unit filename="bin/Player.ini" />
+		<Unit filename="bin/Troll.ini" />
+		<Unit filename="inc/anim/orxAnim.h" />
+		<Unit filename="inc/anim/orxAnimPointer.h" />
+		<Unit filename="inc/anim/orxAnimSet.h" />
+		<Unit filename="inc/base/orxBuild.h" />
+		<Unit filename="inc/base/orxDecl.h" />
+		<Unit filename="inc/base/orxModule.h" />
+		<Unit filename="inc/base/orxType.h" />
+		<Unit filename="inc/base/orxVersion.h" />
+		<Unit filename="inc/core/orxClock.h" />
+		<Unit filename="inc/core/orxCommand.h" />
+		<Unit filename="inc/core/orxConfig.h" />
+		<Unit filename="inc/core/orxConsole.h" />
+		<Unit filename="inc/core/orxEvent.h" />
+		<Unit filename="inc/core/orxLocale.h" />
+		<Unit filename="inc/core/orxResource.h" />
+		<Unit filename="inc/core/orxSystem.h" />
+		<Unit filename="inc/core/orxThread.h" />
+		<Unit filename="inc/debug/orxDebug.h" />
+		<Unit filename="inc/debug/orxFPS.h" />
+		<Unit filename="inc/debug/orxProfiler.h" />
+		<Unit filename="inc/display/orxDisplay.h" />
+		<Unit filename="inc/display/orxFont.h" />
+		<Unit filename="inc/display/orxGraphic.h" />
+		<Unit filename="inc/display/orxScreenshot.h" />
+		<Unit filename="inc/display/orxText.h" />
+		<Unit filename="inc/display/orxTexture.h" />
+		<Unit filename="inc/io/orxFile.h" />
+		<Unit filename="inc/io/orxInput.h" />
+		<Unit filename="inc/io/orxJoystick.h" />
+		<Unit filename="inc/io/orxKeyboard.h" />
+		<Unit filename="inc/io/orxMouse.h" />
+		<Unit filename="inc/main/orxAndroid.h" />
+		<Unit filename="inc/main/orxParam.h" />
+		<Unit filename="inc/math/orxAABox.h" />
+		<Unit filename="inc/math/orxMath.h" />
+		<Unit filename="inc/math/orxOBox.h" />
+		<Unit filename="inc/math/orxVector.h" />
+		<Unit filename="inc/memory/orxBank.h" />
+		<Unit filename="inc/memory/orxMemory.h" />
+		<Unit filename="inc/object/orxFX.h" />
+		<Unit filename="inc/object/orxFXPointer.h" />
+		<Unit filename="inc/object/orxFrame.h" />
+		<Unit filename="inc/object/orxObject.h" />
+		<Unit filename="inc/object/orxSpawner.h" />
+		<Unit filename="inc/object/orxStructure.h" />
+		<Unit filename="inc/object/orxTimeLine.h" />
+		<Unit filename="inc/orx.h" />
+		<Unit filename="inc/orxInclude.h" />
+		<Unit filename="inc/orxKernel.h" />
+		<Unit filename="inc/orxPluginAPI.h" />
+		<Unit filename="inc/orxUtils.h" />
+		<Unit filename="inc/physics/orxBody.h" />
+		<Unit filename="inc/physics/orxPhysics.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_CoreDefine.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_CoreID.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Display.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Joystick.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Keyboard.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Mouse.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Physics.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_Render.h" />
+		<Unit filename="inc/plugin/define/orxPlugin_SoundSystem.h" />
+		<Unit filename="inc/plugin/orxPlugin.h" />
+		<Unit filename="inc/plugin/orxPluginCore.h" />
+		<Unit filename="inc/plugin/orxPluginType.h" />
+		<Unit filename="inc/plugin/orxPluginUser.h" />
+		<Unit filename="inc/render/orxCamera.h" />
+		<Unit filename="inc/render/orxRender.h" />
+		<Unit filename="inc/render/orxShader.h" />
+		<Unit filename="inc/render/orxShaderPointer.h" />
+		<Unit filename="inc/render/orxViewport.h" />
+		<Unit filename="inc/sound/orxSound.h" />
+		<Unit filename="inc/sound/orxSoundPointer.h" />
+		<Unit filename="inc/sound/orxSoundSystem.h" />
+		<Unit filename="inc/utils/orxHashTable.h" />
+		<Unit filename="inc/utils/orxLinkList.h" />
+		<Unit filename="inc/utils/orxString.h" />
+		<Unit filename="inc/utils/orxTree.h" />
+		<Unit filename="lib/liborx.a" />
+		<Unit filename="lib/liborxd.a" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
