@@ -74,6 +74,9 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 
 		for (int listIndex = 0; listIndex < listCount; listIndex++) {
 			const orxSTRING tile = orxConfig_GetListString(property, listIndex);
+			if (orxString_Compare(tile, "NONE") == 0) {
+				continue;
+			}
 
 			position.fX = (baseMapIndex % tilesWide) * tileSize;
 			position.fY = (baseMapIndex / tilesWide) * tileSize;
