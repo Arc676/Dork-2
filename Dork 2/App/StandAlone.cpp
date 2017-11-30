@@ -76,6 +76,7 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 		for (int listIndex = 0; listIndex < listCount; listIndex++) {
 			const orxSTRING tile = orxConfig_GetListString(property, listIndex);
 			if (orxString_Compare(tile, "NONE") == 0) {
+				baseMapIndex++;
 				continue;
 			}
 
