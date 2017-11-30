@@ -47,13 +47,13 @@ class Enemy : public Entity {
 	orxVECTOR direction;
 	orxFLOAT distanceTravelled = 0;
 public:
-	static std::string typeToString(EnemyType);
+	static orxSTRING typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
 	static Enemy* createRandomEnemy(EnemyType, double, orxVECTOR);
 
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, double, orxVECTOR);
 
-	virtual std::string getName();
+	virtual orxSTRING getName();
 	EnemyType getType();
 	EntityType getEntityType();
 

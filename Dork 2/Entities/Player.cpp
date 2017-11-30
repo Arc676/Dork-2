@@ -21,7 +21,7 @@
 
 #include "Player.h"
 
-Player::Player(const std::string& name, EntityType type) : name(name) {
+Player::Player(orxSTRING name, EntityType type) : name(name) {
 	this->type = type;
 	HP = 30;
 	speed = 10;
@@ -31,14 +31,14 @@ Player::Player(const std::string& name, EntityType type) : name(name) {
 	orxInput_Load(orxSTRING_EMPTY);
 	entity = orxObject_CreateFromConfig("Player");
 
-	position = {96, 96, -0.3};
+	position = {96, 96, 0};
 	orxObject_SetPosition(entity, &position);
 
 	ownedPotions = std::vector<int>(POTIONCOUNT);
 	ownedWeapons = std::vector<bool>(WEAPONCOUNT);
 }
 
-std::string Player::getName() {
+orxSTRING Player::getName() {
 	return name;
 }
 

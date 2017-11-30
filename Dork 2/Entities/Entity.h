@@ -24,7 +24,6 @@
 
 #include "orx.h"
 #include "Weapon.h"
-#include <string>
 
 class Entity {
 protected:
@@ -47,13 +46,13 @@ public:
 	static int maxDamage(Entity*, Entity*);
 	static int entityAttack(Entity*, Entity*);
 
-	static std::string typeToString(EntityType);
+	static orxSTRING typeToString(EntityType);
 	static EntityType weaknessForType(EntityType);
 
 	orxVECTOR getPosition();
 	void despawn();
 
-	virtual std::string getName() = 0;
+	virtual orxSTRING getName() = 0;
 
 	orxOBJECT* getEntity();
 	int getHP();

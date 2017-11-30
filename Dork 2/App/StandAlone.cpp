@@ -124,7 +124,7 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Colliders");
 	paintTiles("Shrubs");
 
-	player = new Player("Bob", MAGIC);
+	player = new Player((orxSTRING)"Bob", MAGIC);
 
 	currentViewport = mainViewport;
 	currentCamera = camera;
@@ -133,6 +133,7 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	currentScene->activate();
 
 	shopScene = new Shop(player);
+	armoryScene = new Armory(player);
 
 	orxCLOCK* upClock = orxClock_FindFirst(-1.0f, orxCLOCK_TYPE_CORE);
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);

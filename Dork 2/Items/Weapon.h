@@ -22,8 +22,9 @@
 #ifndef Weapon_h
 #define Weapon_h
 
+#include "orx.h"
+
 #include "Enums.h"
-#include <string>
 
 class Weapon {
 	static Weapon* sword;
@@ -43,13 +44,13 @@ class Weapon {
 	int price;
 	WeaponType weapon;
 public:
-	static std::string getWeaponName(WeaponType);
+	static orxSTRING getWeaponName(WeaponType);
 	static Weapon* copyOf(WeaponType);
 	static EntityType getTypeForWeapon(WeaponType);
 
 	Weapon(WeaponType, double, double, double, int);
 
-	std::string getName();
+	orxSTRING getName();
 	double getStrMod();
 	double getDefMod();
 	double getSpeedMod();

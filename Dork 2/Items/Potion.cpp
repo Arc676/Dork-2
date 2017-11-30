@@ -62,29 +62,29 @@ int Potion::getPrice() {
 	return price;
 }
 
-std::string Potion::getName() {
+orxSTRING Potion::getName() {
 	return Potion::typeToString(type);
 }
 
-std::string Potion::typeToString(PotionType type) {
+orxSTRING Potion::typeToString(PotionType type) {
 	switch (type) {
 		case QUICKHEAL_2:
-			return "Quick heal (2 pts)";
+			return (orxSTRING)"Quick heal (2 pts)";
 		case QUICKHEAL_5:
-			return "Quick heal (5 pts)";
+			return (orxSTRING)"Quick heal (5 pts)";
 		case QUICKHEAL_10:
-			return "Quick heal (10 pts)";
+			return (orxSTRING)"Quick heal (10 pts)";
 		case QUICKHEAL_20:
-			return "Quick heal (20 pts)";
+			return (orxSTRING)"Quick heal (20 pts)";
 		case QUICKHEAL_50:
-			return "Quick heal (50 pts)";
+			return (orxSTRING)"Quick heal (50 pts)";
 		case SPEEDBOOST:
-			return "Speed boost";
+			return (orxSTRING)"Speed boost";
 		case STRBOOST:
-			return "Strength boost";
+			return (orxSTRING)"Strength boost";
 		case DEFBOOST:
-			return "Defense boost";
+			return (orxSTRING)"Defense boost";
 		default:
-			return "Unknown potion type";
+			return (orxSTRING)"Unknown potion type";
 	}
 }

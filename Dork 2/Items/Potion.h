@@ -22,8 +22,9 @@
 #ifndef Potion_h
 #define Potion_h
 
+#include "orx.h"
+
 #include "Enums.h"
-#include <string>
 
 class Potion {
 	static Potion* quickheal2;
@@ -36,7 +37,7 @@ class Potion {
 	static Potion* defboost;
 	static Potion* speedboost;
 
-	static std::string typeToString(PotionType);
+	static orxSTRING typeToString(PotionType);
 
 	int price;
 	PotionType type;
@@ -49,7 +50,7 @@ public:
 	int getPrice();
 	double getAmount();
 	PotionType getType();
-	std::string getName();
+	orxSTRING getName();
 
 	static Potion* getCopyOf(PotionType);
 };

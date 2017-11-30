@@ -46,32 +46,40 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	this->gold = gold;
 	this->level = level;
 
-	newRandomDirection();
-
-	entity = orxObject_CreateFromConfig(getName().c_str());
+	entity = orxObject_CreateFromConfig(getName());
 	orxVector_Copy(&(this->position), &position);
 	orxObject_SetPosition(entity, &position);
 	orxObject_SetUserData(entity, this);
+
+	newRandomDirection();
 }
 
 void Enemy::newRandomDirection() {
 	int dir = orxMath_GetRandomS32(0, 3);
+	orxCHAR anim[30];
+	orxSTRING strDir = (orxSTRING)"";
 	switch (dir) {
 		case 0:
 			direction = {1, 0, 0};
+			strDir = (orxSTRING)"Right";
 			break;
 		case 1:
 			direction = {0, 1, 0};
+			strDir = (orxSTRING)"Down";
 			break;
 		case 2:
 			direction = {-1, 0, 0};
+			strDir = (orxSTRING)"Left";
 			break;
 		case 3:
 			direction = {0, -1, 0};
+			strDir = (orxSTRING)"Up";
 			break;
 		default:
 			break;
 	}
+	orxString_Print(anim, "Walk%sAnim%s", strDir, getName());
+	orxObject_SetTargetAnim(entity, anim);
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {
@@ -137,27 +145,27 @@ EntityType Enemy::getEntityType() {
 	return Enemy::entityTypeForEnemy(type);
 }
 
-std::string Enemy::getName() {
+orxSTRING Enemy::getName() {
 	return Enemy::typeToString(type);
 }
 
-std::string Enemy::typeToString(EnemyType type) {
+orxSTRING Enemy::typeToString(EnemyType type) {
 	switch (type) {
 		case GOBLIN:
-			return "Goblin";
+			return (orxSTRING)"Goblin";
 		case GHOST:
-			return "Ghost";
+			return (orxSTRING)"Ghost";
 		case ORC:
-			return "Orc";
+			return (orxSTRING)"Orc";
 		case IMP:
-			return "Imp";
+			return (orxSTRING)"Imp";
 		case OGRE:
-			return "Ogre";
+			return (orxSTRING)"Ogre";
 		case GHOUL:
-			return "Ghoul";
+			return (orxSTRING)"Ghoul";
 		case TROLL:
-			return "Troll";
+			return (orxSTRING)"Troll";
 		default:
-			return "Unknown enemy type";
+			return (orxSTRING)"Unknown enemy type";
 	}
 }

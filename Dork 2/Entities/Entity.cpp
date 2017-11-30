@@ -79,18 +79,18 @@ EntityType Entity::weaknessForType(EntityType type) {
 	}
 }
 
-std::string Entity::typeToString(EntityType type) {
+orxSTRING Entity::typeToString(EntityType type) {
 	switch (type) {
 		case MAGIC:
-			return "Magic";
+			return (orxSTRING)"Magic";
 		case RANGE:
-			return "Range";
+			return (orxSTRING)"Range";
 		case SPEED:
-			return "Speed";
+			return (orxSTRING)"Speed";
 		case MELEE:
-			return "Melee";
+			return (orxSTRING)"Melee";
 		default:
-			return "No type";
+			return (orxSTRING)"No type";
 	}
 }
 

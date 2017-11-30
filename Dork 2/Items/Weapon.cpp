@@ -49,24 +49,24 @@ Weapon* Weapon::noWeapon = new Weapon(
 
 Weapon::Weapon(WeaponType weaponType, double str, double def, double speed, int price) : weapon(weaponType), strMod(str), defMod(def), speedMod(speed), price(price) {}
 
-std::string Weapon::getWeaponName(WeaponType type) {
+orxSTRING Weapon::getWeaponName(WeaponType type) {
 	switch (type) {
 		case SWORD:
-			return "Sword";
+			return (orxSTRING)"Sword";
 		case CLUB:
-			return "Club";
+			return (orxSTRING)"Club";
 		case SCYTHE:
-			return "Scythe";
+			return (orxSTRING)"Scythe";
 		case SICKLE:
-			return "Sickle";
+			return (orxSTRING)"Sickle";
 		case DAGGER:
-			return "Dagger";
+			return (orxSTRING)"Dagger";
 		case AXE:
-			return "Axe";
+			return (orxSTRING)"Axe";
 		case LANCE:
-			return "Lance";
+			return (orxSTRING)"Lance";
 		default:
-			return "Unknown or no weapon";
+			return (orxSTRING)"Unknown or no weapon";
 	}
 }
 
@@ -116,7 +116,7 @@ Weapon* Weapon::copyOf(WeaponType type) {
 	}
 }
 
-std::string Weapon::getName() {
+orxSTRING Weapon::getName() {
 	return Weapon::getWeaponName(weapon);
 }
 

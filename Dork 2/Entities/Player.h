@@ -30,10 +30,10 @@
 class Player : public Entity {
 	std::vector<int> ownedPotions;
 	std::vector<bool> ownedWeapons;
-	std::string name;
+	orxSTRING name;
 public:
-	Player(const std::string&, EntityType);
-	virtual std::string getName();
+	Player(orxSTRING, EntityType);
+	virtual orxSTRING getName();
 
 	std::vector<int> getPotions();
 	std::vector<bool> getWeapons();
