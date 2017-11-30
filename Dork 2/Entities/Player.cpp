@@ -76,16 +76,16 @@ void Player::defeat(Enemy* enemy) {
 void Player::update(bool up, bool down, bool left, bool right, float dt) {
 	orxObject_GetPosition(entity, &position);
 	if (up) {
-		position.fY -= 60 * dt;
+		position.fY -= motionSpeed * dt;
 		orxObject_SetTargetAnim(entity, "WalkUpAnim");
 	} else if (down) {
-		position.fY += 60 * dt;
+		position.fY += motionSpeed * dt;
 		orxObject_SetTargetAnim(entity, "WalkDownAnim");
 	} else if (left) {
-		position.fX -= 60 * dt;
+		position.fX -= motionSpeed * dt;
 		orxObject_SetTargetAnim(entity, "WalkLeftAnim");
 	} else if (right) {
-		position.fX += 60 * dt;
+		position.fX += motionSpeed * dt;
 		orxObject_SetTargetAnim(entity, "WalkRightAnim");
 	} else {
 		orxObject_SetTargetAnim(entity, orxNULL);

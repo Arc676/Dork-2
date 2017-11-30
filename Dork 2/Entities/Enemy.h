@@ -43,6 +43,9 @@ class Enemy : public Entity {
 	static const int rewardBounds[8];
 	static const WeaponType preferredWeapons[8];
 	EnemyType type;
+
+	orxVECTOR direction;
+	orxFLOAT distanceTravelled = 0;
 public:
 	static std::string typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
@@ -55,6 +58,7 @@ public:
 	EntityType getEntityType();
 
 	void update(float);
+	void newRandomDirection();
 };
 
 #endif

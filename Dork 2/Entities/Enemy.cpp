@@ -46,10 +46,32 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	this->gold = gold;
 	this->level = level;
 
+	newRandomDirection();
+
 	entity = orxObject_CreateFromConfig(getName().c_str());
 	orxVector_Copy(&(this->position), &position);
 	orxObject_SetPosition(entity, &position);
 	orxObject_SetUserData(entity, this);
+}
+
+void Enemy::newRandomDirection() {
+	int dir = orxMath_GetRandomS32(0, 3);
+	switch (dir) {
+		case 0:
+			direction = {1, 0, 0};
+			break;
+		case 1:
+			direction = {0, 1, 0};
+			break;
+		case 2:
+			direction = {-1, 0, 0};
+			break;
+		case 3:
+			direction = {0, -1, 0};
+			break;
+		default:
+			break;
+	}
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {
@@ -95,7 +117,16 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos)
 }
 
 void Enemy::update(float dt) {
-	//
+	if (distanceTravelled > 100) {
+		newRandomDirection();
+		distanceTravelled = 0;
+	}
+	orxObject_GetPosition(entity, &position);
+	orxVECTOR movement;
+	orxVector_Mulf(&movement, &direction, motionSpeed * dt);
+	orxVector_Add(&position, &position, &movement);
+	orxObject_SetWorldPosition(entity, &position);
+	distanceTravelled += orxVector_GetSize(&movement);
 }
 
 EnemyType Enemy::getType() {

@@ -31,6 +31,8 @@ protected:
 	orxOBJECT* entity;
 	orxVECTOR position;
 
+	int motionSpeed = 60;
+
 	int HP;
 	int speed;
 	int strength;
