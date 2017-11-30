@@ -55,12 +55,13 @@ StandAlone* StandAlone::Instance() {
 StandAlone::StandAlone() {}
 
 //written by Wayne "Sausage" Johnson
-void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
+void StandAlone::paintTiles(const orxSTRING mapSection) {
 	int tilesWide = 100;
 	int tileSize = 32;
 	orxVECTOR position = orxVECTOR_0;
 
 	orxConfig_PushSection(mapSection);
+	orxU32 groupID = orxString_GetID(mapSection);
 
 	orxU32 baseMapIndex = 0;
 
@@ -80,7 +81,7 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 
 			position.fX = (baseMapIndex % tilesWide) * tileSize;
 			position.fY = (baseMapIndex / tilesWide) * tileSize;
-			position.fZ = fZ;
+			position.fZ = orxFLOAT_0;
 
 			orxCHAR formattedTileObject[30]; //good maximum length
 			orxString_Print(formattedTileObject, "%sObject", tile);
@@ -92,6 +93,7 @@ void StandAlone::paintTiles(const orxSTRING mapSection, float fZ) {
 				orxObject_GetPosition(obj, &tilePos);
 
 				orxObject_SetPosition(obj, &position);
+				orxObject_SetGroupID(obj, groupID);
 			}
 			baseMapIndex++;
 		}
@@ -117,9 +119,9 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
-	paintTiles("Terrain", 0);
-	paintTiles("Colliders", -0.1f);
-	paintTiles("Shrubs", -0.2f);
+	paintTiles("Terrain");
+	paintTiles("Colliders");
+	paintTiles("Shrubs");
 
 	player = new Player("Bob", MAGIC);
 
@@ -145,17 +147,6 @@ orxSTATUS orxFASTCALL StandAlone::Run() {
 
 void orxFASTCALL StandAlone::Exit() {
 	return;
-}
-
-orxOBJECT* StandAlone::GetObjectByName(orxSTRING objName) {
-	for (orxOBJECT* obj = orxOBJECT(orxStructure_GetFirst(orxSTRUCTURE_ID_OBJECT));
-		 obj != orxNULL;
-		 obj = orxOBJECT(orxStructure_GetNext(obj))) {
-		if (orxString_Compare(orxObject_GetName(obj), objName) == 0) {
-			return obj;
-		}
-	}
-	return orxNULL;
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {

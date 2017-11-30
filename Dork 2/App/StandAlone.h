@@ -35,14 +35,12 @@ class StandAlone {
 public:
 	static StandAlone* Instance();
 
-	static void paintTiles(const orxSTRING, float);
+	static void paintTiles(const orxSTRING);
 	
 	static orxSTATUS orxFASTCALL Init();
 	static orxSTATUS orxFASTCALL Run();
 
 	static void orxFASTCALL Exit();
-
-	static orxOBJECT* orxFASTCALL GetObjectByName(orxSTRING);
 
 	static void orxFASTCALL Update(const orxCLOCK_INFO*, void*);
 

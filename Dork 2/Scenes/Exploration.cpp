@@ -58,10 +58,11 @@ void Exploration::spawnEnemy() {
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	orxFLOAT delta = clockInfo->fDT;
+	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
 	for (
-		 orxOBJECT *obj = (orxOBJECT*)orxStructure_GetFirst(orxSTRUCTURE_ID_OBJECT);
+		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
 		 obj != orxNULL;
-		 obj = orxOBJECT(orxStructure_GetNext(obj))
+		 obj = orxObject_GetNext(obj, defaultGroupID)
 		 ) {
 		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
 		if (orxString_Compare(name, "Player") == 0) {
