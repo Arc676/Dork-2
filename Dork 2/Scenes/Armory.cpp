@@ -24,13 +24,11 @@
 Armory::Armory(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1300, 50, 0};
-	orxObject_SetPosition(selectorArrow, &pos);
+	defaultPos = {-1300, 50, 0};
+	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ShopHelp");
+	selectionLimit = WEAPONCOUNT;
 }
-
-void Armory::activate() {}
-void Armory::deactivate() {}
 
 orxBOOL Armory::makePurchase() {
 	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
@@ -40,28 +38,6 @@ orxBOOL Armory::makePurchase() {
 		return orxTRUE;
 	}
 	return orxFALSE;
-}
-
-SceneType Armory::update(const orxCLOCK_INFO* clockInfo) {
-	orxVECTOR pos;
-	orxObject_GetPosition(selectorArrow, &pos);
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < WEAPONCOUNT) {
-		pos.fY += 60;
-		orxObject_SetPosition(selectorArrow, &pos);
-		currentSelection++;
-	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
-		pos.fY -= 60;
-		orxObject_SetPosition(selectorArrow, &pos);
-		currentSelection--;
-	} else if (getKeyDown((orxSTRING)"Enter")) {
-		if (currentSelection == POTIONCOUNT) {
-			return EXPLORATION;
-		}
-		if (makePurchase()) {
-			orxObject_AddSound(player->getEntity(), "Kaching");
-		}
-	}
-	return ARMORY;
 }
 
 SceneType Armory::getSceneType() {

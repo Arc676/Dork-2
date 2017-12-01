@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7159CD2A1FD0E7410015482A /* Purchasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD281FD0E7410015482A /* Purchasing.cpp */; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 		715FF6B71FBEE507005B1ED4 /* Dork 2.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -77,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7159CD281FD0E7410015482A /* Purchasing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Purchasing.cpp; sourceTree = "<group>"; };
+		7159CD291FD0E7410015482A /* Purchasing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Purchasing.h; sourceTree = "<group>"; };
 		715FF5D41FBEDE44005B1ED4 /* Dork 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dork 2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StandAlone.cpp; sourceTree = "<group>"; };
 		715FF6451FBEDFBE005B1ED4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 				71620F141FC7A56900EBD228 /* Exploration.cpp */,
 				71620F181FC7A59E00EBD228 /* Combat.h */,
 				71620F171FC7A59E00EBD228 /* Combat.cpp */,
+				7159CD291FD0E7410015482A /* Purchasing.h */,
+				7159CD281FD0E7410015482A /* Purchasing.cpp */,
 				71620F1B1FC7B19800EBD228 /* Shop.h */,
 				71620F1A1FC7B19800EBD228 /* Shop.cpp */,
 				71620F451FCAD99600EBD228 /* Armory.h */,
@@ -660,6 +665,7 @@
 				716D1B031FC3045000D827D1 /* Potion.cpp in Sources */,
 				716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */,
 				716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */,
+				7159CD2A1FD0E7410015482A /* Purchasing.cpp in Sources */,
 				715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */,
 				71FBC3231FD021FB00F9E1B1 /* StatViewer.cpp in Sources */,
 				71620F461FCAD99600EBD228 /* Armory.cpp in Sources */,

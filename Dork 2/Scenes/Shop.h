@@ -22,27 +22,18 @@
 #ifndef Shop_h
 #define Shop_h
 
-#include "Scene.h"
+#include "Purchasing.h"
 #include "Potion.h"
-#include "StatViewer.h"
 
-class Shop : public Scene {
-	int currentSelection = 0;
+class Shop : public Purchasing {
 	int quantity = 1;
-
-	StatViewer* statViewer;
-
-	orxOBJECT* selectorArrow;
-
-	orxBOOL makePurchase();
+protected:
+	virtual orxBOOL makePurchase();
 public:
 	Shop(Player*);
 
-	virtual void activate();
-	virtual void deactivate();
-
-	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();
+	virtual SceneType update(const orxCLOCK_INFO*);
 };
 
 #endif

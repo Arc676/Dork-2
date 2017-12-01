@@ -1,8 +1,8 @@
 //
-//  Armory.h
+//  Purchasing.h
 //  Dork 2
 //
-//  Created by Alessandro Vinciguerra on 26/11/2017.
+//  Created by Alessandro Vinciguerra on 01/12/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
@@ -19,20 +19,26 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Armory_h
-#define Armory_h
+#ifndef Purchasing_h
+#define Purchasing_h
 
-#include "Purchasing.h"
-#include "Weapon.h"
+#include "Scene.h"
+#include "StatViewer.h"
 
-class Armory : public Purchasing {
+class Purchasing : public Scene {
 protected:
-	virtual orxBOOL makePurchase();
+	int currentSelection = 0;
+	int selectionLimit;
+	orxOBJECT* selectorArrow;
+	orxVECTOR defaultPos;
+	virtual orxBOOL makePurchase() = 0;
+
+	StatViewer* statViewer;
 public:
-	Armory(Player*);
+	virtual void activate();
+	virtual void deactivate();
 
 	virtual SceneType update(const orxCLOCK_INFO*);
-	virtual SceneType getSceneType();
 };
 
 #endif

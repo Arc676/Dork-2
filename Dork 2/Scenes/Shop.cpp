@@ -29,16 +29,8 @@ Shop::Shop(Player* player) {
 	orxObject_CreateFromConfig("ShopHelp");
 
 	statViewer = new StatViewer(player, {-1590, -400, 0});
+	selectionLimit = POTIONCOUNT;
 }
-
-void Shop::activate() {
-	statViewer->reloadData();
-	orxVECTOR pos = {-1300, -650, 0};
-	orxObject_SetPosition(selectorArrow, &pos);
-	currentSelection = 0;
-}
-
-void Shop::deactivate() {}
 
 orxBOOL Shop::makePurchase() {
 	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
@@ -52,29 +44,16 @@ orxBOOL Shop::makePurchase() {
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
-	orxVECTOR pos;
-	orxObject_GetPosition(selectorArrow, &pos);
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) {
-		pos.fY += 60;
-		orxObject_SetPosition(selectorArrow, &pos);
-		quantity = 1;
-		currentSelection++;
-	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
-		pos.fY -= 60;
-		orxObject_SetPosition(selectorArrow, &pos);
-		quantity = 1;
-		currentSelection--;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
+	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
 		quantity--;
 	} else if (getKeyDown((orxSTRING)"GoRight")) {
 		quantity++;
-	} else if (getKeyDown((orxSTRING)"Enter")) {
-		if (currentSelection == POTIONCOUNT) {
-			return EXPLORATION;
+	} else {
+		if ((getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) ||
+			(getKeyDown((orxSTRING)"GoUp") && currentSelection > 0)) {
+			quantity = 1;
 		}
-		if (makePurchase()) {
-			orxObject_AddSound(player->getEntity(), "Kaching");
-		}
+		return Purchasing::update(clockInfo);
 	}
 	return SHOP;
 }
