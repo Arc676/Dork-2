@@ -24,8 +24,8 @@
 Shop::Shop(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1300, -650, 0};
-	orxObject_SetPosition(selectorArrow, &pos);
+	defaultPos = {-1300, -650, 0};
+	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ShopHelp");
 
 	statViewer = new StatViewer(player, {-1590, -400, 0});

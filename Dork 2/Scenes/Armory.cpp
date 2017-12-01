@@ -26,7 +26,9 @@ Armory::Armory(Player* player) {
 	selectorArrow = orxObject_CreateFromConfig("Selector");
 	defaultPos = {-1300, 50, 0};
 	orxObject_SetPosition(selectorArrow, &defaultPos);
-	orxObject_CreateFromConfig("ShopHelp");
+	orxObject_CreateFromConfig("ArmoryHelp");
+
+	statViewer = new StatViewer(player, {-1590, 300, 0});
 	selectionLimit = WEAPONCOUNT;
 }
 
