@@ -29,8 +29,11 @@ Move Combat::moves[2][2] = {
 Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1400, 500, -0.3};
+	orxVECTOR pos = {-1400, 500, 0};
 	orxObject_SetPosition(selector, &pos);
+
+	playerStats = new StatViewer(player, {-1400, 300, 0});
+	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 }
 
@@ -41,6 +44,8 @@ void Combat::activate() {
 void Combat::deactivate() {
 	orxObject_SetLifeTime(selector, 0);
 	enemy->despawn();
+	playerStats->destroy();
+	enemyStats->destroy();
 //	orxSound_Stop(music);
 }
 
@@ -84,12 +89,14 @@ SceneType Combat::makeMove(Move move) {
 		case USE_ITEM:
 			break;
 	}
-	if (enemy->getHP() < 0 || player->getHP() < 0) {
-		if (enemy->getHP() < 0) {
+	if (enemy->getHP() <= 0 || player->getHP() <= 0) {
+		if (enemy->getHP() <= 0) {
 			player->defeat(enemy);
 		}
 		return EXPLORATION;
 	}
+	playerStats->reloadData();
+	enemyStats->reloadData();
 	return COMBAT;
 }
 

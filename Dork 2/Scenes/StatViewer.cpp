@@ -22,7 +22,7 @@
 #include "StatViewer.h"
 
 StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
-	orxVECTOR margin = {0, 10, 0};
+	orxVECTOR margin = {0, 20, 0};
 
 	labelName = orxObject_CreateFromConfig("SV-Name");
 	orxObject_SetPosition(labelName, &pos);
@@ -88,4 +88,15 @@ void StatViewer::reloadData() {
 
 	orxString_Print(text, "Weapon: %s", entity->getWeapon()->getName());
 	orxObject_SetTextString(labelWeapon, text);
+}
+
+void StatViewer::destroy() {
+	orxObject_SetLifeTime(labelName, 0);
+	orxObject_SetLifeTime(labelHP, 0);
+	orxObject_SetLifeTime(labelSpeed, 0);
+	orxObject_SetLifeTime(labelStr, 0);
+	orxObject_SetLifeTime(labelDef, 0);
+	orxObject_SetLifeTime(labelGold, 0);
+	orxObject_SetLifeTime(labelLvl, 0);
+	orxObject_SetLifeTime(labelWeapon, 0);
 }

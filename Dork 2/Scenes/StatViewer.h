@@ -40,6 +40,8 @@ class StatViewer {
 public:
 	StatViewer(Entity*, orxVECTOR);
 
+	void destroy();
+
 	void loadEntity(Entity*);
 	void reloadData();
 };

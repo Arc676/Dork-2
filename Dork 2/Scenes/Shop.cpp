@@ -24,7 +24,7 @@
 Shop::Shop(Player* player) {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1300, -650, -0.3};
+	orxVECTOR pos = {-1300, -650, 0};
 	orxObject_SetPosition(selectorArrow, &pos);
 	orxObject_CreateFromConfig("ShopHelp");
 }

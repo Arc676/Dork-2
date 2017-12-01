@@ -24,12 +24,16 @@
 
 #include "Scene.h"
 #include "Enemy.h"
+#include "StatViewer.h"
 
 class Combat : public Scene {
 	static Move moves[2][2];
 
 	Enemy* enemy;
 	orxSOUND* music;
+
+	StatViewer* playerStats;
+	StatViewer* enemyStats;
 
 	orxOBJECT* selector;
 	int x = 0, y = 0;
