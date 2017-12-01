@@ -31,7 +31,6 @@ protected:
 public:
 	Armory(Player*);
 
-	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();
 };
 

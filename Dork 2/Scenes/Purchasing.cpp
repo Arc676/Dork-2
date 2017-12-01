@@ -41,7 +41,7 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		orxObject_SetPosition(selectorArrow, &pos);
 		currentSelection--;
 	} else if (getKeyDown((orxSTRING)"Enter")) {
-		if (currentSelection == POTIONCOUNT) {
+		if (currentSelection == selectionLimit) {
 			return EXPLORATION;
 		}
 		if (makePurchase()) {
