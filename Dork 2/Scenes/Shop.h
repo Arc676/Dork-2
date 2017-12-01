@@ -24,10 +24,13 @@
 
 #include "Scene.h"
 #include "Potion.h"
+#include "StatViewer.h"
 
 class Shop : public Scene {
 	int currentSelection = 0;
 	int quantity = 1;
+
+	StatViewer* statViewer;
 
 	orxOBJECT* selectorArrow;
 

@@ -27,9 +27,17 @@ Shop::Shop(Player* player) {
 	orxVECTOR pos = {-1300, -650, 0};
 	orxObject_SetPosition(selectorArrow, &pos);
 	orxObject_CreateFromConfig("ShopHelp");
+
+	statViewer = new StatViewer(player, {-1590, -400, 0});
 }
 
-void Shop::activate() {}
+void Shop::activate() {
+	statViewer->reloadData();
+	orxVECTOR pos = {-1300, -650, 0};
+	orxObject_SetPosition(selectorArrow, &pos);
+	currentSelection = 0;
+}
+
 void Shop::deactivate() {}
 
 orxBOOL Shop::makePurchase() {
@@ -37,6 +45,7 @@ orxBOOL Shop::makePurchase() {
 	if (player->getGold() >= quantity * potion->getPrice()) {
 		player->transaction(-quantity * potion->getPrice());
 		player->getPotions()[currentSelection] += quantity;
+		statViewer->reloadData();
 		return orxTRUE;
 	}
 	return orxFALSE;
