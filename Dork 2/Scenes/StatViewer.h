@@ -28,10 +28,20 @@
 
 class StatViewer {
 	Entity* entity;
+
+	orxOBJECT* labelName;
+	orxOBJECT* labelHP;
+	orxOBJECT* labelSpeed;
+	orxOBJECT* labelStr;
+	orxOBJECT* labelDef;
+	orxOBJECT* labelGold;
+	orxOBJECT* labelLvl;
+	orxOBJECT* labelWeapon;
 public:
 	StatViewer(Entity*, orxVECTOR);
 
 	void loadEntity(Entity*);
+	void reloadData();
 };
 
 #endif

@@ -25,350 +25,389 @@
     <Filter Include="Header Files\inc">
       <UniqueIdentifier>{ec945c7b-5246-4c1d-b963-b150eaa845c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bin">
+      <UniqueIdentifier>{9ae334d8-6ae1-4b7b-b76d-203b5c38407b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Dork 2\Scenes\Armory.cpp">
+    <ClCompile Include="..\..\Dork 2\App\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Scenes\Combat.cpp">
+    <ClCompile Include="..\..\Dork 2\App\StandAlone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Scenes\Exploration.cpp">
+    <ClCompile Include="..\..\Dork 2\Entities\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Scenes\Shop.cpp">
+    <ClCompile Include="..\..\Dork 2\Entities\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Scenes\StatViewer.cpp">
+    <ClCompile Include="..\..\Dork 2\Entities\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Items\Potion.cpp">
+    <ClCompile Include="..\..\Dork 2\Items\Potion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Items\Weapon.cpp">
+    <ClCompile Include="..\..\Dork 2\Items\Weapon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Entities\Enemy.cpp">
+    <ClCompile Include="..\..\Dork 2\Scenes\Armory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Entities\Entity.cpp">
+    <ClCompile Include="..\..\Dork 2\Scenes\Combat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\Entities\Player.cpp">
+    <ClCompile Include="..\..\Dork 2\Scenes\Exploration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Dork 2\App\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Dork 2\App\StandAlone.cpp">
+    <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Dork 2\Scenes\Armory.h">
+    <ClInclude Include="..\..\Dork 2\App\StandAlone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Scenes\Combat.h">
+    <ClInclude Include="..\..\Dork 2\Backend\Enums.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Scenes\Exploration.h">
+    <ClInclude Include="..\..\Dork 2\Entities\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Scenes\Scene.h">
+    <ClInclude Include="..\..\Dork 2\Entities\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Scenes\Shop.h">
+    <ClInclude Include="..\..\Dork 2\Entities\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Scenes\StatViewer.h">
+    <ClInclude Include="..\..\Dork 2\Items\Potion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Items\Potion.h">
+    <ClInclude Include="..\..\Dork 2\Items\Weapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Items\Weapon.h">
+    <ClInclude Include="..\..\Dork 2\Scenes\Armory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Entities\Enemy.h">
+    <ClInclude Include="..\..\Dork 2\Scenes\Combat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Entities\Entity.h">
+    <ClInclude Include="..\..\Dork 2\Scenes\Exploration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Entities\Player.h">
+    <ClInclude Include="..\..\Dork 2\Scenes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\Backend\Enums.h">
+    <ClInclude Include="..\..\Dork 2\Scenes\Shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Dork 2\App\StandAlone.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\render\orxViewport.h">
+    <ClInclude Include="..\..\inc\orx.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\orx.h">
+    <ClInclude Include="..\..\inc\math\orxAABox.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\math\orxAABox.h">
+    <ClInclude Include="..\..\inc\main\orxAndroid.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\main\orxAndroid.h">
+    <ClInclude Include="..\..\inc\anim\orxAnim.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\anim\orxAnim.h">
+    <ClInclude Include="..\..\inc\anim\orxAnimPointer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\anim\orxAnimPointer.h">
+    <ClInclude Include="..\..\inc\anim\orxAnimSet.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\anim\orxAnimSet.h">
+    <ClInclude Include="..\..\inc\memory\orxBank.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\memory\orxBank.h">
+    <ClInclude Include="..\..\inc\physics\orxBody.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\physics\orxBody.h">
+    <ClInclude Include="..\..\inc\base\orxBuild.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\base\orxBuild.h">
+    <ClInclude Include="..\..\inc\render\orxCamera.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\render\orxCamera.h">
+    <ClInclude Include="..\..\inc\core\orxClock.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxClock.h">
+    <ClInclude Include="..\..\inc\core\orxCommand.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxCommand.h">
+    <ClInclude Include="..\..\inc\core\orxConfig.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxConfig.h">
+    <ClInclude Include="..\..\inc\core\orxConsole.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxConsole.h">
+    <ClInclude Include="..\..\inc\debug\orxDebug.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\debug\orxDebug.h">
+    <ClInclude Include="..\..\inc\base\orxDecl.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\base\orxDecl.h">
+    <ClInclude Include="..\..\inc\display\orxDisplay.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxDisplay.h">
+    <ClInclude Include="..\..\inc\core\orxEvent.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxEvent.h">
+    <ClInclude Include="..\..\inc\io\orxFile.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\io\orxFile.h">
+    <ClInclude Include="..\..\inc\display\orxFont.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxFont.h">
+    <ClInclude Include="..\..\inc\debug\orxFPS.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\debug\orxFPS.h">
+    <ClInclude Include="..\..\inc\object\orxFrame.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxFrame.h">
+    <ClInclude Include="..\..\inc\object\orxFX.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxFX.h">
+    <ClInclude Include="..\..\inc\object\orxFXPointer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxFXPointer.h">
+    <ClInclude Include="..\..\inc\display\orxGraphic.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxGraphic.h">
+    <ClInclude Include="..\..\inc\utils\orxHashTable.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\utils\orxHashTable.h">
+    <ClInclude Include="..\..\inc\orxInclude.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\orxInclude.h">
+    <ClInclude Include="..\..\inc\io\orxInput.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\io\orxInput.h">
+    <ClInclude Include="..\..\inc\io\orxJoystick.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\io\orxJoystick.h">
+    <ClInclude Include="..\..\inc\orxKernel.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\orxKernel.h">
+    <ClInclude Include="..\..\inc\io\orxKeyboard.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\io\orxKeyboard.h">
+    <ClInclude Include="..\..\inc\utils\orxLinkList.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\utils\orxLinkList.h">
+    <ClInclude Include="..\..\inc\core\orxLocale.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxLocale.h">
+    <ClInclude Include="..\..\inc\math\orxMath.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\math\orxMath.h">
+    <ClInclude Include="..\..\inc\memory\orxMemory.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\memory\orxMemory.h">
+    <ClInclude Include="..\..\inc\base\orxModule.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\base\orxModule.h">
+    <ClInclude Include="..\..\inc\io\orxMouse.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\io\orxMouse.h">
+    <ClInclude Include="..\..\inc\object\orxObject.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxObject.h">
+    <ClInclude Include="..\..\inc\math\orxOBox.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\math\orxOBox.h">
+    <ClInclude Include="..\..\inc\main\orxParam.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\main\orxParam.h">
+    <ClInclude Include="..\..\inc\physics\orxPhysics.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\physics\orxPhysics.h">
+    <ClInclude Include="..\..\inc\plugin\orxPlugin.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\orxPlugin.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_CoreDefine.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_CoreDefine.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_CoreID.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_CoreID.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Display.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Display.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Joystick.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Joystick.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Keyboard.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Keyboard.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Mouse.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Mouse.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Physics.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Physics.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Render.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_Render.h">
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_SoundSystem.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\define\orxPlugin_SoundSystem.h">
+    <ClInclude Include="..\..\inc\orxPluginAPI.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\orxPluginAPI.h">
+    <ClInclude Include="..\..\inc\plugin\orxPluginCore.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\orxPluginCore.h">
+    <ClInclude Include="..\..\inc\plugin\orxPluginType.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\orxPluginType.h">
+    <ClInclude Include="..\..\inc\plugin\orxPluginUser.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugin\orxPluginUser.h">
+    <ClInclude Include="..\..\inc\debug\orxProfiler.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\debug\orxProfiler.h">
+    <ClInclude Include="..\..\inc\render\orxRender.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\render\orxRender.h">
+    <ClInclude Include="..\..\inc\core\orxResource.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxResource.h">
+    <ClInclude Include="..\..\inc\display\orxScreenshot.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxScreenshot.h">
+    <ClInclude Include="..\..\inc\render\orxShader.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\render\orxShader.h">
+    <ClInclude Include="..\..\inc\render\orxShaderPointer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\render\orxShaderPointer.h">
+    <ClInclude Include="..\..\inc\sound\orxSound.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sound\orxSound.h">
+    <ClInclude Include="..\..\inc\sound\orxSoundPointer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sound\orxSoundPointer.h">
+    <ClInclude Include="..\..\inc\sound\orxSoundSystem.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sound\orxSoundSystem.h">
+    <ClInclude Include="..\..\inc\object\orxSpawner.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxSpawner.h">
+    <ClInclude Include="..\..\inc\utils\orxString.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\utils\orxString.h">
+    <ClInclude Include="..\..\inc\object\orxStructure.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxStructure.h">
+    <ClInclude Include="..\..\inc\core\orxSystem.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxSystem.h">
+    <ClInclude Include="..\..\inc\display\orxText.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxText.h">
+    <ClInclude Include="..\..\inc\display\orxTexture.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\display\orxTexture.h">
+    <ClInclude Include="..\..\inc\core\orxThread.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\core\orxThread.h">
+    <ClInclude Include="..\..\inc\object\orxTimeLine.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\object\orxTimeLine.h">
+    <ClInclude Include="..\..\inc\utils\orxTree.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\utils\orxTree.h">
+    <ClInclude Include="..\..\inc\base\orxType.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\base\orxType.h">
+    <ClInclude Include="..\..\inc\orxUtils.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\orxUtils.h">
+    <ClInclude Include="..\..\inc\math\orxVector.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\math\orxVector.h">
+    <ClInclude Include="..\..\inc\base\orxVersion.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\base\orxVersion.h">
+    <ClInclude Include="..\..\inc\render\orxViewport.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Sprites\forest_tiles.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\GoblinSpriteMap.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\MainGuySpriteSheet.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\Selector.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\ShopHelp.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Music\Background.ogg">
+    <None Include="..\..\bin\Troll.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Dork 2.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Entities.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\GenericEntity.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Ghost.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Ghoul.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Goblin.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Imp.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Main.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Map1.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Ogre.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Orc.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="..\..\bin\Player.ini">
+      <Filter>bin</Filter>
+    </None>
+    <None Include="Music\Background.ogg">
       <Filter>Resource Files\Music</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="..\Music\kaching.wav">
+    <Library Include="lib\orx.lib">
+      <Filter>Resource Files\lib</Filter>
+    </Library>
+    <Library Include="lib\orxd.lib">
+      <Filter>Resource Files\lib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Music\kaching.wav">
       <Filter>Resource Files\Music</Filter>
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\lib\orx.lib">
-      <Filter>Resource Files\lib</Filter>
-    </Library>
+    <Image Include="Sprites\forest_tiles.png">
+      <Filter>Resource Files\Sprites</Filter>
+    </Image>
+    <Image Include="Sprites\GoblinSpriteMap.png">
+      <Filter>Resource Files\Sprites</Filter>
+    </Image>
+    <Image Include="Sprites\MainGuySpriteSheet.png">
+      <Filter>Resource Files\Sprites</Filter>
+    </Image>
+    <Image Include="Sprites\Selector.png">
+      <Filter>Resource Files\Sprites</Filter>
+    </Image>
+    <Image Include="Sprites\ShopHelp.png">
+      <Filter>Resource Files\Sprites</Filter>
+    </Image>
   </ItemGroup>
 </Project>

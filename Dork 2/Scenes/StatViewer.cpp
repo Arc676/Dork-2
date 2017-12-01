@@ -22,9 +22,70 @@
 #include "StatViewer.h"
 
 StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
+	orxVECTOR margin = {0, 10, 0};
+
+	labelName = orxObject_CreateFromConfig("SV-Name");
+	orxObject_SetPosition(labelName, &pos);
+
+	labelHP = orxObject_CreateFromConfig("SV-HP");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelHP, &pos);
+
+	labelSpeed = orxObject_CreateFromConfig("SV-Speed");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelSpeed, &pos);
+
+	labelStr = orxObject_CreateFromConfig("SV-Str");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelStr, &pos);
+
+	labelDef = orxObject_CreateFromConfig("SV-Def");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelDef, &pos);
+
+	labelGold = orxObject_CreateFromConfig("SV-Gold");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelGold, &pos);
+
+	labelLvl = orxObject_CreateFromConfig("SV-Lvl");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelLvl, &pos);
+
+	labelWeapon = orxObject_CreateFromConfig("SV-Weapon");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelWeapon, &pos);
+
 	loadEntity(entity);
 }
 
 void StatViewer::loadEntity(Entity* entity) {
 	this->entity = entity;
+	reloadData();
+}
+
+void StatViewer::reloadData() {
+	orxCHAR text[30];
+
+	orxObject_SetTextString(labelName, entity->getName());
+
+	orxString_Print(text, "HP: %d", entity->getHP());
+	orxObject_SetTextString(labelHP, text);
+
+	orxString_Print(text, "Speed: %d", entity->getSpeed());
+	orxObject_SetTextString(labelSpeed, text);
+
+	orxString_Print(text, "Strength: %d", entity->getStrength());
+	orxObject_SetTextString(labelStr, text);
+
+	orxString_Print(text, "Defense: %d", entity->getDefense());
+	orxObject_SetTextString(labelDef, text);
+
+	orxString_Print(text, "Gold: %d", entity->getGold());
+	orxObject_SetTextString(labelGold, text);
+
+	orxString_Print(text, "Level: %f", entity->getLevel());
+	orxObject_SetTextString(labelLvl, text);
+
+	orxString_Print(text, "Weapon: %s", entity->getWeapon()->getName());
+	orxObject_SetTextString(labelWeapon, text);
 }

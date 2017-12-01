@@ -1,238 +1,530 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Profile|x64">
+      <Configuration>Profile</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Win32">
+      <Configuration>Profile</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AD8F5F11-50CB-4D54-8AE2-F65E7DE79F5B}</ProjectGuid>
-    <RootNamespace>Dork2</RootNamespace>
+    <ProjectGuid>{778B53EA-703E-3541-8E20-C6849B069907}</ProjectGuid>
+    <RootNamespace>Dork 2</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x64\Debug\</IntDir>
+    <TargetName>Dork 2d</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x32\Debug\</IntDir>
+    <TargetName>Dork 2d</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x64\Profile\</IntDir>
+    <TargetName>Dork 2p</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x32\Profile\</IntDir>
+    <TargetName>Dork 2p</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x64\Release\</IntDir>
+    <TargetName>Dork 2</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\bin\</OutDir>
+    <IntDir>obj\x32\Release\</IntDir>
+    <TargetName>Dork 2</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>inc/;Dork 2/App;Dork 2/Scenes;Dork 2/Items;Dork 2/Entities;Dork 2/Backend</AdditionalIncludeDirectories>
-    </ClCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>Dork 2\App;Dork 2\Backend;Dork 2\Entities;Dork 2\Items;Dork 2\Scenes;inc/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2d.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>orxd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2d.exe</OutputFile>
+      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2d.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__orxDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>orxd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2d.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib;$(ORX)\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
+    <ClCompile>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxPROFILER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2p.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__orxPROFILER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>orxp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2p.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib;$(ORX)\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxPROFILER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2p.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__orxPROFILER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>orxp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2p.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib;$(ORX)\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>orx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib;$(ORX)\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(OutDir)Dork 2.pdb</ProgramDataBaseFileName>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>orx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Dork 2.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\lib;$(ORX)\lib\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>cmd /c if exist $(ORX)\lib\dynamic\orx.dll copy /Y $(ORX)\lib\dynamic\orx*.dll ..\..\..\bin</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Dork 2\App\Main.cpp" />
-    <ClCompile Include="..\Dork 2\App\StandAlone.cpp" />
-    <ClCompile Include="..\Dork 2\Entities\Enemy.cpp" />
-    <ClCompile Include="..\Dork 2\Entities\Entity.cpp" />
-    <ClCompile Include="..\Dork 2\Entities\Player.cpp" />
-    <ClCompile Include="..\Dork 2\Items\Potion.cpp" />
-    <ClCompile Include="..\Dork 2\Items\Weapon.cpp" />
-    <ClCompile Include="..\Dork 2\Scenes\Armory.cpp" />
-    <ClCompile Include="..\Dork 2\Scenes\Combat.cpp" />
-    <ClCompile Include="..\Dork 2\Scenes\Exploration.cpp" />
-    <ClCompile Include="..\Dork 2\Scenes\Shop.cpp" />
-    <ClCompile Include="..\Dork 2\Scenes\StatViewer.cpp" />
+    <ClInclude Include="..\..\Dork 2\App\StandAlone.h" />
+    <ClInclude Include="..\..\Dork 2\Backend\Enums.h" />
+    <ClInclude Include="..\..\Dork 2\Entities\Enemy.h" />
+    <ClInclude Include="..\..\Dork 2\Entities\Entity.h" />
+    <ClInclude Include="..\..\Dork 2\Entities\Player.h" />
+    <ClInclude Include="..\..\Dork 2\Items\Potion.h" />
+    <ClInclude Include="..\..\Dork 2\Items\Weapon.h" />
+    <ClInclude Include="..\..\Dork 2\Scenes\Armory.h" />
+    <ClInclude Include="..\..\Dork 2\Scenes\Combat.h" />
+    <ClInclude Include="..\..\Dork 2\Scenes\Exploration.h" />
+    <ClInclude Include="..\..\Dork 2\Scenes\Scene.h" />
+    <ClInclude Include="..\..\Dork 2\Scenes\Shop.h" />
+    <ClInclude Include="..\..\inc\orx.h" />
+    <ClInclude Include="..\..\inc\orxInclude.h" />
+    <ClInclude Include="..\..\inc\orxKernel.h" />
+    <ClInclude Include="..\..\inc\orxPluginAPI.h" />
+    <ClInclude Include="..\..\inc\orxUtils.h" />
+    <ClInclude Include="..\..\inc\anim\orxAnim.h" />
+    <ClInclude Include="..\..\inc\anim\orxAnimPointer.h" />
+    <ClInclude Include="..\..\inc\anim\orxAnimSet.h" />
+    <ClInclude Include="..\..\inc\base\orxBuild.h" />
+    <ClInclude Include="..\..\inc\base\orxDecl.h" />
+    <ClInclude Include="..\..\inc\base\orxModule.h" />
+    <ClInclude Include="..\..\inc\base\orxType.h" />
+    <ClInclude Include="..\..\inc\base\orxVersion.h" />
+    <ClInclude Include="..\..\inc\core\orxClock.h" />
+    <ClInclude Include="..\..\inc\core\orxCommand.h" />
+    <ClInclude Include="..\..\inc\core\orxConfig.h" />
+    <ClInclude Include="..\..\inc\core\orxConsole.h" />
+    <ClInclude Include="..\..\inc\core\orxEvent.h" />
+    <ClInclude Include="..\..\inc\core\orxLocale.h" />
+    <ClInclude Include="..\..\inc\core\orxResource.h" />
+    <ClInclude Include="..\..\inc\core\orxSystem.h" />
+    <ClInclude Include="..\..\inc\core\orxThread.h" />
+    <ClInclude Include="..\..\inc\debug\orxDebug.h" />
+    <ClInclude Include="..\..\inc\debug\orxFPS.h" />
+    <ClInclude Include="..\..\inc\debug\orxProfiler.h" />
+    <ClInclude Include="..\..\inc\display\orxDisplay.h" />
+    <ClInclude Include="..\..\inc\display\orxFont.h" />
+    <ClInclude Include="..\..\inc\display\orxGraphic.h" />
+    <ClInclude Include="..\..\inc\display\orxScreenshot.h" />
+    <ClInclude Include="..\..\inc\display\orxText.h" />
+    <ClInclude Include="..\..\inc\display\orxTexture.h" />
+    <ClInclude Include="..\..\inc\io\orxFile.h" />
+    <ClInclude Include="..\..\inc\io\orxInput.h" />
+    <ClInclude Include="..\..\inc\io\orxJoystick.h" />
+    <ClInclude Include="..\..\inc\io\orxKeyboard.h" />
+    <ClInclude Include="..\..\inc\io\orxMouse.h" />
+    <ClInclude Include="..\..\inc\main\orxAndroid.h" />
+    <ClInclude Include="..\..\inc\main\orxParam.h" />
+    <ClInclude Include="..\..\inc\math\orxAABox.h" />
+    <ClInclude Include="..\..\inc\math\orxMath.h" />
+    <ClInclude Include="..\..\inc\math\orxOBox.h" />
+    <ClInclude Include="..\..\inc\math\orxVector.h" />
+    <ClInclude Include="..\..\inc\memory\orxBank.h" />
+    <ClInclude Include="..\..\inc\memory\orxMemory.h" />
+    <ClInclude Include="..\..\inc\object\orxFrame.h" />
+    <ClInclude Include="..\..\inc\object\orxFX.h" />
+    <ClInclude Include="..\..\inc\object\orxFXPointer.h" />
+    <ClInclude Include="..\..\inc\object\orxObject.h" />
+    <ClInclude Include="..\..\inc\object\orxSpawner.h" />
+    <ClInclude Include="..\..\inc\object\orxStructure.h" />
+    <ClInclude Include="..\..\inc\object\orxTimeLine.h" />
+    <ClInclude Include="..\..\inc\physics\orxBody.h" />
+    <ClInclude Include="..\..\inc\physics\orxPhysics.h" />
+    <ClInclude Include="..\..\inc\plugin\orxPlugin.h" />
+    <ClInclude Include="..\..\inc\plugin\orxPluginCore.h" />
+    <ClInclude Include="..\..\inc\plugin\orxPluginType.h" />
+    <ClInclude Include="..\..\inc\plugin\orxPluginUser.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_CoreDefine.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_CoreID.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Display.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Joystick.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Keyboard.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Mouse.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Physics.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_Render.h" />
+    <ClInclude Include="..\..\inc\plugin\define\orxPlugin_SoundSystem.h" />
+    <ClInclude Include="..\..\inc\render\orxCamera.h" />
+    <ClInclude Include="..\..\inc\render\orxRender.h" />
+    <ClInclude Include="..\..\inc\render\orxShader.h" />
+    <ClInclude Include="..\..\inc\render\orxShaderPointer.h" />
+    <ClInclude Include="..\..\inc\render\orxViewport.h" />
+    <ClInclude Include="..\..\inc\sound\orxSound.h" />
+    <ClInclude Include="..\..\inc\sound\orxSoundPointer.h" />
+    <ClInclude Include="..\..\inc\sound\orxSoundSystem.h" />
+    <ClInclude Include="..\..\inc\utils\orxHashTable.h" />
+    <ClInclude Include="..\..\inc\utils\orxLinkList.h" />
+    <ClInclude Include="..\..\inc\utils\orxString.h" />
+    <ClInclude Include="..\..\inc\utils\orxTree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Dork 2\App\StandAlone.h" />
-    <ClInclude Include="..\Dork 2\Backend\Enums.h" />
-    <ClInclude Include="..\Dork 2\Entities\Enemy.h" />
-    <ClInclude Include="..\Dork 2\Entities\Entity.h" />
-    <ClInclude Include="..\Dork 2\Entities\Player.h" />
-    <ClInclude Include="..\Dork 2\Items\Potion.h" />
-    <ClInclude Include="..\Dork 2\Items\Weapon.h" />
-    <ClInclude Include="..\Dork 2\Scenes\Armory.h" />
-    <ClInclude Include="..\Dork 2\Scenes\Combat.h" />
-    <ClInclude Include="..\Dork 2\Scenes\Exploration.h" />
-    <ClInclude Include="..\Dork 2\Scenes\Scene.h" />
-    <ClInclude Include="..\Dork 2\Scenes\Shop.h" />
-    <ClInclude Include="..\Dork 2\Scenes\StatViewer.h" />
-    <ClInclude Include="inc\anim\orxAnim.h" />
-    <ClInclude Include="inc\anim\orxAnimPointer.h" />
-    <ClInclude Include="inc\anim\orxAnimSet.h" />
-    <ClInclude Include="inc\base\orxBuild.h" />
-    <ClInclude Include="inc\base\orxDecl.h" />
-    <ClInclude Include="inc\base\orxModule.h" />
-    <ClInclude Include="inc\base\orxType.h" />
-    <ClInclude Include="inc\base\orxVersion.h" />
-    <ClInclude Include="inc\core\orxClock.h" />
-    <ClInclude Include="inc\core\orxCommand.h" />
-    <ClInclude Include="inc\core\orxConfig.h" />
-    <ClInclude Include="inc\core\orxConsole.h" />
-    <ClInclude Include="inc\core\orxEvent.h" />
-    <ClInclude Include="inc\core\orxLocale.h" />
-    <ClInclude Include="inc\core\orxResource.h" />
-    <ClInclude Include="inc\core\orxSystem.h" />
-    <ClInclude Include="inc\core\orxThread.h" />
-    <ClInclude Include="inc\debug\orxDebug.h" />
-    <ClInclude Include="inc\debug\orxFPS.h" />
-    <ClInclude Include="inc\debug\orxProfiler.h" />
-    <ClInclude Include="inc\display\orxDisplay.h" />
-    <ClInclude Include="inc\display\orxFont.h" />
-    <ClInclude Include="inc\display\orxGraphic.h" />
-    <ClInclude Include="inc\display\orxScreenshot.h" />
-    <ClInclude Include="inc\display\orxText.h" />
-    <ClInclude Include="inc\display\orxTexture.h" />
-    <ClInclude Include="inc\io\orxFile.h" />
-    <ClInclude Include="inc\io\orxInput.h" />
-    <ClInclude Include="inc\io\orxJoystick.h" />
-    <ClInclude Include="inc\io\orxKeyboard.h" />
-    <ClInclude Include="inc\io\orxMouse.h" />
-    <ClInclude Include="inc\main\orxAndroid.h" />
-    <ClInclude Include="inc\main\orxParam.h" />
-    <ClInclude Include="inc\math\orxAABox.h" />
-    <ClInclude Include="inc\math\orxMath.h" />
-    <ClInclude Include="inc\math\orxOBox.h" />
-    <ClInclude Include="inc\math\orxVector.h" />
-    <ClInclude Include="inc\memory\orxBank.h" />
-    <ClInclude Include="inc\memory\orxMemory.h" />
-    <ClInclude Include="inc\object\orxFrame.h" />
-    <ClInclude Include="inc\object\orxFX.h" />
-    <ClInclude Include="inc\object\orxFXPointer.h" />
-    <ClInclude Include="inc\object\orxObject.h" />
-    <ClInclude Include="inc\object\orxSpawner.h" />
-    <ClInclude Include="inc\object\orxStructure.h" />
-    <ClInclude Include="inc\object\orxTimeLine.h" />
-    <ClInclude Include="inc\orx.h" />
-    <ClInclude Include="inc\orxInclude.h" />
-    <ClInclude Include="inc\orxKernel.h" />
-    <ClInclude Include="inc\orxPluginAPI.h" />
-    <ClInclude Include="inc\orxUtils.h" />
-    <ClInclude Include="inc\physics\orxBody.h" />
-    <ClInclude Include="inc\physics\orxPhysics.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_CoreDefine.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_CoreID.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Display.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Joystick.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Keyboard.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Mouse.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Physics.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_Render.h" />
-    <ClInclude Include="inc\plugin\define\orxPlugin_SoundSystem.h" />
-    <ClInclude Include="inc\plugin\orxPlugin.h" />
-    <ClInclude Include="inc\plugin\orxPluginCore.h" />
-    <ClInclude Include="inc\plugin\orxPluginType.h" />
-    <ClInclude Include="inc\plugin\orxPluginUser.h" />
-    <ClInclude Include="inc\render\orxCamera.h" />
-    <ClInclude Include="inc\render\orxRender.h" />
-    <ClInclude Include="inc\render\orxShader.h" />
-    <ClInclude Include="inc\render\orxShaderPointer.h" />
-    <ClInclude Include="inc\render\orxViewport.h" />
-    <ClInclude Include="inc\sound\orxSound.h" />
-    <ClInclude Include="inc\sound\orxSoundPointer.h" />
-    <ClInclude Include="inc\sound\orxSoundSystem.h" />
-    <ClInclude Include="inc\utils\orxHashTable.h" />
-    <ClInclude Include="inc\utils\orxLinkList.h" />
-    <ClInclude Include="inc\utils\orxString.h" />
-    <ClInclude Include="inc\utils\orxTree.h" />
+    <ClCompile Include="..\..\Dork 2\App\Main.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\App\StandAlone.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Entities\Enemy.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Entities\Entity.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Entities\Player.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Items\Potion.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Items\Weapon.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Scenes\Armory.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Scenes\Combat.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Scenes\Exploration.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Sprites\forest_tiles.png" />
-    <Image Include="..\Sprites\GoblinSpriteMap.png" />
-    <Image Include="..\Sprites\MainGuySpriteSheet.png" />
-    <Image Include="..\Sprites\Selector.png" />
-    <Image Include="..\Sprites\ShopHelp.png" />
+    <None Include="..\..\bin\Dork 2.ini" />
+    <None Include="..\..\bin\Entities.ini" />
+    <None Include="..\..\bin\GenericEntity.ini" />
+    <None Include="..\..\bin\Ghost.ini" />
+    <None Include="..\..\bin\Ghoul.ini" />
+    <None Include="..\..\bin\Goblin.ini" />
+    <None Include="..\..\bin\Imp.ini" />
+    <None Include="..\..\bin\Main.ini" />
+    <None Include="..\..\bin\Map1.ini" />
+    <None Include="..\..\bin\Ogre.ini" />
+    <None Include="..\..\bin\Orc.ini" />
+    <None Include="..\..\bin\Player.ini" />
+    <None Include="..\..\bin\Troll.ini" />
+    <None Include="Music\Background.ogg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Music\Background.ogg" />
+    <Library Include="lib\orx.lib" />
+    <Library Include="lib\orxd.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="..\Music\kaching.wav" />
+    <Media Include="Music\kaching.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\lib\orx.lib" />
+    <Image Include="Sprites\forest_tiles.png" />
+    <Image Include="Sprites\GoblinSpriteMap.png" />
+    <Image Include="Sprites\MainGuySpriteSheet.png" />
+    <Image Include="Sprites\Selector.png" />
+    <Image Include="Sprites\ShopHelp.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
