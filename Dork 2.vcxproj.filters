@@ -63,6 +63,12 @@
     <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\StatViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\Purchasing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Dork 2\App\StandAlone.h">
@@ -334,6 +340,12 @@
     </ClInclude>
     <ClInclude Include="..\..\inc\render\orxViewport.h">
       <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Dork 2\Scenes\StatViewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dork 2\Scenes\Purchasing.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

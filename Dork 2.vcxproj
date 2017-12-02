@@ -92,7 +92,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\bin\</OutDir>
+    <OutDir>Build/</OutDir>
     <IntDir>obj\x64\Debug\</IntDir>
     <TargetName>Dork 2d</TargetName>
     <TargetExt>.exe</TargetExt>
@@ -471,6 +471,8 @@
     <ClInclude Include="..\..\inc\utils\orxLinkList.h" />
     <ClInclude Include="..\..\inc\utils\orxString.h" />
     <ClInclude Include="..\..\inc\utils\orxTree.h" />
+    <ClInclude Include="Dork 2\Scenes\Purchasing.h" />
+    <ClInclude Include="Dork 2\Scenes\StatViewer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Dork 2\App\Main.cpp">
@@ -495,6 +497,8 @@
     </ClCompile>
     <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
     </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\Purchasing.cpp" />
+    <ClCompile Include="Dork 2\Scenes\StatViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\bin\Dork 2.ini" />

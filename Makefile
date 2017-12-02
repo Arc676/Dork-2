@@ -9,10 +9,10 @@ LIB=-l orx
 OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o
 
 dork2: $(OBJS)
-	$(CC) $(LD) $(OBJS) $(LIB) -o linux/Dork\ 2
-	cp -u Music/* linux
-	cp -u Sprites/* linux
-	cp -u bin/*.ini linux
+	$(CC) $(LD) $(OBJS) $(LIB) -o Build/Dork\ 2
+	cp -u Music/* Build
+	cp -u Sprites/* Build
+	cp -u bin/*.ini Build
 
 Enemy.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Entities/Enemy.cpp
@@ -48,4 +48,4 @@ StandAlone.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/App/StandAlone.cpp
 
 clean:
-	rm linux/Dork\ 2 *.o
+	rm Build/Dork\ 2 *.o
