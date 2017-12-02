@@ -28,21 +28,16 @@
  * @author iarwain@orx-project.org
  *
  * @todo
- * - Add optimized string handling (using CRC + hash)
  * - Add multi animation interpreter (for blends, transitions, etc...)
  * - Add fixed point decimals
  * - Add Matrix module
- * - Update camera to use matrix
- * - Update camera to use 3D-like computation
- * - Add scripting integration
+ * - Update camera to use 3D matrix
  * - Add network :)
- * - Add waypoint/way system
- * - Restore generic pathfinder module
  */
 
 /**
  * @addtogroup Orx
- * 
+ *
  * Local include file
  *
  * @{

@@ -60,7 +60,6 @@ typedef enum __orxCONFIG_EVENT_t
 {
   orxCONFIG_EVENT_RELOAD_START = 0,                     /**< Event sent when reloading config starts */
   orxCONFIG_EVENT_RELOAD_STOP,                          /**< Event sent when reloading config stops */
-  orxCONFIG_EVENT_INVALID_TYPE_ACCESS,                  /**< Event sent when accessing a value with an invalid type getter */
 
   orxCONFIG_EVENT_NUMBER,
 
@@ -282,11 +281,17 @@ extern orxDLLAPI orxBOOL orxFASTCALL          orxConfig_IsInheritedValue(const o
  */
 extern orxDLLAPI orxBOOL orxFASTCALL          orxConfig_IsRandomValue(const orxSTRING _zKey);
 
-/** Is this value dynamic? (ie. random and/or a list)
+/** Is this value dynamic? (ie. random and/or a list or command)
  * @param[in] _zKey             Key name
  * @return orxTRUE / orxFALSE
  */
 extern orxDLLAPI orxBOOL orxFASTCALL          orxConfig_IsDynamicValue(const orxSTRING _zKey);
+
+/** Is this a command value? (ie. lazily evaluated command: %...)
+* @param[in] _zKey             Key name
+* @return orxTRUE / orxFALSE
+*/
+extern orxDLLAPI orxBOOL orxFASTCALL          orxConfig_IsCommandValue(const orxSTRING _zKey);
 
 /** Has specified value for the given key?
  * @param[in] _zKey             Key name

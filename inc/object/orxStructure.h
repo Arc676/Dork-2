@@ -174,7 +174,7 @@ typedef struct __orxSTRUCTURE_t
     orxTREE_NODE      stTreeNode;     /**< Tree node : 36/56 */
   } stStorage;                        /**< Storage node union : 36/56 */
 
-  orxU32              u32Flags;       /**< Flags : 40/60 */
+  orxU32              u32Flags;       /**< Flags : 40/64 */
 
 } orxSTRUCTURE;
 
@@ -381,6 +381,12 @@ extern orxDLLAPI orxSTRUCTURE *orxFASTCALL              orxStructure_GetNext(con
  * @return      orxSTATUS_SUCCESS / orxSTATUS_FAILURE
  */
 extern orxDLLAPI orxSTATUS orxFASTCALL                  orxStructure_SetParent(void *_pStructure, void *_phParent);
+
+
+/** Logs all user-generated active structures
+ * @return      orxSTATUS_SUCCESS / orxSTATUS_FAILURE
+ */
+extern orxDLLAPI orxSTATUS orxFASTCALL                  orxStructure_LogAll();
 
 
 /** *** Inlined structure accessors *** */
