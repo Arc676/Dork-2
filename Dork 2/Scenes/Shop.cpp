@@ -36,7 +36,7 @@ orxBOOL Shop::makePurchase() {
 	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
 	if (player->getGold() >= quantity * potion->getPrice()) {
 		player->transaction(-quantity * potion->getPrice());
-		player->getPotions()[currentSelection] += quantity;
+		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
 		return orxTRUE;
 	}

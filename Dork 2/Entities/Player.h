@@ -35,8 +35,11 @@ public:
 	Player(orxSTRING, EntityType);
 	virtual orxSTRING getName();
 
-	std::vector<int> getPotions();
-	std::vector<bool> getWeapons();
+	int amountOfPotionOwned(PotionType);
+	void changePotionAmount(PotionType, int);
+
+	bool ownsWeapon(WeaponType);
+	void setWeaponOwnership(WeaponType, bool);
 
 	void defeat(Enemy*);
 

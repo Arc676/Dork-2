@@ -34,9 +34,9 @@ Armory::Armory(Player* player) {
 
 orxBOOL Armory::makePurchase() {
 	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
-	if (player->getGold() >= weapon->getPrice() && !player->getWeapons()[currentSelection]) {
+	if (player->getGold() >= weapon->getPrice() && !player->ownsWeapon((WeaponType)currentSelection)) {
 		player->transaction(-weapon->getPrice());
-		player->getWeapons()[currentSelection] = true;
+		player->setWeaponOwnership((WeaponType)currentSelection, true);
 		return orxTRUE;
 	}
 	return orxFALSE;

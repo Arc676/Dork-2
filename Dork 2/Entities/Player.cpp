@@ -42,12 +42,20 @@ orxSTRING Player::getName() {
 	return name;
 }
 
-std::vector<int> Player::getPotions() {
-	return ownedPotions;
+int Player::amountOfPotionOwned(PotionType type) {
+	return ownedPotions[type];
 }
 
-std::vector<bool> Player::getWeapons() {
-	return ownedWeapons;
+void Player::changePotionAmount(PotionType type, int delta) {
+	ownedPotions[type] += delta;
+}
+
+bool Player::ownsWeapon(WeaponType type) {
+	return ownedWeapons[type];
+}
+
+void Player::setWeaponOwnership(WeaponType type, bool owns) {
+	ownedWeapons[type] = owns;
 }
 
 void Player::defeat(Enemy* enemy) {
