@@ -42,6 +42,12 @@ void Exploration::spawnEnemy() {
 		orxMath_GetRandomFloat(310, 510),
 		0
 	};
+	if (orxMath_GetRandomS32(0, 99) < 50) {
+		ds.fX *= -1;
+	}
+	if (orxMath_GetRandomS32(0, 99) < 50) {
+		ds.fY *= -1;
+	}
 	orxVECTOR pos;
 	orxVECTOR ppos = player->getPosition();
 	orxVector_Add(&pos, &ppos, &ds);
