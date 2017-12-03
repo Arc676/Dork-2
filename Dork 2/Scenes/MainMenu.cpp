@@ -37,13 +37,25 @@ SceneType MainMenu::getSceneType() {
 SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	if (currentSelection == 0) {
 		orxKEYBOARD_KEY keyPressed = orxKeyboard_ReadKey();
-		if (keyPressed == orxKEYBOARD_KEY_BACKSPACE && cursorPos > 0) {
-			name[cursorPos--] = 0;
-		} else if (keyPressed != orxKEYBOARD_KEY_NONE && cursorPos < NAMELENGTH) {
-			const orxSTRING character = orxKeyboard_GetKeyName(keyPressed);
-			orxU32 c = orxString_GetFirstCharacterCodePoint(character, orxNULL);
-			if (orxString_IsCharacterAlphaNumeric(c)) {
-				name[cursorPos++] = c;
+		if (keyPressed != orxKEYBOARD_KEY_NONE) {
+			if (keyPressed == orxKEYBOARD_KEY_BACKSPACE) {
+				if (cursorPos > 0) {
+					name[--cursorPos] = 0;
+					orxObject_SetTextString(nameField, name);
+				}
+			} else {
+				if (cursorPos < NAMELENGTH) {
+					const orxSTRING character = orxKeyboard_ReadString();
+					orxU32 c = orxString_GetFirstCharacterCodePoint(character, orxNULL);
+					if (orxString_IsCharacterAlphaNumeric(c)) {
+						name[cursorPos++] = c;
+						orxObject_SetTextString(nameField, name);
+					}
+				}
+			}
+			orxKeyboard_ClearBuffer();
+			if (keyPressed < orxKEYBOARD_KEY_UP || keyPressed > orxKEYBOARD_KEY_LEFT) {
+				return MAIN_MENU;
 			}
 		}
 	}
