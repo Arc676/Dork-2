@@ -25,6 +25,11 @@
 Exploration::Exploration(Player* player, orxCAMERA* camera) : camera(camera) {
 	loadPlayerData(player);
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
+
+	pauseSelector = orxObject_CreateFromConfig("Selector");
+	orxVECTOR pos = {-50, 0, 0};
+	orxObject_SetPosition(pauseSelector, &pos);
+	orxObject_Enable(pauseSelector, orxFALSE);
 }
 
 void Exploration::activate() {
@@ -34,6 +39,14 @@ void Exploration::activate() {
 
 void Exploration::deactivate() {
 	orxSound_Pause(music);
+}
+
+void Exploration::toggleMusic() {
+	if (orxSound_GetStatus(music) == orxSOUND_STATUS_PLAY) {
+		orxSound_Pause(music);
+	} else {
+		orxSound_Play(music);
+	}
 }
 
 void Exploration::spawnEnemy() {
@@ -63,6 +76,41 @@ void Exploration::spawnEnemy() {
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
+	if (getKeyDown((orxSTRING)"Pause")) {
+		paused = !paused;
+		orxObject_Enable(pauseSelector, paused);
+	}
+	if (paused) {
+		orxVECTOR pos;
+		orxObject_GetPosition(pauseSelector, &pos);
+		if (getKeyDown((orxSTRING)"GoDown") && pauseMenuSelection < 2) {
+			pauseMenuSelection++;
+			pos.fY += 60;
+		} else if (Scene::getKeyDown((orxSTRING)"GoUp") && pauseMenuSelection > 0) {
+			pauseMenuSelection--;
+			pos.fY -= 60;
+		} else if (Scene::getKeyDown((orxSTRING)"Enter")) {
+			switch (pauseMenuSelection) {
+				case 0:
+					if (player->write() == orxSTATUS_SUCCESS) {
+						pauseMenuSelection = 2;
+						pos.fY = 120;
+					}
+					break;
+				case 1:
+					toggleMusic();
+					break;
+				case 2:
+					orxObject_Enable(pauseSelector, orxFALSE);
+					paused = orxFALSE;
+					break;
+				default:
+					break;
+			}
+		}
+		orxObject_SetPosition(pauseSelector, &pos);
+		return EXPLORATION;
+	}
 	orxFLOAT delta = clockInfo->fDT;
 	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
 	for (

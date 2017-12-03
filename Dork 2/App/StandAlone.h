@@ -55,10 +55,6 @@ protected:
 private:
 	static StandAlone* m_Instance;
 
-	static orxBOOL paused;
-	static orxOBJECT* pauseSelector;
-	static int pauseMenuSelection;
-
 	static Player* player;
 
 	static Scene* currentScene;
