@@ -1,8 +1,8 @@
 //
-//  Enums.h
+//  MainMenu.h
 //  Dork 2
 //
-//  Created by Alessandro Vinciguerra on 20/11/2017.
+//  Created by Alessandro Vinciguerra on 03/12/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
@@ -19,55 +19,29 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Enums_h
-#define Enums_h
+#ifndef MainMenu_h
+#define MainMenu_h
 
-#define WEAPONCOUNT 7
-enum WeaponType {
-	SWORD,
-	CLUB,
-	SCYTHE,
-	SICKLE,
-	DAGGER,
-	AXE,
-	LANCE,
-	NOWEAPON
-};
+#include "Scene.h"
 
-enum EntityType {
-	MAGIC,
-	RANGE,
-	MELEE,
-	SPEED,
-	NOTYPE
-};
+#define NAMELENGTH 30
 
-#define POTIONCOUNT 8
-enum PotionType {
-	QUICKHEAL_2,
-	QUICKHEAL_5,
-	QUICKHEAL_10,
-	QUICKHEAL_20,
-	QUICKHEAL_50,
+class MainMenu : public Scene {
+	int currentSelection = 0;
+	orxOBJECT* selector;
 
-	SPEEDBOOST,
-	STRBOOST,
-	DEFBOOST,
-};
+	orxOBJECT* nameField;
+	char name[NAMELENGTH];
+	int cursorPos = 0;
 
-enum SceneType {
-	MAIN_MENU,
-	EXPLORATION,
-	COMBAT,
-	SHOP,
-	ARMORY
-};
+	orxOBJECT* typeField;
+	EntityType chosenType;
+public:
+	virtual void activate();
+	virtual void deactivate();
 
-enum Move {
-	ATTACK,
-	SPECIAL_MOVE,
-	RUN,
-	USE_ITEM
+	virtual SceneType update(const orxCLOCK_INFO*);
+	virtual SceneType getSceneType();
 };
 
 #endif
