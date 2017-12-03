@@ -31,6 +31,8 @@ class Player : public Entity {
 	std::vector<int> ownedPotions;
 	std::vector<bool> ownedWeapons;
 	orxSTRING name;
+
+	static orxBOOL sectionFilter(const orxSTRING, const orxSTRING, const orxSTRING, orxBOOL);
 public:
 	Player(orxSTRING, EntityType);
 	virtual orxSTRING getName();
@@ -44,6 +46,9 @@ public:
 	void defeat(Enemy*);
 
 	void update(bool, bool, bool, bool, float);
+
+	orxSTATUS read(orxSTRING);
+	orxSTATUS write(orxSTRING);
 };
 
 #endif

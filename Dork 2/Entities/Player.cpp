@@ -100,3 +100,69 @@ void Player::update(bool up, bool down, bool left, bool right, float dt) {
 	}
 	orxObject_SetPosition(entity, &position);
 }
+
+orxSTATUS Player::read(orxSTRING filename) {
+	if (!orxConfig_HasSection("PlayerData")) {
+		orxConfig_Load(orxFile_GetApplicationSaveDirectory(filename));
+	}
+	if (orxConfig_HasSection("PlayerData") && orxConfig_PushSection("PlayerData")) {
+		motionSpeed = orxConfig_GetU32("MotionSpeed");
+		HP = orxConfig_GetU32("HP");
+		speed = orxConfig_GetU32("Speed");
+		strength = orxConfig_GetU32("Str");
+		defense = orxConfig_GetU32("Def");
+		weapon = Weapon::copyOf((WeaponType)orxConfig_GetU32("Weapon"));
+		gold = orxConfig_GetU32("Gold");
+		level = orxConfig_GetFloat("Level");
+		type = (EntityType)orxConfig_GetU32("Type");
+		name = (orxSTRING)orxConfig_GetString("Name");
+
+		ownedPotions = std::vector<int>(POTIONCOUNT);
+		for (int i = 0; i < POTIONCOUNT; i++) {
+			ownedPotions[i] = orxConfig_GetListU32("OwnedPotions", i);
+		}
+		ownedWeapons = std::vector<bool>(WEAPONCOUNT);
+		for (int i = 0; i < WEAPONCOUNT; i++) {
+			ownedWeapons[i] = orxConfig_GetListBool("OwnedWeapons", i);
+		}
+		return orxSTATUS_SUCCESS;
+	}
+	return orxSTATUS_FAILURE;
+}
+
+orxSTATUS Player::write(orxSTRING filename) {
+	if (orxConfig_PushSection("PlayerData")) {
+		orxConfig_SetU32("MotionSpeed", motionSpeed);
+		orxConfig_SetU32("HP", HP);
+		orxConfig_SetU32("Speed", speed);
+		orxConfig_SetU32("Str", strength);
+		orxConfig_SetU32("Def", defense);
+		orxConfig_SetU32("Weapon", weapon->getType());
+		orxConfig_SetU32("Gold", gold);
+		orxConfig_SetFloat("Level", level);
+		orxConfig_SetString("Name", name);
+
+		const orxSTRING potions[POTIONCOUNT];
+		for (int i = 0; i < POTIONCOUNT; i++) {
+			orxCHAR str[5];
+			orxString_Print(str, "%d", ownedPotions[i]);
+			potions[i] = str;
+		}
+		orxConfig_SetListString("OwnedPotions", potions, POTIONCOUNT);
+
+		const orxSTRING weapons[WEAPONCOUNT];
+		for (int i = 0; i < WEAPONCOUNT; i++) {
+			weapons[i] = ownedWeapons[i] ? (orxSTRING)"1" : (orxSTRING)"0";
+		}
+		orxConfig_SetListString("OwnedWeapons", weapons, WEAPONCOUNT);
+
+		orxConfig_PopSection();
+		orxLOG(orxFile_GetApplicationSaveDirectory(filename));
+		return orxConfig_Save(orxFile_GetApplicationSaveDirectory(filename), orxFALSE, sectionFilter);
+	}
+	return orxSTATUS_FAILURE;
+}
+
+orxBOOL Player::sectionFilter(const orxSTRING _zSectionName, const orxSTRING _zKeyName, const orxSTRING _zFileName, orxBOOL _bUseEncryption) {
+	return orxString_Compare(_zSectionName, "PlayerData") == 0;
+}
