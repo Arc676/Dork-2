@@ -26,7 +26,7 @@ Move Combat::moves[2][2] = {
 	{USE_ITEM, RUN}
 };
 
-Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
+Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
 	orxVECTOR pos = {-1400, 500, 0};
@@ -35,6 +35,9 @@ Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 	playerStats = new StatViewer(player, {-1400, 300, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
+
+	orxVECTOR ppos = {-1150.0, 400.0, -1.0};
+	orxObject_SetPosition(pauseSelector, &ppos);
 }
 
 void Combat::activate() {
@@ -101,6 +104,10 @@ SceneType Combat::makeMove(Move move) {
 }
 
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
+	Scene::update(clockInfo);
+	if (paused) {
+		return COMBAT;
+	}
 	orxVECTOR pos;
 	orxBOOL selChanged = orxTRUE;
 	orxObject_GetPosition(selector, &pos);

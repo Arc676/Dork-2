@@ -31,6 +31,7 @@ class Scene {
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
+	orxBOOL canSave = orxFALSE;
 
 	static orxBOOL playMusic;
 	orxSOUND* music;
@@ -42,6 +43,8 @@ protected:
 	int pauseMenuSelection = 0;
 
 	void toggleMusic();
+
+	Scene();
 public:
 	void loadPlayerData(Player*);
 	Player* getPlayerData();

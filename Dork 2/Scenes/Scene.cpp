@@ -21,6 +21,11 @@
 
 #include "Scene.h"
 
+Scene::Scene() {
+	pauseSelector = orxObject_CreateFromConfig("Selector");
+	orxObject_Enable(pauseSelector, orxFALSE);
+}
+
 orxBOOL Scene::playMusic = orxTRUE;
 
 orxBOOL Scene::getKeyDown(orxSTRING key) {
@@ -83,7 +88,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 		} else if (Scene::getKeyDown((orxSTRING)"Enter")) {
 			switch (pauseMenuSelection) {
 				case 0:
-					if (player->write() == orxSTATUS_SUCCESS) {
+					if (canSave && player->write() == orxSTATUS_SUCCESS) {
 						pauseMenuSelection = 2;
 						pos.fY = 120;
 					}

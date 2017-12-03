@@ -34,6 +34,8 @@ protected:
 	virtual orxBOOL makePurchase() = 0;
 
 	StatViewer* statViewer;
+
+	Purchasing();
 public:
 	virtual void activate();
 

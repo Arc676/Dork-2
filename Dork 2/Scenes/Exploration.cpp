@@ -22,14 +22,13 @@
 #include "Exploration.h"
 #include "Combat.h"
 
-Exploration::Exploration(Player* player, orxCAMERA* camera) : camera(camera) {
+Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(camera) {
 	loadPlayerData(player);
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
+	canSave = orxTRUE;
 
-	pauseSelector = orxObject_CreateFromConfig("Selector");
 	orxVECTOR pos = {-50, 0, 0};
 	orxObject_SetPosition(pauseSelector, &pos);
-	orxObject_Enable(pauseSelector, orxFALSE);
 }
 
 void Exploration::activate() {

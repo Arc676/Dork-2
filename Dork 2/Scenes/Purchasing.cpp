@@ -21,6 +21,8 @@
 
 #include "Purchasing.h"
 
+Purchasing::Purchasing() : Scene() {}
+
 void Purchasing::activate() {
 	statViewer->reloadData();
 	orxObject_SetPosition(selectorArrow, &defaultPos);

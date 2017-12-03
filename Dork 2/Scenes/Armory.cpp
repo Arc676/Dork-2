@@ -21,7 +21,7 @@
 
 #include "Armory.h"
 
-Armory::Armory(Player* player) {
+Armory::Armory(Player* player) : Purchasing() {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
 	defaultPos = {-1300, 750, 0};
@@ -30,6 +30,9 @@ Armory::Armory(Player* player) {
 
 	statViewer = new StatViewer(player, {-1590, 1000, 0});
 	selectionLimit = WEAPONCOUNT;
+
+	orxVECTOR pos = {-1150, 1000, -1.0};
+	orxObject_SetPosition(pauseSelector, &pos);
 }
 
 orxBOOL Armory::makePurchase() {

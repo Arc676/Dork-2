@@ -21,7 +21,7 @@
 
 #include "Shop.h"
 
-Shop::Shop(Player* player) {
+Shop::Shop(Player* player) : Purchasing() {
 	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
 	defaultPos = {-1300, -650, 0};
@@ -30,6 +30,9 @@ Shop::Shop(Player* player) {
 
 	statViewer = new StatViewer(player, {-1590, -400, 0});
 	selectionLimit = POTIONCOUNT;
+
+	orxVECTOR pos = {-1100, -400.0, -1.0};
+	orxObject_SetPosition(pauseSelector, &pos);
 }
 
 orxBOOL Shop::makePurchase() {
@@ -44,6 +47,10 @@ orxBOOL Shop::makePurchase() {
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
+	Scene::update(clockInfo);
+	if (paused) {
+		return SHOP;
+	}
 	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
 		quantity--;
 	} else if (getKeyDown((orxSTRING)"GoRight")) {
