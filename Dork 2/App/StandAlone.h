@@ -24,6 +24,7 @@
 
 #include "orx.h"
 
+#include "MainMenu.h"
 #include "Exploration.h"
 #include "Combat.h"
 #include "Shop.h"
@@ -60,8 +61,12 @@ private:
 	static orxVIEWPORT* currentViewport;
 	static orxCAMERA* currentCamera;
 
-	static orxVIEWPORT* mainViewport;
-	static orxCAMERA* camera;
+	static orxVIEWPORT* mainMenuViewport;
+	static orxCAMERA* mainMenuCamera;
+	static MainMenu* mainMenuScene;
+
+	static orxVIEWPORT* explorationViewport;
+	static orxCAMERA* explorationCamera;
 	static Exploration* explorationScene;
 
 	static orxVIEWPORT* combatViewport;

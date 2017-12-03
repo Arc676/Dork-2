@@ -24,6 +24,10 @@
 void MainMenu::activate() {}
 void MainMenu::deactivate() {}
 
+MainMenu::MainMenu() {
+	//
+}
+
 SceneType MainMenu::getSceneType() {
 	return MAIN_MENU;
 }

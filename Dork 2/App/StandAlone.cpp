@@ -27,8 +27,12 @@ Scene* StandAlone::currentScene = orxNULL;
 orxVIEWPORT* StandAlone::currentViewport = orxNULL;
 orxCAMERA* StandAlone::currentCamera = orxNULL;
 
-orxVIEWPORT* StandAlone::mainViewport = orxNULL;
-orxCAMERA* StandAlone::camera = orxNULL;
+orxVIEWPORT* StandAlone::mainMenuViewport = orxNULL;
+orxCAMERA* StandAlone::mainMenuCamera = orxNULL;
+MainMenu* StandAlone::mainMenuScene = orxNULL;
+
+orxVIEWPORT* StandAlone::explorationViewport = orxNULL;
+orxCAMERA* StandAlone::explorationCamera = orxNULL;
 Exploration* StandAlone::explorationScene = orxNULL;
 
 orxVIEWPORT* StandAlone::combatViewport = orxNULL;
@@ -103,8 +107,8 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 }
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
-	mainViewport = orxViewport_CreateFromConfig("Viewport");
-	camera = orxViewport_GetCamera(mainViewport);
+	explorationViewport = orxViewport_CreateFromConfig("Viewport");
+	explorationCamera = orxViewport_GetCamera(explorationViewport);
 
 	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
 	combatCam = orxViewport_GetCamera(combatViewport);
@@ -124,14 +128,14 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Colliders");
 	paintTiles("Shrubs");
 
-	player = new Player((orxSTRING)"Bob", MAGIC);
+	player = new Player((orxSTRING)"PlaceholderPlayer", MAGIC);
 
-	currentViewport = mainViewport;
-	currentCamera = camera;
-	explorationScene = new Exploration(player, camera);
+	currentViewport = explorationViewport;
+	currentCamera = explorationCamera;
 	currentScene = explorationScene;
 	currentScene->activate();
 
+	explorationScene = new Exploration(player, explorationCamera);
 	shopScene = new Shop(player);
 	armoryScene = new Armory(player);
 
@@ -158,8 +162,8 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		currentScene->deactivate();
 		switch (nextScene) {
 			case EXPLORATION:
-				currentViewport = mainViewport;
-				currentCamera = camera;
+				currentViewport = explorationViewport;
+				currentCamera = explorationCamera;
 				explorationScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = explorationScene;
 				break;
@@ -184,6 +188,9 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				currentCamera = armoryCam;
 				armoryScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = armoryScene;
+				break;
+
+			case MAIN_MENU:
 				break;
 		}
 		orxViewport_Enable(currentViewport, orxTRUE);

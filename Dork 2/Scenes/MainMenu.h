@@ -37,6 +37,8 @@ class MainMenu : public Scene {
 	orxOBJECT* typeField;
 	EntityType chosenType;
 public:
+	MainMenu();
+	
 	virtual void activate();
 	virtual void deactivate();
 
