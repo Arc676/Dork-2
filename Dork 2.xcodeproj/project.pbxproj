@@ -39,6 +39,7 @@
 		7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD501FD3B93B0015482A /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD531FD3BBEE0015482A /* Arrows.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD521FD3BBEE0015482A /* MMSelector.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7159CD571FD411C30015482A /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD561FD411C30015482A /* Scene.cpp */; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 		71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F141FC7A56900EBD228 /* Exploration.cpp */; };
@@ -110,6 +111,7 @@
 		7159CD501FD3B93B0015482A /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
 		7159CD521FD3BBEE0015482A /* MMSelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MMSelector.png; sourceTree = "<group>"; };
 		7159CD531FD3BBEE0015482A /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
+		7159CD561FD411C30015482A /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		715FF5D41FBEDE44005B1ED4 /* Dork 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dork 2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StandAlone.cpp; sourceTree = "<group>"; };
 		715FF6451FBEDFBE005B1ED4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				71620F121FC7A51F00EBD228 /* Scene.h */,
+				7159CD561FD411C30015482A /* Scene.cpp */,
 				7159CD4E1FD3B0BD0015482A /* MainMenu.h */,
 				7159CD4D1FD3B0BD0015482A /* MainMenu.cpp */,
 				71620F151FC7A56900EBD228 /* Exploration.h */,
@@ -701,6 +704,7 @@
 				716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */,
 				71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */,
 				71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */,
+				7159CD571FD411C30015482A /* Scene.cpp in Sources */,
 				71F208361FC3FA190001AB3F /* Player.cpp in Sources */,
 				715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */,
 				7159CD4F1FD3B0BD0015482A /* MainMenu.cpp in Sources */,

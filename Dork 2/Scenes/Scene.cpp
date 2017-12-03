@@ -1,8 +1,8 @@
 //
-//  Scene.h
+//  Scene.cpp
 //  Dork 2
 //
-//  Created by Alessandro Vinciguerra on 24/11/2017.
+//  Created by Alessandro Vinciguerra on 03/12/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017 Arc676/Alessandro Vinciguerra
 
@@ -19,34 +19,26 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //See README and LICENSE for more details
 
-#ifndef Scene_h
-#define Scene_h
+#include "Scene.h"
 
-#include "orx.h"
+orxBOOL Scene::playMusic = orxTRUE;
 
-#include "Enums.h"
-#include "Player.h"
+orxBOOL Scene::getKeyDown(orxSTRING key) {
+	return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
+}
 
-class Scene {
-protected:
-	Scene* nextScene = orxNULL;
-	Player* player = orxNULL;
+void Scene::loadPlayerData(Player* player) {
+	this->player = player;
+}
 
-	static orxBOOL playMusic;
+Player* Scene::getPlayerData() {
+	return player;
+}
 
-	static orxBOOL getKeyDown(orxSTRING);
-public:
-	void loadPlayerData(Player*);
-	Player* getPlayerData();
+Scene* Scene::getNextScene() {
+	return nextScene;
+}
 
-	virtual void activate() = 0;
-	virtual void deactivate() = 0;
-	
-	virtual SceneType update(const orxCLOCK_INFO*) = 0;
-	virtual SceneType getSceneType() = 0;
-	Scene* getNextScene();
-
-	virtual orxSTATUS EventHandler(const orxEVENT*);
-};
-
-#endif
+orxSTATUS Scene::EventHandler(const orxEVENT*) {
+	return orxSTATUS_SUCCESS;
+}
