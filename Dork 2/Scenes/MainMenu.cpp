@@ -26,8 +26,12 @@ void MainMenu::deactivate() {}
 
 MainMenu::MainMenu() {
 	nameField = orxObject_CreateFromConfig("MMNameField");
+	typeField = orxObject_CreateFromConfig("MMTypeField");
 	selector = orxObject_CreateFromConfig("MMSelector");
 	lrArrows = orxObject_CreateFromConfig("MMArrows");
+	for (int i = 0; i < NAMELENGTH; i++) {
+		name[i] = 0;
+	}
 }
 
 SceneType MainMenu::getSceneType() {
@@ -67,10 +71,10 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
 		currentSelection--;
 		pos.fY -= 60;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && chosenType > 0) {
+	} else if (getKeyDown((orxSTRING)"GoLeft") && chosenType > 0 && currentSelection == 1) {
 		chosenType = (EntityType)(chosenType - 1);
 		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
-	} else if (getKeyDown((orxSTRING)"GoRight") && chosenType < NOTYPE) {
+	} else if (getKeyDown((orxSTRING)"GoRight") && chosenType < NOTYPE - 1 && currentSelection == 1) {
 		chosenType = (EntityType)(chosenType + 1);
 		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	} else if (getKeyDown((orxSTRING)"Enter")) {

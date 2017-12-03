@@ -132,17 +132,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Colliders");
 	paintTiles("Shrubs");
 
-	player = new Player((orxSTRING)"PlaceholderPlayer", MAGIC);
-
 	currentViewport = mainMenuViewport;
 	currentCamera = mainMenuCamera;
 	mainMenuScene = new MainMenu();
 	currentScene = mainMenuScene;
 	currentScene->activate();
-
-	explorationScene = new Exploration(player, explorationCamera);
-	shopScene = new Shop(player);
-	armoryScene = new Armory(player);
 
 	orxCLOCK* upClock = orxClock_FindFirst(-1.0f, orxCLOCK_TYPE_CORE);
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);
@@ -163,6 +157,12 @@ void orxFASTCALL StandAlone::Exit() {
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
 	SceneType nextScene = currentScene->update(clockInfo);
 	if (nextScene != currentScene->getSceneType()) {
+		if (currentScene->getSceneType() == MAIN_MENU) {
+			player = currentScene->getPlayerData();
+			explorationScene = new Exploration(player, explorationCamera);
+			shopScene = new Shop(player);
+			armoryScene = new Armory(player);
+		}
 		orxViewport_Enable(currentViewport, orxFALSE);
 		currentScene->deactivate();
 		switch (nextScene) {

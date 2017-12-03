@@ -36,7 +36,7 @@ class MainMenu : public Scene {
 	int cursorPos = 0;
 
 	orxOBJECT* typeField;
-	EntityType chosenType;
+	EntityType chosenType = MAGIC;
 public:
 	MainMenu();
 	
