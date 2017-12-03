@@ -44,7 +44,7 @@ Potion* Potion::getCopyOf(PotionType type) {
 		case QUICKHEAL_50:
 			return quickheal50->copy();
 		default:
-			return nullptr;
+			return orxNULL;
 	}
 }
 

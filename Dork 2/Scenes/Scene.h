@@ -30,7 +30,7 @@
 class Scene {
 protected:
 	Scene* nextScene = orxNULL;
-	Player* player;
+	Player* player = orxNULL;
 
 	orxBOOL getKeyDown(orxSTRING key) {
 		return orxInput_IsActive(key) && orxInput_HasNewStatus(key);

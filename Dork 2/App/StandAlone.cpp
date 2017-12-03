@@ -21,31 +21,31 @@
 
 #include "StandAlone.h"
 
-StandAlone* StandAlone::m_Instance = nullptr;
+StandAlone* StandAlone::m_Instance = orxNULL;
 
-Scene* StandAlone::currentScene = nullptr;
-orxVIEWPORT* StandAlone::currentViewport = nullptr;
-orxCAMERA* StandAlone::currentCamera = nullptr;
+Scene* StandAlone::currentScene = orxNULL;
+orxVIEWPORT* StandAlone::currentViewport = orxNULL;
+orxCAMERA* StandAlone::currentCamera = orxNULL;
 
-orxVIEWPORT* StandAlone::mainViewport = nullptr;
-orxCAMERA* StandAlone::camera = nullptr;
-Exploration* StandAlone::explorationScene = nullptr;
+orxVIEWPORT* StandAlone::mainViewport = orxNULL;
+orxCAMERA* StandAlone::camera = orxNULL;
+Exploration* StandAlone::explorationScene = orxNULL;
 
-orxVIEWPORT* StandAlone::combatViewport = nullptr;
-orxCAMERA* StandAlone::combatCam = nullptr;
+orxVIEWPORT* StandAlone::combatViewport = orxNULL;
+orxCAMERA* StandAlone::combatCam = orxNULL;
 
-orxVIEWPORT* StandAlone::shopViewport = nullptr;
-orxCAMERA* StandAlone::shopCam = nullptr;
-Shop* StandAlone::shopScene = nullptr;
+orxVIEWPORT* StandAlone::shopViewport = orxNULL;
+orxCAMERA* StandAlone::shopCam = orxNULL;
+Shop* StandAlone::shopScene = orxNULL;
 
-orxVIEWPORT* StandAlone::armoryViewport = nullptr;
-orxCAMERA* StandAlone::armoryCam = nullptr;
-Armory* StandAlone::armoryScene = nullptr;
+orxVIEWPORT* StandAlone::armoryViewport = orxNULL;
+orxCAMERA* StandAlone::armoryCam = orxNULL;
+Armory* StandAlone::armoryScene = orxNULL;
 
-Player* StandAlone::player = nullptr;
+Player* StandAlone::player = orxNULL;
 
 StandAlone* StandAlone::Instance() {
-	if (m_Instance != nullptr) {
+	if (m_Instance != orxNULL) {
 		return m_Instance;
 	}
 	m_Instance = new StandAlone();
