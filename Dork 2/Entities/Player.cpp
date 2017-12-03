@@ -103,7 +103,9 @@ void Player::update(bool up, bool down, bool left, bool right, float dt) {
 
 orxSTATUS Player::read(orxSTRING filename) {
 	if (!orxConfig_HasSection("PlayerData")) {
-		orxConfig_Load(orxFile_GetApplicationSaveDirectory(filename));
+		orxCHAR path[30];
+		orxString_Print(path, "Dork2/%s", name);
+		orxConfig_Load(orxFile_GetApplicationSaveDirectory(path));
 	}
 	if (orxConfig_HasSection("PlayerData") && orxConfig_PushSection("PlayerData")) {
 		motionSpeed = orxConfig_GetU32("MotionSpeed");
@@ -130,14 +132,14 @@ orxSTATUS Player::read(orxSTRING filename) {
 	return orxSTATUS_FAILURE;
 }
 
-orxSTATUS Player::write(orxSTRING filename) {
+orxSTATUS Player::write() {
 	if (orxConfig_PushSection("PlayerData")) {
 		orxConfig_SetU32("MotionSpeed", motionSpeed);
 		orxConfig_SetU32("HP", HP);
 		orxConfig_SetU32("Speed", speed);
 		orxConfig_SetU32("Str", strength);
 		orxConfig_SetU32("Def", defense);
-		orxConfig_SetU32("Weapon", weapon->getType());
+		orxConfig_SetU32("Weapon", weapon->getWeaponType());
 		orxConfig_SetU32("Gold", gold);
 		orxConfig_SetFloat("Level", level);
 		orxConfig_SetString("Name", name);
@@ -157,8 +159,9 @@ orxSTATUS Player::write(orxSTRING filename) {
 		orxConfig_SetListString("OwnedWeapons", weapons, WEAPONCOUNT);
 
 		orxConfig_PopSection();
-		orxLOG(orxFile_GetApplicationSaveDirectory(filename));
-		return orxConfig_Save(orxFile_GetApplicationSaveDirectory(filename), orxFALSE, sectionFilter);
+		orxCHAR path[30];
+		orxString_Print(path, "Dork2/%s", name);
+		return orxConfig_Save(orxFile_GetApplicationSaveDirectory(path), orxFALSE, sectionFilter);
 	}
 	return orxSTATUS_FAILURE;
 }

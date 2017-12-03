@@ -78,12 +78,13 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 		chosenType = (EntityType)(chosenType + 1);
 		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	} else if (getKeyDown((orxSTRING)"Enter")) {
-		if (currentSelection == 2) {
-			player = new Player(name, chosenType);
-			return EXPLORATION;
-		} else if (currentSelection == 3) {
-			//
+		player = new Player(name, chosenType);
+		if (currentSelection == 3) {
+			if (player->read(name) != orxSTATUS_SUCCESS) {
+				return MAIN_MENU;
+			}
 		}
+		return EXPLORATION;
 	}
 	orxObject_SetPosition(selector, &pos);
 	orxObject_Enable(lrArrows, currentSelection == 1);

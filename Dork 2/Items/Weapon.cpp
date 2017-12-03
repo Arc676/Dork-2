@@ -136,6 +136,10 @@ int Weapon::getPrice() {
 	return price;
 }
 
+WeaponType Weapon::getWeaponType() {
+	return weapon;
+}
+
 EntityType Weapon::getType() {
 	return Weapon::getTypeForWeapon(weapon);
 }

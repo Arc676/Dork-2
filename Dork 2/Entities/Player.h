@@ -48,7 +48,7 @@ public:
 	void update(bool, bool, bool, bool, float);
 
 	orxSTATUS read(orxSTRING);
-	orxSTATUS write(orxSTRING);
+	orxSTATUS write();
 };
 
 #endif

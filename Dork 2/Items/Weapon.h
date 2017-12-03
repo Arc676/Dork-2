@@ -56,6 +56,7 @@ public:
 	double getSpeedMod();
 	int getPrice();
 	EntityType getType();
+	WeaponType getWeaponType();
 };
 
 #endif

@@ -23,8 +23,8 @@
 #define Enums_h
 
 #define WEAPONCOUNT 7
-enum WeaponType {
-	SWORD,
+enum WeaponType : int {
+	SWORD = 0,
 	CLUB,
 	SCYTHE,
 	SICKLE,
