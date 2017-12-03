@@ -57,6 +57,7 @@ private:
 
 	static orxBOOL paused;
 	static orxOBJECT* pauseSelector;
+	static int pauseMenuSelection;
 
 	static Player* player;
 

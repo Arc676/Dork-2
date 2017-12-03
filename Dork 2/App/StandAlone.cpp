@@ -49,6 +49,8 @@ Armory* StandAlone::armoryScene = orxNULL;
 Player* StandAlone::player = orxNULL;
 
 orxBOOL StandAlone::paused = orxFALSE;
+orxOBJECT* StandAlone::pauseSelector = orxNULL;
+int StandAlone::pauseMenuSelection = 0;
 
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != orxNULL) {
@@ -128,6 +130,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	armoryCam = orxViewport_GetCamera(armoryViewport);
 	orxViewport_Enable(armoryViewport, orxFALSE);
 
+	pauseSelector = orxObject_CreateFromConfig("Selector");
+	orxVECTOR pos = {-50, 0, 0};
+	orxObject_SetPosition(pauseSelector, &pos);
+	orxObject_Enable(pauseSelector, orxFALSE);
+
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain");
@@ -157,8 +164,9 @@ void orxFASTCALL StandAlone::Exit() {
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
-	if (Scene::getKeyDown((orxSTRING)"Pause")) {
+	if (Scene::getKeyDown((orxSTRING)"Pause") && currentScene->getSceneType() == EXPLORATION) {
 		paused = !paused;
+		orxObject_Enable(pauseSelector, paused);
 	}
 	if (paused) {
 		return;
