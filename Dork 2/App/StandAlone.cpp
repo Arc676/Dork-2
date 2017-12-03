@@ -48,6 +48,8 @@ Armory* StandAlone::armoryScene = orxNULL;
 
 Player* StandAlone::player = orxNULL;
 
+orxBOOL StandAlone::paused = orxFALSE;
+
 StandAlone* StandAlone::Instance() {
 	if (m_Instance != orxNULL) {
 		return m_Instance;
@@ -155,6 +157,12 @@ void orxFASTCALL StandAlone::Exit() {
 }
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
+	if (Scene::getKeyDown((orxSTRING)"Pause")) {
+		paused = !paused;
+	}
+	if (paused) {
+		return;
+	}
 	SceneType nextScene = currentScene->update(clockInfo);
 	if (nextScene != currentScene->getSceneType()) {
 		if (currentScene->getSceneType() == MAIN_MENU) {

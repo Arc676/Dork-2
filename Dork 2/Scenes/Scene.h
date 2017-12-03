@@ -31,11 +31,11 @@ class Scene {
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
-
-	orxBOOL getKeyDown(orxSTRING key) {
+public:
+	static orxBOOL getKeyDown(orxSTRING key) {
 		return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
 	}
-public:
+
 	void loadPlayerData(Player* player) {
 		this->player = player;
 	};
