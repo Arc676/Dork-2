@@ -36,6 +36,9 @@
 		7159CD4B1FD250D70015482A /* Shops.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD451FD250B70015482A /* Shops.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD4C1FD250DA0015482A /* StatViewer.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD481FD250B80015482A /* StatViewer.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD4F1FD3B0BD0015482A /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD4D1FD3B0BD0015482A /* MainMenu.cpp */; };
+		7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD501FD3B93B0015482A /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD531FD3BBEE0015482A /* Arrows.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD521FD3BBEE0015482A /* MMSelector.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
 		71620F161FC7A56900EBD228 /* Exploration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F141FC7A56900EBD228 /* Exploration.cpp */; };
@@ -65,8 +68,11 @@
 				7159CD421FD24F1E0015482A /* Selector.png in CopyFiles */,
 				7159CD431FD24F1E0015482A /* MainGuySpriteSheet.png in CopyFiles */,
 				7159CD441FD24F1E0015482A /* forest_tiles.png in CopyFiles */,
+				7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */,
+				7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */,
 				7159CD311FD24F0D0015482A /* Dork 2.ini in CopyFiles */,
 				7159CD321FD24F0D0015482A /* Main.ini in CopyFiles */,
+				7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */,
 				7159CD4A1FD250D20015482A /* Exploration.ini in CopyFiles */,
 				7159CD491FD250CF0015482A /* Combat.ini in CopyFiles */,
 				7159CD4B1FD250D70015482A /* Shops.ini in CopyFiles */,
@@ -101,6 +107,9 @@
 		7159CD481FD250B80015482A /* StatViewer.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StatViewer.ini; sourceTree = "<group>"; };
 		7159CD4D1FD3B0BD0015482A /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		7159CD4E1FD3B0BD0015482A /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		7159CD501FD3B93B0015482A /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
+		7159CD521FD3BBEE0015482A /* MMSelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MMSelector.png; sourceTree = "<group>"; };
+		7159CD531FD3BBEE0015482A /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
 		715FF5D41FBEDE44005B1ED4 /* Dork 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dork 2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StandAlone.cpp; sourceTree = "<group>"; };
 		715FF6451FBEDFBE005B1ED4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -516,6 +525,7 @@
 			children = (
 				715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */,
 				715FF6B51FBEE3FF005B1ED4 /* Main.ini */,
+				7159CD501FD3B93B0015482A /* MainMenu.ini */,
 				7159CD471FD250B80015482A /* Exploration.ini */,
 				7159CD461FD250B70015482A /* Combat.ini */,
 				7159CD451FD250B70015482A /* Shops.ini */,
@@ -611,6 +621,8 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				7159CD531FD3BBEE0015482A /* Arrows.png */,
+				7159CD521FD3BBEE0015482A /* MMSelector.png */,
 				7159CD2B1FD24ECF0015482A /* ArmoryHelp.png */,
 				7159CD2C1FD24ED00015482A /* Sword.png */,
 				71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */,

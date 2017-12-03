@@ -25,6 +25,7 @@ void MainMenu::activate() {}
 void MainMenu::deactivate() {}
 
 MainMenu::MainMenu() {
+	nameField = orxObject_CreateFromConfig("MMNameField");
 	selector = orxObject_CreateFromConfig("MMSelector");
 	lrArrows = orxObject_CreateFromConfig("MMArrows");
 }
