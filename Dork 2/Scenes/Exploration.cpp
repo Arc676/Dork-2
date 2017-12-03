@@ -116,6 +116,9 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	camPos.fX = player->getPosition().fX;
 	camPos.fY = player->getPosition().fY;
 	orxCamera_SetPosition(camera, &camPos);
+	camPos.fX -= 50;
+	orxObject_SetPosition(pauseSelector, &camPos);
+	pauseMenuSelection = 0;
 	return nextSceneType;
 }
 

@@ -90,7 +90,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 				case 0:
 					if (canSave && player->write() == orxSTATUS_SUCCESS) {
 						pauseMenuSelection = 2;
-						pos.fY = 120;
+						pos.fY += 120;
 					}
 					break;
 				case 1:

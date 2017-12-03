@@ -34,7 +34,7 @@ protected:
 	orxBOOL canSave = orxFALSE;
 
 	static orxBOOL playMusic;
-	orxSOUND* music;
+	orxSOUND* music = orxNULL;
 
 	static orxBOOL getKeyDown(orxSTRING);
 
