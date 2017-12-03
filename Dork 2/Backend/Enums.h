@@ -34,8 +34,8 @@ enum WeaponType {
 	NOWEAPON
 };
 
-enum EntityType {
-	MAGIC,
+enum EntityType : int {
+	MAGIC = 0,
 	RANGE,
 	MELEE,
 	SPEED,

@@ -25,7 +25,8 @@ void MainMenu::activate() {}
 void MainMenu::deactivate() {}
 
 MainMenu::MainMenu() {
-	//
+	selector = orxObject_CreateFromConfig("MMSelector");
+	lrArrows = orxObject_CreateFromConfig("MMArrows");
 }
 
 SceneType MainMenu::getSceneType() {
@@ -53,6 +54,12 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
 		currentSelection--;
 		pos.fY -= 60;
+	} else if (getKeyDown((orxSTRING)"GoLeft") && chosenType > 0) {
+		chosenType = (EntityType)(chosenType - 1);
+		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
+	} else if (getKeyDown((orxSTRING)"GoRight") && chosenType < NOTYPE) {
+		chosenType = (EntityType)(chosenType + 1);
+		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == 2) {
 			player = new Player(name, chosenType);
@@ -61,5 +68,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 			//
 		}
 	}
+	orxObject_SetPosition(selector, &pos);
+	orxObject_Enable(lrArrows, currentSelection == 1);
 	return MAIN_MENU;
 }

@@ -29,6 +29,7 @@
 class MainMenu : public Scene {
 	int currentSelection = 0;
 	orxOBJECT* selector;
+	orxOBJECT* lrArrows;
 
 	orxOBJECT* nameField;
 	char name[NAMELENGTH];

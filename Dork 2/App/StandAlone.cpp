@@ -107,8 +107,12 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 }
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
+	mainMenuViewport = orxViewport_CreateFromConfig("MainMenuViewport");
+	mainMenuCamera = orxViewport_GetCamera(mainMenuViewport);
+
 	explorationViewport = orxViewport_CreateFromConfig("Viewport");
 	explorationCamera = orxViewport_GetCamera(explorationViewport);
+	orxViewport_Enable(explorationViewport, orxFALSE);
 
 	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
 	combatCam = orxViewport_GetCamera(combatViewport);
@@ -130,9 +134,10 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 
 	player = new Player((orxSTRING)"PlaceholderPlayer", MAGIC);
 
-	currentViewport = explorationViewport;
-	currentCamera = explorationCamera;
-	currentScene = explorationScene;
+	currentViewport = mainMenuViewport;
+	currentCamera = mainMenuCamera;
+	mainMenuScene = new MainMenu();
+	currentScene = mainMenuScene;
 	currentScene->activate();
 
 	explorationScene = new Exploration(player, explorationCamera);
