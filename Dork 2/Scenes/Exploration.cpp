@@ -34,7 +34,9 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : camera(camera) {
 
 void Exploration::activate() {
 	nextSceneType = EXPLORATION;
-	orxSound_Play(music);
+	if (Scene::playMusic) {
+		orxSound_Play(music);
+	}
 }
 
 void Exploration::deactivate() {
@@ -42,6 +44,7 @@ void Exploration::deactivate() {
 }
 
 void Exploration::toggleMusic() {
+	Scene::playMusic = !Scene::playMusic;
 	if (orxSound_GetStatus(music) == orxSOUND_STATUS_PLAY) {
 		orxSound_Pause(music);
 	} else {

@@ -38,7 +38,9 @@ Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 }
 
 void Combat::activate() {
-//	orxSound_Play(music);
+	if (Scene::playMusic) {
+	//	orxSound_Play(music);
+	}
 }
 
 void Combat::deactivate() {

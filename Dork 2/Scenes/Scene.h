@@ -32,6 +32,8 @@ protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
 
+	static orxBOOL playMusic = orxTRUE;
+
 	static orxBOOL getKeyDown(orxSTRING key) {
 		return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
 	}
