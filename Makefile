@@ -6,7 +6,7 @@ CC=/home/ale/Downloads/bin/x86_64-w64-mingw32-g++
 FLAGS=-std=c++11 -c
 LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entities -I Dork\ 2/Items  -L lib/
 LIB=-l orx
-OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o
+OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o Scene.o
 
 dork2: $(OBJS)
 	$(CC) $(LD) $(OBJS) $(LIB) -o Build/Dork\ 2
@@ -31,6 +31,9 @@ Combat.o:
 
 Exploration.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Exploration.cpp
+
+Scene.o:
+	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Scene.cpp
 
 Shop.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Shop.cpp
