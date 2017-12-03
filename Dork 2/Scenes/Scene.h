@@ -33,16 +33,23 @@ protected:
 	Player* player = orxNULL;
 
 	static orxBOOL playMusic;
+	orxSOUND* music;
 
 	static orxBOOL getKeyDown(orxSTRING);
+
+	orxBOOL paused = orxFALSE;
+	orxOBJECT* pauseSelector = orxNULL;
+	int pauseMenuSelection = 0;
+
+	void toggleMusic();
 public:
 	void loadPlayerData(Player*);
 	Player* getPlayerData();
 
-	virtual void activate() = 0;
-	virtual void deactivate() = 0;
+	virtual void activate();
+	virtual void deactivate();
 	
-	virtual SceneType update(const orxCLOCK_INFO*) = 0;
+	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType() = 0;
 	Scene* getNextScene();
 

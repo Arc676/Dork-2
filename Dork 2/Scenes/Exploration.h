@@ -26,7 +26,6 @@
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
-	orxSOUND* music;
 
 	int enemiesInExistence = 0;
 	orxFLOAT timeSinceEnemySpawn = 0;
@@ -34,17 +33,11 @@ class Exploration : public Scene {
 	void spawnEnemy();
 
 	SceneType nextSceneType;
-
-	orxBOOL paused = orxFALSE;
-	orxOBJECT* pauseSelector = orxNULL;
-	int pauseMenuSelection = 0;
 public:
 	Exploration(Player*, orxCAMERA*);
 
 	virtual void activate();
 	virtual void deactivate();
-
-	void toggleMusic();
 	
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();

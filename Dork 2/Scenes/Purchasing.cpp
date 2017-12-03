@@ -25,9 +25,8 @@ void Purchasing::activate() {
 	statViewer->reloadData();
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	currentSelection = 0;
+	Scene::activate();
 }
-
-void Purchasing::deactivate() {}
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	orxVECTOR pos;

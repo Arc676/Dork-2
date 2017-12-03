@@ -38,9 +38,7 @@ Combat::Combat(Player* player, Enemy* enemy) : enemy(enemy) {
 }
 
 void Combat::activate() {
-	if (Scene::playMusic) {
-	//	orxSound_Play(music);
-	}
+	Scene::activate();
 }
 
 void Combat::deactivate() {
@@ -48,7 +46,7 @@ void Combat::deactivate() {
 	enemy->despawn();
 	playerStats->destroy();
 	enemyStats->destroy();
-//	orxSound_Stop(music);
+	Scene::deactivate();
 }
 
 SceneType Combat::makeMove(Move move) {

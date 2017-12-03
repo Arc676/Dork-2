@@ -30,7 +30,6 @@ class Combat : public Scene {
 	static Move moves[2][2];
 
 	Enemy* enemy;
-	orxSOUND* music;
 
 	StatViewer* playerStats;
 	StatViewer* enemyStats;

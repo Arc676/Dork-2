@@ -42,3 +42,64 @@ Scene* Scene::getNextScene() {
 orxSTATUS Scene::EventHandler(const orxEVENT*) {
 	return orxSTATUS_SUCCESS;
 }
+
+void Scene::toggleMusic() {
+	Scene::playMusic = !Scene::playMusic;
+	if (music != orxNULL) {
+		if (Scene::playMusic) {
+			orxSound_Play(music);
+		} else {
+			orxSound_Pause(music);
+		}
+	}
+}
+
+void Scene::activate() {
+	if (Scene::playMusic && music != orxNULL) {
+		orxSound_Play(music);
+	}
+}
+
+void Scene::deactivate() {
+	if (music != orxNULL) {
+		orxSound_Pause(music);
+	}
+}
+
+SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
+	if (getKeyDown((orxSTRING)"Pause")) {
+		paused = !paused;
+		orxObject_Enable(pauseSelector, paused);
+	}
+	if (paused) {
+		orxVECTOR pos;
+		orxObject_GetPosition(pauseSelector, &pos);
+		if (getKeyDown((orxSTRING)"GoDown") && pauseMenuSelection < 2) {
+			pauseMenuSelection++;
+			pos.fY += 60;
+		} else if (Scene::getKeyDown((orxSTRING)"GoUp") && pauseMenuSelection > 0) {
+			pauseMenuSelection--;
+			pos.fY -= 60;
+		} else if (Scene::getKeyDown((orxSTRING)"Enter")) {
+			switch (pauseMenuSelection) {
+				case 0:
+					if (player->write() == orxSTATUS_SUCCESS) {
+						pauseMenuSelection = 2;
+						pos.fY = 120;
+					}
+					break;
+				case 1:
+					toggleMusic();
+					break;
+				case 2:
+					orxObject_Enable(pauseSelector, orxFALSE);
+					paused = orxFALSE;
+					break;
+				default:
+					break;
+			}
+		}
+		orxObject_SetPosition(pauseSelector, &pos);
+	}
+	return getSceneType();
+}
