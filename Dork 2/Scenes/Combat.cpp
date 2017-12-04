@@ -114,7 +114,10 @@ SceneType Combat::makeMove(Move move) {
 }
 
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
-	Scene::update(clockInfo);
+	SceneType type = Scene::update(clockInfo);
+	if (type != COMBAT) {
+		return type;
+	}
 	if (paused) {
 		return COMBAT;
 	}

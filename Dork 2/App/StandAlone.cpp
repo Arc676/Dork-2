@@ -158,10 +158,18 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 	SceneType nextScene = currentScene->update(clockInfo);
 	if (nextScene != currentScene->getSceneType()) {
 		if (currentScene->getSceneType() == MAIN_MENU) {
-			player = currentScene->getPlayerData();
-			explorationScene = new Exploration(player, explorationCamera);
-			shopScene = new Shop(player);
-			armoryScene = new Armory(player);
+			if (player == orxNULL) {
+				player = currentScene->getPlayerData();
+				explorationScene = new Exploration(player, explorationCamera);
+				shopScene = new Shop(player);
+				armoryScene = new Armory(player);
+			} else {
+				orxObject_SetLifeTime(player->getEntity(), 0);
+				player = currentScene->getPlayerData();
+				explorationScene->loadPlayerData(player);
+				shopScene->loadPlayerData(player);
+				armoryScene->loadPlayerData(player);
+			}
 		}
 		orxViewport_Enable(currentViewport, orxFALSE);
 		currentScene->deactivate();

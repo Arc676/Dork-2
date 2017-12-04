@@ -79,7 +79,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (paused) {
 		orxVECTOR pos;
 		orxObject_GetPosition(pauseSelector, &pos);
-		if (getKeyDown((orxSTRING)"GoDown") && pauseMenuSelection < 2) {
+		if (getKeyDown((orxSTRING)"GoDown") && pauseMenuSelection < PAUSE_MENU_ITEM_COUNT) {
 			pauseMenuSelection++;
 			pos.fY += 60;
 		} else if (Scene::getKeyDown((orxSTRING)"GoUp") && pauseMenuSelection > 0) {
@@ -87,18 +87,21 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 			pos.fY -= 60;
 		} else if (Scene::getKeyDown((orxSTRING)"Enter")) {
 			switch (pauseMenuSelection) {
-				case 0:
+				case PAUSE_SAVE:
 					if (canSave && player->write() == orxSTATUS_SUCCESS) {
 						pauseMenuSelection = 2;
 						pos.fY += 120;
 					}
 					break;
-				case 1:
+				case PAUSE_TOGGLE_MUSIC:
 					toggleMusic();
 					break;
-				case 2:
+				case PAUSE_RESUME:
 					orxObject_Enable(pauseSelector, orxFALSE);
 					paused = orxFALSE;
+					break;
+				case PAUSE_EXIT:
+					return MAIN_MENU;
 					break;
 				default:
 					break;

@@ -22,6 +22,13 @@
 #ifndef Scene_h
 #define Scene_h
 
+//pause menu
+#define PAUSE_MENU_ITEM_COUNT 3
+#define PAUSE_SAVE 0
+#define PAUSE_TOGGLE_MUSIC 1
+#define PAUSE_RESUME 2
+#define PAUSE_EXIT 3
+
 #include "orx.h"
 
 #include "Enums.h"

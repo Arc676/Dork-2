@@ -47,9 +47,8 @@ orxBOOL Shop::makePurchase() {
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
-	Scene::update(clockInfo);
 	if (paused) {
-		return SHOP;
+		return Purchasing::update(clockInfo);
 	}
 	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
 		quantity--;

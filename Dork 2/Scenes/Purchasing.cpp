@@ -31,6 +31,13 @@ void Purchasing::activate() {
 }
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
+	SceneType type = Scene::update(clockInfo);
+	if (type != getSceneType()) {
+		return type;
+	}
+	if (paused) {
+		return getSceneType();
+	}
 	orxVECTOR pos;
 	orxObject_GetPosition(selectorArrow, &pos);
 	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < selectionLimit) {
