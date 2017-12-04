@@ -32,7 +32,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	orxVECTOR pos = {-1400, 500, 0};
 	orxObject_SetPosition(selector, &pos);
 
-	playerStats = new StatViewer(player, {-1400, 300, 0});
+	playerStats = new StatViewer(player, {-1500, 300, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
@@ -42,7 +42,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 
 void Combat::activate() {
 	playerPos = player->getPosition();
-	player->setPosition({-1200, 500, 0});
+	player->setPosition({-1200, 450, 0});
 	enemy->setPosition({-1100, 200, 0});
 
 	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
@@ -102,11 +102,11 @@ SceneType Combat::makeMove(Move move) {
 		case USE_ITEM:
 			break;
 	}
-	if (enemy->getHP() <= 0 || player->getHP() <= 0) {
-		if (enemy->getHP() <= 0) {
-			player->defeat(enemy);
-		}
+	if (enemy->getHP() <= 0) {
+		player->defeat(enemy);
 		return EXPLORATION;
+	} else if (player->getHP() <= 0) {
+		return MAIN_MENU;
 	}
 	playerStats->reloadData();
 	enemyStats->reloadData();

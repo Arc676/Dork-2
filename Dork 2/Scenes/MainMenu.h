@@ -41,7 +41,6 @@ public:
 	MainMenu();
 	
 	virtual void activate();
-	virtual void deactivate();
 
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();

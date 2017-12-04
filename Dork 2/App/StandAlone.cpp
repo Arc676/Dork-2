@@ -196,6 +196,9 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				break;
 
 			case MAIN_MENU:
+				currentViewport = mainMenuViewport;
+				currentCamera = mainMenuCamera;
+				currentScene = mainMenuScene;
 				break;
 		}
 		orxViewport_Enable(currentViewport, orxTRUE);

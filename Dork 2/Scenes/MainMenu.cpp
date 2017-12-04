@@ -21,17 +21,25 @@
 
 #include "MainMenu.h"
 
-void MainMenu::activate() {}
-void MainMenu::deactivate() {}
+void MainMenu::activate() {
+	//reset name
+	memset(name, 0, NAMELENGTH);
+	cursorPos = 0;
+	orxObject_SetTextString(nameField, "Name:");
+
+	//reset selector
+	orxVECTOR pos = {-1100, 1600, 0};
+	orxObject_SetPosition(selector, &pos);
+	currentSelection = 0;
+
+	Scene::activate();
+}
 
 MainMenu::MainMenu() {
 	nameField = orxObject_CreateFromConfig("MMNameField");
 	typeField = orxObject_CreateFromConfig("MMTypeField");
 	selector = orxObject_CreateFromConfig("MMSelector");
 	lrArrows = orxObject_CreateFromConfig("MMArrows");
-	for (int i = 0; i < NAMELENGTH; i++) {
-		name[i] = 0;
-	}
 }
 
 SceneType MainMenu::getSceneType() {
