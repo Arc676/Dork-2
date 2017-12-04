@@ -36,11 +36,20 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
-	orxVECTOR ppos = {-1150.0, 400.0, -1.0};
+	orxVECTOR ppos = {-1150.0, 400.0, 0};
 	orxObject_SetPosition(pauseSelector, &ppos);
 }
 
 void Combat::activate() {
+	playerPos = player->getPosition();
+	player->setPosition({-1200, 500, 0});
+	enemy->setPosition({-1100, 200, 0});
+
+	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
+	orxCHAR anim[30];
+	orxString_Print(anim, "IdleDAnim%s", enemy->getName());
+	orxObject_SetTargetAnim(enemy->getEntity(), anim);
+
 	Scene::activate();
 }
 
@@ -49,6 +58,7 @@ void Combat::deactivate() {
 	enemy->despawn();
 	playerStats->destroy();
 	enemyStats->destroy();
+	player->setPosition(playerPos);
 	Scene::deactivate();
 }
 

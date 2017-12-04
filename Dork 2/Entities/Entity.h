@@ -50,6 +50,7 @@ public:
 	static EntityType weaknessForType(EntityType);
 
 	orxVECTOR getPosition();
+	void setPosition(orxVECTOR);
 	void despawn();
 
 	virtual orxSTRING getName() = 0;

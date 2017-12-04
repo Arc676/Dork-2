@@ -30,6 +30,7 @@ class Combat : public Scene {
 	static Move moves[2][2];
 
 	Enemy* enemy;
+	orxVECTOR playerPos;
 
 	StatViewer* playerStats;
 	StatViewer* enemyStats;

@@ -102,6 +102,10 @@ orxVECTOR Entity::getPosition() {
 	return position;
 }
 
+void Entity::setPosition(orxVECTOR pos) {
+	orxObject_SetPosition(entity, &pos);
+}
+
 void Entity::despawn() {
 	orxObject_SetLifeTime(entity, 0);
 }

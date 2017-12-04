@@ -31,7 +31,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	statViewer = new StatViewer(player, {-1590, -400, 0});
 	selectionLimit = POTIONCOUNT;
 
-	orxVECTOR pos = {-1100, -400.0, -1.0};
+	orxVECTOR pos = {-1100, -400.0, 0};
 	orxObject_SetPosition(pauseSelector, &pos);
 }
 
