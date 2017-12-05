@@ -40,6 +40,7 @@ MainMenu::MainMenu() {
 	typeField = orxObject_CreateFromConfig("MMTypeField");
 	selector = orxObject_CreateFromConfig("MMSelector");
 	lrArrows = orxObject_CreateFromConfig("MMArrows");
+	orxObject_CreateFromConfig("MMObjects");
 }
 
 SceneType MainMenu::getSceneType() {

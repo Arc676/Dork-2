@@ -50,6 +50,8 @@
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
 		716D1B031FC3045000D827D1 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1B011FC3045000D827D1 /* Potion.cpp */; };
+		718914431FD6DAED00D48C37 /* LoadPlayer.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718914411FD6DA3D00D48C37 /* LoadPlayer.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718914441FD6DAF000D48C37 /* NewPlayer.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718914421FD6DA3D00D48C37 /* NewPlayer.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
 		71F921B81FC59B1D0037725A /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		71FBC3231FD021FB00F9E1B1 /* StatViewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71FBC3211FD021FB00F9E1B1 /* StatViewer.cpp */; };
@@ -71,6 +73,8 @@
 				7159CD441FD24F1E0015482A /* forest_tiles.png in CopyFiles */,
 				7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */,
 				7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */,
+				718914431FD6DAED00D48C37 /* LoadPlayer.png in CopyFiles */,
+				718914441FD6DAF000D48C37 /* NewPlayer.png in CopyFiles */,
 				7159CD311FD24F0D0015482A /* Dork 2.ini in CopyFiles */,
 				7159CD321FD24F0D0015482A /* Main.ini in CopyFiles */,
 				7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */,
@@ -233,6 +237,8 @@
 		716D1B001FC2F47D00D827D1 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		716D1B011FC3045000D827D1 /* Potion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Potion.cpp; sourceTree = "<group>"; };
 		716D1B021FC3045000D827D1 /* Potion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Potion.h; sourceTree = "<group>"; };
+		718914411FD6DA3D00D48C37 /* LoadPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadPlayer.png; sourceTree = "<group>"; };
+		718914421FD6DA3D00D48C37 /* NewPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewPlayer.png; sourceTree = "<group>"; };
 		718B57DF1FC43D4300A457C8 /* forest_tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tiles.png; sourceTree = "<group>"; };
 		718B57E21FC443AD00A457C8 /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = "<group>"; };
 		718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainGuySpriteSheet.png; sourceTree = "<group>"; };
@@ -624,6 +630,8 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				718914411FD6DA3D00D48C37 /* LoadPlayer.png */,
+				718914421FD6DA3D00D48C37 /* NewPlayer.png */,
 				7159CD531FD3BBEE0015482A /* Arrows.png */,
 				7159CD521FD3BBEE0015482A /* MMSelector.png */,
 				7159CD2B1FD24ECF0015482A /* ArmoryHelp.png */,
