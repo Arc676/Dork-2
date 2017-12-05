@@ -46,16 +46,18 @@ void Exploration::spawnEnemy() {
 		orxMath_GetRandomFloat(310, 510),
 		0
 	};
-	if (orxMath_GetRandomS32(0, 99) < 50) {
+	orxVECTOR ppos = player->getPosition();
+	if (ppos.fX > 710 && (ppos.fX > 2490 || orxMath_GetRandomS32(0, 99) < 50)) {
 		ds.fX *= -1;
 	}
-	if (orxMath_GetRandomS32(0, 99) < 50) {
+	if (ppos.fY > 710 && (ppos.fY > 2490 || orxMath_GetRandomS32(0, 99) < 50)) {
 		ds.fY *= -1;
 	}
 	orxVECTOR pos;
-	orxVECTOR ppos = player->getPosition();
 	orxVector_Add(&pos, &ppos, &ds);
-	if (pos.fX < 0 || pos.fX > 3200 || pos.fY < 0 || pos.fY > 3200) {
+	if (pos.fX < 0 || pos.fX > 3200 ||
+		pos.fY < 0 || pos.fY > 3200 ||
+		orxObject_Pick(&pos, orxString_GetID("Colliders")) != orxNULL) {
 		return;
 	}
 	Enemy::createRandomEnemy(
