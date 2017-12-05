@@ -1,0 +1,19 @@
+UserInterfaceState.xcuserstate
+build
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*~
+*~.nib
+*~.xib 
+xcuserdata
+.*
+XCFs
+Version History
+*.o
+Build/
+*.a
+*.layout
+*.workspace
+*.user
+obj
