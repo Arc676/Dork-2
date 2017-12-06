@@ -28,6 +28,7 @@
 class Shop : public Purchasing {
 	int quantity = 1;
 	std::vector<orxOBJECT*> potionCounts;
+	std::vector<Potion*> allPotions;
 protected:
 	virtual orxBOOL makePurchase();
 public:

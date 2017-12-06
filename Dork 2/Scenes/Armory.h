@@ -27,6 +27,7 @@
 
 class Armory : public Purchasing {
 	std::vector<orxOBJECT*> tickMarks;
+	std::vector<Weapon*> allWeapons;
 protected:
 	virtual orxBOOL makePurchase();
 public:

@@ -29,6 +29,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
+	allWeapons = std::vector<Weapon*>(WEAPONCOUNT);
 	orxVECTOR pos = {-1000, 750, 0};
 	orxVECTOR wpos = {-1200, 750, 0};
 	for (int i = 0; i < WEAPONCOUNT; i++) {
@@ -42,6 +43,8 @@ Armory::Armory(Player* player) : Purchasing() {
 
 		pos.fY += 60;
 		wpos.fY += 60;
+
+		allWeapons[i] = Weapon::copyOf((WeaponType)i);
 	}
 
 	statViewer = new StatViewer(player, {-1590, 1000, 0});

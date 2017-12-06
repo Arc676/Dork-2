@@ -29,6 +29,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ShopHelp");
 
 	potionCounts = std::vector<orxOBJECT*>(POTIONCOUNT);
+	allPotions = std::vector<Potion*>(POTIONCOUNT);
 	orxVECTOR pos = {-1000, -650, 0};
 	orxVECTOR ppos = {-1200, -650, 0};
 	for (int i = 0; i < POTIONCOUNT; i++) {
@@ -48,6 +49,8 @@ Shop::Shop(Player* player) : Purchasing() {
 
 		pos.fY += 60;
 		ppos.fY += 60;
+
+		allPotions[i] = Potion::getCopyOf((PotionType)i);
 	}
 
 	statViewer = new StatViewer(player, {-1590, -400, 0});
