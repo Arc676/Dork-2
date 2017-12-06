@@ -30,6 +30,7 @@ class StatViewer {
 	Entity* entity;
 
 	orxOBJECT* labelName;
+	orxOBJECT* labelType;
 	orxOBJECT* labelHP;
 	orxOBJECT* labelSpeed;
 	orxOBJECT* labelStr;

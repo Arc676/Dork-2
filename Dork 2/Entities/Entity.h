@@ -56,10 +56,18 @@ public:
 	virtual orxSTRING getName() = 0;
 
 	orxOBJECT* getEntity();
+
 	int getHP();
+	void alterHP(int);
+
 	int getSpeed();
+	void alterSpeed(int);
+
 	int getStrength();
+	void alterStrength(int);
+
 	int getDefense();
+	void alterDefense(int);
 
 	int getGold();
 	void transaction(int);

@@ -27,6 +27,10 @@ StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
 	labelName = orxObject_CreateFromConfig("SV-Name");
 	orxObject_SetPosition(labelName, &pos);
 
+	labelType = orxObject_CreateFromConfig("SV-Type");
+	orxVector_Add(&pos, &pos, &margin);
+	orxObject_SetPosition(labelType, &pos);
+
 	labelHP = orxObject_CreateFromConfig("SV-HP");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelHP, &pos);
@@ -71,6 +75,9 @@ void StatViewer::reloadData() {
 	orxString_Print(text, "HP: %d", entity->getHP());
 	orxObject_SetTextString(labelHP, text);
 
+	orxString_Print(text, "Type: %s", Entity::typeToString(entity->getType()));
+	orxObject_SetTextString(labelType, text);
+
 	orxString_Print(text, "Speed: %d", entity->getSpeed());
 	orxObject_SetTextString(labelSpeed, text);
 
@@ -92,6 +99,7 @@ void StatViewer::reloadData() {
 
 void StatViewer::destroy() {
 	orxObject_SetLifeTime(labelName, 0);
+	orxObject_SetLifeTime(labelType, 0);
 	orxObject_SetLifeTime(labelHP, 0);
 	orxObject_SetLifeTime(labelSpeed, 0);
 	orxObject_SetLifeTime(labelStr, 0);

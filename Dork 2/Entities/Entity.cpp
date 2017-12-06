@@ -118,16 +118,32 @@ int Entity::getHP() {
 	return HP;
 }
 
+void Entity::alterHP(int delta) {
+	HP += delta;
+}
+
 int Entity::getSpeed() {
 	return speed;
+}
+
+void Entity::alterSpeed(int delta) {
+	speed += delta;
 }
 
 int Entity::getStrength() {
 	return strength;
 }
 
+void Entity::alterStrength(int delta) {
+	strength += delta;
+}
+
 int Entity::getDefense() {
 	return defense;
+}
+
+void Entity::alterDefense(int delta) {
+	defense += delta;
 }
 
 int Entity::getGold() {
