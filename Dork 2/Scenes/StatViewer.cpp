@@ -24,38 +24,38 @@
 StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
 	orxVECTOR margin = {0, 20, 0};
 
-	labelName = orxObject_CreateFromConfig("SV-Name");
+	labelName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(labelName, &pos);
 
-	labelType = orxObject_CreateFromConfig("SV-Type");
+	labelType = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelType, &pos);
 
-	labelHP = orxObject_CreateFromConfig("SV-HP");
+	labelHP = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelHP, &pos);
 
-	labelSpeed = orxObject_CreateFromConfig("SV-Speed");
+	labelSpeed = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelSpeed, &pos);
 
-	labelStr = orxObject_CreateFromConfig("SV-Str");
+	labelStr = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelStr, &pos);
 
-	labelDef = orxObject_CreateFromConfig("SV-Def");
+	labelDef = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelDef, &pos);
 
-	labelGold = orxObject_CreateFromConfig("SV-Gold");
+	labelGold = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelGold, &pos);
 
-	labelLvl = orxObject_CreateFromConfig("SV-Lvl");
+	labelLvl = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelLvl, &pos);
 
-	labelWeapon = orxObject_CreateFromConfig("SV-Weapon");
+	labelWeapon = orxObject_CreateFromConfig("SV");
 	orxVector_Add(&pos, &pos, &margin);
 	orxObject_SetPosition(labelWeapon, &pos);
 
