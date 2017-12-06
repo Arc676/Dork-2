@@ -32,6 +32,8 @@ Scene::Scene() {
 }
 
 void Scene::setPauseMenuPosition(orxVECTOR pos) {
+	pos.fX -= 160;
+	pos.fY -= 80;
 	orxObject_SetPosition(pauseSelector, &pos);
 	pos.fX += 180;
 	pos.fY += 90;

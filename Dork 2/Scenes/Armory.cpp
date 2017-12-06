@@ -28,6 +28,16 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ArmoryHelp");
 
+	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
+	orxVECTOR pos = {-900, 750, 0};
+	for (int i = 0; i < WEAPONCOUNT; i++) {
+		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
+		orxObject_SetPosition(tick, &pos);
+		orxObject_Enable(tick, player->ownsWeapon((WeaponType)i));
+		tickMarks[i] = tick;
+		pos.fY += 60;
+	}
+
 	statViewer = new StatViewer(player, {-1590, 1000, 0});
 	selectionLimit = WEAPONCOUNT;
 
@@ -39,6 +49,7 @@ orxBOOL Armory::makePurchase() {
 	if (player->getGold() >= weapon->getPrice() && !player->ownsWeapon((WeaponType)currentSelection)) {
 		player->transaction(-weapon->getPrice());
 		player->setWeaponOwnership((WeaponType)currentSelection, true);
+		orxObject_Enable(tickMarks[currentSelection], orxTRUE);
 		return orxTRUE;
 	}
 	return orxFALSE;
