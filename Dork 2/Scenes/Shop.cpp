@@ -50,6 +50,18 @@ Shop::Shop(Player* player) : Purchasing() {
 		allPotions[i] = Potion::getCopyOf((PotionType)i);
 	}
 
+	pos = {-950, -650, 0};
+	potionName = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(potionName, &pos);
+
+	pos.fY += 20;
+	potionPrice = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(potionPrice, &pos);
+
+	pos.fY += 20;
+	potionEffect = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(potionEffect, &pos);
+
 	statViewer = new StatViewer(player, {-1590, -400, 0});
 	selectionLimit = POTIONCOUNT;
 
@@ -57,7 +69,32 @@ Shop::Shop(Player* player) : Purchasing() {
 }
 
 void Shop::loadItemData() {
-	//
+	Potion* p = allPotions[currentSelection];
+	orxCHAR text[30];
+
+	orxString_Print(text, "Potion: %s", p->getName());
+	orxObject_SetTextString(potionName, text);
+
+	orxString_Print(text, "Price: %d", p->getPrice());
+	orxObject_SetTextString(potionPrice, text);
+
+	switch (p->getType()) {
+		case QUICKHEAL_2:
+		case QUICKHEAL_5:
+		case QUICKHEAL_10:
+		case QUICKHEAL_20:
+		case QUICKHEAL_50:
+			orxString_Print(text, "Heals: +%d", (int)p->getAmount());
+			break;
+		case DEFBOOST:
+		case SPEEDBOOST:
+		case STRBOOST:
+			orxString_Print(text, "Boost: +%d%%", (int)((p->getAmount() - 1) * 100));
+			break;
+		default:
+			break;
+	}
+	orxObject_SetTextString(potionEffect, text);
 }
 
 orxBOOL Shop::makePurchase() {

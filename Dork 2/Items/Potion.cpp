@@ -43,6 +43,12 @@ Potion* Potion::getCopyOf(PotionType type) {
 			return quickheal20->copy();
 		case QUICKHEAL_50:
 			return quickheal50->copy();
+		case DEFBOOST:
+			return defboost->copy();
+		case SPEEDBOOST:
+			return speedboost->copy();
+		case STRBOOST:
+			return strboost->copy();
 		default:
 			return orxNULL;
 	}
@@ -62,6 +68,10 @@ int Potion::getPrice() {
 	return price;
 }
 
+PotionType Potion::getType() {
+	return type;
+}
+
 orxSTRING Potion::getName() {
 	return Potion::typeToString(type);
 }
@@ -69,15 +79,11 @@ orxSTRING Potion::getName() {
 orxSTRING Potion::typeToString(PotionType type) {
 	switch (type) {
 		case QUICKHEAL_2:
-			return (orxSTRING)"Quick heal (2 pts)";
 		case QUICKHEAL_5:
-			return (orxSTRING)"Quick heal (5 pts)";
 		case QUICKHEAL_10:
-			return (orxSTRING)"Quick heal (10 pts)";
 		case QUICKHEAL_20:
-			return (orxSTRING)"Quick heal (20 pts)";
 		case QUICKHEAL_50:
-			return (orxSTRING)"Quick heal (50 pts)";
+			return (orxSTRING)"Quick heal";
 		case SPEEDBOOST:
 			return (orxSTRING)"Speed boost";
 		case STRBOOST:
