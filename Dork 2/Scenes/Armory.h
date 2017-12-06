@@ -28,8 +28,16 @@
 class Armory : public Purchasing {
 	std::vector<orxOBJECT*> tickMarks;
 	std::vector<Weapon*> allWeapons;
+
+	orxOBJECT* weaponName;
+	orxOBJECT* weaponPrice;
+	orxOBJECT* weaponStr;
+	orxOBJECT* weaponDef;
+	orxOBJECT* weaponSpeed;
+	orxOBJECT* weaponType;
 protected:
 	virtual orxBOOL makePurchase();
+	virtual void loadItemData();
 public:
 	Armory(Player*);
 

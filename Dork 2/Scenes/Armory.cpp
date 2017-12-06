@@ -47,10 +47,58 @@ Armory::Armory(Player* player) : Purchasing() {
 		allWeapons[i] = Weapon::copyOf((WeaponType)i);
 	}
 
+	pos = {-950, 750, 0};
+	weaponName = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponName, &pos);
+
+	pos.fY += 20;
+	weaponType = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponType, &pos);
+
+	pos.fY += 20;
+	weaponPrice = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponPrice, &pos);
+
+	pos.fY += 20;
+	weaponStr = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponStr, &pos);
+
+	pos.fY += 20;
+	weaponDef = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponDef, &pos);
+
+	pos.fY += 20;
+	weaponSpeed = orxObject_CreateFromConfig("SV");
+	orxObject_SetPosition(weaponSpeed, &pos);
+
 	statViewer = new StatViewer(player, {-1590, 1000, 0});
 	selectionLimit = WEAPONCOUNT;
 
 	setPauseMenuPosition({-1150, 1000, 0});
+}
+
+void Armory::loadItemData() {
+	Weapon* w = allWeapons[currentSelection];
+	orxCHAR text[30];
+
+	orxString_Print(text, "Weapon: %s", w->getName());
+	orxObject_SetTextString(weaponName, text);
+
+	orxString_Print(text, "Type: %s", Entity::typeToString(w->getType()));
+	orxObject_SetTextString(weaponType, text);
+
+	orxString_Print(text, "Price: %d", w->getPrice());
+	orxObject_SetTextString(weaponPrice, text);
+
+	orxString_Print(text, "Strength: +%d%%", (int)(w->getStrMod() * 100));
+	orxObject_SetTextString(weaponStr, text);
+
+	orxString_Print(text, "Defense: +%d%%", (int)(w->getDefMod() * 100));
+	orxObject_SetTextString(weaponDef, text);
+
+	double spd = w->getSpeedMod();
+	orxString_Print(text, "Speed: %s%d%%", (spd < 0 ? "-" : "+"), (int)abs(spd * 100));
+	orxObject_SetTextString(weaponSpeed, text);
 }
 
 orxBOOL Armory::makePurchase() {

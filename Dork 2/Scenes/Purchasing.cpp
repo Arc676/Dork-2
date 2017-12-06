@@ -25,6 +25,7 @@ Purchasing::Purchasing() : Scene() {}
 
 void Purchasing::activate() {
 	statViewer->reloadData();
+	loadItemData();
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	currentSelection = 0;
 	Scene::activate();
@@ -55,6 +56,9 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		if (makePurchase()) {
 			orxObject_AddSound(player->getEntity(), "Kaching");
 		}
+	}
+	if (currentSelection < selectionLimit) {
+		loadItemData();
 	}
 	return getSceneType();
 }

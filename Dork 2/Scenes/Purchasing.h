@@ -31,7 +31,9 @@ protected:
 	int selectionLimit;
 	orxOBJECT* selectorArrow;
 	orxVECTOR defaultPos;
+
 	virtual orxBOOL makePurchase() = 0;
+	virtual void loadItemData() = 0;
 
 	StatViewer* statViewer;
 

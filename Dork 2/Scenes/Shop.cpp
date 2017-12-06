@@ -56,6 +56,10 @@ Shop::Shop(Player* player) : Purchasing() {
 	setPauseMenuPosition({-1100, -400.0, 0});
 }
 
+void Shop::loadItemData() {
+	//
+}
+
 orxBOOL Shop::makePurchase() {
 	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
 	if (player->getGold() >= quantity * potion->getPrice()) {

@@ -31,6 +31,7 @@ class Shop : public Purchasing {
 	std::vector<Potion*> allPotions;
 protected:
 	virtual orxBOOL makePurchase();
+	virtual void loadItemData();
 public:
 	Shop(Player*);
 
