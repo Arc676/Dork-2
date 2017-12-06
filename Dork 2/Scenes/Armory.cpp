@@ -50,6 +50,7 @@ orxBOOL Armory::makePurchase() {
 		player->transaction(-weapon->getPrice());
 		player->setWeaponOwnership((WeaponType)currentSelection, true);
 		orxObject_Enable(tickMarks[currentSelection], orxTRUE);
+		statViewer->reloadData();
 		return orxTRUE;
 	}
 	return orxFALSE;

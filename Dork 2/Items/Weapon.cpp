@@ -22,25 +22,25 @@
 #include "Weapon.h"
 
 Weapon* Weapon::sword = new Weapon(
-	SWORD, 0.4, 0.4, 0, 700
+	SWORD, 0.5, 0.3, 0, 70
 );
 Weapon* Weapon::club = new Weapon(
-	CLUB, 0.15, 0.15, -0.05, 100
+	CLUB, 0.15, 0.15, -0.05, 10
 );
 Weapon* Weapon::scythe = new Weapon(
-	SCYTHE, 0.5, 0.3, -0.05, 1000
+	SCYTHE, 0.4, 0.4, -0.05, 65
 );
 Weapon* Weapon::sickle = new Weapon(
-	SICKLE, 0.4, 0.2, 0, 400
-);
-Weapon* Weapon::axe = new Weapon(
-	AXE, 0.3, 0.1, -0.05, 600
+	SICKLE, 0.4, 0.2, 0, 40
 );
 Weapon* Weapon::dagger = new Weapon(
-	DAGGER, 0.3, 0.15, 0.05, 200
+	DAGGER, 0.3, 0.15, 0.05, 20
+);
+Weapon* Weapon::axe = new Weapon(
+	AXE, 0.3, 0.1, -0.05, 60
 );
 Weapon* Weapon::lance = new Weapon(
-	LANCE, 0.4, 0.1, -0.1, 700
+	LANCE, 0.4, 0.1, -0.1, 35
 );
 
 Weapon* Weapon::noWeapon = new Weapon(
