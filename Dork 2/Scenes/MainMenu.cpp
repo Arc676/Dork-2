@@ -22,13 +22,20 @@
 #include "MainMenu.h"
 
 void MainMenu::activate() {
-	//reset name
+	//reset character data
 	memset(name, 0, NAMELENGTH);
 	cursorPos = 0;
+
+	orxVECTOR pos = {-1216, 1592, 0};
 	orxObject_SetTextString(nameField, "Name:");
+	orxObject_SetPosition(nameField, &pos);
+
+	pos = {-1216, 1652, 0};
+	orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
+	orxObject_SetPosition(typeField, &pos);
 
 	//reset selector
-	orxVECTOR pos = {-1100, 1600, 0};
+	pos = {-1100, 1600, 0};
 	orxObject_SetPosition(selector, &pos);
 	currentSelection = 0;
 
@@ -36,8 +43,8 @@ void MainMenu::activate() {
 }
 
 MainMenu::MainMenu() {
-	nameField = orxObject_CreateFromConfig("MMNameField");
-	typeField = orxObject_CreateFromConfig("MMTypeField");
+	nameField = orxObject_CreateFromConfig("SV");
+	typeField = orxObject_CreateFromConfig("SV");
 	selector = orxObject_CreateFromConfig("MMSelector");
 	lrArrows = orxObject_CreateFromConfig("MMArrows");
 	orxObject_CreateFromConfig("MMObjects");
