@@ -27,8 +27,7 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(ca
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
 	canSave = orxTRUE;
 
-	orxVECTOR pos = {-50, 0, 0};
-	orxObject_SetPosition(pauseSelector, &pos);
+	setPauseMenuPosition({-50, 0, 0});
 }
 
 void Exploration::activate() {
@@ -122,7 +121,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	camPos.fY = player->getPosition().fY;
 	orxCamera_SetPosition(camera, &camPos);
 	camPos.fX -= 50;
-	orxObject_SetPosition(pauseSelector, &camPos);
+	setPauseMenuPosition(camPos);
 	pauseMenuSelection = 0;
 	return nextSceneType;
 }

@@ -31,8 +31,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	statViewer = new StatViewer(player, {-1590, 1000, 0});
 	selectionLimit = WEAPONCOUNT;
 
-	orxVECTOR pos = {-1150, 1000, 0};
-	orxObject_SetPosition(pauseSelector, &pos);
+	setPauseMenuPosition({-1150, 1000, 0});
 }
 
 orxBOOL Armory::makePurchase() {

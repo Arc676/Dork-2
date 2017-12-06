@@ -36,8 +36,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
-	orxVECTOR ppos = {-1150.0, 400.0, 0};
-	orxObject_SetPosition(pauseSelector, &ppos);
+	setPauseMenuPosition({-1150.0, 400.0, 0});
 }
 
 void Combat::activate() {

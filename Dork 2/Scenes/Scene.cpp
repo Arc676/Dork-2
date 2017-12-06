@@ -21,12 +21,22 @@
 
 #include "Scene.h"
 
+orxBOOL Scene::playMusic = orxTRUE;
+
 Scene::Scene() {
 	pauseSelector = orxObject_CreateFromConfig("Selector");
 	orxObject_Enable(pauseSelector, orxFALSE);
+
+	pauseMenu = orxObject_CreateFromConfig("PauseMenu");
+	orxObject_Enable(pauseMenu, orxFALSE);
 }
 
-orxBOOL Scene::playMusic = orxTRUE;
+void Scene::setPauseMenuPosition(orxVECTOR pos) {
+	orxObject_SetPosition(pauseSelector, &pos);
+	pos.fX += 180;
+	pos.fY += 90;
+	orxObject_SetPosition(pauseMenu, &pos);
+}
 
 orxBOOL Scene::getKeyDown(orxSTRING key) {
 	return orxInput_IsActive(key) && orxInput_HasNewStatus(key);
@@ -75,6 +85,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (getKeyDown((orxSTRING)"Pause")) {
 		paused = !paused;
 		orxObject_Enable(pauseSelector, paused);
+		orxObject_Enable(pauseMenu, paused);
 	}
 	if (paused) {
 		orxVECTOR pos;
@@ -100,6 +111,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 				case PAUSE_EXIT:
 					//unpause
 					orxObject_Enable(pauseSelector, orxFALSE);
+					orxObject_Enable(pauseMenu, orxFALSE);
 					paused = orxFALSE;
 
 					//reset selector position

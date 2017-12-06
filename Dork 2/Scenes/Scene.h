@@ -35,6 +35,8 @@
 #include "Player.h"
 
 class Scene {
+	orxOBJECT* pauseSelector = orxNULL;
+	orxOBJECT* pauseMenu = orxNULL;
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
@@ -46,8 +48,8 @@ protected:
 	static orxBOOL getKeyDown(orxSTRING);
 
 	orxBOOL paused = orxFALSE;
-	orxOBJECT* pauseSelector = orxNULL;
 	int pauseMenuSelection = 0;
+	void setPauseMenuPosition(orxVECTOR);
 
 	void toggleMusic();
 
