@@ -22,7 +22,6 @@
 #include "Armory.h"
 
 Armory::Armory(Player* player) : Purchasing() {
-	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
 	defaultPos = {-1300, 750, 0};
 	orxObject_SetPosition(selectorArrow, &defaultPos);
@@ -35,7 +34,6 @@ Armory::Armory(Player* player) : Purchasing() {
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
 		orxObject_SetPosition(tick, &pos);
-		orxObject_Enable(tick, player->ownsWeapon((WeaponType)i));
 		tickMarks[i] = tick;
 
 		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
@@ -46,6 +44,8 @@ Armory::Armory(Player* player) : Purchasing() {
 
 		allWeapons[i] = Weapon::copyOf((WeaponType)i);
 	}
+
+	loadPlayerData(player);
 
 	pos = {-950, 750, 0};
 	weaponName = orxObject_CreateFromConfig("SV");
@@ -75,6 +75,13 @@ Armory::Armory(Player* player) : Purchasing() {
 	selectionLimit = WEAPONCOUNT;
 
 	setPauseMenuPosition({-1150, 1000, 0});
+}
+
+void Armory::loadPlayerData(Player* player) {
+	Scene::loadPlayerData(player);
+	for (int i = 0; i < WEAPONCOUNT; i++) {
+		orxObject_Enable(tickMarks[i], player->ownsWeapon((WeaponType)i));
+	}
 }
 
 void Armory::loadItemData() {

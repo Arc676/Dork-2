@@ -41,6 +41,7 @@ protected:
 public:
 	Armory(Player*);
 
+	virtual void loadPlayerData(Player*);
 	virtual SceneType getSceneType();
 };
 

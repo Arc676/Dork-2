@@ -22,7 +22,6 @@
 #include "Shop.h"
 
 Shop::Shop(Player* player) : Purchasing() {
-	loadPlayerData(player);
 	selectorArrow = orxObject_CreateFromConfig("Selector");
 	defaultPos = {-1300, -650, 0};
 	orxObject_SetPosition(selectorArrow, &defaultPos);
@@ -35,10 +34,6 @@ Shop::Shop(Player* player) : Purchasing() {
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		orxOBJECT* count = orxObject_CreateFromConfig("SV");
 		orxObject_SetPosition(count, &pos);
-
-		orxCHAR text[5];
-		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)i));
-		orxObject_SetTextString(count, text);
 		potionCounts[i] = count;
 
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
@@ -49,6 +44,8 @@ Shop::Shop(Player* player) : Purchasing() {
 
 		allPotions[i] = Potion::getCopyOf((PotionType)i);
 	}
+	
+	loadPlayerData(player);
 
 	pos = {-950, -650, 0};
 	potionName = orxObject_CreateFromConfig("SV");
@@ -68,6 +65,15 @@ Shop::Shop(Player* player) : Purchasing() {
 	setPauseMenuPosition({-1100, -400.0, 0});
 }
 
+void Shop::loadPlayerData(Player* player) {
+	Scene::loadPlayerData(player);
+	orxCHAR text[5];
+	for (int i = 0; i < POTIONCOUNT; i++) {
+		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)i));
+		orxObject_SetTextString(potionCounts[i], text);
+	}
+}
+
 void Shop::loadItemData() {
 	Potion* p = allPotions[currentSelection];
 	orxCHAR text[30];
@@ -75,7 +81,8 @@ void Shop::loadItemData() {
 	orxString_Print(text, "Potion: %s", p->getName());
 	orxObject_SetTextString(potionName, text);
 
-	orxString_Print(text, "Price: %d", p->getPrice());
+	int price = p->getPrice();
+	orxString_Print(text, "Price: %d (%dx) = %d", price, quantity, (price * quantity));
 	orxObject_SetTextString(potionPrice, text);
 
 	switch (p->getType()) {
@@ -103,6 +110,10 @@ orxBOOL Shop::makePurchase() {
 		player->transaction(-quantity * potion->getPrice());
 		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
+
+		orxCHAR text[5];
+		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
+		orxObject_SetTextString(potionCounts[currentSelection], text);
 		return orxTRUE;
 	}
 	return orxFALSE;

@@ -55,7 +55,7 @@ protected:
 
 	Scene();
 public:
-	void loadPlayerData(Player*);
+	virtual void loadPlayerData(Player*);
 	Player* getPlayerData();
 
 	virtual void activate();

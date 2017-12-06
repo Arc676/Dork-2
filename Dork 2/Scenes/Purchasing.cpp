@@ -24,10 +24,10 @@
 Purchasing::Purchasing() : Scene() {}
 
 void Purchasing::activate() {
-	statViewer->reloadData();
-	loadItemData();
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	currentSelection = 0;
+	statViewer->reloadData();
+	loadItemData();
 	Scene::activate();
 }
 

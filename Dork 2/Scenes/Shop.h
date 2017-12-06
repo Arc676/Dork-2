@@ -39,6 +39,7 @@ protected:
 public:
 	Shop(Player*);
 
+	virtual void loadPlayerData(Player*);
 	virtual SceneType getSceneType();
 	virtual SceneType update(const orxCLOCK_INFO*);
 };
