@@ -26,8 +26,8 @@
 #include "Weapon.h"
 
 class Armory : public Purchasing {
-protected:
 	std::vector<orxOBJECT*> tickMarks;
+protected:
 	virtual orxBOOL makePurchase();
 public:
 	Armory(Player*);

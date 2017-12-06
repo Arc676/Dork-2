@@ -29,13 +29,19 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	orxVECTOR pos = {-900, 750, 0};
+	orxVECTOR pos = {-1000, 750, 0};
+	orxVECTOR wpos = {-1200, 750, 0};
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
 		orxObject_SetPosition(tick, &pos);
 		orxObject_Enable(tick, player->ownsWeapon((WeaponType)i));
 		tickMarks[i] = tick;
+
+		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
+		orxObject_SetPosition(weapon, &wpos);
+
 		pos.fY += 60;
+		wpos.fY += 60;
 	}
 
 	statViewer = new StatViewer(player, {-1590, 1000, 0});
