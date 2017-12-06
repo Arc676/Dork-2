@@ -33,10 +33,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxVECTOR pos = {-1000, -650, 0};
 	orxVECTOR ppos = {-1200, -650, 0};
 	for (int i = 0; i < POTIONCOUNT; i++) {
-		orxCHAR config[30];
-		orxSTRING configName = Potion::configCodeForType((PotionType)i);
-		orxString_Print(config, "%sCount", configName);
-		orxOBJECT* count = orxObject_CreateFromConfig(config);
+		orxOBJECT* count = orxObject_CreateFromConfig("SV");
 		orxObject_SetPosition(count, &pos);
 
 		orxCHAR text[5];
@@ -44,7 +41,7 @@ Shop::Shop(Player* player) : Purchasing() {
 		orxObject_SetTextString(count, text);
 		potionCounts[i] = count;
 
-		orxOBJECT* potion = orxObject_CreateFromConfig(configName);
+		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
 		orxObject_SetPosition(potion, &ppos);
 
 		pos.fY += 60;

@@ -25,6 +25,7 @@ void MainMenu::activate() {
 	//reset character data
 	memset(name, 0, NAMELENGTH);
 	cursorPos = 0;
+	orxKeyboard_ClearBuffer();
 
 	orxVECTOR pos = {-1216, 1592, 0};
 	orxObject_SetTextString(nameField, "Name:");
