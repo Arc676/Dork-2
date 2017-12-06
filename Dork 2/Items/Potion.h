@@ -52,6 +52,8 @@ public:
 	PotionType getType();
 	orxSTRING getName();
 
+	static orxSTRING configCodeForType(PotionType);
+
 	static Potion* getCopyOf(PotionType);
 };
 

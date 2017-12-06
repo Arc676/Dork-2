@@ -88,3 +88,26 @@ orxSTRING Potion::typeToString(PotionType type) {
 			return (orxSTRING)"Unknown potion type";
 	}
 }
+
+orxSTRING Potion::configCodeForType(PotionType type) {
+	switch (type) {
+		case QUICKHEAL_2:
+			return (orxSTRING)"qh2";
+		case QUICKHEAL_5:
+			return (orxSTRING)"qh5";
+		case QUICKHEAL_10:
+			return (orxSTRING)"qh10";
+		case QUICKHEAL_20:
+			return (orxSTRING)"qh20";
+		case QUICKHEAL_50:
+			return (orxSTRING)"qh50";
+		case SPEEDBOOST:
+			return (orxSTRING)"SpeedBoost";
+		case STRBOOST:
+			return (orxSTRING)"StrengthBoost";
+		case DEFBOOST:
+			return (orxSTRING)"DefenseBoost";
+		default:
+			return (orxSTRING)"";
+	}
+}
