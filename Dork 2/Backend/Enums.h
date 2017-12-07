@@ -26,11 +26,11 @@
 enum WeaponType : int {
 	SWORD = 0,
 	CLUB,
-	SCYTHE,
+	STAFF,
 	SICKLE,
 	DAGGER,
 	AXE,
-	LANCE,
+	SPEAR,
 	NOWEAPON
 };
 

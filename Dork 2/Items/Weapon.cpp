@@ -27,8 +27,8 @@ Weapon* Weapon::sword = new Weapon(
 Weapon* Weapon::club = new Weapon(
 	CLUB, 0.15, 0.15, -0.05, 10
 );
-Weapon* Weapon::scythe = new Weapon(
-	SCYTHE, 0.6, 0.4, -0.05, 150
+Weapon* Weapon::staff = new Weapon(
+	STAFF, 0.6, 0.4, -0.05, 150
 );
 Weapon* Weapon::sickle = new Weapon(
 	SICKLE, 0.3, 0.2, 0, 60
@@ -40,7 +40,7 @@ Weapon* Weapon::axe = new Weapon(
 	AXE, 0.3, 0.1, -0.05, 50
 );
 Weapon* Weapon::lance = new Weapon(
-	LANCE, 0.4, 0.1, -0.2, 35
+	SPEAR, 0.4, 0.1, -0.2, 35
 );
 
 Weapon* Weapon::noWeapon = new Weapon(
@@ -55,16 +55,16 @@ orxSTRING Weapon::getWeaponName(WeaponType type) {
 			return (orxSTRING)"Sword";
 		case CLUB:
 			return (orxSTRING)"Club";
-		case SCYTHE:
-			return (orxSTRING)"Scythe";
+		case STAFF:
+			return (orxSTRING)"Staff";
 		case SICKLE:
 			return (orxSTRING)"Sickle";
 		case DAGGER:
 			return (orxSTRING)"Dagger";
 		case AXE:
 			return (orxSTRING)"Axe";
-		case LANCE:
-			return (orxSTRING)"Lance";
+		case SPEAR:
+			return (orxSTRING)"Spear";
 		default:
 			return (orxSTRING)"Unknown or no weapon";
 	}
@@ -76,15 +76,15 @@ EntityType Weapon::getTypeForWeapon(WeaponType weaponType) {
 			return MELEE;
 		case CLUB:
 			return MELEE;
-		case SCYTHE:
-			return MELEE;
+		case STAFF:
+			return MAGIC;
 		case SICKLE:
 			return MELEE;
 		case DAGGER:
 			return SPEED;
 		case AXE:
 			return MELEE;
-		case LANCE:
+		case SPEAR:
 			return RANGE;
 		default:
 			return NOTYPE;
@@ -101,15 +101,15 @@ Weapon* Weapon::copyOf(WeaponType type) {
 			return Weapon::sword->copy();
 		case CLUB:
 			return Weapon::club->copy();
-		case SCYTHE:
-			return Weapon::scythe->copy();
+		case STAFF:
+			return Weapon::staff->copy();
 		case SICKLE:
 			return Weapon::sickle->copy();
 		case DAGGER:
 			return Weapon::dagger->copy();
 		case AXE:
 			return Weapon::axe->copy();
-		case LANCE:
+		case SPEAR:
 			return Weapon::lance->copy();
 		default:
 			return Weapon::noWeapon->copy();

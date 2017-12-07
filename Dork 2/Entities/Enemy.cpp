@@ -28,12 +28,12 @@ const int Enemy::defenseBounds[]  = {15, 30, 10, 5,  12, 15, 15};
 const int Enemy::rewardBounds[]   = {3,  10, 2,  3,  4,  7,  7};
 
 const WeaponType Enemy::preferredWeapons[] = {
-	LANCE,
+	SPEAR,
 	DAGGER,
-	AXE,
+	STAFF,
 	SWORD,
 	DAGGER,
-	LANCE,
+	SPEAR,
 	CLUB
 };
 
@@ -85,11 +85,11 @@ void Enemy::newRandomDirection() {
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	switch (type) {
 		case GOBLIN:
-			return MAGIC;
+			return RANGE;
 		case GHOST:
 			return SPEED;
 		case ORC:
-			return RANGE;
+			return MAGIC;
 		case IMP:
 			return MELEE;
 		case OGRE:

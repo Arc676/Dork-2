@@ -29,7 +29,7 @@
 class Weapon {
 	static Weapon* sword;
 	static Weapon* club;
-	static Weapon* scythe;
+	static Weapon* staff;
 	static Weapon* sickle;
 	static Weapon* axe;
 	static Weapon* dagger;
