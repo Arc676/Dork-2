@@ -38,13 +38,29 @@ int Entity::dodge(Entity* blo, Entity* att) {
 
 int Entity::maxDamage(Entity* attacker, Entity* blocker){
 	// attacks are more or less effective when one entity has a type advantage over the other
+	EntityType bweakness = Entity::weaknessForType(blocker->type);
+	EntityType aweakness = Entity::weaknessForType(attacker->type);
+
 	int str = attacker->strength;
-	if (Entity::weaknessForType(blocker->type) == attacker->type) {
+	int def = blocker->defense;
+
+	if (attacker->type == bweakness) {
 		str *= 1.1;
 	}
-	int def = blocker->defense;
-	if (Entity::weaknessForType(attacker->type) == blocker->type) {
+	if (attacker->type == attacker->weapon->getType()) {
+		str *= 1.1;
+	}
+	if (attacker->weapon->getType() == bweakness) {
+		str *= 1.2;
+	}
+	if (blocker->type == aweakness) {
 		def *= 1.1;
+	}
+	if (blocker->type == blocker->weapon->getType()) {
+		def *= 1.1;
+	}
+	if (blocker->weapon->getType() == aweakness) {
+		def *= 1.2;
 	}
 	// strength, boosted by weapon, minus defense, boosted by weapon
 	return str * (1 + attacker->weapon->getStrMod()) - (def * (1 + blocker->weapon->getDefMod()))/4;
