@@ -29,13 +29,14 @@ Move Combat::moves[2][2] = {
 Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {-1400, 500, 0};
+	orxVECTOR pos = {-1400, 596, 0};
 	orxObject_SetPosition(selector, &pos);
 
 	playerStats = new StatViewer(player, {-1500, 270, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
+	orxObject_CreateFromConfig("CombatUI");
 	setPauseMenuPosition({-1150.0, 400.0, 0});
 }
 
