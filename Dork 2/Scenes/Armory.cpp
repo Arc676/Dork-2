@@ -45,6 +45,9 @@ Armory::Armory(Player* player) : Purchasing() {
 		allWeapons[i] = Weapon::copyOf((WeaponType)i);
 	}
 
+	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
+	orxObject_SetPosition(exit, &wpos);
+
 	loadPlayerData(player);
 
 	pos = {-950, 750, 0};

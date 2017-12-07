@@ -44,6 +44,9 @@ Shop::Shop(Player* player) : Purchasing() {
 
 		allPotions[i] = Potion::getCopyOf((PotionType)i);
 	}
+
+	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
+	orxObject_SetPosition(exit, &ppos);
 	
 	loadPlayerData(player);
 
