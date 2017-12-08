@@ -99,7 +99,7 @@ void Shop::loadItemData() {
 		case DEFBOOST:
 		case SPEEDBOOST:
 		case STRBOOST:
-			orxString_Print(text, "Boost: +%d%%", (int)((p->getAmount() - 1) * 100));
+			orxString_Print(text, "Boost: +%d%%", (int)(p->getAmount() * 100));
 			break;
 		default:
 			break;

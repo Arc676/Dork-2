@@ -27,9 +27,9 @@ Potion* Potion::quickheal10 = new Potion(QUICKHEAL_10, 10, 18);
 Potion* Potion::quickheal20 = new Potion(QUICKHEAL_20, 20, 35);
 Potion* Potion::quickheal50 = new Potion(QUICKHEAL_50, 50, 60);
 
-Potion* Potion::strboost = new Potion(STRBOOST, 1.1, 10);
-Potion* Potion::defboost = new Potion(DEFBOOST, 1.1, 15);
-Potion* Potion::speedboost = new Potion(SPEEDBOOST, 1.1, 12);
+Potion* Potion::strboost = new Potion(STRBOOST, 0.1, 10);
+Potion* Potion::defboost = new Potion(DEFBOOST, 0.1, 15);
+Potion* Potion::speedboost = new Potion(SPEEDBOOST, 0.1, 12);
 
 Potion* Potion::getCopyOf(PotionType type) {
 	switch (type) {

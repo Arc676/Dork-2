@@ -24,6 +24,7 @@
 
 #include "Scene.h"
 #include "Enemy.h"
+#include "Potion.h"
 #include "StatViewer.h"
 
 class Combat : public Scene {
@@ -43,7 +44,9 @@ class Combat : public Scene {
 	bool hasPotions = false;
 	bool playerHasPotions();
 	bool isSelectingPotion = false;
-	int selectedPotion = 0;
+	PotionType selectedPotion = QUICKHEAL_2;
+	int desiredQuantity = 1;
+	void consumePotions();
 
 	SceneType makeMove(Move);
 public:

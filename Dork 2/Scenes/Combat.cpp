@@ -56,7 +56,6 @@ void Combat::activate() {
 }
 
 bool Combat::playerHasPotions() {
-	return false;
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		if (player->amountOfPotionOwned((PotionType)i) > 0) {
 			return true;
@@ -96,7 +95,7 @@ SceneType Combat::makeMove(Move move) {
 		case SPECIAL_MOVE:
 			if (specialMoveCooldown > 0) {
 				orxObject_AddSound(selector, "ErrorSound");
-				break;
+				return COMBAT;
 			}
 			switch (player->getType()) {
 				case MAGIC:
@@ -146,7 +145,7 @@ SceneType Combat::makeMove(Move move) {
 			break;
 		case USE_ITEM:
 			if (hasPotions) {
-				hasPotions = playerHasPotions();
+				isSelectingPotion = true;
 			} else {
 				orxObject_AddSound(selector, "ErrorSound");
 				return COMBAT;
@@ -164,11 +163,58 @@ SceneType Combat::makeMove(Move move) {
 	return COMBAT;
 }
 
+void Combat::consumePotions() {
+	Potion* p = Potion::getCopyOf(selectedPotion);
+	switch (selectedPotion) {
+		case SPEEDBOOST:
+			modifiers[0] += player->getSpeed() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			break;
+		case STRBOOST:
+			modifiers[1] += player->getStrength() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			break;
+		case DEFBOOST:
+			modifiers[2] += player->getDefense() * orxMath_Pow(p->getAmount(), desiredQuantity);
+		case QUICKHEAL_2:
+		case QUICKHEAL_5:
+		case QUICKHEAL_10:
+		case QUICKHEAL_20:
+		case QUICKHEAL_50:
+			player->alterHP(p->getAmount() * desiredQuantity);
+			break;
+		default:
+			break;
+	}
+	player->changePotionAmount(selectedPotion, -desiredQuantity);
+	playerStats->reloadData();
+}
+
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 	if (isSelectingPotion) {
+		bool switchPotion = false;
+		int direction = 1;
 		if (getKeyDown((orxSTRING)"Pause")) {
 			isSelectingPotion = false;
 			return COMBAT;
+		} else if (getKeyDown((orxSTRING)"Enter")) {
+			consumePotions();
+			hasPotions = playerHasPotions();
+			isSelectingPotion = false;
+		} else if (getKeyDown((orxSTRING)"GoDown") &&
+				   desiredQuantity > 1) {
+			desiredQuantity--;
+		} else if (getKeyDown((orxSTRING)"GoUp") &&
+				   desiredQuantity < player->amountOfPotionOwned(selectedPotion)) {
+			desiredQuantity++;
+		} else if (getKeyDown((orxSTRING)"GoLeft")) {
+			switchPotion = true;
+			direction = -1;
+		} else if (getKeyDown((orxSTRING)"GoRight")) {
+			switchPotion = true;
+		}
+		if (switchPotion) {
+			do {
+				selectedPotion = (PotionType)((int)selectedPotion + direction);
+			} while (player->amountOfPotionOwned(selectedPotion) == 0);
 		}
 	} else {
 		SceneType type = Scene::update(clockInfo);
