@@ -50,7 +50,19 @@ void Combat::activate() {
 	orxString_Print(anim, "IdleDAnim%s", enemy->getName());
 	orxObject_SetTargetAnim(enemy->getEntity(), anim);
 
+	hasPotions = playerHasPotions();
+
 	Scene::activate();
+}
+
+bool Combat::playerHasPotions() {
+	return false;
+	for (int i = 0; i < POTIONCOUNT; i++) {
+		if (player->amountOfPotionOwned((PotionType)i) > 0) {
+			return true;
+		}
+	}
+	return false;
 }
 
 void Combat::deactivate() {
@@ -83,6 +95,7 @@ SceneType Combat::makeMove(Move move) {
 			break;
 		case SPECIAL_MOVE:
 			if (specialMoveCooldown > 0) {
+				orxObject_AddSound(selector, "ErrorSound");
 				break;
 			}
 			switch (player->getType()) {
@@ -132,6 +145,12 @@ SceneType Combat::makeMove(Move move) {
 			}
 			break;
 		case USE_ITEM:
+			if (hasPotions) {
+				hasPotions = playerHasPotions();
+			} else {
+				orxObject_AddSound(selector, "ErrorSound");
+				return COMBAT;
+			}
 			break;
 	}
 	if (enemy->getHP() <= 0) {
@@ -146,36 +165,43 @@ SceneType Combat::makeMove(Move move) {
 }
 
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
-	SceneType type = Scene::update(clockInfo);
-	if (type != COMBAT) {
-		return type;
-	}
-	if (paused) {
-		return COMBAT;
-	}
-	orxVECTOR pos;
-	orxBOOL selChanged = orxTRUE;
-	orxObject_GetPosition(selector, &pos);
-	if (getKeyDown((orxSTRING)"GoDown") && y < 1) {
-		pos.fY += 60;
-		y++;
-	} else if (getKeyDown((orxSTRING)"GoUp") && y > 0) {
-		pos.fY -= 60;
-		y--;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && x > 0) {
-		pos.fX -= 300;
-		x--;
-	} else if (getKeyDown((orxSTRING)"GoRight") && x < 1) {
-		pos.fX += 300;
-		x++;
-	} else {
-		if (getKeyDown((orxSTRING)"Enter")) {
-			return makeMove(moves[y][x]);
+	if (isSelectingPotion) {
+		if (getKeyDown((orxSTRING)"Pause")) {
+			isSelectingPotion = false;
+			return COMBAT;
 		}
-		selChanged = orxFALSE;
-	}
-	if (selChanged) {
-		orxObject_SetPosition(selector, &pos);
+	} else {
+		SceneType type = Scene::update(clockInfo);
+		if (type != COMBAT) {
+			return type;
+		}
+		if (paused) {
+			return COMBAT;
+		}
+		orxVECTOR pos;
+		orxBOOL selChanged = orxTRUE;
+		orxObject_GetPosition(selector, &pos);
+		if (getKeyDown((orxSTRING)"GoDown") && y < 1) {
+			pos.fY += 60;
+			y++;
+		} else if (getKeyDown((orxSTRING)"GoUp") && y > 0) {
+			pos.fY -= 60;
+			y--;
+		} else if (getKeyDown((orxSTRING)"GoLeft") && x > 0) {
+			pos.fX -= 300;
+			x--;
+		} else if (getKeyDown((orxSTRING)"GoRight") && x < 1) {
+			pos.fX += 300;
+			x++;
+		} else {
+			if (getKeyDown((orxSTRING)"Enter")) {
+				return makeMove(moves[y][x]);
+			}
+			selChanged = orxFALSE;
+		}
+		if (selChanged) {
+			orxObject_SetPosition(selector, &pos);
+		}
 	}
 	return COMBAT;
 }

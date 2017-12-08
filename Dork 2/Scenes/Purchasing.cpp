@@ -54,7 +54,9 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 			return EXPLORATION;
 		}
 		if (makePurchase()) {
-			orxObject_AddSound(player->getEntity(), "Kaching");
+			orxObject_AddSound(selectorArrow, "Kaching");
+		} else {
+			orxObject_AddSound(selectorArrow, "ErrorSound");
 		}
 	}
 	if (currentSelection < selectionLimit) {

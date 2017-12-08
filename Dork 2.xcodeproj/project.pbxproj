@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711189021FDAC93700344EC8 /* error.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189011FDAC92D00344EC8 /* error.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712CA3951FD77F240063E22E /* PauseMenu.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3941FD77E230063E22E /* PauseMenu.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712CA3971FD785450063E22E /* Tick.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3961FD7853C0063E22E /* Tick.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD2A1FD0E7410015482A /* Purchasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD281FD0E7410015482A /* Purchasing.cpp */; };
@@ -132,12 +133,14 @@
 				7159CD301FD24F020015482A /* liborx.dylib in CopyFiles */,
 				7159CD2E1FD24EFA0015482A /* kaching.wav in CopyFiles */,
 				7159CD2F1FD24EFA0015482A /* Background.ogg in CopyFiles */,
+				711189021FDAC93700344EC8 /* error.wav in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		711189011FDAC92D00344EC8 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		712CA3941FD77E230063E22E /* PauseMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseMenu.png; sourceTree = "<group>"; };
 		712CA3961FD7853C0063E22E /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
 		7159CD281FD0E7410015482A /* Purchasing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Purchasing.cpp; sourceTree = "<group>"; };
@@ -633,6 +636,7 @@
 		716CC8341FC6EF1400197944 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				711189011FDAC92D00344EC8 /* error.wav */,
 				71620F471FCADC5D00EBD228 /* kaching.wav */,
 				716CC8351FC6EF1400197944 /* Background.ogg */,
 			);

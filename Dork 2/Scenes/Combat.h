@@ -40,6 +40,11 @@ class Combat : public Scene {
 	int x = 0, y = 0;
 	int specialMoveCooldown = 0;
 
+	bool hasPotions = false;
+	bool playerHasPotions();
+	bool isSelectingPotion = false;
+	int selectedPotion = 0;
+
 	SceneType makeMove(Move);
 public:
 	Combat(Player*, Enemy*);
