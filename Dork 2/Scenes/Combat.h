@@ -28,24 +28,36 @@
 #include "StatViewer.h"
 
 class Combat : public Scene {
+	//moves on UI
 	static Move moves[2][2];
 
+	//entity-related data
 	Enemy* enemy;
 	orxVECTOR playerPos;
 
+	//combat mechanics and entity stats
 	int modifiers[3];
 	StatViewer* playerStats;
 	StatViewer* enemyStats;
 
+	//UI data
 	orxOBJECT* selector;
 	int x = 0, y = 0;
 	int specialMoveCooldown = 0;
 
+	//potion related metadata
 	bool hasPotions = false;
-	bool playerHasPotions();
 	bool isSelectingPotion = false;
 	PotionType selectedPotion = QUICKHEAL_2;
 	int desiredQuantity = 1;
+
+	//potion related (UI)
+	std::vector<orxOBJECT*> allPotions;
+	orxOBJECT* potionName;
+	orxOBJECT* potionEffect;
+
+	//potion related functions
+	bool playerHasPotions();
 	void consumePotions();
 
 	SceneType makeMove(Move);

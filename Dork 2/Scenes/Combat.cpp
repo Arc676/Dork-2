@@ -36,6 +36,25 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 //	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
+	potionName = orxObject_CreateFromConfig("SV");
+	pos = {-1000, 470, 0};
+	orxObject_SetPosition(potionName, &pos);
+	orxObject_Enable(potionName, orxFALSE);
+
+	potionEffect = orxObject_CreateFromConfig("SV");
+	pos.fY += 20;
+	orxObject_SetPosition(potionEffect, &pos);
+	orxObject_Enable(potionEffect, orxFALSE);
+
+	pos = {-940, 480, 0};
+	allPotions = std::vector<orxOBJECT*>(POTIONCOUNT);
+	for (int i = 0; i < POTIONCOUNT; i++) {
+		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
+		orxObject_SetPosition(potion, &pos);
+		orxObject_Enable(potion, orxFALSE);
+		allPotions[i] = potion;
+	}
+
 	orxObject_CreateFromConfig("CombatUI");
 	setPauseMenuPosition({-1150.0, 400.0, 0});
 }
@@ -146,6 +165,10 @@ SceneType Combat::makeMove(Move move) {
 		case USE_ITEM:
 			if (hasPotions) {
 				isSelectingPotion = true;
+
+				orxObject_Enable(potionName, orxTRUE);
+				orxObject_Enable(potionEffect, orxTRUE);
+				orxObject_Enable(allPotions[selectedPotion], orxTRUE);
 			} else {
 				orxObject_AddSound(selector, "ErrorSound");
 				return COMBAT;
@@ -212,9 +235,17 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			switchPotion = true;
 		}
 		if (switchPotion) {
+			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
 			do {
-				selectedPotion = (PotionType)((int)selectedPotion + direction);
+				int newval = ((int)selectedPotion + (POTIONCOUNT + direction)) % POTIONCOUNT;
+				selectedPotion = (PotionType)newval;
 			} while (player->amountOfPotionOwned(selectedPotion) == 0);
+			orxObject_Enable(allPotions[selectedPotion], orxTRUE);
+		}
+		if (!isSelectingPotion) {
+			orxObject_Enable(potionName, orxFALSE);
+			orxObject_Enable(potionEffect, orxFALSE);
+			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
 		}
 	} else {
 		SceneType type = Scene::update(clockInfo);
