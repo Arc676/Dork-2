@@ -113,7 +113,7 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos)
 	Enemy* e = new Enemy(
 		type,
 		orxMath_GetRandomU32(1, healthBounds[(int)type] - 1) + orxMath_GetRandomU32(0, level / 4) + level / 3,
-		orxMath_GetRandomU32(0, speeds[(int)type]/2 + level/2 - 1) + speeds[(int)type],
+		orxMath_GetRandomU32(0, speeds[(int)type] - 1) + level * 0.5,
 		orxMath_GetRandomU32(0, strengthBounds[(int)type] - 1) + level * 0.6,
 		orxMath_GetRandomU32(0, defenseBounds[(int)type] - 1) + level * 0.6,
 		weapon,
