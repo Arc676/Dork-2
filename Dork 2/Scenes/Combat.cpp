@@ -175,8 +175,8 @@ SceneType Combat::makeMove(Move move) {
 				updatePotionDescription();
 			} else {
 				orxObject_AddSound(selector, "ErrorSound");
-				return COMBAT;
 			}
+			return COMBAT;
 			break;
 	}
 	if (enemy->getHP() <= 0) {
