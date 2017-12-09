@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		711189021FDAC93700344EC8 /* error.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189011FDAC92D00344EC8 /* error.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189031FDBF0E500344EC8 /* tiles_12.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712CA3951FD77F240063E22E /* PauseMenu.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3941FD77E230063E22E /* PauseMenu.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712CA3971FD785450063E22E /* Tick.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3961FD7853C0063E22E /* Tick.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD2A1FD0E7410015482A /* Purchasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD281FD0E7410015482A /* Purchasing.cpp */; };
@@ -105,6 +106,7 @@
 				71959C2D1FD967EF00AF6DAF /* Exit.png in CopyFiles */,
 				7159CD431FD24F1E0015482A /* MainGuySpriteSheet.png in CopyFiles */,
 				7159CD441FD24F1E0015482A /* forest_tiles.png in CopyFiles */,
+				711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */,
 				7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */,
 				712CA3951FD77F240063E22E /* PauseMenu.png in CopyFiles */,
 				7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */,
@@ -141,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		711189011FDAC92D00344EC8 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
+		711189031FDBF0E500344EC8 /* tiles_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_12.png; sourceTree = "<group>"; };
 		712CA3941FD77E230063E22E /* PauseMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseMenu.png; sourceTree = "<group>"; };
 		712CA3961FD7853C0063E22E /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
 		7159CD281FD0E7410015482A /* Purchasing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Purchasing.cpp; sourceTree = "<group>"; };
@@ -717,6 +720,7 @@
 				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,
 				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
+				711189031FDBF0E500344EC8 /* tiles_12.png */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";

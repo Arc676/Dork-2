@@ -60,14 +60,14 @@ StandAlone::StandAlone() {}
 
 //written by Wayne "Sausage" Johnson
 void StandAlone::paintTiles(const orxSTRING mapSection) {
-	int tilesWide = 100;
+	int tilesWide = 130;
 	int tileSize = 32;
 	orxVECTOR position = orxVECTOR_0;
 
 	orxConfig_PushSection(mapSection);
 	orxU32 groupID = orxString_GetID(mapSection);
 
-	orxU32 baseMapIndex = 0;
+	int baseMapIndex = 0;
 
 	orxU32 propertyCount = orxConfig_GetKeyCounter();
 
@@ -84,8 +84,8 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 				continue;
 			}
 
-			position.fX = (baseMapIndex % tilesWide) * tileSize;
-			position.fY = (baseMapIndex / tilesWide) * tileSize;
+			position.fX = ((baseMapIndex % tilesWide) - 15) * tileSize;
+			position.fY = ((baseMapIndex / tilesWide) - 15) * tileSize;
 			position.fZ = orxFLOAT_0;
 
 			orxCHAR formattedTileObject[30]; //good maximum length
@@ -94,9 +94,6 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 			orxOBJECT *obj = orxObject_CreateFromConfig(formattedTileObject);
 
 			if (obj != orxNULL) {
-				orxVECTOR tilePos = orxVECTOR_0;
-				orxObject_GetPosition(obj, &tilePos);
-
 				orxObject_SetPosition(obj, &position);
 				orxObject_SetGroupID(obj, groupID);
 			}

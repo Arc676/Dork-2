@@ -31,7 +31,7 @@ Player::Player(orxSTRING name, EntityType type) : name(name) {
 	orxInput_Load(orxSTRING_EMPTY);
 	entity = orxObject_CreateFromConfig("Player");
 
-	position = {96, 96, 0};
+	position = {1632, 1792, 0};
 	orxObject_SetPosition(entity, &position);
 
 	ownedPotions = std::vector<int>(POTIONCOUNT);
@@ -129,6 +129,7 @@ orxSTATUS Player::read(orxSTRING filename) {
 		}
 		return orxSTATUS_SUCCESS;
 	}
+	orxObject_SetLifeTime(entity, 0);
 	return orxSTATUS_FAILURE;
 }
 
