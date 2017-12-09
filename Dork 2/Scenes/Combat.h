@@ -59,6 +59,8 @@ class Combat : public Scene {
 	//potion related functions
 	bool playerHasPotions();
 	void consumePotions();
+	void selectPotion(int);
+	void updatePotionDescription();
 
 	SceneType makeMove(Move);
 public:

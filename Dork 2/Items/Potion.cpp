@@ -31,6 +31,17 @@ Potion* Potion::strboost = new Potion(STRBOOST, 0.1, 10);
 Potion* Potion::defboost = new Potion(DEFBOOST, 0.1, 15);
 Potion* Potion::speedboost = new Potion(SPEEDBOOST, 0.1, 12);
 
+std::vector<Potion*> Potion::allPotions = {
+	quickheal2,
+	quickheal5,
+	quickheal10,
+	quickheal20,
+	quickheal50,
+	speedboost,
+	strboost,
+	defboost
+};
+
 Potion* Potion::getCopyOf(PotionType type) {
 	switch (type) {
 		case QUICKHEAL_2:

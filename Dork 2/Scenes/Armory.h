@@ -27,7 +27,6 @@
 
 class Armory : public Purchasing {
 	std::vector<orxOBJECT*> tickMarks;
-	std::vector<Weapon*> allWeapons;
 
 	orxOBJECT* weaponName;
 	orxOBJECT* weaponPrice;

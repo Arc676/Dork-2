@@ -23,6 +23,7 @@
 #define Weapon_h
 
 #include "orx.h"
+#include <vector>
 
 #include "Enums.h"
 
@@ -33,7 +34,7 @@ class Weapon {
 	static Weapon* sickle;
 	static Weapon* axe;
 	static Weapon* dagger;
-	static Weapon* lance;
+	static Weapon* spear;
 
 	static Weapon* noWeapon;
 	Weapon* copy();
@@ -44,6 +45,8 @@ class Weapon {
 	int price;
 	WeaponType weapon;
 public:
+	static std::vector<Weapon*> allWeapons;
+	
 	static orxSTRING getWeaponName(WeaponType);
 	static Weapon* copyOf(WeaponType);
 	static EntityType getTypeForWeapon(WeaponType);

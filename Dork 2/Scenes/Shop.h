@@ -28,7 +28,6 @@
 class Shop : public Purchasing {
 	int quantity = 1;
 	std::vector<orxOBJECT*> potionCounts;
-	std::vector<Potion*> allPotions;
 
 	orxOBJECT* potionName;
 	orxOBJECT* potionPrice;

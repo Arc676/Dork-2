@@ -44,7 +44,7 @@ enum EntityType : int {
 
 #define POTIONCOUNT 8
 enum PotionType {
-	QUICKHEAL_2,
+	QUICKHEAL_2 = 0,
 	QUICKHEAL_5,
 	QUICKHEAL_10,
 	QUICKHEAL_20,

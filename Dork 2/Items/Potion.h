@@ -23,6 +23,7 @@
 #define Potion_h
 
 #include "orx.h"
+#include <vector>
 
 #include "Enums.h"
 
@@ -45,6 +46,8 @@ class Potion {
 
 	Potion* copy();
 public:
+	static std::vector<Potion*> allPotions;
+	
 	Potion(PotionType, double, int);
 
 	int getPrice();

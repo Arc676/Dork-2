@@ -39,9 +39,19 @@ Weapon* Weapon::dagger = new Weapon(
 Weapon* Weapon::axe = new Weapon(
 	AXE, 0.3, 0.1, -0.05, 50
 );
-Weapon* Weapon::lance = new Weapon(
+Weapon* Weapon::spear = new Weapon(
 	SPEAR, 0.4, 0.1, -0.2, 35
 );
+
+std::vector<Weapon*> Weapon::allWeapons = {
+	sword,
+	club,
+	staff,
+	sickle,
+	dagger,
+	axe,
+	spear
+};
 
 Weapon* Weapon::noWeapon = new Weapon(
 	NOWEAPON, 0, 0, 0, 0
@@ -110,7 +120,7 @@ Weapon* Weapon::copyOf(WeaponType type) {
 		case AXE:
 			return Weapon::axe->copy();
 		case SPEAR:
-			return Weapon::lance->copy();
+			return Weapon::spear->copy();
 		default:
 			return Weapon::noWeapon->copy();
 	}
