@@ -34,7 +34,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 
 	playerStats = new StatViewer(player, {-1500, 270, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
-//	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
+	//	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
 
 	potionName = orxObject_CreateFromConfig("SV");
 	pos = {-1000, 470, 0};
@@ -97,19 +97,30 @@ SceneType Combat::makeMove(Move move) {
 		case RUN:
 			return EXPLORATION;
 		case ATTACK:
+		{
 			player->alterSpeed(modifiers[0]);
 			player->alterStrength(modifiers[1]);
 			player->alterDefense(modifiers[2]);
-			Entity::entityAttack(player, enemy);
-			if (enemy->getHP() > 0){
-				Entity::entityAttack(enemy, player);
+
+			Entity* firstAttacker = player;
+			Entity* secondAttacker = enemy;
+			if (enemy->getSpeed() > player->getSpeed()) {
+				firstAttacker = enemy;
+				secondAttacker = player;
 			}
+
+			Entity::entityAttack(firstAttacker, secondAttacker);
+			if (secondAttacker->getHP() > 0){
+				Entity::entityAttack(secondAttacker, firstAttacker);
+			}
+
 			player->alterSpeed(-modifiers[0]);
 			player->alterStrength(-modifiers[1]);
 			player->alterDefense(-modifiers[2]);
 			if (specialMoveCooldown > 0) {
 				specialMoveCooldown--;
 			}
+		}
 			break;
 		case SPECIAL_MOVE:
 			if (specialMoveCooldown > 0) {
@@ -118,45 +129,45 @@ SceneType Combat::makeMove(Move move) {
 			}
 			switch (player->getType()) {
 				case MAGIC:
-					{
-						int dHP = ceil((player->getLevel() + 5) / 10);
-						int ddef = ceil((player->getLevel() + 5) / 50);
-						player->alterDefense(-ddef);
-						Entity::entityAttack(enemy, player);
-						player->alterDefense(ddef);
-						player->alterHP(dHP);
-						specialMoveCooldown = orxMAX(10, player->getLevel() * 0.06);
-					}
+				{
+					int dHP = ceil((player->getLevel() + 5) / 10);
+					int ddef = ceil((player->getLevel() + 5) / 50);
+					player->alterDefense(-ddef);
+					Entity::entityAttack(enemy, player);
+					player->alterDefense(ddef);
+					player->alterHP(dHP);
+					specialMoveCooldown = orxMAX(10, player->getLevel() * 0.06);
+				}
 					break;
 				case SPEED:
-					{
-						int dstr = ceil((player->getLevel() + 5) / 50);
-						int ddef = ceil((player->getLevel() + 5) / 60);
-						Entity::entityAttack(enemy, player);
-						modifiers[1] += dstr;
-						modifiers[2] -= ddef;
-						specialMoveCooldown = orxMAX(8, player->getLevel() * 0.03);
-					}
+				{
+					int dstr = ceil((player->getLevel() + 5) / 50);
+					int ddef = ceil((player->getLevel() + 5) / 60);
+					Entity::entityAttack(enemy, player);
+					modifiers[1] += dstr;
+					modifiers[2] -= ddef;
+					specialMoveCooldown = orxMAX(8, player->getLevel() * 0.03);
+				}
 					break;
 				case MELEE:
-					{
-						int ddef = ceil((player->getLevel() + 5) / 50);
-						int dv = ceil((player->getLevel() + 5) / 180);
-						Entity::entityAttack(enemy, player);
-						modifiers[0] -= dv;
-						modifiers[2] += ddef;
-						specialMoveCooldown = orxMAX(7, player->getLevel() * 0.02);
-					}
+				{
+					int ddef = ceil((player->getLevel() + 5) / 50);
+					int dv = ceil((player->getLevel() + 5) / 180);
+					Entity::entityAttack(enemy, player);
+					modifiers[0] -= dv;
+					modifiers[2] += ddef;
+					specialMoveCooldown = orxMAX(7, player->getLevel() * 0.02);
+				}
 					break;
 				case RANGE:
-					{
-						int dstr = ceil((player->getLevel() + 5) / 40);
-						int dv = ceil((player->getLevel() + 5) / 150);
-						Entity::entityAttack(enemy, player);
-						modifiers[0] -= dv;
-						modifiers[1] += dstr;
-						specialMoveCooldown = orxMAX(8, player->getLevel() * 0.03);
-					}
+				{
+					int dstr = ceil((player->getLevel() + 5) / 40);
+					int dv = ceil((player->getLevel() + 5) / 150);
+					Entity::entityAttack(enemy, player);
+					modifiers[0] -= dv;
+					modifiers[1] += dstr;
+					specialMoveCooldown = orxMAX(8, player->getLevel() * 0.03);
+				}
 					break;
 				default:
 					break;
