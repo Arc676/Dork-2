@@ -302,6 +302,8 @@
 		71959C3F1FD982A300AF6DAF /* qh20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qh20.png; sourceTree = "<group>"; };
 		71959C401FD982A300AF6DAF /* qh50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qh50.png; sourceTree = "<group>"; };
 		71959C411FD982A300AF6DAF /* StrengthBoost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StrengthBoost.png; sourceTree = "<group>"; };
+		719A38A61FDCC9EA00114FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		719A38A71FDCC9EA00114FD0 /* version.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
 		71F208341FC3FA190001AB3F /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		71F208351FC3FA190001AB3F /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		71F208371FC43BEB0001AB3F /* Map1.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = Map1.ini; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		715FF5D61FBEDE44005B1ED4 /* Dork 2 */ = {
 			isa = PBXGroup;
 			children = (
+				719A38A51FDCC9EA00114FD0 /* Metadata */,
 				71620F101FC7A50700EBD228 /* Scenes */,
 				716D1AFF1FC2F47400D827D1 /* Backend */,
 				716D1AFB1FC29E1B00D827D1 /* Items */,
@@ -730,6 +733,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		719A38A51FDCC9EA00114FD0 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				719A38A61FDCC9EA00114FD0 /* Info.plist */,
+				719A38A71FDCC9EA00114FD0 /* version.plist */,
+			);
+			path = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
