@@ -72,6 +72,9 @@ void Shop::loadPlayerData(Player* player) {
 		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)i));
 		orxObject_SetTextString(potionCounts[i], text);
 	}
+	if (statViewer != orxNULL) {
+		statViewer->loadEntity(player);
+	}
 }
 
 void Shop::loadItemData() {

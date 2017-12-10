@@ -161,9 +161,10 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				shopScene = new Shop(player);
 				armoryScene = new Armory(player);
 			} else {
-				orxObject_SetLifeTime(player->getEntity(), 0);
+				player->despawn();
 				player = currentScene->getPlayerData();
 				explorationScene->loadPlayerData(player);
+				explorationScene->resetWorld();
 				shopScene->loadPlayerData(player);
 				armoryScene->loadPlayerData(player);
 			}

@@ -83,23 +83,25 @@ void Armory::loadPlayerData(Player* player) {
 		orxObject_Enable(tickMarks[i], player->ownsWeapon((WeaponType)i));
 	}
 	WeaponType type = player->getWeapon()->getWeaponType();
-	if (type != NOWEAPON) {
-		equipWeapon(type);
+	equipWeapon(type);
+	if (statViewer != orxNULL) {
+		statViewer->loadEntity(player);
 	}
 }
 
 void Armory::equipWeapon(WeaponType type) {
 	orxVECTOR pos;
-	if (lastEquipped >= 0) {
+	if (lastEquipped >= 0 && lastEquipped != NOWEAPON) {
 		orxObject_GetPosition(tickMarks[lastEquipped], &pos);
 		pos.fX = -1100;
 		orxObject_SetPosition(tickMarks[lastEquipped], &pos);
 	}
 	lastEquipped = (int)type;
-	orxObject_GetPosition(tickMarks[lastEquipped], &pos);
-	pos.fX = -1050;
-	orxObject_SetPosition(tickMarks[lastEquipped], &pos);
-	player->equipWeapon(Weapon::copyOf(type));
+	if (type != NOWEAPON) {
+		orxObject_GetPosition(tickMarks[lastEquipped], &pos);
+		pos.fX = -1050;
+		orxObject_SetPosition(tickMarks[lastEquipped], &pos);
+	}
 }
 
 void Armory::loadItemData() {
@@ -128,8 +130,10 @@ void Armory::loadItemData() {
 
 int Armory::makePurchase() {
 	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
+	WeaponType type = (WeaponType)currentSelection;
 	if (player->ownsWeapon((WeaponType)currentSelection)) {
-		equipWeapon((WeaponType)currentSelection);
+		equipWeapon(type);
+		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
 		return WEAPON_EQUIPPPED;
 	} else if (player->getGold() >= weapon->getPrice()) {
@@ -137,7 +141,8 @@ int Armory::makePurchase() {
 		player->setWeaponOwnership((WeaponType)currentSelection, true);
 		orxObject_Enable(tickMarks[currentSelection], orxTRUE);
 
-		equipWeapon((WeaponType)currentSelection);
+		equipWeapon(type);
+		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
 		return PURCHASE_SUCCESSFUL;
 	}

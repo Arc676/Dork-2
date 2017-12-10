@@ -127,6 +127,7 @@ orxSTATUS Player::read(orxSTRING filename) {
 		for (int i = 0; i < WEAPONCOUNT; i++) {
 			ownedWeapons[i] = orxConfig_GetListBool("OwnedWeapons", i);
 		}
+		orxConfig_ClearSection("PlayerData");
 		return orxSTATUS_SUCCESS;
 	}
 	orxObject_SetLifeTime(entity, 0);

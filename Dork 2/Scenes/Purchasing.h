@@ -38,7 +38,7 @@ protected:
 	virtual int makePurchase() = 0;
 	virtual void loadItemData() = 0;
 
-	StatViewer* statViewer;
+	StatViewer* statViewer = orxNULL;
 
 	Purchasing();
 public:

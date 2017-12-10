@@ -30,6 +30,24 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(ca
 	setPauseMenuPosition({-50, 0, 0});
 }
 
+void Exploration::resetWorld() {
+	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
+	for (
+		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
+		 obj != orxNULL;
+		 obj = orxObject_GetNext(obj, defaultGroupID)
+		 ) {
+		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
+		orxConfig_PushSection(name);
+		if (orxConfig_GetBool("IsEnemy")) {
+			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
+			e->despawn();
+		}
+		orxConfig_PopSection();
+	}
+	enemiesInExistence = 0;
+}
+
 void Exploration::activate() {
 	nextSceneType = EXPLORATION;
 	Scene::activate();

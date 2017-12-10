@@ -36,6 +36,8 @@ class Exploration : public Scene {
 public:
 	Exploration(Player*, orxCAMERA*);
 
+	void resetWorld();
+
 	virtual void activate();
 	virtual void deactivate();
 	
