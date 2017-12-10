@@ -76,6 +76,7 @@ public:
 
 	EntityType getType();
 	Weapon* getWeapon();
+	void equipWeapon(Weapon*);
 };
 
 #endif

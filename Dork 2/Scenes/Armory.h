@@ -25,8 +25,12 @@
 #include "Purchasing.h"
 #include "Weapon.h"
 
+#define WEAPON_EQUIPPPED 2
+
 class Armory : public Purchasing {
 	std::vector<orxOBJECT*> tickMarks;
+	int lastEquipped = -1;
+	void equipWeapon(WeaponType);
 
 	orxOBJECT* weaponName;
 	orxOBJECT* weaponPrice;
@@ -35,7 +39,7 @@ class Armory : public Purchasing {
 	orxOBJECT* weaponSpeed;
 	orxOBJECT* weaponType;
 protected:
-	virtual orxBOOL makePurchase();
+	virtual int makePurchase();
 	virtual void loadItemData();
 public:
 	Armory(Player*);

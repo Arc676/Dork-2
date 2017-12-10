@@ -114,6 +114,10 @@ Weapon* Entity::getWeapon() {
 	return weapon;
 }
 
+void Entity::equipWeapon(Weapon* weapon) {
+	this->weapon = weapon;
+}
+
 orxVECTOR Entity::getPosition() {
 	return position;
 }

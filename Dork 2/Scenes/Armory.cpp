@@ -28,7 +28,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	orxVECTOR pos = {-1000, 750, 0};
+	orxVECTOR pos = {-1100, 750, 0};
 	orxVECTOR wpos = {-1200, 750, 0};
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
@@ -82,6 +82,24 @@ void Armory::loadPlayerData(Player* player) {
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxObject_Enable(tickMarks[i], player->ownsWeapon((WeaponType)i));
 	}
+	WeaponType type = player->getWeapon()->getWeaponType();
+	if (type != NOWEAPON) {
+		equipWeapon(type);
+	}
+}
+
+void Armory::equipWeapon(WeaponType type) {
+	orxVECTOR pos;
+	if (lastEquipped >= 0) {
+		orxObject_GetPosition(tickMarks[lastEquipped], &pos);
+		pos.fX = -1100;
+		orxObject_SetPosition(tickMarks[lastEquipped], &pos);
+	}
+	lastEquipped = (int)type;
+	orxObject_GetPosition(tickMarks[lastEquipped], &pos);
+	pos.fX = -1050;
+	orxObject_SetPosition(tickMarks[lastEquipped], &pos);
+	player->equipWeapon(Weapon::copyOf(type));
 }
 
 void Armory::loadItemData() {
@@ -108,16 +126,22 @@ void Armory::loadItemData() {
 	orxObject_SetTextString(weaponSpeed, text);
 }
 
-orxBOOL Armory::makePurchase() {
+int Armory::makePurchase() {
 	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
-	if (player->getGold() >= weapon->getPrice() && !player->ownsWeapon((WeaponType)currentSelection)) {
+	if (player->ownsWeapon((WeaponType)currentSelection)) {
+		equipWeapon((WeaponType)currentSelection);
+		statViewer->reloadData();
+		return WEAPON_EQUIPPPED;
+	} else if (player->getGold() >= weapon->getPrice()) {
 		player->transaction(-weapon->getPrice());
 		player->setWeaponOwnership((WeaponType)currentSelection, true);
 		orxObject_Enable(tickMarks[currentSelection], orxTRUE);
+
+		equipWeapon((WeaponType)currentSelection);
 		statViewer->reloadData();
-		return orxTRUE;
+		return PURCHASE_SUCCESSFUL;
 	}
-	return orxFALSE;
+	return PURCHASE_FAILED;
 }
 
 SceneType Armory::getSceneType() {

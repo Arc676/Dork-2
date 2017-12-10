@@ -25,6 +25,9 @@
 #include "Scene.h"
 #include "StatViewer.h"
 
+#define PURCHASE_SUCCESSFUL 0
+#define PURCHASE_FAILED 1
+
 class Purchasing : public Scene {
 protected:
 	int currentSelection = 0;
@@ -32,7 +35,7 @@ protected:
 	orxOBJECT* selectorArrow;
 	orxVECTOR defaultPos;
 
-	virtual orxBOOL makePurchase() = 0;
+	virtual int makePurchase() = 0;
 	virtual void loadItemData() = 0;
 
 	StatViewer* statViewer;

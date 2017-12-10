@@ -33,7 +33,7 @@ class Shop : public Purchasing {
 	orxOBJECT* potionPrice;
 	orxOBJECT* potionEffect;
 protected:
-	virtual orxBOOL makePurchase();
+	virtual int makePurchase();
 	virtual void loadItemData();
 public:
 	Shop(Player*);

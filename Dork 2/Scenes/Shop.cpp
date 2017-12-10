@@ -104,7 +104,7 @@ void Shop::loadItemData() {
 	orxObject_SetTextString(potionEffect, text);
 }
 
-orxBOOL Shop::makePurchase() {
+int Shop::makePurchase() {
 	Potion* potion = Potion::getCopyOf((PotionType)currentSelection);
 	if (player->getGold() >= quantity * potion->getPrice()) {
 		player->transaction(-quantity * potion->getPrice());
@@ -114,9 +114,9 @@ orxBOOL Shop::makePurchase() {
 		orxCHAR text[5];
 		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
 		orxObject_SetTextString(potionCounts[currentSelection], text);
-		return orxTRUE;
+		return PURCHASE_SUCCESSFUL;
 	}
-	return orxFALSE;
+	return PURCHASE_FAILED;
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
