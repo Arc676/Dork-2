@@ -111,6 +111,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 					break;
 				case PAUSE_RESUME:
 				case PAUSE_EXIT:
+				{
 					//unpause
 					orxObject_Enable(pauseSelector, orxFALSE);
 					orxObject_Enable(pauseMenu, orxFALSE);
@@ -122,13 +123,17 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 					pos.fY -= 60 * pauseMenuSelection;
 					orxObject_SetPosition(pauseSelector, &pos);
 
+					int selected = pauseMenuSelection;
+					pauseMenuSelection = 0;
+
 					//return to main menu if necessary
-					if (pauseMenuSelection == PAUSE_EXIT) {
+					if (selected == PAUSE_EXIT) {
 						if (music != orxNULL) {
 							orxSound_Stop(music);
 						}
 						return MAIN_MENU;
 					}
+				}
 					break;
 				default:
 					break;
