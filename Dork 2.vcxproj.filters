@@ -69,6 +69,12 @@
     <ClCompile Include="Dork 2\Scenes\Purchasing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Dork 2\App\StandAlone.h">
@@ -347,6 +353,9 @@
     <ClInclude Include="Dork 2\Scenes\Purchasing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dork 2\Scenes\MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\bin\Troll.ini">
@@ -402,6 +411,9 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="Music\kaching.wav">
+      <Filter>Resource Files\Music</Filter>
+    </Media>
+    <Media Include="Music\error.wav">
       <Filter>Resource Files\Music</Filter>
     </Media>
   </ItemGroup>

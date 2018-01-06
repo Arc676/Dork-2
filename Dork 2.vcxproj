@@ -124,7 +124,7 @@
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\bin\</OutDir>
+    <OutDir>Build</OutDir>
     <IntDir>obj\x64\Release\</IntDir>
     <TargetName>Dork 2</TargetName>
     <TargetExt>.exe</TargetExt>
@@ -471,6 +471,7 @@
     <ClInclude Include="..\..\inc\utils\orxLinkList.h" />
     <ClInclude Include="..\..\inc\utils\orxString.h" />
     <ClInclude Include="..\..\inc\utils\orxTree.h" />
+    <ClInclude Include="Dork 2\Scenes\MainMenu.h" />
     <ClInclude Include="Dork 2\Scenes\Purchasing.h" />
     <ClInclude Include="Dork 2\Scenes\StatViewer.h" />
   </ItemGroup>
@@ -497,7 +498,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
     </ClCompile>
+    <ClCompile Include="Dork 2\Scenes\MainMenu.cpp" />
     <ClCompile Include="Dork 2\Scenes\Purchasing.cpp" />
+    <ClCompile Include="Dork 2\Scenes\Scene.cpp" />
     <ClCompile Include="Dork 2\Scenes\StatViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -521,6 +524,7 @@
     <Library Include="lib\orxd.lib" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="Music\error.wav" />
     <Media Include="Music\kaching.wav" />
   </ItemGroup>
   <ItemGroup>

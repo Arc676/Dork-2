@@ -23,3 +23,13 @@ Project available under GPLv3. The source code for the original Dork is currentl
 Orx game engine available under Zlib license (see [the repository](https://github.com/orx/orx) for details).
 
 Assets used in the game are available under Creative Commons licenses. See CREDITS for more details.
+
+### Contributing/Community
+
+Contributions to the development of Dork 2 are more than welcome! If you would like to contribute assets (music, sprites) or want to improve the codebase, feel free to fork the repository and make a pull request!
+
+If you have any suggestions as to how to improve the game, you can [open a new issue](
+https://github.com/Arc676/Dork-2/issues/new).
+
+We also have a [Discord server](
+https://discord.gg/3e4gxBx) if you want to chat about the game! If you don't have a GitHub account, you can also report bugs and make suggestions here.
