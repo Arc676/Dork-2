@@ -34,7 +34,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 
 	playerStats = new StatViewer(player, {-1500, 270, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
-	//	music = orxSound_CreateFromConfig("FightMusic"); //doesn't exist yet
+	music = orxSound_CreateFromConfig("FightMusic");
 
 	potionName = orxObject_CreateFromConfig("SV");
 	pos = {-1000, 470, 0};
