@@ -54,9 +54,10 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		if (currentSelection == selectionLimit) {
 			return EXPLORATION;
 		}
-		if (makePurchase() == PURCHASE_SUCCESSFUL) {
+		int result = makePurchase();
+		if (result == PURCHASE_SUCCESSFUL) {
 			orxObject_AddSound(selectorArrow, "Kaching");
-		} else if (makePurchase() == PURCHASE_FAILED) {
+		} else if (result == PURCHASE_FAILED) {
 			orxObject_AddSound(selectorArrow, "ErrorSound");
 		}
 	}
