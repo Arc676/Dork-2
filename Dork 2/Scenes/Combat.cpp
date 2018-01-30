@@ -203,25 +203,38 @@ SceneType Combat::makeMove(Move move) {
 
 void Combat::consumePotions() {
 	Potion* p = Potion::getCopyOf(selectedPotion);
+	orxCHAR text[100];
+	orxCHAR effect[20];
+	double delta;
 	switch (selectedPotion) {
 		case SPEEDBOOST:
-			modifiers[0] += player->getSpeed() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			delta = player->getSpeed() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			modifiers[0] += delta;
+			orxString_Print(effect, "Increased speed by %f this turn.", delta);
 			break;
 		case STRBOOST:
-			modifiers[1] += player->getStrength() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			delta = player->getStrength() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			modifiers[1] += delta;
+			orxString_Print(effect, "Increased strength by %f this turn.", delta);
 			break;
 		case DEFBOOST:
-			modifiers[2] += player->getDefense() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			delta = player->getDefense() * orxMath_Pow(p->getAmount(), desiredQuantity);
+			modifiers[2] += delta;
+			orxString_Print(effect, "Increased defense by %f this turn.", delta);
 		case QUICKHEAL_2:
 		case QUICKHEAL_5:
 		case QUICKHEAL_10:
 		case QUICKHEAL_20:
 		case QUICKHEAL_50:
-			player->alterHP(p->getAmount() * desiredQuantity);
+			delta = p->getAmount() * desiredQuantity;
+			player->alterHP(delta);
+			orxString_Print(effect, "Gained %d HP", (int)delta);
 			break;
 		default:
 			break;
 	}
+	orxString_Print(text, "Used %d vials of %s. %s", desiredQuantity, p->getName(), effect);
+	loadUIText(text);
 	player->changePotionAmount(selectedPotion, -desiredQuantity);
 	playerStats->reloadData();
 }
