@@ -266,7 +266,7 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 		if (type != COMBAT) {
 			return type;
 		}
-		if (paused) {
+		if (paused || hasText) {
 			return COMBAT;
 		}
 		orxVECTOR pos;

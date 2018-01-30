@@ -36,7 +36,7 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	if (type != getSceneType()) {
 		return type;
 	}
-	if (paused) {
+	if (paused || hasText) {
 		return getSceneType();
 	}
 	orxVECTOR pos;

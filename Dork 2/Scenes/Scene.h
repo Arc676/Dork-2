@@ -47,9 +47,14 @@ protected:
 
 	static orxBOOL getKeyDown(orxSTRING);
 
+	void loadUIText(orxSTRING);
+
 	orxBOOL paused = orxFALSE;
 	int pauseMenuSelection = 0;
 	void setPauseMenuPosition(orxVECTOR);
+
+	orxBOOL hasText = orxFALSE;
+	orxSTRING uiText = (orxSTRING)"";
 
 	void toggleMusic();
 

@@ -84,6 +84,11 @@ void Scene::deactivate() {
 	}
 }
 
+void Scene::loadUIText(orxSTRING text) {
+	hasText = orxTRUE;
+	orxString_Copy(uiText, text);
+}
+
 SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (getKeyDown((orxSTRING)"Pause")) {
 		paused = !paused;
@@ -141,6 +146,10 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 			}
 		}
 		orxObject_SetPosition(pauseSelector, &pos);
+	} else if (hasText) {
+		if (Scene::getKeyDown((orxSTRING)"Enter")) {
+			hasText = orxFALSE;
+		}
 	}
 	return getSceneType();
 }
