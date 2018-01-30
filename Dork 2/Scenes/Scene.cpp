@@ -86,7 +86,7 @@ void Scene::deactivate() {
 
 void Scene::loadUIText(orxSTRING text) {
 	hasText = orxTRUE;
-	orxString_Copy(uiText, text);
+	uiText = text;
 }
 
 SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {

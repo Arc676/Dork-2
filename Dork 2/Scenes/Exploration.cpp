@@ -172,6 +172,10 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									nextScene = new Combat(player, e);
 									nextSceneType = COMBAT;
 									enemiesInExistence--;
+									orxCHAR text[40];
+									orxString_Print(text, "%s encountered a(n) %s",
+													player->getName(), e->getName());
+									loadUIText(text);
 									return orxSTATUS_SUCCESS;
 								}
 							}

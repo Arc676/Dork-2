@@ -262,11 +262,12 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
 		}
 	} else {
+		orxBOOL hadText = hasText;
 		SceneType type = Scene::update(clockInfo);
 		if (type != COMBAT) {
 			return type;
 		}
-		if (paused || hasText) {
+		if (paused || hadText) {
 			return COMBAT;
 		}
 		orxVECTOR pos;

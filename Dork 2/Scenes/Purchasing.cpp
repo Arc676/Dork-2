@@ -32,11 +32,12 @@ void Purchasing::activate() {
 }
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
+	orxBOOL hadText = hasText;
 	SceneType type = Scene::update(clockInfo);
 	if (type != getSceneType()) {
 		return type;
 	}
-	if (paused || hasText) {
+	if (paused || hadText) {
 		return getSceneType();
 	}
 	orxVECTOR pos;

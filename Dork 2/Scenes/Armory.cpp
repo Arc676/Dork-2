@@ -135,6 +135,11 @@ int Armory::makePurchase() {
 		equipWeapon(type);
 		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
+
+		orxCHAR text[40];
+		orxString_Print(text, "Equipped %s", weapon->getName());
+		loadUIText(text);
+
 		return WEAPON_EQUIPPPED;
 	} else if (player->getGold() >= weapon->getPrice()) {
 		player->transaction(-weapon->getPrice());
@@ -144,6 +149,11 @@ int Armory::makePurchase() {
 		equipWeapon(type);
 		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
+
+		orxCHAR text[40];
+		orxString_Print(text, "Purchased %s", weapon->getName());
+		loadUIText(text);
+
 		return PURCHASE_SUCCESSFUL;
 	}
 	return PURCHASE_FAILED;

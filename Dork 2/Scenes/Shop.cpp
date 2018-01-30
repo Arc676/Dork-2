@@ -114,9 +114,12 @@ int Shop::makePurchase() {
 		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
 
-		orxCHAR text[5];
+		orxCHAR text[40];
 		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
 		orxObject_SetTextString(potionCounts[currentSelection], text);
+
+		orxString_Print(text, "Purchased %d vials of %s", quantity, potion->getName());
+		loadUIText(text);
 		return PURCHASE_SUCCESSFUL;
 	}
 	return PURCHASE_FAILED;
