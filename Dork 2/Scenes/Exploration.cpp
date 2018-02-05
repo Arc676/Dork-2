@@ -28,6 +28,7 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(ca
 	canSave = orxTRUE;
 
 	setPauseMenuPosition({-50, 0, 0});
+	initializeUITextAt({-500, 160, -0.1});
 }
 
 void Exploration::resetWorld() {
@@ -173,8 +174,14 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									nextSceneType = COMBAT;
 									enemiesInExistence--;
 									orxCHAR text[40];
-									orxString_Print(text, "%s encountered a(n) %s",
+									orxString_Print(text, "%s encountered a(n) %s!",
 													player->getName(), e->getName());
+
+									orxVECTOR pos;
+									orxCamera_GetPosition(camera, &pos);
+									orxVector_Add(&pos, &pos, &UITextOffset);
+									moveUITextTo(pos);
+
 									loadUIText(text);
 									return orxSTATUS_SUCCESS;
 								}

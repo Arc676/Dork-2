@@ -106,11 +106,15 @@ void Scene::initializeUITextAt(orxVECTOR pos) {
 	uiTextObject = orxObject_CreateFromConfig("UIText");
 	uiTextSprite = orxObject_CreateFromConfig("UITextSprite");
 
-	orxObject_SetPosition(uiTextObject, &pos);
-	orxObject_SetPosition(uiTextSprite, &pos);
+	moveUITextTo(pos);
 
 	orxObject_Enable(uiTextObject, orxFALSE);
 	orxObject_Enable(uiTextSprite, orxFALSE);
+}
+
+void Scene::moveUITextTo(orxVECTOR pos) {
+	orxObject_SetPosition(uiTextObject, &pos);
+	orxObject_SetPosition(uiTextSprite, &pos);
 }
 
 orxBOOL Scene::currentlyHasText() {

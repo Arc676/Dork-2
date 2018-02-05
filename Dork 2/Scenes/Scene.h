@@ -55,6 +55,7 @@ protected:
 	void dismissUIText();
 	orxBOOL currentlyHasText();
 	void initializeUITextAt(orxVECTOR);
+	void moveUITextTo(orxVECTOR);
 
 	orxBOOL paused = orxFALSE;
 	int pauseMenuSelection = 0;

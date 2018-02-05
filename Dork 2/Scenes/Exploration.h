@@ -26,6 +26,7 @@
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
+	const orxVECTOR UITextOffset = {-500, 160, 0.9};
 
 	int enemiesInExistence = 0;
 	orxFLOAT timeSinceEnemySpawn = 0;
