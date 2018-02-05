@@ -39,7 +39,6 @@ class Scene {
 	orxOBJECT* pauseMenu = orxNULL;
 
 	orxBOOL hasText = orxFALSE;
-	orxSTRING uiText = (orxSTRING)"";
 	orxOBJECT* uiTextObject = orxNULL;
 protected:
 	Scene* nextScene = orxNULL;

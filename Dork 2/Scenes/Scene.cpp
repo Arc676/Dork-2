@@ -91,11 +91,19 @@ void Scene::deactivate() {
 
 void Scene::loadUIText(orxSTRING text) {
 	hasText = orxTRUE;
-	uiText = text;
+	orxObject_SetTextString(uiTextObject, text);
+	orxObject_Enable(uiTextObject, orxTRUE);
 }
 
 void Scene::dismissUIText() {
 	hasText = orxFALSE;
+	orxObject_Enable(uiTextObject, orxFALSE);
+}
+
+void Scene::initializeUITextAt(orxVECTOR pos) {
+	uiTextObject = orxObject_CreateFromConfig("UIText");
+	orxObject_SetPosition(uiTextObject, &pos);
+	orxObject_Enable(uiTextObject, orxFALSE);
 }
 
 orxBOOL Scene::currentlyHasText() {
