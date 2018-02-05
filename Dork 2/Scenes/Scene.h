@@ -55,6 +55,7 @@ protected:
 
 	orxBOOL hasText = orxFALSE;
 	orxSTRING uiText = (orxSTRING)"";
+	orxOBJECT* uiTextObject = orxNULL;
 
 	void toggleMusic();
 
