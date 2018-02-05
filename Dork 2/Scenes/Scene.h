@@ -41,6 +41,7 @@ class Scene {
 	orxBOOL hasText = orxFALSE;
 	orxOBJECT* uiTextObject = orxNULL;
 	orxOBJECT* uiTextSprite = orxNULL;
+	const orxVECTOR textMargin = {10, 10, 0};
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
