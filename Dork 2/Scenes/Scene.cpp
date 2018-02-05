@@ -93,17 +93,24 @@ void Scene::loadUIText(orxSTRING text) {
 	hasText = orxTRUE;
 	orxObject_SetTextString(uiTextObject, text);
 	orxObject_Enable(uiTextObject, orxTRUE);
+	orxObject_Enable(uiTextSprite, orxTRUE);
 }
 
 void Scene::dismissUIText() {
 	hasText = orxFALSE;
 	orxObject_Enable(uiTextObject, orxFALSE);
+	orxObject_Enable(uiTextSprite, orxFALSE);
 }
 
 void Scene::initializeUITextAt(orxVECTOR pos) {
 	uiTextObject = orxObject_CreateFromConfig("UIText");
+	uiTextSprite = orxObject_CreateFromConfig("UITextSprite");
+
 	orxObject_SetPosition(uiTextObject, &pos);
+	orxObject_SetPosition(uiTextSprite, &pos);
+
 	orxObject_Enable(uiTextObject, orxFALSE);
+	orxObject_Enable(uiTextSprite, orxFALSE);
 }
 
 orxBOOL Scene::currentlyHasText() {

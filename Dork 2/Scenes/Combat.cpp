@@ -57,6 +57,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 
 	orxObject_CreateFromConfig("CombatUI");
 	setPauseMenuPosition({-1150.0, 400.0, 0});
+	initializeUITextAt({-1600, 560, -0.1});
 }
 
 void Combat::activate() {
@@ -234,7 +235,7 @@ void Combat::consumePotions() {
 		default:
 			break;
 	}
-	orxString_Print(text, "Used %d vials of %s. %s", desiredQuantity, p->getName(), effect);
+	orxString_Print(text, "Used %d vial(s) of %s. %s.", desiredQuantity, p->getName(), effect);
 	loadUIText(text);
 	player->changePotionAmount(selectedPotion, -desiredQuantity);
 	playerStats->reloadData();

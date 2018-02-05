@@ -63,6 +63,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	selectionLimit = POTIONCOUNT;
 
 	setPauseMenuPosition({-1100, -400.0, 0});
+	initializeUITextAt({-1600, -240, -0.1});
 }
 
 void Shop::loadPlayerData(Player* player) {
@@ -118,7 +119,7 @@ int Shop::makePurchase() {
 		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
 		orxObject_SetTextString(potionCounts[currentSelection], text);
 
-		orxString_Print(text, "Purchased %d vials of %s", quantity, potion->getName());
+		orxString_Print(text, "Purchased %d vial(s) of %s", quantity, potion->getName());
 		loadUIText(text);
 		return PURCHASE_SUCCESSFUL;
 	}

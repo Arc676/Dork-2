@@ -75,6 +75,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	selectionLimit = WEAPONCOUNT;
 
 	setPauseMenuPosition({-1150, 1000, 0});
+	initializeUITextAt({-1600, 1160, -0.1});
 }
 
 void Armory::loadPlayerData(Player* player) {

@@ -40,6 +40,7 @@ class Scene {
 
 	orxBOOL hasText = orxFALSE;
 	orxOBJECT* uiTextObject = orxNULL;
+	orxOBJECT* uiTextSprite = orxNULL;
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
