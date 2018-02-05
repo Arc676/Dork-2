@@ -90,7 +90,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	if (type != EXPLORATION) {
 		return type;
 	}
-	if (paused || hasText) {
+	if (paused || Scene::currentlyHasText()) {
 		return EXPLORATION;
 	}
 	orxFLOAT delta = clockInfo->fDT;

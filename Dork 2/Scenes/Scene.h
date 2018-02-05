@@ -37,6 +37,10 @@
 class Scene {
 	orxOBJECT* pauseSelector = orxNULL;
 	orxOBJECT* pauseMenu = orxNULL;
+
+	orxBOOL hasText = orxFALSE;
+	orxSTRING uiText = (orxSTRING)"";
+	orxOBJECT* uiTextObject = orxNULL;
 protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
@@ -48,14 +52,13 @@ protected:
 	static orxBOOL getKeyDown(orxSTRING);
 
 	void loadUIText(orxSTRING);
+	void dismissUIText();
+	orxBOOL currentlyHasText();
+	void initializeUITextAt(orxVECTOR);
 
 	orxBOOL paused = orxFALSE;
 	int pauseMenuSelection = 0;
 	void setPauseMenuPosition(orxVECTOR);
-
-	orxBOOL hasText = orxFALSE;
-	orxSTRING uiText = (orxSTRING)"";
-	orxOBJECT* uiTextObject = orxNULL;
 
 	void toggleMusic();
 

@@ -94,6 +94,14 @@ void Scene::loadUIText(orxSTRING text) {
 	uiText = text;
 }
 
+void Scene::dismissUIText() {
+	hasText = orxFALSE;
+}
+
+orxBOOL Scene::currentlyHasText() {
+	return hasText;
+}
+
 SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (getKeyDown((orxSTRING)"Pause")) {
 		paused = !paused;
@@ -153,7 +161,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 		orxObject_SetPosition(pauseSelector, &pos);
 	} else if (hasText) {
 		if (Scene::getKeyDown((orxSTRING)"Enter")) {
-			hasText = orxFALSE;
+			dismissUIText();
 		}
 	}
 	return getSceneType();

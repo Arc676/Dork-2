@@ -126,7 +126,7 @@ int Shop::makePurchase() {
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
-	if (paused || hasText) {
+	if (paused || Scene::currentlyHasText()) {
 		return Purchasing::update(clockInfo);
 	}
 	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {

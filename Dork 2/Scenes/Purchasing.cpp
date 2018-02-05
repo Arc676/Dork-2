@@ -32,7 +32,7 @@ void Purchasing::activate() {
 }
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
-	orxBOOL hadText = hasText;
+	orxBOOL hadText = Scene::currentlyHasText();
 	SceneType type = Scene::update(clockInfo);
 	if (type != getSceneType()) {
 		return type;
