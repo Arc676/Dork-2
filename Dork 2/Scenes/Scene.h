@@ -59,6 +59,7 @@ protected:
 	void toggleMusic();
 
 	Scene();
+	void destroy();
 public:
 	virtual void loadPlayerData(Player*);
 	Player* getPlayerData();

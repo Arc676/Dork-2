@@ -89,6 +89,7 @@ void Combat::deactivate() {
 	playerStats->destroy();
 	enemyStats->destroy();
 	player->setPosition(playerPos);
+	Scene::destroy();
 	Scene::deactivate();
 }
 
