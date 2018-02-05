@@ -50,6 +50,7 @@
 		71620F191FC7A59E00EBD228 /* Combat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F171FC7A59E00EBD228 /* Combat.cpp */; };
 		71620F1C1FC7B19800EBD228 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F1A1FC7B19800EBD228 /* Shop.cpp */; };
 		71620F461FCAD99600EBD228 /* Armory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71620F441FCAD99600EBD228 /* Armory.cpp */; };
+		7162F6412027FAB6002A8F7C /* UIText.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7162F6402027FAAA002A8F7C /* UIText.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		716D1AF71FC2755B00D827D1 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF51FC2755B00D827D1 /* Entity.cpp */; };
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
@@ -115,6 +116,7 @@
 				718914441FD6DAF000D48C37 /* NewPlayer.png in CopyFiles */,
 				712CA3971FD785450063E22E /* Tick.png in CopyFiles */,
 				71959C2B1FD8DD8700AF6DAF /* CombatUI.png in CopyFiles */,
+				7162F6412027FAB6002A8F7C /* UIText.png in CopyFiles */,
 				7159CD311FD24F0D0015482A /* Dork 2.ini in CopyFiles */,
 				7159CD321FD24F0D0015482A /* Main.ini in CopyFiles */,
 				7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */,
@@ -273,6 +275,7 @@
 		71620F441FCAD99600EBD228 /* Armory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Armory.cpp; sourceTree = "<group>"; };
 		71620F451FCAD99600EBD228 /* Armory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Armory.h; sourceTree = "<group>"; };
 		71620F471FCADC5D00EBD228 /* kaching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kaching.wav; sourceTree = "<group>"; };
+		7162F6402027FAAA002A8F7C /* UIText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIText.png; sourceTree = "<group>"; };
 		716CC8351FC6EF1400197944 /* Background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = Background.ogg; sourceTree = "<group>"; };
 		716D1AF51FC2755B00D827D1 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		716D1AF61FC2755B00D827D1 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
@@ -698,6 +701,7 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				7162F6402027FAAA002A8F7C /* UIText.png */,
 				71959C3B1FD982A300AF6DAF /* qh2.png */,
 				71959C3D1FD982A300AF6DAF /* qh5.png */,
 				71959C3E1FD982A300AF6DAF /* qh10.png */,
