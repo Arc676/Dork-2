@@ -44,8 +44,6 @@ class Scene {
 	const orxVECTOR textMargin = {10, 10, 0};
 protected:
 	Scene* nextScene = orxNULL;
-	SceneType nextSceneType;
-	
 	Player* player = orxNULL;
 	orxBOOL canSave = orxFALSE;
 

@@ -87,9 +87,9 @@ void Exploration::spawnEnemy() {
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
-	nextSceneType = Scene::update(clockInfo);
-	if (nextSceneType != EXPLORATION) {
-		return nextSceneType;
+	SceneType type = Scene::update(clockInfo);
+	if (type != EXPLORATION) {
+		return type;
 	}
 	if (paused || Scene::currentlyHasText()) {
 		return EXPLORATION;

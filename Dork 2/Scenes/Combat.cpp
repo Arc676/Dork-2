@@ -278,9 +278,9 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 		}
 	} else {
 		orxBOOL hadText = Scene::currentlyHasText();
-		nextSceneType = Scene::update(clockInfo);
-		if (nextSceneType != EXPLORATION) {
-			return nextSceneType;
+		SceneType type = Scene::update(clockInfo);
+		if (type != COMBAT) {
+			return type;
 		}
 		if (paused || hadText) {
 			return COMBAT;

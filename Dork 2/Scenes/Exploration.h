@@ -32,6 +32,8 @@ class Exploration : public Scene {
 	orxFLOAT timeSinceEnemySpawn = 0;
 
 	void spawnEnemy();
+
+	SceneType nextSceneType;
 public:
 	Exploration(Player*, orxCAMERA*);
 
