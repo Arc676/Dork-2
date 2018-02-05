@@ -46,6 +46,7 @@ protected:
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
 	orxBOOL canSave = orxFALSE;
+	SceneType nextSceneType;
 
 	static orxBOOL playMusic;
 	orxSOUND* music = orxNULL;

@@ -49,15 +49,6 @@ void Exploration::resetWorld() {
 	enemiesInExistence = 0;
 }
 
-void Exploration::activate() {
-	nextSceneType = EXPLORATION;
-	Scene::activate();
-}
-
-void Exploration::deactivate() {
-	Scene::deactivate();
-}
-
 void Exploration::spawnEnemy() {
 	orxVECTOR ds = {
 		orxMath_GetRandomFloat(510, 710),

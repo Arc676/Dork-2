@@ -78,6 +78,7 @@ void Scene::toggleMusic() {
 }
 
 void Scene::activate() {
+	nextSceneType = getSceneType();
 	if (Scene::playMusic && music != orxNULL) {
 		orxSound_Play(music);
 	}

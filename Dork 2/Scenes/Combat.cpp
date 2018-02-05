@@ -97,6 +97,7 @@ void Combat::deactivate() {
 SceneType Combat::makeMove(Move move) {
 	switch (move) {
 		case RUN:
+			loadUIText((orxSTRING)"Ran away.");
 			return EXPLORATION;
 		case ATTACK:
 		{
@@ -302,7 +303,8 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			x++;
 		} else {
 			if (getKeyDown((orxSTRING)"Enter")) {
-				return makeMove(moves[y][x]);
+				nextSceneType = makeMove(moves[y][x]);
+				return COMBAT;
 			}
 			selChanged = orxFALSE;
 		}
@@ -310,7 +312,7 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_SetPosition(selector, &pos);
 		}
 	}
-	return COMBAT;
+	return nextSceneType;
 }
 
 void Combat::selectPotion(int direction) {
