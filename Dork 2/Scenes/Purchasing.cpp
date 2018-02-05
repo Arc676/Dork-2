@@ -33,9 +33,9 @@ void Purchasing::activate() {
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	orxBOOL hadText = Scene::currentlyHasText();
-	SceneType type = Scene::update(clockInfo);
-	if (type != getSceneType()) {
-		return type;
+	nextSceneType = Scene::update(clockInfo);
+	if (nextSceneType != EXPLORATION) {
+		return nextSceneType;
 	}
 	if (paused || hadText) {
 		return getSceneType();
