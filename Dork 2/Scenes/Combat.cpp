@@ -35,6 +35,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	playerStats = new StatViewer(player, {-1500, 270, 0});
 	enemyStats = new StatViewer(enemy, {-1000, 150, 0});
 	music = orxSound_CreateFromConfig("FightMusic");
+	memset(modifiers, 0, sizeof(modifiers));
 
 	potionName = orxObject_CreateFromConfig("SV");
 	pos = {-1000, 470, 0};
@@ -104,9 +105,21 @@ SceneType Combat::makeMove(Move move) {
 			break;
 		case ATTACK:
 		{
-			player->alterSpeed(modifiers[0]);
-			player->alterStrength(modifiers[1]);
-			player->alterDefense(modifiers[2]);
+			orxBOOL hasMods = orxFALSE;
+			for (int i = 0; i < 3; i++) {
+				if (modifiers[i] != 0) {
+					hasMods = orxTRUE;
+					break;
+				}
+			}
+			orxCHAR mods[100];
+			if (hasMods) {
+				player->alterSpeed(modifiers[0]);
+				player->alterStrength(modifiers[1]);
+				player->alterDefense(modifiers[2]);
+				orxString_Print(mods, "Obtained %d speed, %d strength, %d defense for this turn.\n",
+								modifiers[0], modifiers[1], modifiers[2]);
+			}
 
 			Entity* firstAttacker = player;
 			Entity* secondAttacker = enemy;
@@ -115,19 +128,26 @@ SceneType Combat::makeMove(Move move) {
 				secondAttacker = player;
 			}
 
-			Entity::entityAttack(firstAttacker, secondAttacker);
+			orxCHAR attacks[100];
+			int dmg = Entity::entityAttack(firstAttacker, secondAttacker);
+			orxString_Print(attacks, "%s dealt %d damage.",
+							firstAttacker->getName(), dmg);
 			if (secondAttacker->getHP() > 0){
-				Entity::entityAttack(secondAttacker, firstAttacker);
+				dmg = Entity::entityAttack(secondAttacker, firstAttacker);
+				orxString_Print(attacks, "%s\n%s dealt %d damage.",
+								attacks, secondAttacker->getName(), dmg);
 			}
 
-			player->alterSpeed(-modifiers[0]);
-			player->alterStrength(-modifiers[1]);
-			player->alterDefense(-modifiers[2]);
+			if (hasMods) {
+				player->alterSpeed(-modifiers[0]);
+				player->alterStrength(-modifiers[1]);
+				player->alterDefense(-modifiers[2]);
+			}
 			if (specialMoveCooldown > 0) {
 				specialMoveCooldown--;
 			}
 
-			orxString_Print(uiText, "Attacked");
+			orxString_Print(uiText, "%s%s", mods, attacks);
 		}
 			break;
 		case SPECIAL_MOVE:
@@ -196,7 +216,6 @@ SceneType Combat::makeMove(Move move) {
 				orxObject_AddSound(selector, "ErrorSound");
 			}
 			return COMBAT;
-			break;
 	}
 	if (enemy->getHP() <= 0) {
 		player->defeat(enemy);
