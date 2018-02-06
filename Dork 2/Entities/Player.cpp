@@ -61,6 +61,7 @@ void Player::setWeaponOwnership(WeaponType type, bool owns) {
 void Player::defeat(Enemy* enemy) {
 	int prevLv = (int)level;
 	gold += enemy->getGold();
+	enemy->transaction(-enemy->getGold());
 	level += 0.5 * enemy->getLevel();
 	int levelGain = (int)level - prevLv;
 	if (levelGain > 0){

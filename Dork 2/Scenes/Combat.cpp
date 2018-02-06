@@ -219,6 +219,8 @@ SceneType Combat::makeMove(Move move) {
 	}
 	if (enemy->getHP() <= 0) {
 		player->defeat(enemy);
+		orxString_Print(uiText, "%s\n%s defeated the %s!",
+						uiText, player->getName(), enemy->getName());
 		toReturn = EXPLORATION;
 	} else if (player->getHP() <= 0) {
 		orxString_Print(uiText, "%s\n%s died.", uiText, player->getName());
