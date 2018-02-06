@@ -95,10 +95,13 @@ void Combat::deactivate() {
 }
 
 SceneType Combat::makeMove(Move move) {
+	SceneType toReturn = COMBAT;
+	orxCHAR uiText[100];
 	switch (move) {
 		case RUN:
-			loadUIText((orxSTRING)"Ran away.");
-			return EXPLORATION;
+			orxString_Print(uiText, "Ran away.");
+			toReturn = EXPLORATION;
+			break;
 		case ATTACK:
 		{
 			player->alterSpeed(modifiers[0]);
@@ -123,6 +126,8 @@ SceneType Combat::makeMove(Move move) {
 			if (specialMoveCooldown > 0) {
 				specialMoveCooldown--;
 			}
+
+			orxString_Print(uiText, "Attacked");
 		}
 			break;
 		case SPECIAL_MOVE:
@@ -195,13 +200,15 @@ SceneType Combat::makeMove(Move move) {
 	}
 	if (enemy->getHP() <= 0) {
 		player->defeat(enemy);
-		return EXPLORATION;
+		toReturn = EXPLORATION;
 	} else if (player->getHP() <= 0) {
-		return MAIN_MENU;
+		orxString_Print(uiText, "%s\n%s died.", uiText, player->getName());
+		toReturn = MAIN_MENU;
 	}
 	playerStats->reloadData();
 	enemyStats->reloadData();
-	return COMBAT;
+	loadUIText(uiText);
+	return toReturn;
 }
 
 void Combat::consumePotions() {
