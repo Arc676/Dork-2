@@ -97,7 +97,7 @@ void Combat::deactivate() {
 
 SceneType Combat::makeMove(Move move) {
 	SceneType toReturn = COMBAT;
-	orxCHAR uiText[100];
+	orxCHAR uiText[200];
 	switch (move) {
 		case RUN:
 			orxString_Print(uiText, "Ran away.");
@@ -142,6 +142,7 @@ SceneType Combat::makeMove(Move move) {
 				player->alterSpeed(-modifiers[0]);
 				player->alterStrength(-modifiers[1]);
 				player->alterDefense(-modifiers[2]);
+				memset(modifiers, 0, sizeof(modifiers));
 			}
 			if (specialMoveCooldown > 0) {
 				specialMoveCooldown--;
@@ -250,23 +251,24 @@ SceneType Combat::makeMove(Move move) {
 void Combat::consumePotions() {
 	Potion* p = Potion::getCopyOf(selectedPotion);
 	orxCHAR text[100];
-	orxCHAR effect[20];
+	orxCHAR effect[50];
 	double delta;
 	switch (selectedPotion) {
 		case SPEEDBOOST:
 			delta = player->getSpeed() * orxMath_Pow(p->getAmount(), desiredQuantity);
 			modifiers[0] += delta;
-			orxString_Print(effect, "Increased speed by %f this turn.", delta);
+			orxString_Print(effect, "Increased speed by %.2f this turn.", delta);
 			break;
 		case STRBOOST:
 			delta = player->getStrength() * orxMath_Pow(p->getAmount(), desiredQuantity);
 			modifiers[1] += delta;
-			orxString_Print(effect, "Increased strength by %f this turn.", delta);
+			orxString_Print(effect, "Increased strength by %.2f this turn.", delta);
 			break;
 		case DEFBOOST:
 			delta = player->getDefense() * orxMath_Pow(p->getAmount(), desiredQuantity);
 			modifiers[2] += delta;
-			orxString_Print(effect, "Increased defense by %f this turn.", delta);
+			orxString_Print(effect, "Increased defense by %.2f this turn.", delta);
+			break;
 		case QUICKHEAL_2:
 		case QUICKHEAL_5:
 		case QUICKHEAL_10:
@@ -274,12 +276,12 @@ void Combat::consumePotions() {
 		case QUICKHEAL_50:
 			delta = p->getAmount() * desiredQuantity;
 			player->alterHP(delta);
-			orxString_Print(effect, "Gained %d HP", (int)delta);
+			orxString_Print(effect, "Gained %d HP.", (int)delta);
 			break;
 		default:
 			break;
 	}
-	orxString_Print(text, "Used %d vial(s) of %s. %s.", desiredQuantity, p->getName(), effect);
+	orxString_Print(text, "Used %d vial(s) of %s.\n%s", desiredQuantity, p->getName(), effect);
 	loadUIText(text);
 	player->changePotionAmount(selectedPotion, -desiredQuantity);
 	playerStats->reloadData();
