@@ -132,7 +132,7 @@ SceneType Combat::makeMove(Move move) {
 			int dmg = Entity::entityAttack(firstAttacker, secondAttacker);
 			orxString_Print(attacks, "%s dealt %d damage.",
 							firstAttacker->getName(), dmg);
-			if (secondAttacker->getHP() > 0){
+			if (secondAttacker->getHP() > 0) {
 				dmg = Entity::entityAttack(secondAttacker, firstAttacker);
 				orxString_Print(attacks, "%s\n%s dealt %d damage.",
 								attacks, secondAttacker->getName(), dmg);

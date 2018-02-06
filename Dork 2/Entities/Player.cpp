@@ -64,15 +64,15 @@ void Player::defeat(Enemy* enemy) {
 	enemy->transaction(-enemy->getGold());
 	level += 0.5 * enemy->getLevel();
 	int levelGain = (int)level - prevLv;
-	if (levelGain > 0){
+	if (levelGain > 0) {
 		int healthGained = 0;
-		for (int i = 0; i < levelGain; i++){
+		for (int i = 0; i < levelGain; i++) {
 			healthGained += 2;
 		}
 		HP += healthGained;
 		orxBOOL gainedStats = orxFALSE;
-		for (int lv = (int)prevLv + 1; lv <= prevLv + levelGain; lv++){
-			if (lv % ((int)floor(log10(lv * lv)) + 3) == 0){
+		for (int lv = (int)prevLv + 1; lv <= prevLv + levelGain; lv++) {
+			if (lv % ((int)floor(log10(lv * lv)) + 3) == 0) {
 				speed++;
 				strength++;
 				defense++;
