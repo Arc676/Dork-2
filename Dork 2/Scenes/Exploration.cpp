@@ -174,6 +174,16 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									moveUITextTo(pos);
 
 									loadUIText(text);
+
+									//clear animations
+									orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
+									for (
+										 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
+										 obj != orxNULL;
+										 obj = orxObject_GetNext(obj, defaultGroupID)
+										 ) {
+										orxObject_SetTargetAnim(obj, orxNULL);
+									}
 									return orxSTATUS_SUCCESS;
 								}
 							}
