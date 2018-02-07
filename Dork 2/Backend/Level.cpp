@@ -30,3 +30,19 @@ int Level::getXP() {
 int Level::getLevel() {
 	return level;
 }
+
+int Level::getXPToNextLevel() {
+	return 1;
+}
+
+int Level::gainXP(Level lv) {
+	int prevLv = level;
+	xp += lv.xp;
+	int required = getXPToNextLevel();
+	while (xp > required) {
+		xp -= required;
+		level++;
+		required = getXPToNextLevel();
+	}
+	return level - prevLv;
+}

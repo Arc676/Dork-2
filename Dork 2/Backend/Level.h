@@ -27,8 +27,12 @@ class Level {
 	int xp = 0;
 public:
 	Level(int, int);
+
 	int getLevel();
 	int getXP();
+
+	int getXPToNextLevel();
+	int gainXP(Level);
 };
 
 #endif

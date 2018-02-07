@@ -59,17 +59,13 @@ void Player::setWeaponOwnership(WeaponType type, bool owns) {
 }
 
 void Player::defeat(Enemy* enemy) {
-	int prevLv = level.getLevel();
 	gold += enemy->getGold();
 	enemy->transaction(-enemy->getGold());
-//	level += 0.5 * enemy->getLevel();
-	int levelGain = level.getLevel() - prevLv;
+
+	int prevLv = level.getLevel();
+	int levelGain = level.gainXP(enemy->getLevel());
 	if (levelGain > 0) {
-		int healthGained = 0;
-		for (int i = 0; i < levelGain; i++) {
-			healthGained += 2;
-		}
-		HP += healthGained;
+		HP += levelGain * 2;
 		orxBOOL gainedStats = orxFALSE;
 		for (int lv = (int)prevLv + 1; lv <= prevLv + levelGain; lv++) {
 			if (lv % ((int)floor(log10(lv * lv)) + 3) == 0) {
