@@ -164,26 +164,26 @@ SceneType Combat::makeMove(Move move) {
 			switch (player->getType()) {
 				case MAGIC:
 				{
-					int dHP = ceil((level + 5) / 10);
-					int ddef = ceil((level + 5) / 50);
-					player->alterDefense(-ddef);
+					int dHP = 10 * (level + 1);
+					int dv = 7 * (level + 2);
+					player->alterSpeed(-dv);
 					player->alterHP(dHP);
 					int dmg = Entity::entityAttack(enemy, player);
-					player->alterDefense(ddef);
-					specialMoveCooldown = orxMAX(10, level * 0.06);
+					player->alterSpeed(dv);
+					specialMoveCooldown = orxMAX(6, level);
 					orxString_Print(uiText,
-									"-%d defense until next turn. Healed %d HP.\n%s dealt %d damage.\nCooldown: %d",
-									ddef, dHP, enemy->getName(), dmg, specialMoveCooldown);
+									"-%d speed until next turn. Healed %d HP.\n%s dealt %d damage.\nCooldown: %d",
+									dv, dHP, enemy->getName(), dmg, specialMoveCooldown);
 				}
 					break;
 				case SPEED:
 				{
-					int dstr = ceil((level + 5) / 50);
-					int ddef = ceil((level + 5) / 60);
+					int dstr = 2 * (level + 1);
+					int ddef = (level + 2);
 					int dmg = Entity::entityAttack(enemy, player);
 					modifiers[1] += dstr;
 					modifiers[2] -= ddef;
-					specialMoveCooldown = orxMAX(8, level * 0.03);
+					specialMoveCooldown = orxMAX(8, level);
 					orxString_Print(uiText,
 									"+%d strength and -%d defense next turn.\n%s dealt %d damage.\nCooldown: %d",
 									dstr, ddef, enemy->getName(), dmg, specialMoveCooldown);
@@ -191,12 +191,12 @@ SceneType Combat::makeMove(Move move) {
 					break;
 				case MELEE:
 				{
-					int ddef = ceil((level + 5) / 50);
-					int dv = ceil((level + 5) / 180);
+					int ddef = 4 * (level + 1);
+					int dv = 2 * (level + 2);
 					int dmg = Entity::entityAttack(enemy, player);
 					modifiers[0] -= dv;
 					modifiers[2] += ddef;
-					specialMoveCooldown = orxMAX(7, level * 0.02);
+					specialMoveCooldown = orxMAX(7, level);
 					orxString_Print(uiText,
 									"-%d speed and +%d defense next turn.\n%s dealt %d damage.\nCooldown: %d",
 									dv, ddef, enemy->getName(), dmg, specialMoveCooldown);
@@ -204,12 +204,12 @@ SceneType Combat::makeMove(Move move) {
 					break;
 				case RANGE:
 				{
-					int dstr = ceil((level + 5) / 40);
-					int dv = ceil((level + 5) / 150);
+					int dstr = 5 * (level + 1);
+					int dv = 3 * (level + 2);
 					int dmg = Entity::entityAttack(enemy, player);
 					modifiers[0] -= dv;
 					modifiers[1] += dstr;
-					specialMoveCooldown = orxMAX(8, level * 0.03);
+					specialMoveCooldown = orxMAX(8, level);
 					orxString_Print(uiText,
 									"-%d speed and +%d strength next turn.\n%s dealt %d damage.\nCooldown: %d",
 									dv, dstr, enemy->getName(), dmg, specialMoveCooldown);
