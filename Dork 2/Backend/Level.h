@@ -26,6 +26,7 @@ class Level {
 	int level = 0;
 	int xp = 0;
 public:
+	Level(int, int);
 	int getLevel();
 	int getXP();
 };

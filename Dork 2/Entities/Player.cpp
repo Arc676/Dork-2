@@ -59,11 +59,11 @@ void Player::setWeaponOwnership(WeaponType type, bool owns) {
 }
 
 void Player::defeat(Enemy* enemy) {
-	int prevLv = (int)level;
+	int prevLv = level.getLevel();
 	gold += enemy->getGold();
 	enemy->transaction(-enemy->getGold());
-	level += 0.5 * enemy->getLevel();
-	int levelGain = (int)level - prevLv;
+//	level += 0.5 * enemy->getLevel();
+	int levelGain = level.getLevel() - prevLv;
 	if (levelGain > 0) {
 		int healthGained = 0;
 		for (int i = 0; i < levelGain; i++) {
@@ -116,7 +116,8 @@ orxSTATUS Player::read(orxSTRING filename) {
 		defense = orxConfig_GetU32("Def");
 		weapon = Weapon::copyOf((WeaponType)orxConfig_GetU32("Weapon"));
 		gold = orxConfig_GetU32("Gold");
-		level = orxConfig_GetFloat("Level");
+		level = Level(orxConfig_GetU32("Level"),
+					  orxConfig_GetU32("XP"));
 		type = (EntityType)orxConfig_GetU32("Type");
 		name = (orxSTRING)orxConfig_GetString("Name");
 
@@ -144,7 +145,8 @@ orxSTATUS Player::write() {
 		orxConfig_SetU32("Def", defense);
 		orxConfig_SetU32("Weapon", weapon->getWeaponType());
 		orxConfig_SetU32("Gold", gold);
-		orxConfig_SetFloat("Level", level);
+		orxConfig_SetU32("Level", level.getLevel());
+		orxConfig_SetU32("XP", level.getXP();
 		orxConfig_SetString("Name", name);
 
 		const orxSTRING potions[POTIONCOUNT];

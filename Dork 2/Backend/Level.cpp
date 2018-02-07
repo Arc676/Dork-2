@@ -21,6 +21,8 @@
 
 #include "Level.h"
 
+Level::Level(int lv, int xp) : level(lv), xp(xp) {}
+
 int Level::getXP() {
 	return xp;
 }

@@ -174,7 +174,7 @@ void Entity::transaction(int delta) {
 	gold += delta;
 }
 
-double Entity::getLevel() {
+Level Entity::getLevel() {
 	return level;
 }
 

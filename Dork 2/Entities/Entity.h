@@ -24,6 +24,7 @@
 
 #include "orx.h"
 #include "Weapon.h"
+#include "Level.h"
 
 class Entity {
 protected:
@@ -38,7 +39,7 @@ protected:
 	int defense;
 	Weapon* weapon = Weapon::copyOf(NOWEAPON);
 	int gold = 0;
-	double level = 0;
+	Level level = Level(0, 0);
 	EntityType type;
 public:
 	//combat mechanics
@@ -72,7 +73,7 @@ public:
 	int getGold();
 	void transaction(int);
 
-	double getLevel();
+	Level getLevel();
 
 	EntityType getType();
 	Weapon* getWeapon();
