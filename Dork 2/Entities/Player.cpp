@@ -4,7 +4,7 @@
 //
 //  Created by Alessandro Vinciguerra on 21/11/2017.
 //      <alesvinciguerra@gmail.com>
-//Copyright (C) 2017 Arc676/Alessandro Vinciguerra
+//Copyright (C) 2017-8 Arc676/Alessandro Vinciguerra
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -146,7 +146,7 @@ orxSTATUS Player::write() {
 		orxConfig_SetU32("Weapon", weapon->getWeaponType());
 		orxConfig_SetU32("Gold", gold);
 		orxConfig_SetU32("Level", level.getLevel());
-		orxConfig_SetU32("XP", level.getXP();
+		orxConfig_SetU32("XP", level.getXP());
 		orxConfig_SetString("Name", name);
 
 		const orxSTRING potions[POTIONCOUNT];
