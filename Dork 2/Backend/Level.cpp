@@ -55,7 +55,7 @@ int Level::getXPToNextLevel() {
 
 int Level::gainXP(Level lv) {
 	int prevLv = level;
-	xp += lv.xp / 2;
+	xp += 50 * lv.xp / (xp + 100);
 	level = calculateLevel();
 	return level - prevLv;
 }
