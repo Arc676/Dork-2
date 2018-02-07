@@ -23,14 +23,9 @@
 #include "Weapon.h"
 
 orxBOOL Entity::dodge(Entity* blo, Entity* att) {
-	// defending entity must be faster than attacker
-	if (blo->getSpeed() < att->getSpeed()) {
-		return orxFALSE;
-	}
-	int lim = 2 * (blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod()));
-	// TODO: this loop is fcking stupid. FIX IT!
-	while (lim > 100) lim *= orxMath_GetRandomFloat(1, 9) / 10;
-	if (orxMath_GetRandomU32(0, 99) < orxMath_GetRandomU32(0, lim)) {
+	int attSpeed = att->getSpeed() * (1 + att->getWeapon()->getSpeedMod());
+	int bloSpeed = blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod());
+	if (orxMath_GetRandomU32(0, attSpeed) < orxMath_GetRandomU32(0, bloSpeed)) {
 		return orxTRUE;
 	}
 	return orxFALSE;
