@@ -110,8 +110,7 @@ orxSTATUS Player::read(orxSTRING filename) {
 		defense = orxConfig_GetU32("Def");
 		weapon = Weapon::copyOf((WeaponType)orxConfig_GetU32("Weapon"));
 		gold = orxConfig_GetU32("Gold");
-		level = Level(orxConfig_GetU32("Level"),
-					  orxConfig_GetU32("XP"));
+		level = Level(orxConfig_GetU32("XP"));
 		type = (EntityType)orxConfig_GetU32("Type");
 		name = (orxSTRING)orxConfig_GetString("Name");
 
@@ -139,8 +138,7 @@ orxSTATUS Player::write() {
 		orxConfig_SetU32("Def", defense);
 		orxConfig_SetU32("Weapon", weapon->getWeaponType());
 		orxConfig_SetU32("Gold", gold);
-		orxConfig_SetU32("Level", level.getLevel());
-		orxConfig_SetU32("XP", level.getXP());
+		orxConfig_SetU32("XP", level.getTotalXP());
 		orxConfig_SetString("Name", name);
 
 		const orxSTRING potions[POTIONCOUNT];

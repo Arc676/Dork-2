@@ -22,15 +22,21 @@
 #ifndef Level_h
 #define Level_h
 
+#include "orx.h"
+
 class Level {
+	constexpr static const double xpFactor = 0.05;
 	int level = 0;
 	int xp = 0;
 public:
-	Level(int, int);
+	Level(int);
 	void operator= (const Level&);
+
+	int calculateLevel();
 
 	int getLevel();
 	int getXP();
+	int getTotalXP();
 
 	static int getXPToNextLevel(int);
 	int getXPToNextLevel();

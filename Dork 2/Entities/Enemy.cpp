@@ -103,10 +103,10 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	}
 }
 
-Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
+Enemy* Enemy::createRandomEnemy(EnemyType type, Level playerLvl, orxVECTOR pos) {
+	int playerXP = playerLvl.getTotalXP();
 	Level enemyLvl = Level(
-						orxMath_GetRandomU32(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl,
-						orxMath_GetRandomU32(0, Level::getXPToNextLevel(playerLvl))
+						orxMath_GetRandomU32(playerXP / 2, 4 * (playerXP + 100))
 						);
 	double level = (double)enemyLvl.getLevel();
 	WeaponType weaponOnSpawn = preferredWeapons[type];

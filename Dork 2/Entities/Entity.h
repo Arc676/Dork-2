@@ -39,7 +39,7 @@ protected:
 	int defense;
 	Weapon* weapon = Weapon::copyOf(NOWEAPON);
 	int gold = 0;
-	Level level = Level(0, 0);
+	Level level = Level(0);
 	EntityType type;
 public:
 	//combat mechanics

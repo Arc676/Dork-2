@@ -49,7 +49,7 @@ class Enemy : public Entity {
 public:
 	static orxSTRING typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
-	static Enemy* createRandomEnemy(EnemyType, double, orxVECTOR);
+	static Enemy* createRandomEnemy(EnemyType, Level, orxVECTOR);
 
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
 

@@ -21,14 +21,19 @@
 
 #include "Level.h"
 
-Level::Level(int lv, int xp) : level(lv), xp(xp) {}
+Level::Level(int xp) : xp(xp) {
+	level = calculateLevel()
+}
 
 void Level::operator=(const Level& lv) {
-	level = lv.level;
 	xp = lv.xp;
 }
 
 int Level::getXP() {
+	return xp - orxMath_Pow((double)level / xpFactor, 2);
+}
+
+int Level::getTotalXP() {
 	return xp;
 }
 
@@ -36,22 +41,21 @@ int Level::getLevel() {
 	return level;
 }
 
+int Level::calculateLevel() {
+	return xpFactor * orxMath_Sqrt((double)xp);
+}
+
 int Level::getXPToNextLevel(int lv) {
-	return 1;
+	return orxMath_Pow((lv + 1) / xpFactor, 2);
 }
 
 int Level::getXPToNextLevel() {
-	return Level::getXPToNextLevel(level);
+	return Level::getXPToNextLevel(getLevel()) - xp;
 }
 
 int Level::gainXP(Level lv) {
 	int prevLv = level;
-	xp += lv.xp;
-	int required = getXPToNextLevel();
-	while (xp > required) {
-		xp -= required;
-		level++;
-		required = getXPToNextLevel();
-	}
+	xp += lv.xp / 2;
+	level = calculateLevel();
 	return level - prevLv;
 }
