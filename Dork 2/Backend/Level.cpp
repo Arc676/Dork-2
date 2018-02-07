@@ -22,7 +22,7 @@
 #include "Level.h"
 
 Level::Level(int xp) : xp(xp) {
-	level = calculateLevel()
+	level = calculateLevel();
 }
 
 void Level::operator=(const Level& lv) {

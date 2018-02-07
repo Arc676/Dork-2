@@ -22,18 +22,18 @@
 #include "Entity.h"
 #include "Weapon.h"
 
-int Entity::dodge(Entity* blo, Entity* att) {
+orxBOOL Entity::dodge(Entity* blo, Entity* att) {
 	// defending entity must be faster than attacker
 	if (blo->getSpeed() < att->getSpeed()) {
-		return 0;
+		return orxFALSE;
 	}
 	int lim = 2 * (blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod()));
 	// TODO: this loop is fcking stupid. FIX IT!
 	while (lim > 100) lim *= orxMath_GetRandomFloat(1, 9) / 10;
 	if (orxMath_GetRandomU32(0, 99) < orxMath_GetRandomU32(0, lim)) {
-		return 1;
+		return orxTRUE;
 	}
-	return 0;
+	return orxFALSE;
 }
 
 int Entity::maxDamage(Entity* attacker, Entity* blocker) {

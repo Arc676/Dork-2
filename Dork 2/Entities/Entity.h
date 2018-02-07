@@ -43,7 +43,7 @@ protected:
 	EntityType type;
 public:
 	//combat mechanics
-	static int dodge(Entity*, Entity*);
+	static orxBOOL dodge(Entity*, Entity*);
 	static int maxDamage(Entity*, Entity*);
 	static int entityAttack(Entity*, Entity*);
 
