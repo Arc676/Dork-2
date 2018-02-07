@@ -42,7 +42,7 @@ class Enemy : public Entity {
 	static const int defenseBounds[8];
 	static const int rewardBounds[8];
 	static const WeaponType preferredWeapons[8];
-	EnemyType type;
+	EnemyType enemyType;
 
 	orxVECTOR direction;
 	orxFLOAT distanceTravelled = 0;
@@ -54,8 +54,7 @@ public:
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
 
 	virtual orxSTRING getName();
-	EnemyType getType();
-	EntityType getEntityType();
+	EnemyType getEnemyType();
 
 	void update(float);
 	void newRandomDirection();

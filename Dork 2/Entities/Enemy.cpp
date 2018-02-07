@@ -37,7 +37,7 @@ const WeaponType Enemy::preferredWeapons[] = {
 	CLUB
 };
 
-Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, Level level, orxVECTOR position) : type(type) {
+Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, Level level, orxVECTOR position) : enemyType(type) {
 	this->HP = HP;
 	this->speed = speed;
 	this->strength = str;
@@ -45,6 +45,7 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 	weapon = w;
 	this->gold = gold;
 	this->level = level;
+	this->type = Enemy::entityTypeForEnemy(type);
 
 	entity = orxObject_CreateFromConfig(getName());
 	orxVector_Copy(&(this->position), &position);
@@ -141,16 +142,12 @@ void Enemy::update(float dt) {
 	distanceTravelled += orxVector_GetSize(&movement);
 }
 
-EnemyType Enemy::getType() {
-	return type;
-}
-
-EntityType Enemy::getEntityType() {
-	return Enemy::entityTypeForEnemy(type);
+EnemyType Enemy::getEnemyType() {
+	return enemyType;
 }
 
 orxSTRING Enemy::getName() {
-	return Enemy::typeToString(type);
+	return Enemy::typeToString(enemyType);
 }
 
 orxSTRING Enemy::typeToString(EnemyType type) {
