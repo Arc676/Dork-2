@@ -66,13 +66,11 @@ void Player::defeat(Enemy* enemy) {
 	int levelGain = level.gainXP(enemy->getLevel());
 	if (levelGain > 0) {
 		HP += levelGain * 2;
-		orxBOOL gainedStats = orxFALSE;
-		for (int lv = (int)prevLv + 1; lv <= prevLv + levelGain; lv++) {
+		for (int lv = prevLv + 1; lv <= level.getLevel(); lv++) {
 			if (lv % ((int)floor(log10(lv * lv)) + 3) == 0) {
 				speed++;
 				strength++;
 				defense++;
-				gainedStats = orxTRUE;
 			}
 		}
 	}

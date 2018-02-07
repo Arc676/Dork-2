@@ -104,8 +104,8 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 }
 
 Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
-//	double level = orxMath_GetRandomFloat(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl;
-	Level enemyLvl = Level(0,
+	Level enemyLvl = Level(
+						orxMath_GetRandomU32(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl,
 						orxMath_GetRandomU32(0, Level::getXPToNextLevel(playerLvl))
 						);
 	double level = (double)enemyLvl.getLevel();
