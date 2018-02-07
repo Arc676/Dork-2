@@ -37,7 +37,7 @@ const WeaponType Enemy::preferredWeapons[] = {
 	CLUB
 };
 
-Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, double level, orxVECTOR position) : type(type) {
+Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, Level level, orxVECTOR position) : type(type) {
 	this->HP = HP;
 	this->speed = speed;
 	this->strength = str;
@@ -104,7 +104,11 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 }
 
 Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos) {
-	double level = orxMath_GetRandomFloat(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl;
+//	double level = orxMath_GetRandomFloat(0, 5 * (playerLvl + 1) - 2) / 10 + 0.5 * playerLvl;
+	Level enemyLvl = Level(0,
+						orxMath_GetRandomU32(0, Level::getXPToNextLevel(playerLvl))
+						);
+	double level = (double)enemyLvl.getLevel();
 	WeaponType weaponOnSpawn = preferredWeapons[type];
 	if (orxMath_GetRandomU32(0, 99) < 40) {
 		weaponOnSpawn = (WeaponType)orxMath_GetRandomU32(0, WEAPONCOUNT - 1);
@@ -118,7 +122,7 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, double playerLvl, orxVECTOR pos)
 		orxMath_GetRandomU32(0, defenseBounds[(int)type] - 1) + level * 0.6,
 		weapon,
 		orxMath_GetRandomU32(0, rewardBounds[(int)type] - 1) + level * 0.5,
-		level,
+		enemyLvl,
 		pos
 	);
 	return e;

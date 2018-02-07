@@ -51,7 +51,7 @@ public:
 	static EntityType entityTypeForEnemy(EnemyType);
 	static Enemy* createRandomEnemy(EnemyType, double, orxVECTOR);
 
-	Enemy(EnemyType, int, int, int, int, Weapon*, int, double, orxVECTOR);
+	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
 
 	virtual orxSTRING getName();
 	EnemyType getType();

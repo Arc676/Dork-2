@@ -27,10 +27,12 @@ class Level {
 	int xp = 0;
 public:
 	Level(int, int);
+	void operator= (const Level&);
 
 	int getLevel();
 	int getXP();
 
+	static int getXPToNextLevel(int);
 	int getXPToNextLevel();
 	int gainXP(Level);
 };

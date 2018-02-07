@@ -23,6 +23,11 @@
 
 Level::Level(int lv, int xp) : level(lv), xp(xp) {}
 
+void Level::operator=(const Level& lv) {
+	level = lv.level;
+	xp = lv.xp;
+}
+
 int Level::getXP() {
 	return xp;
 }
@@ -31,8 +36,12 @@ int Level::getLevel() {
 	return level;
 }
 
-int Level::getXPToNextLevel() {
+int Level::getXPToNextLevel(int lv) {
 	return 1;
+}
+
+int Level::getXPToNextLevel() {
+	return Level::getXPToNextLevel(level);
 }
 
 int Level::gainXP(Level lv) {
