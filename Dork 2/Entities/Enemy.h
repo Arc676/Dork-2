@@ -46,11 +46,14 @@ class Enemy : public Entity {
 	static const WeaponType preferredWeapons[8];
 	EnemyType enemyType;
 
+	static int randomStat(int, float);
+
 	orxVECTOR direction;
 	orxFLOAT distanceTravelled = 0;
 public:
 	static orxSTRING typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
+
 	static Enemy* createRandomEnemy(EnemyType, Player*, orxVECTOR);
 
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
