@@ -24,9 +24,9 @@
 
 const float Enemy::healthBounds[]   = {0.7, 2, 0.5, 0.8, 1.4, 1, 1.7};
 const float Enemy::speeds[]         = {1, 4, 0.5, 1.2, 2, 1.4, 0.3};
-const float Enemy::strengthBounds[] = {15, 40, 15, 15, 25, 22, 25};
-const float Enemy::defenseBounds[]  = {15, 30, 10, 5,  12, 15, 15};
-const float Enemy::rewardBounds[]   = {3,  10, 2,  3,  4,  7,  7};
+const float Enemy::strengthBounds[] = {1, 2.6, 1, 1, 1.7, 1.5, 1.7};
+const float Enemy::defenseBounds[]  = {1, 2, 0.6, 0.3, 0.8, 1, 1};
+const float Enemy::rewardBounds[]   = {3, 10, 2, 3, 4, 7, 7};
 
 const WeaponType Enemy::preferredWeapons[] = {
 	SPEAR,
