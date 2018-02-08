@@ -22,8 +22,8 @@
 #include "Enemy.h"
 #include "Player.h"
 
-const float Enemy::healthBounds[]   = {20, 60, 10, 24, 40, 30, 50};
-const float Enemy::speeds[]         = {10, 40, 4,  12, 20, 14, 2};
+const float Enemy::healthBounds[]   = {0.7, 2, 0.5, 0.8, 1.4, 1, 1.7};
+const float Enemy::speeds[]         = {1, 4, 0.5, 1.2, 2, 1.4, 0.3};
 const float Enemy::strengthBounds[] = {15, 40, 15, 15, 25, 22, 25};
 const float Enemy::defenseBounds[]  = {15, 30, 10, 5,  12, 15, 15};
 const float Enemy::rewardBounds[]   = {3,  10, 2,  3,  4,  7,  7};
