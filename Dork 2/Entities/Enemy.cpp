@@ -105,8 +105,8 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	}
 }
 
-int Enemy::randomStat(int player, float maxMod) {
-	return (int)(orxMath_GetRandomFloat(maxMod / 2, maxMod) * player);
+int Enemy::randomStat(int base, float maxMod) {
+	return (int)(orxMath_GetRandomFloat(maxMod / 2, maxMod) * base);
 }
 
 Enemy* Enemy::createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos) {
@@ -122,12 +122,12 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos) {
 	Weapon* weapon = Weapon::copyOf(weaponOnSpawn);
 	Enemy* e = new Enemy(
 						 type,
-						 Enemy::randomStat(player->getHP(), healthBounds[(int)type]),
+						 Enemy::randomStat(20 + level * 2, healthBounds[(int)type]),
 						 Enemy::randomStat(player->getSpeed(), speeds[(int)type]),
 						 Enemy::randomStat(player->getStrength(), strengthBounds[(int)type]),
 						 Enemy::randomStat(player->getDefense(), defenseBounds[(int)type]),
 						 weapon,
-						 orxMath_GetRandomU32(rewardBounds[(int)type] * level / 2, rewardBounds[(int)type] * level),
+						 orxMath_GetRandomU32(0, rewardBounds[(int)type] * (level + 1)),
 						 enemyLvl,
 						 pos
 						 );
