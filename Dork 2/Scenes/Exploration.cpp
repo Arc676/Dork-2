@@ -71,8 +71,7 @@ void Exploration::spawnEnemy() {
 	}
 	Enemy::createRandomEnemy(
 							 GOBLIN,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
-							 player->getLevel().getLevel(),
-							 pos
+							 player, pos
 							 );
 	enemiesInExistence++;
 }

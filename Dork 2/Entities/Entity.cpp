@@ -20,7 +20,6 @@
 //See README and LICENSE for more details
 
 #include "Entity.h"
-#include "Weapon.h"
 
 orxBOOL Entity::dodge(Entity* blo, Entity* att) {
 	int attSpeed = att->getSpeed() <= 0 ? 0 : att->getSpeed() * (1 + att->getWeapon()->getSpeedMod());

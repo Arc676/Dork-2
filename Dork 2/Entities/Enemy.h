@@ -24,6 +24,8 @@
 
 #include "Entity.h"
 
+class Player;
+
 #define ENEMYCOUNT 7
 enum EnemyType {
 	GOBLIN,
@@ -49,7 +51,7 @@ class Enemy : public Entity {
 public:
 	static orxSTRING typeToString(EnemyType);
 	static EntityType entityTypeForEnemy(EnemyType);
-	static Enemy* createRandomEnemy(EnemyType, Level, orxVECTOR);
+	static Enemy* createRandomEnemy(EnemyType, Player*, orxVECTOR);
 
 	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
 

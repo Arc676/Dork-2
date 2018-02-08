@@ -20,6 +20,7 @@
 //See README and LICENSE for more details
 
 #include "Enemy.h"
+#include "Player.h"
 
 const int Enemy::healthBounds[]   = {20, 60, 10, 24, 40, 30, 50};
 const int Enemy::speeds[]         = {10, 40, 4,  12, 20, 14, 2};
@@ -104,8 +105,8 @@ EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	}
 }
 
-Enemy* Enemy::createRandomEnemy(EnemyType type, Level playerLvl, orxVECTOR pos) {
-	int playerXP = playerLvl.getTotalXP();
+Enemy* Enemy::createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos) {
+	int playerXP = player->getLevel().getTotalXP();
 	Level enemyLvl = Level(
 						orxMath_GetRandomU32(playerXP / 2, 4 * (playerXP + 100))
 						);
