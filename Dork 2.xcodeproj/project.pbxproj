@@ -709,7 +709,6 @@
 		718B57DE1FC43D4300A457C8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				71E96C48202D3085001BE088 /* GhostSpriteMap.png */,
 				7162F6402027FAAA002A8F7C /* UIText.png */,
 				71959C3B1FD982A300AF6DAF /* qh2.png */,
 				71959C3D1FD982A300AF6DAF /* qh5.png */,
@@ -736,6 +735,7 @@
 				7159CD521FD3BBEE0015482A /* MMSelector.png */,
 				7159CD2B1FD24ECF0015482A /* ArmoryHelp.png */,
 				71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */,
+				71E96C48202D3085001BE088 /* GhostSpriteMap.png */,
 				71620F1F1FC81CBB00EBD228 /* ShopHelp.png */,
 				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,
