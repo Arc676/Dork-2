@@ -7,7 +7,7 @@ CC=g++
 FLAGS=-std=c++11 -c
 LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entities -I Dork\ 2/Items  -L lib/
 LIB=-l orx
-OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o Scene.o MainMenu.o Purchasing.o StatViewer.o
+OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o Scene.o MainMenu.o Purchasing.o StatViewer.o Level.o
 
 
 dork2: $(OBJS)
@@ -60,6 +60,9 @@ Player.o:
 
 StandAlone.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/App/StandAlone.cpp
+
+Level.o:
+	$(CC) $(FLAGS) $(LD) Dork\ 2/Backend/Level.cpp
 
 clean:
 	rm Build/Dork\ 2 *.o
