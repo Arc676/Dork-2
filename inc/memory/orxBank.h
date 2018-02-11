@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -142,11 +142,11 @@ extern orxDLLAPI orxU32 orxFASTCALL         orxBank_GetIndex(const orxBANK *_pst
  */
 extern orxDLLAPI void *orxFASTCALL          orxBank_GetAtIndex(const orxBANK *_pstBank, orxU32 _u32Index);
 
-/** Gets the bank allocated cell counter
+/** Gets the bank allocated cell count
  * @param[in] _pstBank    Concerned bank
  * @return Number of allocated cells
  */
-extern orxDLLAPI orxU32 orxFASTCALL         orxBank_GetCounter(const orxBANK *_pstBank);
+extern orxDLLAPI orxU32 orxFASTCALL         orxBank_GetCount(const orxBANK *_pstBank);
 
 
 /*******************************************************************************

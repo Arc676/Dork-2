@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -57,8 +57,8 @@ extern orxDLLAPI orxSTATUS orxFASTCALL            orxFPS_Init();
 /** Exits from the FPS module */
 extern orxDLLAPI void orxFASTCALL                 orxFPS_Exit();
 
-/** Increases internal frame counter */
-extern orxDLLAPI void orxFASTCALL                 orxFPS_IncreaseFrameCounter();
+/** Increases internal frame count */
+extern orxDLLAPI void orxFASTCALL                 orxFPS_IncreaseFrameCount();
 
 /** Gets current FTP value
  * @return orxU32

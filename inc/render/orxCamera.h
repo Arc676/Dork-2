@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -123,7 +123,7 @@ extern orxDLLAPI orxSTATUS orxFASTCALL                  orxCamera_RemoveGroupID(
  * @param[in] _pstCamera        Concerned camera
  * @return Number of group IDs of this camera
  */
-extern orxDLLAPI orxU32 orxFASTCALL                     orxCamera_GetGroupIDCounter(const orxCAMERA *_pstCamera);
+extern orxDLLAPI orxU32 orxFASTCALL                     orxCamera_GetGroupIDCount(const orxCAMERA *_pstCamera);
 
 /** Gets the group ID of a camera at the given index
  * @param[in] _pstCamera        Concerned camera

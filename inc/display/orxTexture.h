@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -162,10 +162,10 @@ extern orxDLLAPI orxSTATUS orxFASTCALL    orxTexture_SetColor(orxTEXTURE *_pstTe
  */
 extern orxDLLAPI orxTEXTURE *orxFASTCALL  orxTexture_GetScreenTexture();
 
-/** Gets pending load counter
- * @return      Pending load counter
+/** Gets pending load count
+ * @return      Pending load count
  */
-extern orxDLLAPI orxU32 orxFASTCALL       orxTexture_GetLoadCounter();
+extern orxDLLAPI orxU32 orxFASTCALL       orxTexture_GetLoadCount();
 
 #endif /* _orxTEXTURE_H_ */
 

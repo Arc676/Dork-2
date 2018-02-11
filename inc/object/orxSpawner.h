@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -166,17 +166,17 @@ extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetTotalObjectLimit(const
  */
 extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetActiveObjectLimit(const orxSPAWNER *_pstSpawner);
 
-/** Gets spawner total object counter
+/** Gets spawner total object count
  * @param[in]   _pstSpawner     Concerned spawner
- * @return      Total object counter
+ * @return      Total object count
  */
-extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetTotalObjectCounter(const orxSPAWNER *_pstSpawner);
+extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetTotalObjectCount(const orxSPAWNER *_pstSpawner);
 
-/** Gets spawner active object counter
+/** Gets spawner active object count
  * @param[in]   _pstSpawner     Concerned spawner
- * @return      Active object counter
+ * @return      Active object count
  */
-extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetActiveObjectCounter(const orxSPAWNER *_pstSpawner);
+extern orxDLLAPI orxU32 orxFASTCALL         orxSpawner_GetActiveObjectCount(const orxSPAWNER *_pstSpawner);
 
 
 /** Sets spawner wave size

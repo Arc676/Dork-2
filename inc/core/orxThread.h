@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -161,7 +161,7 @@ extern orxDLLAPI orxSTATUS orxFASTCALL                orxThread_RunTask(const or
 /** Gets number of pending asynchronous tasks awaiting full completion (might pump task notifications if called from main thread)
  * @return      Number of pending asynchronous tasks
  */
-extern orxDLLAPI orxU32 orxFASTCALL                   orxThread_GetTaskCounter();
+extern orxDLLAPI orxU32 orxFASTCALL                   orxThread_GetTaskCount();
 
 
 #endif /* _orxTHREAD_H_ */

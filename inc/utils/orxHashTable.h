@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -77,11 +77,11 @@ extern orxDLLAPI orxSTATUS orxFASTCALL          orxHashTable_Delete(orxHASHTABLE
 extern orxDLLAPI orxSTATUS orxFASTCALL          orxHashTable_Clear(orxHASHTABLE *_pstHashTable);
 /** @} */
 
-/** Gets a hash table item counter
+/** Gets a hash table item count
  * @param[in] _pstHashTable         Concerned hash table
  * @return    Item number
  */
-extern orxDLLAPI orxU32 orxFASTCALL             orxHashTable_GetCounter(const orxHASHTABLE *_pstHashTable);
+extern orxDLLAPI orxU32 orxFASTCALL             orxHashTable_GetCount(const orxHASHTABLE *_pstHashTable);
 
 /** @name HashTable key manipulation.
  * @{ */

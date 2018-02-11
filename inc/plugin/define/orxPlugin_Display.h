@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -90,7 +90,7 @@ typedef enum __orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_t
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_IS_VSYNC_ENABLED,
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_SET_FULL_SCREEN,
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_IS_FULL_SCREEN,
-  orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_GET_VIDEO_MODE_COUNTER,
+  orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_GET_VIDEO_MODE_COUNT,
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_GET_VIDEO_MODE,
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_SET_VIDEO_MODE,
   orxPLUGIN_FUNCTION_BASE_ID_DISPLAY_IS_VIDEO_MODE_AVAILABLE,

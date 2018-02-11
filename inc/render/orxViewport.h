@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -137,11 +137,11 @@ extern orxDLLAPI void orxFASTCALL             orxViewport_SetTextureList(orxVIEW
  */
 extern orxDLLAPI orxSTATUS orxFASTCALL        orxViewport_GetTextureList(const orxVIEWPORT *_pstViewport, orxU32 _u32TextureNumber, orxTEXTURE **_apstTextureList);
 
-/** Gets a viewport texture counter
+/** Gets a viewport texture count
  * @param[in]   _pstViewport    Concerned viewport
  * @return      Number of textures associated with the viewport
  */
-extern orxDLLAPI orxU32 orxFASTCALL           orxViewport_GetTextureCounter(const orxVIEWPORT *_pstViewport);
+extern orxDLLAPI orxU32 orxFASTCALL           orxViewport_GetTextureCount(const orxVIEWPORT *_pstViewport);
 
 
 

@@ -1,6 +1,6 @@
 /* Orx - Portable Game Engine
  *
- * Copyright (c) 2008-2017 Orx-Project
+ * Copyright (c) 2008-2018 Orx-Project
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -506,7 +506,7 @@ static orxU32 orxFASTCALL                                 orxString_GetFirstChar
  * @param[in] _zString                  Concerned string
  * @return                              Number of valid unicode characters contained in the string, orxU32_UNDEFINED for an invalid UTF-8 string
  */
-static orxINLINE orxU32                                   orxString_GetCharacterCounter(const orxSTRING _zString)
+static orxINLINE orxU32                                   orxString_GetCharacterCount(const orxSTRING _zString)
 {
   const orxCHAR  *pc;
   orxU32          u32Result;
@@ -1132,10 +1132,7 @@ static orxINLINE orxSTATUS                                orxString_ToVector(con
     zString = orxString_SkipWhiteSpaces(zString + 1);
 
     /* Gets X value */
-    eResult = orxString_ToFloat(zString, &(stValue.fX), &zString);
-
-    /* Success? */
-    if(eResult != orxSTATUS_FAILURE)
+    if(orxString_ToFloat(zString, &(stValue.fX), &zString) != orxSTATUS_FAILURE)
     {
       /* Skips all white spaces */
       zString = orxString_SkipWhiteSpaces(zString);
@@ -1147,10 +1144,7 @@ static orxINLINE orxSTATUS                                orxString_ToVector(con
         zString = orxString_SkipWhiteSpaces(zString + 1);
 
         /* Gets Y value */
-        eResult = orxString_ToFloat(zString, &(stValue.fY), &zString);
-
-        /* Success? */
-        if(eResult != orxSTATUS_FAILURE)
+        if(orxString_ToFloat(zString, &(stValue.fY), &zString) != orxSTATUS_FAILURE)
         {
           /* Skips all white spaces */
           zString = orxString_SkipWhiteSpaces(zString);
@@ -1162,20 +1156,17 @@ static orxINLINE orxSTATUS                                orxString_ToVector(con
             zString = orxString_SkipWhiteSpaces(zString + 1);
 
             /* Gets Z value */
-            eResult = orxString_ToFloat(zString, &(stValue.fZ), &zString);
-
-            /* Success? */
-            if(eResult != orxSTATUS_FAILURE)
+            if(orxString_ToFloat(zString, &(stValue.fZ), &zString) != orxSTATUS_FAILURE)
             {
               /* Skips all white spaces */
               zString = orxString_SkipWhiteSpaces(zString);
 
-              /* Is not a vector end character? */
-              if((*zString != orxSTRING_KC_VECTOR_END)
-              && (*zString != orxSTRING_KC_VECTOR_END_ALT))
+              /* Has a valid ending marker? */
+              if((*zString == orxSTRING_KC_VECTOR_END)
+              || (*zString == orxSTRING_KC_VECTOR_END_ALT))
               {
                 /* Updates result */
-                eResult = orxSTATUS_FAILURE;
+                eResult = orxSTATUS_SUCCESS;
               }
             }
           }
