@@ -70,7 +70,7 @@ void Exploration::spawnEnemy() {
 		return;
 	}
 	Enemy::createRandomEnemy(
-							 GHOST,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
+							 GOBLIN,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
 							 player, pos
 							 );
 	enemiesInExistence++;

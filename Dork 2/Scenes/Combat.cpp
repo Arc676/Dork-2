@@ -113,6 +113,7 @@ SceneType Combat::makeMove(Move move) {
 				}
 			}
 			orxCHAR mods[100];
+			memset(mods, 0, sizeof(mods));
 			if (hasMods) {
 				player->alterSpeed(modifiers[0]);
 				player->alterStrength(modifiers[1]);
