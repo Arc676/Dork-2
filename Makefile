@@ -2,11 +2,8 @@
 # If you're running Mac, you can build using Xcode
 # If you're running Linux, this Makefile should help you
 # You need to have a compiled version of Orx for your platform in the lib/ folder
-ifndef windows
-	CC=g++
-else
-	CC=/home/ale/Downloads/bin/x86_64-w64-mingw32-g++
-endif
+# You may need to change the compiler if you don't have g++ in your PATH
+CC=g++
 FLAGS=-std=c++11 -c
 LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entities -I Dork\ 2/Items  -L lib/
 LIB=-l orx
