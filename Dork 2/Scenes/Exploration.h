@@ -36,6 +36,7 @@ public:
 	Exploration(Player*, orxCAMERA*);
 
 	void resetWorld();
+	void resetMusic();
 
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();

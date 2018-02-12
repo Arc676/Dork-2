@@ -168,9 +168,6 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 
 					//return to main menu if necessary
 					if (selected == PAUSE_EXIT) {
-						if (music != orxNULL) {
-							orxSound_Stop(music);
-						}
 						return MAIN_MENU;
 					}
 				}

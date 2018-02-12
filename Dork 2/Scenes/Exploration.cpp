@@ -24,11 +24,15 @@
 
 Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(camera) {
 	loadPlayerData(player);
-	music = orxSound_CreateFromConfig("BackgroundMusic1");
+	resetMusic();
 	canSave = orxTRUE;
 
 	setPauseMenuPosition({-50, 0, 0});
 	initializeUITextAt({-500, 160, -0.1});
+}
+
+void Exploration::resetMusic() {
+	music = orxSound_CreateFromConfig("BackgroundMusic1");
 }
 
 void Exploration::resetWorld() {
