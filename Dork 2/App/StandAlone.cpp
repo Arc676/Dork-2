@@ -163,9 +163,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			} else {
 				player->despawn();
 				player = currentScene->getPlayerData();
-				explorationScene->loadPlayerData(player);
-				explorationScene->resetWorld();
-				explorationScene->resetMusic();
+				explorationScene->resetWorld(player);
 				shopScene->loadPlayerData(player);
 				armoryScene->loadPlayerData(player);
 			}

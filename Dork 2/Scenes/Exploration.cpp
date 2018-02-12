@@ -35,7 +35,9 @@ void Exploration::resetMusic() {
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
 }
 
-void Exploration::resetWorld() {
+void Exploration::resetWorld(Player* player) {
+	loadPlayerData(player);
+	resetMusic();
 	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
 	for (
 		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
