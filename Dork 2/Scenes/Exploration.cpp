@@ -32,6 +32,9 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(ca
 }
 
 void Exploration::resetMusic() {
+	if (music != orxNULL) {
+		orxSound_Stop(music);
+	}
 	music = orxSound_CreateFromConfig("BackgroundMusic1");
 }
 

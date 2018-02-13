@@ -146,7 +146,7 @@ orxSTATUS Player::write() {
 			potions[i] = (orxCHAR*)malloc(5 * sizeof(orxCHAR));
 			orxCHAR* str = (orxCHAR*)malloc(5 * sizeof(orxCHAR));
 			orxString_Print(str, "%d", ownedPotions[i]);
-			memcpy(&potions[i], &str, 5);
+			memcpy(&potions[i], &str, 5 * sizeof(orxCHAR));
 			free(str);
 		}
 		orxConfig_SetListString("OwnedPotions", potions, POTIONCOUNT);
