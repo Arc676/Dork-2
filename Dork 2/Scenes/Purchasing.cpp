@@ -42,13 +42,12 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	}
 	orxVECTOR pos;
 	orxObject_GetPosition(selectorArrow, &pos);
+	int prevSelection = currentSelection;
 	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < selectionLimit) {
 		pos.fY += 60;
-		orxObject_SetPosition(selectorArrow, &pos);
 		currentSelection++;
 	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
 		pos.fY -= 60;
-		orxObject_SetPosition(selectorArrow, &pos);
 		currentSelection--;
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == selectionLimit) {
@@ -60,6 +59,10 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		} else if (result == PURCHASE_FAILED) {
 			orxObject_AddSound(selectorArrow, "ErrorSound");
 		}
+	}
+	if (currentSelection != prevSelection) {
+		orxObject_SetPosition(selectorArrow, &pos);
+		orxObject_AddSound(selectorArrow, "SelectorSound");
 	}
 	if (currentSelection < selectionLimit) {
 		loadItemData();
