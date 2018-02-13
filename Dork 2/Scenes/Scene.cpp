@@ -132,6 +132,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (paused) {
 		orxVECTOR pos;
 		orxObject_GetPosition(pauseSelector, &pos);
+		int prevSelection = pauseMenuSelection;
 		if (getKeyDown((orxSTRING)"GoDown") && pauseMenuSelection < PAUSE_MENU_ITEM_COUNT) {
 			pauseMenuSelection++;
 			pos.fY += 60;
@@ -176,7 +177,10 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 					break;
 			}
 		}
-		orxObject_SetPosition(pauseSelector, &pos);
+		if (pauseMenuSelection != prevSelection) {
+			orxObject_SetPosition(pauseSelector, &pos);
+			orxObject_AddSound(pauseSelector, "SelectorSound");
+		}
 	} else if (hasText) {
 		if (Scene::getKeyDown((orxSTRING)"Enter")) {
 			dismissUIText();
