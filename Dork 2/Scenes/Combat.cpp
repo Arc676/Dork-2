@@ -294,6 +294,7 @@ void Combat::consumePotions() {
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 	if (isSelectingPotion) {
 		orxBOOL switchPotion = orxFALSE;
+		int prevQuantity = desiredQuantity;
 		int direction = 1;
 		if (getKeyDown((orxSTRING)"Pause")) {
 			isSelectingPotion = orxFALSE;
@@ -305,11 +306,9 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 		} else if (getKeyDown((orxSTRING)"GoDown") &&
 				   desiredQuantity > 1) {
 			desiredQuantity--;
-			updatePotionDescription();
 		} else if (getKeyDown((orxSTRING)"GoUp") &&
 				   desiredQuantity < player->amountOfPotionOwned(selectedPotion)) {
 			desiredQuantity++;
-			updatePotionDescription();
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {
 			switchPotion = orxTRUE;
 			direction = -1;
@@ -321,8 +320,10 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			selectPotion(direction);
 			updatePotionDescription();
 			orxObject_AddSound(selector, "SelectorSound");
-		}
-		if (!isSelectingPotion) {
+		} else if (desiredQuantity != prevQuantity) {
+			updatePotionDescription();
+			orxObject_AddSound(selector, "TickSound");
+		} else if (!isSelectingPotion) {
 			orxObject_Enable(potionName, orxFALSE);
 			orxObject_Enable(potionEffect, orxFALSE);
 			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
