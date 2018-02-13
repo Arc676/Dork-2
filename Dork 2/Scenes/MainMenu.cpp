@@ -82,6 +82,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	}
 	orxVECTOR pos;
 	orxObject_GetPosition(selector, &pos);
+	int prevSelection = currentSelection;
 	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < 3) {
 		currentSelection++;
 		pos.fY += 60;
@@ -103,7 +104,10 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 		}
 		return EXPLORATION;
 	}
-	orxObject_SetPosition(selector, &pos);
+	if (currentSelection != prevSelection) {
+		orxObject_SetPosition(selector, &pos);
+		orxObject_AddSound(selector, "SelectorSound");
+	}
 	orxObject_Enable(lrArrows, currentSelection == 1);
 	return MAIN_MENU;
 }
