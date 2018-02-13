@@ -130,6 +130,7 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 	if (paused || Scene::currentlyHasText()) {
 		return Purchasing::update(clockInfo);
 	}
+	int prevQty = quantity;
 	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
 		quantity--;
 	} else if (getKeyDown((orxSTRING)"GoRight")) {
@@ -140,6 +141,9 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 			quantity = 1;
 		}
 		return Purchasing::update(clockInfo);
+	}
+	if (quantity != prevQty) {
+		orxObject_AddSound(selectorArrow, "TickSound");
 	}
 	return SHOP;
 }
