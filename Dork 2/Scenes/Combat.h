@@ -46,8 +46,8 @@ class Combat : public Scene {
 	int specialMoveCooldown = 0;
 
 	//potion related metadata
-	bool hasPotions = false;
-	bool isSelectingPotion = false;
+	orxBOOL hasPotions = false;
+	orxBOOL isSelectingPotion = false;
 	PotionType selectedPotion = QUICKHEAL_2;
 	int desiredQuantity = 1;
 
@@ -57,7 +57,7 @@ class Combat : public Scene {
 	orxOBJECT* potionEffect;
 
 	//potion related functions
-	bool playerHasPotions();
+	orxBOOL playerHasPotions();
 	void consumePotions();
 	void selectPotion(int);
 	void updatePotionDescription();

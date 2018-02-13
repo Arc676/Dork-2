@@ -76,13 +76,13 @@ void Combat::activate() {
 	Scene::activate();
 }
 
-bool Combat::playerHasPotions() {
+orxBOOL Combat::playerHasPotions() {
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		if (player->amountOfPotionOwned((PotionType)i) > 0) {
-			return true;
+			return orxTRUE;
 		}
 	}
-	return false;
+	return orxFALSE;
 }
 
 void Combat::deactivate() {
@@ -223,7 +223,7 @@ SceneType Combat::makeMove(Move move) {
 			break;
 		case USE_ITEM:
 			if (hasPotions) {
-				isSelectingPotion = true;
+				isSelectingPotion = orxTRUE;
 
 				orxObject_Enable(potionName, orxTRUE);
 				orxObject_Enable(potionEffect, orxTRUE);
@@ -293,14 +293,14 @@ void Combat::consumePotions() {
 
 SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 	if (isSelectingPotion) {
-		bool switchPotion = false;
+		orxBOOL switchPotion = orxFALSE;
 		int direction = 1;
 		if (getKeyDown((orxSTRING)"Pause")) {
-			isSelectingPotion = false;
+			isSelectingPotion = orxFALSE;
 		} else if (getKeyDown((orxSTRING)"Enter")) {
 			consumePotions();
 			hasPotions = playerHasPotions();
-			isSelectingPotion = false;
+			isSelectingPotion = orxFALSE;
 			desiredQuantity = 1;
 		} else if (getKeyDown((orxSTRING)"GoDown") &&
 				   desiredQuantity > 1) {
@@ -311,15 +311,16 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			desiredQuantity++;
 			updatePotionDescription();
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {
-			switchPotion = true;
+			switchPotion = orxTRUE;
 			direction = -1;
 		} else if (getKeyDown((orxSTRING)"GoRight")) {
-			switchPotion = true;
+			switchPotion = orxTRUE;
 		}
 		if (switchPotion) {
 			desiredQuantity = 1;
 			selectPotion(direction);
 			updatePotionDescription();
+			orxObject_AddSound(selector, "SelectorSound");
 		}
 		if (!isSelectingPotion) {
 			orxObject_Enable(potionName, orxFALSE);
@@ -359,6 +360,7 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 		}
 		if (selChanged) {
 			orxObject_SetPosition(selector, &pos);
+			orxObject_AddSound(selector, "SelectorSound");
 		}
 	}
 	return nextSceneType;
