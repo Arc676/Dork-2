@@ -92,10 +92,8 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 		pos.fY -= 60;
 	} else if (getKeyDown((orxSTRING)"GoLeft") && chosenType > 0 && currentSelection == 1) {
 		chosenType = (EntityType)(chosenType - 1);
-		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	} else if (getKeyDown((orxSTRING)"GoRight") && chosenType < NOTYPE - 1 && currentSelection == 1) {
 		chosenType = (EntityType)(chosenType + 1);
-		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (cursorPos > 0 && currentSelection >= 2) {
 			player = new Player(name, chosenType);
@@ -115,6 +113,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 		orxObject_AddSound(selector, "SelectorSound");
 	} else if (chosenType != prevType) {
 		orxObject_AddSound(selector, "TickSound");
+		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	}
 	orxObject_Enable(lrArrows, currentSelection == 1);
 	return MAIN_MENU;
