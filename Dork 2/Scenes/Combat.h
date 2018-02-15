@@ -35,6 +35,10 @@ class Combat : public Scene {
 	Enemy* enemy;
 	orxVECTOR playerPos;
 
+	//scaling
+	static const orxVECTOR scaleUp;
+	static const orxVECTOR scaleNormal;
+
 	//combat mechanics and entity stats
 	int modifiers[3];
 	StatViewer* playerStats;

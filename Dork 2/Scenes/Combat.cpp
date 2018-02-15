@@ -26,6 +26,9 @@ Move Combat::moves[2][2] = {
 	{USE_ITEM, RUN}
 };
 
+const orxVECTOR Combat::scaleUp = {2, 2, 0};
+const orxVECTOR Combat::scaleNormal = {1, 1, 0};
+
 Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
@@ -64,7 +67,10 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 void Combat::activate() {
 	playerPos = player->getPosition();
 	player->setPosition({-1200, 450, 0});
+	orxObject_SetScale(player->getEntity(), &scaleUp);
+
 	enemy->setPosition({-1100, 200, 0});
+	orxObject_SetScale(enemy->getEntity(), &scaleUp);
 
 	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
 	orxCHAR anim[30];
@@ -91,6 +97,7 @@ void Combat::deactivate() {
 	playerStats->destroy();
 	enemyStats->destroy();
 	player->setPosition(playerPos);
+	orxObject_SetScale(player->getEntity(), &scaleNormal);
 	Scene::destroy();
 	Scene::deactivate();
 }
