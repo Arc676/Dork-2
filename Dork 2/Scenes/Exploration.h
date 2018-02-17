@@ -32,8 +32,13 @@ class Exploration : public Scene {
 	orxFLOAT timeSinceEnemySpawn = 0;
 
 	void spawnEnemy();
+
+	void pauseAnimations();
+	void resumeAnimations();
 public:
 	Exploration(Player*, orxCAMERA*);
+
+	virtual void activate();
 
 	void resetWorld(Player*);
 	void resetMusic();
