@@ -58,7 +58,6 @@ Enemy::Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int
 
 void Enemy::newRandomDirection() {
 	int dir = orxMath_GetRandomS32(0, 3);
-	orxCHAR anim[30];
 	orxSTRING strDir = (orxSTRING)"";
 	switch (dir) {
 		case 0:
@@ -80,8 +79,12 @@ void Enemy::newRandomDirection() {
 		default:
 			break;
 	}
-	orxString_Print(anim, "Walk%sAnim%s", strDir, getName());
-	orxObject_SetTargetAnim(entity, anim);
+	orxString_Print(animation, "Walk%sAnim%s", strDir, getName());
+	resetAnimation();
+}
+
+void Enemy::resetAnimation() {
+	orxObject_SetTargetAnim(entity, animation);
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {

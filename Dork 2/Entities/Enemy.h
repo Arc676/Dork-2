@@ -49,6 +49,7 @@ class Enemy : public Entity {
 	static int randomStat(int, float);
 
 	orxVECTOR direction;
+	orxCHAR[40] animation;
 	orxFLOAT distanceTravelled = 0;
 public:
 	static orxSTRING typeToString(EnemyType);
@@ -63,6 +64,7 @@ public:
 
 	void update(float);
 	void newRandomDirection();
+	void resetAnimation();
 };
 
 #endif
