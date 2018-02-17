@@ -133,15 +133,18 @@ int Armory::makePurchase() {
 	Weapon* weapon = Weapon::copyOf((WeaponType)currentSelection);
 	WeaponType type = (WeaponType)currentSelection;
 	if (player->ownsWeapon((WeaponType)currentSelection)) {
+		if (player->getWeapon()->getWeaponType() == type) {
+			type = NOWEAPON;
+		}
 		equipWeapon(type);
 		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
 
 		orxCHAR text[40];
-		orxString_Print(text, "Equipped %s", weapon->getName());
+		orxString_Print(text, "%squipped %s", (type == NOWEAPON ? "Un-e" : "E"), weapon->getName());
 		loadUIText(text);
 
-		return WEAPON_EQUIPPPED;
+		return type == NOWEAPON ? WEAPON_UNEQUIPPED : WEAPON_EQUIPPED;
 	} else if (player->getGold() >= weapon->getPrice()) {
 		player->transaction(-weapon->getPrice());
 		player->setWeaponOwnership((WeaponType)currentSelection, true);

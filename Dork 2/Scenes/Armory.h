@@ -25,7 +25,8 @@
 #include "Purchasing.h"
 #include "Weapon.h"
 
-#define WEAPON_EQUIPPPED 2
+#define WEAPON_EQUIPPED   2
+#define WEAPON_UNEQUIPPED 3
 
 class Armory : public Purchasing {
 	std::vector<orxOBJECT*> tickMarks;
