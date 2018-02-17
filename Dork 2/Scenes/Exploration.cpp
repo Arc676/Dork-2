@@ -86,12 +86,24 @@ void Exploration::spawnEnemy() {
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
+	// was the game already in a state that would require pausing animations?
+	// (would imply that the game was paused or text was already present)
+	orxBOOL wasPseudoPaused = paused || Scene::currentlyHasText();
 	SceneType type = Scene::update(clockInfo);
 	if (type != EXPLORATION) {
 		return type;
 	}
+	// if game is in a paused state, do nothing
 	if (paused || Scene::currentlyHasText()) {
+		// if game wasn't already in such a state, pause animations
+		if (!wasPseudoPaused) {
+			pauseAnimations();
+		}
 		return EXPLORATION;
+	} else if (wasPseudoPaused) {
+		// if game is no longer in a paused state but used to be,
+		// resume animations
+		resumeAnimations();
 	}
 	orxFLOAT delta = clockInfo->fDT;
 	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
