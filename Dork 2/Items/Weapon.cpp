@@ -75,8 +75,10 @@ orxSTRING Weapon::getWeaponName(WeaponType type) {
 			return (orxSTRING)"Axe";
 		case SPEAR:
 			return (orxSTRING)"Spear";
+		case NOWEAPON:
+			return (orxSTRING)"No weapon";
 		default:
-			return (orxSTRING)"Unknown or no weapon";
+			return (orxSTRING)"Unknown weapon";
 	}
 }
 
