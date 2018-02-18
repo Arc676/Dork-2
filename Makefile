@@ -11,6 +11,7 @@ OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Co
 
 
 dork2: $(OBJS)
+	mkdir Build
 	$(CC) $(LD) $(OBJS) $(LIB) -o Build/Dork\ 2
 	cp -u Music/* Build
 	cp -u Sprites/* Build
