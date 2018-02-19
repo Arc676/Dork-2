@@ -28,11 +28,13 @@
 
 class Entity {
 protected:
+	// entity data (in world)
 	orxOBJECT* entity;
 	orxVECTOR position;
 
-	int motionSpeed = 60;
+	const int motionSpeed = 60;
 
+	// entity data (in backend)
 	int HP;
 	int speed;
 	int strength;
@@ -42,12 +44,44 @@ protected:
 	Level level = Level(0);
 	EntityType type;
 public:
-	//combat mechanics
+	/**
+	 * Randomly choose whether an entity can dodge another
+	 * based on stats
+	 * @param Entity* blocking entity
+	 * @param Entity* attacking entity
+	 * @return whether the blocker successfully dodges the attacker
+	 */
 	static orxBOOL dodge(Entity*, Entity*);
+
+	/**
+	 * Calculate maximum possible damage that can be dealt based
+	 * on entity stats and weapons
+	 * @param Entity* attacking entity
+	 * @param Entity* blocking entity
+	 * @return maximum damage that can be dealt in one turn
+	 */
 	static int maxDamage(Entity*, Entity*);
+
+	/**
+	 * Apply effects of an attack
+	 * @param Entity* attacking entity
+	 * @param Entity* blocking entity
+	 * @return damage dealt by attacker
+	 */
 	static int entityAttack(Entity*, Entity*);
 
+	/**
+	 * Get name of entity type
+	 * @param EntityType relevant type
+	 * @return human readable form of entity type
+	 */
 	static orxSTRING typeToString(EntityType);
+
+	/**
+	 * Get a given entity type's weakness
+	 * @param EntityType relevant type
+	 * @return entity type that is effective against that type
+	 */
 	static EntityType weaknessForType(EntityType);
 
 	orxVECTOR getPosition();
