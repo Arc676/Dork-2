@@ -63,6 +63,8 @@ enum SceneType {
 	ARMORY
 };
 
+// for use in combat
+// represents player choice from UI
 enum Move {
 	ATTACK,
 	SPECIAL_MOVE,
