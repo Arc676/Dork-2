@@ -33,3 +33,11 @@ https://github.com/Arc676/Dork-2/issues/new).
 
 We also have a [Discord server](
 https://discord.gg/3e4gxBx) if you want to chat about the game! If you don't have a GitHub account, you can also report bugs and make suggestions here.
+
+### Compiling Dork 2 from Source
+
+If you would like to compile Dork 2 from source so you can check out development progress or you wish to make modifications, use `git clone` or GitHub's interface to download the source code and the included resources for compilation. The repository includes simple methods for compilation on any platform.
+- On Mac, use the associated Xcode project to compile the executable. Note that the output program is a simple executable file rather than an app package (.app) like normal applications.
+- On Linux, use `make` and the included `Makefile` to compile Dork 2. The executable is compiled to `Build/Dork 2` relative to the root of the repository. Unless you move `lib/liborx.so` to a location for custom libraries, you will need to update your library path to include `lib/`, as the executable requires the dynamically linked Orx library. You can do this by running `export LD_LIBRARY_PATH=$(readlink -f lib)` when in the root of the repository (or using a relative path in place of `lib`). Once the library is in your library path, you will be able to run the executable file. Note that the game assets must be in the same directory as the executable file. This is done automatically by the `Makefile`, but if you wish to move the executable (or make it accessible from elsewhere) you will need to move all the assets as well or create an alias that includes an absolute path to the executable file.
+- On Windows, you can compile Dork 2 with Visual Studio using the included VS project. Note that the output EXE must be in the same directory as the game assets.
+Please note that, during development, these compilation methods may diverge. Certain project files may become outdated if new assets are added while working on another platform (e.g. if I'm working on Linux and a new asset is added, neither the Xcode nor Visual Studio projects will include references to said asset until I'm on their respective platforms).
