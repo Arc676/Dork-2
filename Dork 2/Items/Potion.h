@@ -28,6 +28,7 @@
 #include "Enums.h"
 
 class Potion {
+	// static instances of each potion
 	static Potion* quickheal2;
 	static Potion* quickheal5;
 	static Potion* quickheal10;
@@ -38,16 +39,33 @@ class Potion {
 	static Potion* defboost;
 	static Potion* speedboost;
 
+	/**
+	 * Obtains the name of a potion
+	 * @param PotionType relevant potion type
+	 * @return Human readable potion name
+	 */
 	static orxSTRING typeToString(PotionType);
 
+	// potion data
 	int price;
 	PotionType type;
 	double amount;
 
+	/**
+	 * Copy a potion
+	 * @return a new Potion pointer with the same properties
+	 */
 	Potion* copy();
 public:
+	// all the potions
 	static std::vector<Potion*> allPotions;
 	
+	/**
+	 * Construct a new potion
+	 * @param PotionType potion type
+	 * @param Amount amount by which the relevant stat is improved
+	 * @param Int potion price
+	 */
 	Potion(PotionType, double, int);
 
 	int getPrice();
@@ -55,8 +73,18 @@ public:
 	PotionType getType();
 	orxSTRING getName();
 
+	/**
+	 * Get the abbreviation used in config for a given potion type
+	 * @param PotionType relevant potion type
+	 * @return abbreviation used to represent potion in config files
+	 */
 	static orxSTRING configCodeForType(PotionType);
 
+	/**
+	 * Get a copy of a given potion
+	 * @param PotionType desired potion type
+	 * @return a copy of the desired potion
+	 */
 	static Potion* getCopyOf(PotionType);
 };
 

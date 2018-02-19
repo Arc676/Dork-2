@@ -46,8 +46,6 @@ public:
 	static void orxFASTCALL Update(const orxCLOCK_INFO*, void*);
 
 	static orxSTATUS orxFASTCALL EventHandler(const orxEVENT*);
-
-//	static orxVECTOR orxFASTCALL GetMouseWorldPosition();
 protected:
 	StandAlone();
 	StandAlone(const StandAlone&);
@@ -55,8 +53,11 @@ protected:
 private:
 	static StandAlone* m_Instance;
 
+	// reference to player
 	static Player* player;
 
+	// references to scenes, viewports, and cameras for each
+	// scene in game
 	static Scene* currentScene;
 	static orxVIEWPORT* currentViewport;
 	static orxCAMERA* currentCamera;
