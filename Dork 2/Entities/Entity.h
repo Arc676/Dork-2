@@ -47,8 +47,8 @@ public:
 	/**
 	 * Randomly choose whether an entity can dodge another
 	 * based on stats
-	 * @param Entity* blocking entity
 	 * @param Entity* attacking entity
+	 * @param Entity* blocking entity
 	 * @return whether the blocker successfully dodges the attacker
 	 */
 	static orxBOOL dodge(Entity*, Entity*);

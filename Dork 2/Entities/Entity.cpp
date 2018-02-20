@@ -21,7 +21,7 @@
 
 #include "Entity.h"
 
-orxBOOL Entity::dodge(Entity* blo, Entity* att) {
+orxBOOL Entity::dodge(Entity* att, Entity* blo) {
 	int attSpeed = att->getSpeed() <= 0 ? 0 : att->getSpeed() * (1 + att->getWeapon()->getSpeedMod());
 	int bloSpeed = blo->getSpeed() <= 0 ? 0 : blo->getSpeed() * (1 + blo->getWeapon()->getSpeedMod());
 	if (orxMath_GetRandomU32(0, attSpeed) < orxMath_GetRandomU32(0, bloSpeed)) {
@@ -65,7 +65,7 @@ int Entity::entityAttack(Entity* attacker, Entity* blocker) {
 	if (maxDmg <= 0) {
 		maxDmg = 1;
 	}
-	if (dodge(blocker, attacker)) {
+	if (dodge(attacker, blocker)) {
 		return 0;
 	}
 	int damageTaken = orxMath_GetRandomFloat(0.5, 1) * maxDmg;
