@@ -25,14 +25,17 @@
 #include "Purchasing.h"
 #include "Weapon.h"
 
+// additional return values for makePurchase()
 #define WEAPON_EQUIPPED   2
 #define WEAPON_UNEQUIPPED 3
 
 class Armory : public Purchasing {
+	// interface stuff for weapons
 	std::vector<orxOBJECT*> tickMarks;
 	int lastEquipped = -1;
 	void equipWeapon(WeaponType);
 
+	// text fields
 	orxOBJECT* weaponName;
 	orxOBJECT* weaponPrice;
 	orxOBJECT* weaponStr;
@@ -43,6 +46,10 @@ protected:
 	virtual int makePurchase();
 	virtual void loadItemData();
 public:
+	/**
+	 * Construct new Armory scene
+	 * @param Player* current player
+	 */
 	Armory(Player*);
 
 	virtual void loadPlayerData(Player*);

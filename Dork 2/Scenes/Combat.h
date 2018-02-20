@@ -60,14 +60,41 @@ class Combat : public Scene {
 	orxOBJECT* potionName;
 	orxOBJECT* potionEffect;
 
-	//potion related functions
+	/**
+	 * Whether the player has any potions to consume
+	 * @return whether the player owns any potions
+	 */
 	orxBOOL playerHasPotions();
+
+	/**
+	 * Consume selected potion
+	 */
 	void consumePotions();
+
+	/**
+	 * Change the potion selection
+	 * @param int direction for potion switching (+1 for right, -1 for left)
+	 */
 	void selectPotion(int);
+
+	/**
+	 * Updates the potion data in the text
+	 * fields
+	 */
 	void updatePotionDescription();
 
+	/**
+	 * Make the move selected by the player
+	 * @param Move selected move
+	 * @return the next scene to show depending on the outcome of the action
+	 */
 	SceneType makeMove(Move);
 public:
+	/**
+	 * Construct new combat scene
+	 * @param Player* current player
+	 * @param Enemy* enemy to battle
+	 */
 	Combat(Player*, Enemy*);
 
 	virtual void activate();

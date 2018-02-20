@@ -31,16 +31,44 @@ class Exploration : public Scene {
 	int enemiesInExistence = 0;
 	orxFLOAT timeSinceEnemySpawn = 0;
 
+	/**
+	 * Spawns a new random enemy in a random location (between
+	 * the edge of the player's view and a few hundred pixels outside
+	 * of that)
+	 */
 	void spawnEnemy();
 
+	/**
+	 * Pause the animations on all entities
+	 * in the scene
+	 */
 	void pauseAnimations();
+
+	/**
+	 * Resets animations on all enemies in the
+	 * scene
+	 */
 	void resumeAnimations();
 public:
+	/**
+	 * Construct new Exploration scene
+	 * @param Player* current player
+	 * @param orxCAMERA* reference to the camera
+	 */
 	Exploration(Player*, orxCAMERA*);
 
 	virtual void activate();
 
+	/**
+	 * Resets the world state by clearing enemies
+	 * and resetting music and position
+	 * @param Player* player to load into reset world
+	 */
 	void resetWorld(Player*);
+
+	/**
+	 * Restarts the music from the beginning
+	 */
 	void resetMusic();
 
 	virtual SceneType update(const orxCLOCK_INFO*);

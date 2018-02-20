@@ -29,6 +29,7 @@ class Shop : public Purchasing {
 	int quantity = 1;
 	std::vector<orxOBJECT*> potionCounts;
 
+	// text fields
 	orxOBJECT* potionName;
 	orxOBJECT* potionPrice;
 	orxOBJECT* potionEffect;
@@ -36,6 +37,10 @@ protected:
 	virtual int makePurchase();
 	virtual void loadItemData();
 public:
+	/**
+	 * Construct new Shop scene
+	 * @param Player* current player
+	 */
 	Shop(Player*);
 
 	virtual void loadPlayerData(Player*);

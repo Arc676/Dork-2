@@ -27,8 +27,10 @@
 #include "Entity.h"
 
 class StatViewer {
+	// entity whose stats are being shown
 	Entity* entity;
 
+	// text fields
 	orxOBJECT* labelName;
 	orxOBJECT* labelType;
 	orxOBJECT* labelHP;
@@ -39,11 +41,29 @@ class StatViewer {
 	orxOBJECT* labelLvl;
 	orxOBJECT* labelWeapon;
 public:
+	/**
+	 * Construct new StatViewer
+	 * @param Entity* entity whose stats to show
+	 * @param orxVECTOR render position of stat viewer
+	 */
 	StatViewer(Entity*, orxVECTOR);
 
+	/**
+	 * Destroy the stat viewer and all
+	 * child objects
+	 */
 	void destroy();
 
+	/**
+	 * Load stats for a new entity
+	 * @param Entity* entity whose stats to load
+	 */
 	void loadEntity(Entity*);
+
+	/**
+	 * Refreshes the entity's stats in the
+	 * text fields
+	 */
 	void reloadData();
 };
 

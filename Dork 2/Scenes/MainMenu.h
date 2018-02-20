@@ -24,17 +24,21 @@
 
 #include "Scene.h"
 
+// limit on player name length
 #define NAMELENGTH 30
 
 class MainMenu : public Scene {
+	// player selection
 	int currentSelection = 0;
 	orxOBJECT* selector;
 	orxOBJECT* lrArrows;
 
+	// player name
 	orxOBJECT* nameField;
 	char name[NAMELENGTH];
 	int cursorPos = 0;
 
+	// chosen entity type for player
 	orxOBJECT* typeField;
 	EntityType chosenType = MAGIC;
 public:
