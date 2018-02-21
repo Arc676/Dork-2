@@ -84,16 +84,32 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	orxObject_GetPosition(selector, &pos);
 	int prevSelection = currentSelection;
 	EntityType prevType = chosenType;
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < 3) {
-		currentSelection++;
-		pos.fY += 60;
-	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
-		currentSelection--;
-		pos.fY -= 60;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && chosenType > 0 && currentSelection == 1) {
-		chosenType = (EntityType)(chosenType - 1);
-	} else if (getKeyDown((orxSTRING)"GoRight") && chosenType < NOTYPE - 1 && currentSelection == 1) {
-		chosenType = (EntityType)(chosenType + 1);
+	if (getKeyDown((orxSTRING)"GoDown")) {
+		if (currentSelection < 3) {
+			currentSelection++;
+			pos.fY += 60;
+		} else {
+			orxObject_AddSound(selector, "ErrorSound");
+		}
+	} else if (getKeyDown((orxSTRING)"GoUp")) {
+		if (currentSelection > 0) {
+			currentSelection--;
+			pos.fY -= 60;
+		} else {
+			orxObject_AddSound(selector, "ErrorSound");
+		}
+	} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection == 1) {
+		if (chosenType > 0) {
+			chosenType = (EntityType)(chosenType - 1);
+		} else {
+			orxObject_AddSound(selector, "ErrorSound");
+		}
+	} else if (getKeyDown((orxSTRING)"GoRight") && currentSelection == 1) {
+		if (chosenType < NOTYPE - 1) {
+			chosenType = (EntityType)(chosenType + 1);
+		} else {
+			orxObject_AddSound(selector, "ErrorSound");
+		}
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (cursorPos > 0 && currentSelection >= 2) {
 			player = new Player(name, chosenType);
