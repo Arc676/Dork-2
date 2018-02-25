@@ -57,6 +57,7 @@ class Enemy : public Entity {
 	static int randomStat(int, float);
 
 	// movement and animation data
+	orxVECTOR prevPosition;
 	orxVECTOR direction;
 	orxCHAR animation[40];
 	orxFLOAT distanceTravelled = 0;

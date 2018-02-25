@@ -143,6 +143,10 @@ void Enemy::update(float dt) {
 		distanceTravelled = 0;
 	}
 	orxObject_GetPosition(entity, &position);
+	if (orxVector_GetDistance(&position, &prevPosition) < 0.5) {
+		newRandomDirection();
+	}
+	orxVector_Copy(&prevPosition, &position);
 	orxVECTOR movement;
 	orxVector_Mulf(&movement, &direction, motionSpeed * dt);
 	orxVector_Add(&position, &position, &movement);
