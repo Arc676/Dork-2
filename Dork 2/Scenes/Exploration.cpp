@@ -123,14 +123,13 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 			orxConfig_PushSection(name);
 			if (orxConfig_GetBool("IsEnemy")) {
 				Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-				orxVECTOR distance;
 				orxVECTOR ppos = player->getPosition();
 				orxVECTOR epos = e->getPosition();
-				orxVector_Sub(&distance, &ppos, &epos);
-				if (orxVector_GetSize(&distance) > 900) {
+				orxFLOAT distance = orxVector_GetDistance(&ppos, &epos);
+				if (distance > 900) {
 					e->despawn();
 					enemiesInExistence--;
-				} else {
+				} else if (distance < 600) {
 					e->update(delta);
 				}
 			}
