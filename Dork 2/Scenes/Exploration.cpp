@@ -94,33 +94,21 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 		resumeAnimations();
 	}
 	orxFLOAT delta = clockInfo->fDT;
-	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
-	for (
-		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
-		 obj != orxNULL;
-		 obj = orxObject_GetNext(obj, defaultGroupID)
-		 ) {
-		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
-		if (orxString_Compare(name, "Player") == 0) {
-			player->update(orxInput_IsActive("GoUp"),
-						   orxInput_IsActive("GoDown"),
-						   orxInput_IsActive("GoLeft"),
-						   orxInput_IsActive("GoRight"),
-						   delta);
-		} else {
-			orxConfig_PushSection(name);
-			if (orxConfig_GetBool("IsEnemy")) {
-				Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-				orxVECTOR ppos = player->getPosition();
-				orxVECTOR epos = e->getPosition();
-				orxFLOAT distance = orxVector_GetDistance(&ppos, &epos);
-				if (distance > 900) {
-					e->despawn();
-				} else if (distance < 600) {
-					e->update(delta);
-				}
-			}
-			orxConfig_PopSection();
+	player->update(orxInput_IsActive("GoUp"),
+				   orxInput_IsActive("GoDown"),
+				   orxInput_IsActive("GoLeft"),
+				   orxInput_IsActive("GoRight"),
+				   delta);
+	orxVECTOR ppos = player->getPosition();
+	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
+		Enemy* e = *it;
+		orxVECTOR epos = e->getPosition();
+		orxFLOAT distance = orxVector_GetDistance(&ppos, &epos);
+		if (distance > 900) {
+			// TODO: remove e from existing enemies
+			e->despawn();
+		} else if (distance < 600) {
+			e->update(delta);
 		}
 	}
 	if (existingEnemies.size() < 15) {
@@ -168,6 +156,7 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 								if (isEnemy) {
 									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
 									nextScene = new Combat(player, e);
+									// TODO: remove e from existingEnemies
 									nextSceneType = COMBAT;
 									orxCHAR text[40];
 									orxString_Print(text, "%s encountered a(n) %s!",
