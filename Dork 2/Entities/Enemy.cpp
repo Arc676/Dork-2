@@ -80,11 +80,15 @@ void Enemy::newRandomDirection() {
 			break;
 	}
 	orxString_Print(animation, "Walk%sAnim%s", strDir, getName());
-	resetAnimation();
+	resumeAnimation();
 }
 
-void Enemy::resetAnimation() {
+void Enemy::resumeAnimation() {
 	orxObject_SetTargetAnim(entity, animation);
+}
+
+void Enemy::pauseAnimation() {
+	orxObject_SetTargetAnim(entity, orxNULL);
 }
 
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {

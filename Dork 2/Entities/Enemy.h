@@ -117,7 +117,12 @@ public:
 	 * Sets the enemy's animation again based on
 	 * the direction in which it's travelling
 	 */
-	void resetAnimation();
+	void resumeAnimation();
+
+	/**
+	 * Pauses the enemy's animation
+	 */
+	void pauseAnimation();
 };
 
 #endif

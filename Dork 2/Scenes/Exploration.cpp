@@ -232,12 +232,19 @@ void Exploration::pauseAnimations() {
 		 obj != orxNULL;
 		 obj = orxObject_GetNext(obj, defaultGroupID)
 		 ) {
-		orxObject_SetTargetAnim(obj, orxNULL);
+		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
+		orxConfig_PushSection(name);
+		orxBOOL isEnemy = orxConfig_GetBool("IsEnemy");
+		orxConfig_PopSection();
+		if (isEnemy) {
+			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
+			e->pauseAnimation();
+		}
+
 	}
 }
 
 void Exploration::resumeAnimations() {
-	//clear animations
 	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
 	for (
 		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
@@ -250,7 +257,7 @@ void Exploration::resumeAnimations() {
 		orxConfig_PopSection();
 		if (isEnemy) {
 			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-			e->resetAnimation();
+			e->resumeAnimation();
 		}
 	}
 }
