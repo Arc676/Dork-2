@@ -22,7 +22,7 @@
 #include "Exploration.h"
 #include "Combat.h"
 
-Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(camera) {
+Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(camera), existingEnemies() {
 	loadPlayerData(player);
 	resetMusic();
 	canSave = orxTRUE;
@@ -41,21 +41,9 @@ void Exploration::resetMusic() {
 void Exploration::resetWorld(Player* player) {
 	loadPlayerData(player);
 	resetMusic();
-	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
-	for (
-		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
-		 obj != orxNULL;
-		 obj = orxObject_GetNext(obj, defaultGroupID)
-		 ) {
-		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
-		orxConfig_PushSection(name);
-		if (orxConfig_GetBool("IsEnemy")) {
-			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-			e->despawn();
-		}
-		orxConfig_PopSection();
+	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
+		(*it)->despawn();
 	}
-	enemiesInExistence = 0;
 }
 
 void Exploration::spawnEnemy() {
@@ -78,11 +66,11 @@ void Exploration::spawnEnemy() {
 		orxObject_Pick(&pos, orxString_GetID("Colliders")) != orxNULL) {
 		return;
 	}
-	Enemy::createRandomEnemy(
+	Enemy* e = Enemy::createRandomEnemy(
 							 GOBLIN,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
 							 player, pos
 							 );
-	enemiesInExistence++;
+	existingEnemies.push_back(e);
 }
 
 SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
@@ -128,7 +116,6 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 				orxFLOAT distance = orxVector_GetDistance(&ppos, &epos);
 				if (distance > 900) {
 					e->despawn();
-					enemiesInExistence--;
 				} else if (distance < 600) {
 					e->update(delta);
 				}
@@ -136,7 +123,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 			orxConfig_PopSection();
 		}
 	}
-	if (enemiesInExistence < 15) {
+	if (existingEnemies.size() < 15) {
 		timeSinceEnemySpawn += delta;
 		if (timeSinceEnemySpawn > 5) {
 			timeSinceEnemySpawn = 0;
@@ -182,7 +169,6 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
 									nextScene = new Combat(player, e);
 									nextSceneType = COMBAT;
-									enemiesInExistence--;
 									orxCHAR text[40];
 									orxString_Print(text, "%s encountered a(n) %s!",
 													player->getName(), e->getName());
@@ -225,40 +211,14 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 }
 
 void Exploration::pauseAnimations() {
-	//clear animations
-	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
-	for (
-		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
-		 obj != orxNULL;
-		 obj = orxObject_GetNext(obj, defaultGroupID)
-		 ) {
-		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
-		orxConfig_PushSection(name);
-		orxBOOL isEnemy = orxConfig_GetBool("IsEnemy");
-		orxConfig_PopSection();
-		if (isEnemy) {
-			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-			e->pauseAnimation();
-		}
-
+	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
+		(*it)->pauseAnimation();
 	}
 }
 
 void Exploration::resumeAnimations() {
-	orxU32 defaultGroupID = orxString_GetID(orxOBJECT_KZ_DEFAULT_GROUP);
-	for (
-		 orxOBJECT *obj = orxObject_GetNext(orxNULL, defaultGroupID);
-		 obj != orxNULL;
-		 obj = orxObject_GetNext(obj, defaultGroupID)
-		 ) {
-		orxSTRING name = (orxSTRING)orxObject_GetName(obj);
-		orxConfig_PushSection(name);
-		orxBOOL isEnemy = orxConfig_GetBool("IsEnemy");
-		orxConfig_PopSection();
-		if (isEnemy) {
-			Enemy* e = (Enemy*)orxObject_GetUserData(obj);
-			e->resumeAnimation();
-		}
+	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
+		(*it)->resumeAnimation();
 	}
 }
 

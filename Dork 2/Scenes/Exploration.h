@@ -22,13 +22,15 @@
 #ifndef Exploration_h
 #define Exploration_h
 
+#include <list>
+
 #include "Scene.h"
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
 	const orxVECTOR UITextOffset = {-500, 160, 0.9};
 
-	int enemiesInExistence = 0;
+	std::list<Enemy*> existingEnemies;
 	orxFLOAT timeSinceEnemySpawn = 0;
 
 	/**
