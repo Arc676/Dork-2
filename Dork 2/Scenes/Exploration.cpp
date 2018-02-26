@@ -85,13 +85,13 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 	if (paused || Scene::currentlyHasText()) {
 		// if game wasn't already in such a state, pause animations
 		if (!wasPseudoPaused) {
-			pauseAnimations();
+			enableAnimation(orxFALSE);
 		}
 		return EXPLORATION;
 	} else if (wasPseudoPaused) {
 		// if game is no longer in a paused state but used to be,
 		// resume animations
-		resumeAnimations();
+		enableAnimation(orxTRUE);
 	}
 	orxFLOAT delta = clockInfo->fDT;
 	player->update(orxInput_IsActive("GoUp"),
@@ -168,7 +168,7 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									moveUITextTo(pos);
 
 									loadUIText(text);
-									pauseAnimations();
+									enableAnimation(orxFALSE);
 
 									return orxSTATUS_SUCCESS;
 								}
@@ -199,20 +199,18 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 	return orxSTATUS_SUCCESS;
 }
 
-void Exploration::pauseAnimations() {
+void Exploration::enableAnimation(orxBOOL enable) {
 	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
-		(*it)->pauseAnimation();
-	}
-}
-
-void Exploration::resumeAnimations() {
-	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
-		(*it)->resumeAnimation();
+		if (enable) {
+			(*it)->resumeAnimation();
+		} else {
+			(*it)->pauseAnimation();
+		}
 	}
 }
 
 void Exploration::activate() {
-	resumeAnimations();
+	enableAnimation(orxTRUE);
 	Scene::activate();
 }
 

@@ -41,16 +41,11 @@ class Exploration : public Scene {
 	void spawnEnemy();
 
 	/**
-	 * Pause the animations on all entities
-	 * in the scene
+	 * Tells entities in the scene whether animations
+	 * should be playing
+	 * @param orxBOOL whether animations should be enabled
 	 */
-	void pauseAnimations();
-
-	/**
-	 * Resets animations on all enemies in the
-	 * scene
-	 */
-	void resumeAnimations();
+	void enableAnimation(orxBOOL);
 public:
 	/**
 	 * Construct new Exploration scene
