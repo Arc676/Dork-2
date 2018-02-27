@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		711189021FDAC93700344EC8 /* error.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189011FDAC92D00344EC8 /* error.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189031FDBF0E500344EC8 /* tiles_12.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712467F2204557640089969C /* OgreSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		712467F4204558FE0089969C /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		712CA3951FD77F240063E22E /* PauseMenu.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3941FD77E230063E22E /* PauseMenu.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712CA3971FD785450063E22E /* Tick.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712CA3961FD7853C0063E22E /* Tick.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD2A1FD0E7410015482A /* Purchasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD281FD0E7410015482A /* Purchasing.cpp */; };
@@ -77,7 +79,6 @@
 		71C480A1202A96AB00AE8470 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71C4809F202A96AB00AE8470 /* Level.cpp */; };
 		71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71E96C48202D3085001BE088 /* GhostSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
-		71F921B81FC59B1D0037725A /* liborx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 715FF6A71FBEDFE7005B1ED4 /* liborx.dylib */; };
 		71FBC3231FD021FB00F9E1B1 /* StatViewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71FBC3211FD021FB00F9E1B1 /* StatViewer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 				71959C391FD97DED00AF6DAF /* Sickle.png in CopyFiles */,
 				7159CD401FD24F1E0015482A /* GoblinSpriteMap.png in CopyFiles */,
 				71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */,
+				712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */,
 				7159CD411FD24F1E0015482A /* ShopHelp.png in CopyFiles */,
 				71959C421FD982BB00AF6DAF /* qh2.png in CopyFiles */,
 				71959C431FD982BE00AF6DAF /* qh5.png in CopyFiles */,
@@ -151,6 +153,7 @@
 /* Begin PBXFileReference section */
 		711189011FDAC92D00344EC8 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		711189031FDBF0E500344EC8 /* tiles_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_12.png; sourceTree = "<group>"; };
+		712467F2204557640089969C /* OgreSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OgreSpriteMap.png; sourceTree = "<group>"; };
 		712CA3941FD77E230063E22E /* PauseMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseMenu.png; sourceTree = "<group>"; };
 		712CA3961FD7853C0063E22E /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
 		7159CD281FD0E7410015482A /* Purchasing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Purchasing.cpp; sourceTree = "<group>"; };
@@ -328,7 +331,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71F921B81FC59B1D0037725A /* liborx.dylib in Frameworks */,
+				712467F4204558FE0089969C /* liborx.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +739,7 @@
 				7159CD2B1FD24ECF0015482A /* ArmoryHelp.png */,
 				71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */,
 				71E96C48202D3085001BE088 /* GhostSpriteMap.png */,
+				712467F2204557640089969C /* OgreSpriteMap.png */,
 				71620F1F1FC81CBB00EBD228 /* ShopHelp.png */,
 				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,

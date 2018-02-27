@@ -103,7 +103,6 @@ orxSTATUS Player::read(orxSTRING filename) {
 		orxConfig_Load(orxFile_GetApplicationSaveDirectory(path));
 	}
 	if (orxConfig_HasSection("PlayerData") && orxConfig_PushSection("PlayerData")) {
-		motionSpeed = orxConfig_GetU32("MotionSpeed");
 		HP = orxConfig_GetU32("HP");
 		speed = orxConfig_GetU32("Speed");
 		strength = orxConfig_GetU32("Str");
