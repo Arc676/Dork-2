@@ -44,6 +44,7 @@ void Exploration::resetWorld(Player* player) {
 	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
 		(*it)->despawn();
 	}
+	existingEnemies.clear();
 }
 
 void Exploration::spawnEnemy() {
@@ -100,16 +101,18 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 				   orxInput_IsActive("GoRight"),
 				   delta);
 	orxVECTOR ppos = player->getPosition();
-	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end(); it++) {
+	for (std::list<Enemy*>::iterator it = existingEnemies.begin(); it != existingEnemies.end();) {
 		Enemy* e = *it;
 		orxVECTOR epos = e->getPosition();
 		orxFLOAT distance = orxVector_GetDistance(&ppos, &epos);
 		if (distance > 900) {
-			// TODO: remove e from existing enemies
+			existingEnemies.erase(it++);
 			e->despawn();
+			continue;
 		} else if (distance < 600) {
 			e->update(delta);
 		}
+		it++;
 	}
 	if (existingEnemies.size() < 15) {
 		timeSinceEnemySpawn += delta;
@@ -156,7 +159,7 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 								if (isEnemy) {
 									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
 									nextScene = new Combat(player, e);
-									// TODO: remove e from existingEnemies
+									existingEnemies.remove(e);
 									nextSceneType = COMBAT;
 									orxCHAR text[40];
 									orxString_Print(text, "%s encountered a(n) %s!",
