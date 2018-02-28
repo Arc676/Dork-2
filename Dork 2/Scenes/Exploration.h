@@ -43,25 +43,25 @@ class Exploration : public Scene {
 	/**
 	 * Tells entities in the scene whether animations
 	 * should be playing
-	 * @param orxBOOL whether animations should be enabled
+	 * @param enable whether animations should be enabled
 	 */
-	void enableAnimation(orxBOOL);
+	void enableAnimation(orxBOOL enable);
 public:
 	/**
 	 * Construct new Exploration scene
-	 * @param Player* current player
-	 * @param orxCAMERA* reference to the camera
+	 * @param player current player
+	 * @param cam reference to the camera
 	 */
-	Exploration(Player*, orxCAMERA*);
+	Exploration(Player* player, orxCAMERA* cam);
 
 	virtual void activate();
 
 	/**
 	 * Resets the world state by clearing enemies
 	 * and resetting music and position
-	 * @param Player* player to load into reset world
+	 * @param player player to load into reset world
 	 */
-	void resetWorld(Player*);
+	void resetWorld(Player* player);
 
 	/**
 	 * Restarts the music from the beginning

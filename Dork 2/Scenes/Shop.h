@@ -39,9 +39,9 @@ protected:
 public:
 	/**
 	 * Construct new Shop scene
-	 * @param Player* current player
+	 * @param player current player
 	 */
-	Shop(Player*);
+	Shop(Player* player);
 
 	virtual void loadPlayerData(Player*);
 	virtual SceneType getSceneType();

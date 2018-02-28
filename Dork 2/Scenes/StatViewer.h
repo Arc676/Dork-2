@@ -43,10 +43,10 @@ class StatViewer {
 public:
 	/**
 	 * Construct new StatViewer
-	 * @param Entity* entity whose stats to show
-	 * @param orxVECTOR render position of stat viewer
+	 * @param entity entity whose stats to show
+	 * @param pos render position of stat viewer
 	 */
-	StatViewer(Entity*, orxVECTOR);
+	StatViewer(Entity* entity, orxVECTOR pos);
 
 	/**
 	 * Destroy the stat viewer and all
@@ -56,9 +56,9 @@ public:
 
 	/**
 	 * Load stats for a new entity
-	 * @param Entity* entity whose stats to load
+	 * @param entity entity whose stats to load
 	 */
-	void loadEntity(Entity*);
+	void loadEntity(Entity* entity);
 
 	/**
 	 * Refreshes the entity's stats in the

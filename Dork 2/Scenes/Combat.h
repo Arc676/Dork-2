@@ -73,9 +73,9 @@ class Combat : public Scene {
 
 	/**
 	 * Change the potion selection
-	 * @param int direction for potion switching (+1 for right, -1 for left)
+	 * @param dir direction for potion switching (+1 for right, -1 for left)
 	 */
-	void selectPotion(int);
+	void selectPotion(int dir);
 
 	/**
 	 * Updates the potion data in the text
@@ -85,17 +85,17 @@ class Combat : public Scene {
 
 	/**
 	 * Make the move selected by the player
-	 * @param Move selected move
+	 * @param move selected move
 	 * @return the next scene to show depending on the outcome of the action
 	 */
-	SceneType makeMove(Move);
+	SceneType makeMove(Move move);
 public:
 	/**
 	 * Construct new combat scene
-	 * @param Player* current player
-	 * @param Enemy* enemy to battle
+	 * @param player current player
+	 * @param enemy enemy to battle
 	 */
-	Combat(Player*, Enemy*);
+	Combat(Player* player, Enemy* enemy);
 
 	virtual void activate();
 	virtual void deactivate();

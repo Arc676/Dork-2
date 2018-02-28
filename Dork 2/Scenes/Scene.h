@@ -58,16 +58,16 @@ protected:
 	/**
 	 * Gets whether a key was pressed while only
 	 * triggering on the first key down event
-	 * @param orxSTRING desired key
+	 * @param key desired key
 	 * @return whether the key has been pressed (only first key down)
 	 */
-	static orxBOOL getKeyDown(orxSTRING);
+	static orxBOOL getKeyDown(orxSTRING key);
 
 	/**
 	 * Load text to display in mini alert
-	 * @param orxSTRING text to display
+	 * @param text text to display
 	 */
-	void loadUIText(orxSTRING);
+	void loadUIText(orxSTRING text);
 
 	/**
 	 * Dismiss the alert
@@ -83,24 +83,24 @@ protected:
 
 	/**
 	 * Initializes UI text objects
-	 * @param orxVECTOR render position for alerts
+	 * @param pos render position for alerts
 	 */
-	void initializeUITextAt(orxVECTOR);
+	void initializeUITextAt(orxVECTOR pos);
 
 	/**
 	 * Move the UI text objects
-	 * @param orxVECTOR new render position for alerts
+	 * @param pos new render position for alerts
 	 */
-	void moveUITextTo(orxVECTOR);
+	void moveUITextTo(orxVECTOR pos);
 
 	orxBOOL paused = orxFALSE;
 	int pauseMenuSelection = 0;
 
 	/**
 	 * Set location of pause menu in world space
-	 * @param orxVECTOR new position for pause menu
+	 * @param pos new position for pause menu
 	 */
-	void setPauseMenuPosition(orxVECTOR);
+	void setPauseMenuPosition(orxVECTOR pos);
 
 	void toggleMusic();
 
@@ -113,9 +113,9 @@ protected:
 public:
 	/**
 	 * Load a new player
-	 * @param Player* player to load into scene
+	 * @param player player to load into scene
 	 */
-	virtual void loadPlayerData(Player*);
+	virtual void loadPlayerData(Player* player);
 
 	/**
 	 * Get the currently loaded player
@@ -137,10 +137,10 @@ public:
 	
 	/**
 	 * Update the scene
-	 * @param orxCLOCK_INFO* clock information provided by Orx
+	 * @param clockInfo clock information provided by Orx
 	 * @return next scene to display based on what happens in the update
 	 */
-	virtual SceneType update(const orxCLOCK_INFO*);
+	virtual SceneType update(const orxCLOCK_INFO* clockInfo);
 
 	/**
 	 * Gets the current scene's type
