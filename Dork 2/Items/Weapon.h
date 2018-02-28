@@ -57,34 +57,34 @@ public:
 	
 	/**
 	 * Get name of weapon
-	 * @param WeaponType the kind of weapon
+	 * @param type the kind of weapon
 	 * @return human readable name for the weapon
 	 */
-	static orxSTRING getWeaponName(WeaponType);
+	static orxSTRING getWeaponName(WeaponType type);
 
 	/**
 	 * Get a copy of a weapon
-	 * @param WeaponType desired weapon type
+	 * @param type desired weapon type
 	 * @return copy of weapon with the desired type
 	 */
-	static Weapon* copyOf(WeaponType);
+	static Weapon* copyOf(WeaponType type);
 
 	/**
 	 * Get entity type associated with a given weapon
-	 * @param WeaponType type of weapon
+	 * @param type type of weapon
 	 * @return the associated entity type
 	 */
-	static EntityType getTypeForWeapon(WeaponType);
+	static EntityType getTypeForWeapon(WeaponType type);
 
 	/**
 	 * Construct a new weapon
-	 * @param WeaponType type of weapon
-	 * @param double strength modifier
-	 * @param double defense modifier
-	 * @param double speed modifier
-	 * @param int weapon price
+	 * @param type type of weapon
+	 * @param str strength modifier
+	 * @param def defense modifier
+	 * @param speed speed modifier
+	 * @param price weapon price
 	 */
-	Weapon(WeaponType, double, double, double, int);
+	Weapon(WeaponType type, double str, double def, double speed, int price);
 
 	orxSTRING getName();
 	double getStrMod();

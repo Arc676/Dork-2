@@ -34,15 +34,15 @@ class Level {
 public:
 	/**
 	 * Construct new Level object
-	 * @param int total XP
+	 * @param xp total XP
 	 */
-	Level(int);
+	Level(int xp);
 
 	/**
 	 * Copy assignment for Level
-	 * @param Level& level object to copy
+	 * @param lv level object to copy
 	 */
-	void operator= (const Level&);
+	void operator= (const Level& lv);
 
 	/**
 	 * Calculates level associated with current XP level
@@ -56,10 +56,10 @@ public:
 
 	/**
 	 * Calculate XP associated with a given level
-	 * @param int desired level
+	 * @param lv desired level
 	 * @return XP level required to reach that level
 	 */
-	static int getXPToNextLevel(int);
+	static int getXPToNextLevel(int lv);
 
 	/**
 	 * Determine XP required to reach next level
@@ -69,10 +69,10 @@ public:
 
 	/**
 	 * Increases XP level based on Level of a defeated enemy
-	 * @param Level enemy level
+	 * @param lv enemy level
 	 * @return number of levels gained
 	 */
-	int gainXP(Level);
+	int gainXP(Level lv);
 };
 
 #endif

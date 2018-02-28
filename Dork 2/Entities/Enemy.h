@@ -50,11 +50,11 @@ class Enemy : public Entity {
 
 	/**
 	 * Create a random stat
-	 * @param int base value for stat
-	 * @param float maximum amount by which the stat could be scaled up from the base
+	 * @param base base value for stat
+	 * @param scale maximum amount by which the stat could be scaled up from the base
 	 * @return random stat based on and scaled from the base stat
 	 */
-	static int randomStat(int, float);
+	static int randomStat(int base, float scale);
 
 	// movement and animation data
 	orxVECTOR prevPosition;
@@ -64,49 +64,49 @@ class Enemy : public Entity {
 public:
 	/**
 	 * Get enemy name
-	 * @param EnemyType type of relevant enemy
+	 * @param type type of relevant enemy
 	 * @return human readable name for enemy
 	 */
-	static orxSTRING typeToString(EnemyType);
+	static orxSTRING typeToString(EnemyType type);
 
 	/**
 	 * Get the entity type associated with an enemy
-	 * @param EnemyType the type of enemy
+	 * @param type the type of enemy
 	 * @return the associated entity type
 	 */
-	static EntityType entityTypeForEnemy(EnemyType);
+	static EntityType entityTypeForEnemy(EnemyType type);
 
 	/**
 	 * Creates a random enemy
-	 * @param EnemyType desired enemy type
-	 * @param Player* the current player
-	 * @param orxVECTOR the spawn position of the enemy
+	 * @param type desired enemy type
+	 * @param player the current player
+	 * @param pos the spawn position of the enemy
 	 * @return pointer to the newly spawned enemy
 	 */
-	static Enemy* createRandomEnemy(EnemyType, Player*, orxVECTOR);
+	static Enemy* createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos);
 
 	/**
 	 * Construct new enemy
-	 * @param EnemyType type of enemy
-	 * @param int enemy's HP on spawn
-	 * @param int enemy's speed stat on spawn
-	 * @param int enemy's strength stat on spawn
-	 * @param int enemy's defense stat on spawn
-	 * @param Weapon* weapon with which enemy spawns
-	 * @param int gold carried by enemy
-	 * @param Level enemy's level
-	 * @param orxVECTOR enemy's spawn position
+	 * @param type type of enemy
+	 * @param HP enemy's HP on spawn
+	 * @param speed enemy's speed stat on spawn
+	 * @param str enemy's strength stat on spawn
+	 * @param def enemy's defense stat on spawn
+	 * @param w weapon with which enemy spawns
+	 * @param gold gold carried by enemy
+	 * @param lv enemy's level
+	 * @param pos enemy's spawn position
 	 */
-	Enemy(EnemyType, int, int, int, int, Weapon*, int, Level, orxVECTOR);
+	Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, Level lv, orxVECTOR pos);
 
 	virtual orxSTRING getName();
 	EnemyType getEnemyType();
 
 	/**
 	 * Update enemy
-	 * @param float amount of time passed since last update
+	 * @param dt amount of time passed since last update
 	 */
-	void update(float);
+	void update(float dt);
 
 	/**
 	 * Randomly choose a new direction for the enemy to travel in

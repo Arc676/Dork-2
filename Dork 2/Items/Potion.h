@@ -41,10 +41,10 @@ class Potion {
 
 	/**
 	 * Obtains the name of a potion
-	 * @param PotionType relevant potion type
+	 * @param type relevant potion type
 	 * @return Human readable potion name
 	 */
-	static orxSTRING typeToString(PotionType);
+	static orxSTRING typeToString(PotionType type);
 
 	// potion data
 	int price;
@@ -62,11 +62,11 @@ public:
 	
 	/**
 	 * Construct a new potion
-	 * @param PotionType potion type
-	 * @param Amount amount by which the relevant stat is improved
-	 * @param Int potion price
+	 * @param type potion type
+	 * @param effect amount by which the relevant stat is improved
+	 * @param price potion price
 	 */
-	Potion(PotionType, double, int);
+	Potion(PotionType type, double effect, int price);
 
 	int getPrice();
 	double getAmount();
@@ -75,17 +75,17 @@ public:
 
 	/**
 	 * Get the abbreviation used in config for a given potion type
-	 * @param PotionType relevant potion type
+	 * @param type relevant potion type
 	 * @return abbreviation used to represent potion in config files
 	 */
-	static orxSTRING configCodeForType(PotionType);
+	static orxSTRING configCodeForType(PotionType type);
 
 	/**
 	 * Get a copy of a given potion
-	 * @param PotionType desired potion type
+	 * @param type desired potion type
 	 * @return a copy of the desired potion
 	 */
-	static Potion* getCopyOf(PotionType);
+	static Potion* getCopyOf(PotionType type);
 };
 
 #endif
