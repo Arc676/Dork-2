@@ -113,16 +113,7 @@ public:
 	 */
 	void newRandomDirection();
 
-	/**
-	 * Sets the enemy's animation again based on
-	 * the direction in which it's travelling
-	 */
-	void resumeAnimation();
-
-	/**
-	 * Pauses the enemy's animation
-	 */
-	void pauseAnimation();
+	virtual void resumeAnimation();
 };
 
 #endif

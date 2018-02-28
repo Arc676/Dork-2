@@ -159,7 +159,11 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 								if (isEnemy) {
 									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
 									nextScene = new Combat(player, e);
+
+									enableAnimation(orxFALSE);
+									player->pauseAnimation();
 									existingEnemies.remove(e);
+
 									nextSceneType = COMBAT;
 									orxCHAR text[40];
 									orxString_Print(text, "%s encountered a(n) %s!",
@@ -171,7 +175,6 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									moveUITextTo(pos);
 
 									loadUIText(text);
-									enableAnimation(orxFALSE);
 
 									return orxSTATUS_SUCCESS;
 								}

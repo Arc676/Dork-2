@@ -102,6 +102,8 @@ public:
 	 * @return whether the write succeeded
 	 */
 	orxSTATUS write();
+
+	virtual void resumeAnimation();
 };
 
 #endif

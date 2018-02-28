@@ -84,6 +84,16 @@ public:
 	 */
 	static EntityType weaknessForType(EntityType);
 
+	/**
+	 * Attempt to resume the entity's animation
+	 */
+	virtual void resumeAnimation() = 0;
+
+	/**
+	 * Pauses the entity's animation
+	 */
+	virtual void pauseAnimation();
+
 	orxVECTOR getPosition();
 	void setPosition(orxVECTOR);
 	void despawn();

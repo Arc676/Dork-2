@@ -87,10 +87,6 @@ void Enemy::resumeAnimation() {
 	orxObject_SetTargetAnim(entity, animation);
 }
 
-void Enemy::pauseAnimation() {
-	orxObject_SetTargetAnim(entity, orxNULL);
-}
-
 EntityType Enemy::entityTypeForEnemy(EnemyType type) {
 	switch (type) {
 		case GOBLIN:

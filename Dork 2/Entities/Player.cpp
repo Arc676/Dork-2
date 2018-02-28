@@ -165,3 +165,5 @@ orxSTATUS Player::write() {
 orxBOOL Player::sectionFilter(const orxSTRING _zSectionName, const orxSTRING _zKeyName, const orxSTRING _zFileName, orxBOOL _bUseEncryption) {
 	return orxString_Compare(_zSectionName, "PlayerData") == 0;
 }
+
+void Player::resumeAnimation() {}

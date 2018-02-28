@@ -103,6 +103,10 @@ orxSTRING Entity::typeToString(EntityType type) {
 	}
 }
 
+void Entity::pauseAnimation() {
+	orxObject_SetTargetAnim(entity, orxNULL);
+}
+
 Weapon* Entity::getWeapon() {
 	return weapon;
 }
