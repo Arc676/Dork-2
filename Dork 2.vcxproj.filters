@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\Sprites">
-      <UniqueIdentifier>{b9bb8b5b-88e1-4736-8047-3c74113c3c7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Music">
-      <UniqueIdentifier>{d20b0897-d1da-4e04-bcc0-625f3f0c329e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\lib">
       <UniqueIdentifier>{465150b5-9ea9-4c58-b8a3-a46843f8881c}</UniqueIdentifier>
     </Filter>
@@ -73,6 +67,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dork 2\Scenes\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dork 2\Backend\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -356,6 +353,9 @@
     <ClInclude Include="Dork 2\Scenes\MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dork 2\Backend\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\bin\Troll.ini">
@@ -397,41 +397,10 @@
     <None Include="..\..\bin\Player.ini">
       <Filter>bin</Filter>
     </None>
-    <None Include="Music\Background.ogg">
-      <Filter>Resource Files\Music</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\orx.lib">
       <Filter>Resource Files\lib</Filter>
     </Library>
-    <Library Include="lib\orxd.lib">
-      <Filter>Resource Files\lib</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="Music\kaching.wav">
-      <Filter>Resource Files\Music</Filter>
-    </Media>
-    <Media Include="Music\error.wav">
-      <Filter>Resource Files\Music</Filter>
-    </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Sprites\forest_tiles.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="Sprites\GoblinSpriteMap.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="Sprites\MainGuySpriteSheet.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="Sprites\Selector.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
-    <Image Include="Sprites\ShopHelp.png">
-      <Filter>Resource Files\Sprites</Filter>
-    </Image>
   </ItemGroup>
 </Project>

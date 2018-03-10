@@ -299,7 +299,7 @@
     <ClCompile>
       <AdditionalOptions>/MP /EHsc %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\Dork 2\App;..\..\Dork 2\Backend;..\..\Dork 2\Entities;..\..\Dork 2\Items;..\..\Dork 2\Scenes;$(ORX)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Dork 2\App;Dork 2\Backend;Dork 2\Entities;Dork 2\Items;Dork 2\Scenes;inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
@@ -471,6 +471,7 @@
     <ClInclude Include="..\..\inc\utils\orxLinkList.h" />
     <ClInclude Include="..\..\inc\utils\orxString.h" />
     <ClInclude Include="..\..\inc\utils\orxTree.h" />
+    <ClInclude Include="Dork 2\Backend\Level.h" />
     <ClInclude Include="Dork 2\Scenes\MainMenu.h" />
     <ClInclude Include="Dork 2\Scenes\Purchasing.h" />
     <ClInclude Include="Dork 2\Scenes\StatViewer.h" />
@@ -498,6 +499,7 @@
     </ClCompile>
     <ClCompile Include="..\..\Dork 2\Scenes\Shop.cpp">
     </ClCompile>
+    <ClCompile Include="Dork 2\Backend\Level.cpp" />
     <ClCompile Include="Dork 2\Scenes\MainMenu.cpp" />
     <ClCompile Include="Dork 2\Scenes\Purchasing.cpp" />
     <ClCompile Include="Dork 2\Scenes\Scene.cpp" />
@@ -517,22 +519,9 @@
     <None Include="..\..\bin\Orc.ini" />
     <None Include="..\..\bin\Player.ini" />
     <None Include="..\..\bin\Troll.ini" />
-    <None Include="Music\Background.ogg" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\orx.lib" />
-    <Library Include="lib\orxd.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="Music\error.wav" />
-    <Media Include="Music\kaching.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Sprites\forest_tiles.png" />
-    <Image Include="Sprites\GoblinSpriteMap.png" />
-    <Image Include="Sprites\MainGuySpriteSheet.png" />
-    <Image Include="Sprites\Selector.png" />
-    <Image Include="Sprites\ShopHelp.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
