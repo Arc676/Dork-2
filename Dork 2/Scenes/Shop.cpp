@@ -23,13 +23,13 @@
 
 Shop::Shop(Player* player) : Purchasing() {
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	defaultPos = {-1300, -650, 0};
+	defaultPos = {.fX = -1300, .fY = -650, .fZ = 0};
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ShopHelp");
 
 	potionCounts = std::vector<orxOBJECT*>(POTIONCOUNT);
-	orxVECTOR pos = {-1000, -650, 0};
-	orxVECTOR ppos = {-1200, -650, 0};
+	orxVECTOR pos = {.fX = -1000, .fY = -650, .fZ = 0};
+	orxVECTOR ppos = {.fX = -1200, .fY = -650, .fZ = 0};
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		orxOBJECT* count = orxObject_CreateFromConfig("SV");
 		orxObject_SetPosition(count, &pos);
@@ -47,7 +47,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	
 	loadPlayerData(player);
 
-	pos = {-950, -650, 0};
+	pos = {.fX = -950, .fY = -650, .fZ = 0};
 	potionName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionName, &pos);
 
@@ -59,11 +59,11 @@ Shop::Shop(Player* player) : Purchasing() {
 	potionEffect = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionEffect, &pos);
 
-	statViewer = new StatViewer(player, {-1590, -400, 0});
+	statViewer = new StatViewer(player, {.fX = -1590, .fY = -400, .fZ = 0});
 	selectionLimit = POTIONCOUNT;
 
-	setPauseMenuPosition({-1100, -400.0, 0});
-	initializeUITextAt({-1600, -240, -0.1});
+	setPauseMenuPosition({.fX = -1100, .fY = -400.0, .fZ = 0});
+	initializeUITextAt({.fX = -1600, .fY = -240, .fZ = -0.1});
 }
 
 void Shop::loadPlayerData(Player* player) {

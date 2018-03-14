@@ -28,7 +28,7 @@
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
-	const orxVECTOR UITextOffset = {-500, 160, 0.9};
+	const orxVECTOR UITextOffset = {.fX = -500, .fY = 160, .fZ = 0.9};
 
 	std::list<Enemy*> existingEnemies;
 	orxFLOAT timeSinceEnemySpawn = 0;
