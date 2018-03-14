@@ -122,7 +122,7 @@ SceneType Exploration::update(const orxCLOCK_INFO* clockInfo) {
 		}
 	}
 	//update camera position
-	orxVECTOR camPos = {0, 0, 0};
+	orxVECTOR camPos;
 	orxCamera_GetPosition(camera, &camPos);
 	camPos.fX = player->getPosition().fX;
 	camPos.fY = player->getPosition().fY;

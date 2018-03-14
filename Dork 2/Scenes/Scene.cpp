@@ -22,6 +22,7 @@
 #include "Scene.h"
 
 orxBOOL Scene::playMusic = orxTRUE;
+const orxVECTOR Scene::textMargin = {.fX = 10, .fY = 10, .fZ = 0};
 
 Scene::Scene() {
 	pauseSelector = orxObject_CreateFromConfig("Selector");

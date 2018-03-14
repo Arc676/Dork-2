@@ -26,8 +26,8 @@ Move Combat::moves[2][2] = {
 	{USE_ITEM, RUN}
 };
 
-const orxVECTOR Combat::scaleUp = {2, 2, 0};
-const orxVECTOR Combat::scaleNormal = {1, 1, 0};
+const orxVECTOR Combat::scaleUp = {.fX = 2, .fY = 2, .fZ = 0};
+const orxVECTOR Combat::scaleNormal = {.fX = 1, .fY = 1, .fZ = 0};
 
 Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);

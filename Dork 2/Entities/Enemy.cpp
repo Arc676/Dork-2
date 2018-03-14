@@ -61,19 +61,19 @@ void Enemy::newRandomDirection() {
 	orxSTRING strDir = (orxSTRING)"";
 	switch (dir) {
 		case 0:
-			direction = {1, 0, 0};
+			direction = {.fX = 1, .fY = 0, .fZ = 0};
 			strDir = (orxSTRING)"Right";
 			break;
 		case 1:
-			direction = {0, 1, 0};
+			direction = {.fX = 0, .fY = 1, .fZ = 0};
 			strDir = (orxSTRING)"Down";
 			break;
 		case 2:
-			direction = {-1, 0, 0};
+			direction = {.fX = -1, .fY = 0, .fZ = 0};
 			strDir = (orxSTRING)"Left";
 			break;
 		case 3:
-			direction = {0, -1, 0};
+			direction = {.fX = 0, .fY = -1, .fZ = 0};
 			strDir = (orxSTRING)"Up";
 			break;
 		default:
