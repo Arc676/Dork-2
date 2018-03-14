@@ -23,13 +23,13 @@
 
 Armory::Armory(Player* player) : Purchasing() {
 	selectorArrow = orxObject_CreateFromConfig("Selector");
-	defaultPos = {.fX = -1300, .fY = 750, .fZ = 0};
+	defaultPos = {{.fX = -1300}, {.fY = 750}, {.fZ = 0}};
 	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	orxVECTOR pos = {.fX = -1100, .fY = 750, .fZ = 0};
-	orxVECTOR wpos = {.fX = -1200, .fY = 750, .fZ = 0};
+	orxVECTOR pos = {{.fX = -1100}, {.fY = 750}, {.fZ = 0}};
+	orxVECTOR wpos = {{.fX = -1200}, {.fY = 750}, {.fZ = 0}};
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
 		orxObject_SetPosition(tick, &pos);
@@ -47,7 +47,7 @@ Armory::Armory(Player* player) : Purchasing() {
 
 	loadPlayerData(player);
 
-	pos = {.fX = -950, .fY = 750, .fZ = 0};
+	pos = {{.fX = -950}, {.fY = 750}, {.fZ = 0}};
 	weaponName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponName, &pos);
 
@@ -71,11 +71,11 @@ Armory::Armory(Player* player) : Purchasing() {
 	weaponSpeed = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponSpeed, &pos);
 
-	statViewer = new StatViewer(player, {.fX = -1590, .fY = 1000, .fZ = 0});
+	statViewer = new StatViewer(player, {{.fX = -1590}, {.fY = 1000}, {.fZ = 0}});
 	selectionLimit = WEAPONCOUNT;
 
-	setPauseMenuPosition({.fX = -1150, .fY = 1000, .fZ = 0});
-	initializeUITextAt({.fX = -1600, .fY = 1160, .fZ = -0.1});
+	setPauseMenuPosition({{.fX = -1150}, {.fY = 1000}, {.fZ = 0}});
+	initializeUITextAt({{.fX = -1600}, {.fY = 1160}, {.fZ = -0.1}});
 }
 
 void Armory::loadPlayerData(Player* player) {

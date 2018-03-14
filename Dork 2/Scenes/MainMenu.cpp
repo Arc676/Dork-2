@@ -27,16 +27,16 @@ void MainMenu::activate() {
 	cursorPos = 0;
 	orxKeyboard_ClearBuffer();
 
-	orxVECTOR pos = {.fX = -1216, .fY = 1592, .fZ = 0};
+	orxVECTOR pos = {{.fX = -1216}, {.fY = 1592}, {.fZ = 0}};
 	orxObject_SetTextString(nameField, "Name:");
 	orxObject_SetPosition(nameField, &pos);
 
-	pos = {.fX = -1216, .fY = 1652, .fZ = 0};
+	pos = {{.fX = -1216}, {.fY = 1652}, {.fZ = 0}};
 	orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	orxObject_SetPosition(typeField, &pos);
 
 	//reset selector
-	pos = {.fX = -1100, .fY = 1600, .fZ = 0};
+	pos = {{.fX = -1100}, {.fY = 1600}, {.fZ = 0}};
 	orxObject_SetPosition(selector, &pos);
 	currentSelection = 0;
 

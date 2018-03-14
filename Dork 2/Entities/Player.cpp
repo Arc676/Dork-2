@@ -31,7 +31,7 @@ Player::Player(orxSTRING name, EntityType type) : name(name) {
 	orxInput_Load(orxSTRING_EMPTY);
 	entity = orxObject_CreateFromConfig("Player");
 
-	position = {.fX = 1632, .fY = 1792, .fZ = 0};
+	position = {{.fX = 1632}, {.fY = 1792}, {.fZ = 0}};
 	orxObject_SetPosition(entity, &position);
 
 	ownedPotions = std::vector<int>(POTIONCOUNT);

@@ -26,22 +26,22 @@ Move Combat::moves[2][2] = {
 	{USE_ITEM, RUN}
 };
 
-const orxVECTOR Combat::scaleUp = {.fX = 2, .fY = 2, .fZ = 0};
-const orxVECTOR Combat::scaleNormal = {.fX = 1, .fY = 1, .fZ = 0};
+const orxVECTOR Combat::scaleUp = {{.fX = 2}, {.fY = 2}, {.fZ = 0}};
+const orxVECTOR Combat::scaleNormal = {{.fX = 1}, {.fY = 1}, {.fZ = 0}};
 
 Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = {.fX = -1400, .fY = 596, .fZ = 0};
+	orxVECTOR pos = {{.fX = -1400}, {.fY = 596}, {.fZ = 0}};
 	orxObject_SetPosition(selector, &pos);
 
-	playerStats = new StatViewer(player, {.fX = -1500, .fY = 270, .fZ = 0});
-	enemyStats = new StatViewer(enemy, {.fX = -1000, .fY = 150, .fZ = 0});
+	playerStats = new StatViewer(player, {{.fX = -1500}, {.fY = 270}, {.fZ = 0}});
+	enemyStats = new StatViewer(enemy, {{.fX = -1000}, {.fY = 150}, {.fZ = 0}});
 	music = orxSound_CreateFromConfig("FightMusic");
 	memset(modifiers, 0, sizeof(modifiers));
 
 	potionName = orxObject_CreateFromConfig("SV");
-	pos = {.fX = -1000, .fY = 470, .fZ = 0};
+	pos = {{.fX = -1000}, {.fY = 470}, {.fZ = 0}};
 	orxObject_SetPosition(potionName, &pos);
 	orxObject_Enable(potionName, orxFALSE);
 
@@ -50,7 +50,7 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	orxObject_SetPosition(potionEffect, &pos);
 	orxObject_Enable(potionEffect, orxFALSE);
 
-	pos = {.fX = -1060, .fY = 480, .fZ = 0};
+	pos = {{.fX = -1060}, {.fY = 480}, {.fZ = 0}};
 	allPotions = std::vector<orxOBJECT*>(POTIONCOUNT);
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
@@ -60,16 +60,16 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	}
 
 	orxObject_CreateFromConfig("CombatUI");
-	setPauseMenuPosition({.fX = -1150.0, .fY = 400.0, .fZ = 0});
-	initializeUITextAt({.fX = -1600, .fY = 560, .fZ = -0.1});
+	setPauseMenuPosition({{.fX = -1150.0}, {.fY = 400.0}, {.fZ = 0}});
+	initializeUITextAt({{.fX = -1600}, {.fY = 560}, {.fZ = -0.1}});
 }
 
 void Combat::activate() {
 	playerPos = player->getPosition();
-	player->setPosition({.fX = -1200, .fY = 450, .fZ = 0});
+	player->setPosition({{.fX = -1200}, {.fY = 450}, {.fZ = 0}});
 	orxObject_SetScale(player->getEntity(), &scaleUp);
 
-	enemy->setPosition({.fX = -1100, .fY = 200, .fZ = 0});
+	enemy->setPosition({{.fX = -1100}, {.fY = 200}, {.fZ = 0}});
 	orxObject_SetScale(enemy->getEntity(), &scaleUp);
 
 	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
