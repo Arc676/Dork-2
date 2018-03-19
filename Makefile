@@ -66,4 +66,8 @@ Level.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Backend/Level.cpp
 
 clean:
-	rm Build/Dork\ 2 *.o
+	rm -f Build/Dork\ 2 *.o
+
+squeakyclean:
+	rm -rf Build
+	rm -f *.o
