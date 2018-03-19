@@ -154,6 +154,15 @@ public:
 	 */
 	Scene* getNextScene();
 
+	/**
+	 * Utility function to create a vector
+	 * @param x x component
+	 * @param y y component
+	 * @param z z component
+	 * @return a vector with the given Cartesian components
+	 */
+	static orxVECTOR createVector(orxFLOAT x, orxFLOAT y, orxFLOAT z);
+
 	virtual orxSTATUS EventHandler(const orxEVENT*);
 };
 

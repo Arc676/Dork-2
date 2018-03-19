@@ -27,6 +27,8 @@
 #include "Entity.h"
 #include "Enemy.h"
 
+class Scene;
+
 class Player : public Entity {
 	std::vector<int> ownedPotions;
 	std::vector<bool> ownedWeapons;

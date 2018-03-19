@@ -21,6 +21,7 @@
 
 #include "Enemy.h"
 #include "Player.h"
+#include "Scene.h"
 
 const float Enemy::healthBounds[]   = {0.7, 2, 0.5, 0.8, 1.4, 1, 1.7};
 const float Enemy::speeds[]         = {1, 4, 0.5, 1.2, 2, 1.4, 0.3};
@@ -61,19 +62,19 @@ void Enemy::newRandomDirection() {
 	orxSTRING strDir = (orxSTRING)"";
 	switch (dir) {
 		case 0:
-			direction = {{.fX = 1}, {.fY = 0}, {.fZ = 0}};
+			direction = Scene::createVector(1, 0, 0);
 			strDir = (orxSTRING)"Right";
 			break;
 		case 1:
-			direction = {{.fX = 0}, {.fY = 1}, {.fZ = 0}};
+			direction = Scene::createVector(0, 1, 0);
 			strDir = (orxSTRING)"Down";
 			break;
 		case 2:
-			direction = {{.fX = -1}, {.fY = 0}, {.fZ = 0}};
+			direction = Scene::createVector(-1, 0, 0);
 			strDir = (orxSTRING)"Left";
 			break;
 		case 3:
-			direction = {{.fX = 0}, {.fY = -1}, {.fZ = 0}};
+			direction = Scene::createVector(0, -1, 0);
 			strDir = (orxSTRING)"Up";
 			break;
 		default:

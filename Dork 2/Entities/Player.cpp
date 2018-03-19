@@ -20,6 +20,7 @@
 //See README and LICENSE for more details
 
 #include "Player.h"
+#include "Scene.h"
 
 Player::Player(orxSTRING name, EntityType type) : name(name) {
 	this->type = type;
@@ -31,7 +32,7 @@ Player::Player(orxSTRING name, EntityType type) : name(name) {
 	orxInput_Load(orxSTRING_EMPTY);
 	entity = orxObject_CreateFromConfig("Player");
 
-	position = {{.fX = 1632}, {.fY = 1792}, {.fZ = 0}};
+	position = Scene::createVector(1632, 1792, 0);
 	orxObject_SetPosition(entity, &position);
 
 	ownedPotions = std::vector<int>(POTIONCOUNT);

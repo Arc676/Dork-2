@@ -25,6 +25,7 @@
 #include "Entity.h"
 
 class Player;
+class Scene;
 
 #define ENEMYCOUNT 7
 enum EnemyType {

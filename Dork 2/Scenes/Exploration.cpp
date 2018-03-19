@@ -27,8 +27,8 @@ Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(ca
 	resetMusic();
 	canSave = orxTRUE;
 
-	setPauseMenuPosition({{.fX = -50}, {.fY = 0}, {.fZ = 0}});
-	initializeUITextAt({{.fX = -500}, {.fY = 160}, {.fZ = -0.1}});
+	setPauseMenuPosition(Scene::createVector(-50, 0, 0));
+	initializeUITextAt(Scene::createVector(-500, 160, -0.1));
 }
 
 void Exploration::resetMusic() {
