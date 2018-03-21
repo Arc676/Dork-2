@@ -62,6 +62,7 @@ class Enemy : public Entity {
 	orxVECTOR direction;
 	orxCHAR animation[40];
 	orxFLOAT distanceTravelled = 0;
+	orxFLOAT lastDt = 0;
 public:
 	/**
 	 * Get enemy name

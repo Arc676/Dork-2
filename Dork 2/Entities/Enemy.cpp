@@ -82,6 +82,7 @@ void Enemy::newRandomDirection() {
 	}
 	orxString_Print(animation, "Walk%sAnim%s", strDir, getName());
 	resumeAnimation();
+	distanceTravelled = 0;
 }
 
 void Enemy::resumeAnimation() {
@@ -141,10 +142,10 @@ Enemy* Enemy::createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos) {
 void Enemy::update(float dt) {
 	if (distanceTravelled > 100) {
 		newRandomDirection();
-		distanceTravelled = 0;
 	}
 	orxObject_GetPosition(entity, &position);
-	if (orxVector_GetDistance(&position, &prevPosition) < 0.5) {
+	orxFLOAT distance = orxVector_GetDistance(&position, &prevPosition);
+	if (distance < motionSpeed * lastDt * 0.5) {
 		newRandomDirection();
 	}
 	orxVector_Copy(&prevPosition, &position);
@@ -153,6 +154,7 @@ void Enemy::update(float dt) {
 	orxVector_Add(&position, &position, &movement);
 	orxObject_SetWorldPosition(entity, &position);
 	distanceTravelled += orxVector_GetSize(&movement);
+	lastDt = dt;
 }
 
 EnemyType Enemy::getEnemyType() {
