@@ -31,7 +31,7 @@ void MainMenu::activate() {
 	orxObject_SetTextString(nameField, "Type your alphanumeric name");
 	orxObject_SetPosition(nameField, &pos);
 
-	pos = Scene::createVector(-1150, 1652, 0);
+	pos = Scene::createVector(-1125, 1652, 0);
 	orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	orxObject_SetPosition(typeField, &pos);
 
