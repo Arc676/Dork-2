@@ -28,15 +28,15 @@ void MainMenu::activate() {
 	orxKeyboard_ClearBuffer();
 
 	orxVECTOR pos = Scene::createVector(-1216, 1592, 0);
-	orxObject_SetTextString(nameField, "Name:");
+	orxObject_SetTextString(nameField, "Type your alphanumeric name");
 	orxObject_SetPosition(nameField, &pos);
 
-	pos = Scene::createVector(-1216, 1652, 0);
+	pos = Scene::createVector(-1150, 1652, 0);
 	orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	orxObject_SetPosition(typeField, &pos);
 
 	//reset selector
-	pos = Scene::createVector(-1100, 1600, 0);
+	pos = Scene::createVector(-1250, 1600, 0);
 	orxObject_SetPosition(selector, &pos);
 	currentSelection = 0;
 

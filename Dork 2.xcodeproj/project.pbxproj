@@ -47,7 +47,6 @@
 		7159CD4F1FD3B0BD0015482A /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD4D1FD3B0BD0015482A /* MainMenu.cpp */; };
 		7159CD511FD3B94F0015482A /* MainMenu.ini in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD501FD3B93B0015482A /* MainMenu.ini */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD531FD3BBEE0015482A /* Arrows.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7159CD521FD3BBEE0015482A /* MMSelector.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7159CD571FD411C30015482A /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7159CD561FD411C30015482A /* Scene.cpp */; };
 		715FF6AF1FBEE1A5005B1ED4 /* StandAlone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF5D71FBEDE44005B1ED4 /* StandAlone.cpp */; };
 		715FF6B11FBEE205005B1ED4 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715FF6B01FBEE205005B1ED4 /* Main.cpp */; };
@@ -120,7 +119,6 @@
 				711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */,
 				7159CD541FD3BBF40015482A /* Arrows.png in CopyFiles */,
 				712CA3951FD77F240063E22E /* PauseMenu.png in CopyFiles */,
-				7159CD551FD3BBF80015482A /* MMSelector.png in CopyFiles */,
 				718914431FD6DAED00D48C37 /* LoadPlayer.png in CopyFiles */,
 				718914441FD6DAF000D48C37 /* NewPlayer.png in CopyFiles */,
 				712CA3971FD785450063E22E /* Tick.png in CopyFiles */,
@@ -176,7 +174,6 @@
 		7159CD4D1FD3B0BD0015482A /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		7159CD4E1FD3B0BD0015482A /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		7159CD501FD3B93B0015482A /* MainMenu.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = MainMenu.ini; sourceTree = "<group>"; };
-		7159CD521FD3BBEE0015482A /* MMSelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MMSelector.png; sourceTree = "<group>"; };
 		7159CD531FD3BBEE0015482A /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
 		7159CD561FD411C30015482A /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		715FF5D41FBEDE44005B1ED4 /* Dork 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dork 2"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,7 +743,6 @@
 				718914411FD6DA3D00D48C37 /* LoadPlayer.png */,
 				718914421FD6DA3D00D48C37 /* NewPlayer.png */,
 				7159CD531FD3BBEE0015482A /* Arrows.png */,
-				7159CD521FD3BBEE0015482A /* MMSelector.png */,
 				7159CD2B1FD24ECF0015482A /* ArmoryHelp.png */,
 				71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */,
 				71E96C48202D3085001BE088 /* GhostSpriteMap.png */,
