@@ -25,6 +25,7 @@ Purchasing::Purchasing() : Scene() {}
 
 void Purchasing::activate() {
 	currentSelection = 0;
+	exitSelected = orxFALSE;
 	statViewer->reloadData();
 	loadItemData();
 	Scene::activate();

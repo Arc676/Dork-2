@@ -6,15 +6,15 @@ In the late 70s and early 80s, Zork was a popular text-based adventure game. Dor
 Now, Dork is back as a 2D game!
 
 ### Controls
-On the main menu, use the arrow keys to move the selector or change a value. WASD will also work unless the "name" field is selected. Press ENTER to select buttons. In game, use WASD or the arrow keys to move around or select things. Press ESC to pause so you can save, toggle music, or exit to main.
+On the main menu, use the arrow keys to move the selector or change a value. WASD will also work unless the "name" field is selected. Press ENTER to select buttons. In game, use WASD or the arrow keys to move around or select things. Press ESC to to access the pause menu.
 
-In the shop, press LEFT and RIGHT (or A and D) to change the number of potions you want to purchase.
+In the shop, press the left and right brackets (`[` and `]`) to change the number of potions you want to purchase.
 
-During combat, you can use potions if you have any on you. Press LEFT and RIGHT (or A and D) to change potion and UP and DOWN (or W and S) to change the number of potions you want to consume together.
+During combat, you can use potions if you have any on you. Press LEFT and RIGHT (or A and D) to select the potion and the left and right brackets to change the number of potions you want to consume.
 
 ### About
 
-Dork 2 was created for [Maximum Monster Month](https://itch.io/jam/maximum-monster-month), a Game Jam hosted on [itch.io](https://itch.io).
+Dork 2 was created for [Maximum Monster Month](https://itch.io/jam/maximum-monster-month), a Game Jam hosted on [itch.io](https://itch.io). Although the game was not completed on time and ideas for the game existed before joining the jam, the jam was a necessary incentive to begin development, which continues long after the duration of the jam.
 
 ### Legal
 

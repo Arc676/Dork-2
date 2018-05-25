@@ -128,19 +128,20 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		return Purchasing::update(clockInfo);
 	}
 	int prevQty = quantity;
-	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
+	if (getKeyDown((orxSTRING)"QtyDown") && quantity > 1) {
 		quantity--;
-	} else if (getKeyDown((orxSTRING)"GoRight")) {
+	} else if (getKeyDown((orxSTRING)"QtyUp")) {
 		quantity++;
 	} else {
-		if ((getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) ||
-			(getKeyDown((orxSTRING)"GoUp") && currentSelection > 0)) {
+		if ((getKeyDown((orxSTRING)"GoRight") && currentSelection < POTIONCOUNT - 1) ||
+			(getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0)) {
 			quantity = 1;
 		}
 		return Purchasing::update(clockInfo);
 	}
 	if (quantity != prevQty) {
 		orxObject_AddSound(player->getEntity(), "TickSound");
+		loadItemData();
 	}
 	return SHOP;
 }
