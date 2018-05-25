@@ -27,7 +27,6 @@
 
 class Shop : public Purchasing {
 	int quantity = 1;
-	std::vector<orxOBJECT*> potionCounts;
 
 	// text fields
 	orxOBJECT* potionName;
@@ -43,7 +42,6 @@ public:
 	 */
 	Shop(Player* player);
 
-	virtual void loadPlayerData(Player*);
 	virtual SceneType getSceneType();
 	virtual SceneType update(const orxCLOCK_INFO*);
 };

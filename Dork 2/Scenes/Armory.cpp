@@ -28,11 +28,11 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
 	orxObject_SetPosition(tickMark, &pos);
 
-	weaponSprites = std::vector<orxOBJECT*>(WEAPONCOUNT);
+	items = std::vector<orxOBJECT*>(WEAPONCOUNT);
 	pos.fY -= 70;
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
-		weaponSprites[i] = weapon;
+		items[i] = weapon;
 		orxObject_SetPosition(weapon, &pos);
 		orxObject_Enable(weapon, orxFALSE);
 	}
@@ -75,13 +75,10 @@ Armory::Armory(Player* player) : Purchasing() {
 }
 
 void Armory::loadPlayerData(Player* player) {
-	Scene::loadPlayerData(player);
+	Purchasing::loadPlayerData(player);
 	orxObject_Enable(tickMark, player->ownsWeapon(SWORD));
 	WeaponType type = player->getWeapon()->getWeaponType();
 	equipWeapon(type);
-	if (statViewer != orxNULL) {
-		statViewer->loadEntity(player);
-	}
 }
 
 void Armory::equipWeapon(WeaponType type) {
@@ -114,11 +111,7 @@ void Armory::loadItemData() {
 
 	orxObject_Enable(tickMark, player->ownsWeapon((WeaponType)currentSelection));
 
-	// hide previously selected weapon, show currently selected one
-	// current selection will be previous selection next time
-	orxObject_Enable(weaponSprites[prevSel], orxFALSE);
-	orxObject_Enable(weaponSprites[currentSelection], orxTRUE);
-	prevSel = currentSelection;
+	Purchasing::loadItemData();
 }
 
 int Armory::makePurchase() {

@@ -31,6 +31,21 @@ void Purchasing::activate() {
 	Scene::activate();
 }
 
+void Purchasing::loadItemData() {
+	// hide previously selected item, show currently selected one
+	// current selection will be previous selection next time
+	orxObject_Enable(items[prevSel], orxFALSE);
+	orxObject_Enable(items[currentSelection], orxTRUE);
+	prevSel = currentSelection;
+}
+
+void Purchasing::loadPlayerData(Player* player) {
+	Scene::loadPlayerData(player);
+	if (statViewer != orxNULL) {
+		statViewer->loadEntity(player);
+	}
+}
+
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	orxBOOL hadText = Scene::currentlyHasText();
 	SceneType type = Scene::update(clockInfo);

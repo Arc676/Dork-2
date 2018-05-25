@@ -24,23 +24,18 @@
 Shop::Shop(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ShopHelp");
 
-	potionCounts = std::vector<orxOBJECT*>(POTIONCOUNT);
-	orxVECTOR pos = Scene::createVector(-1000, -650, 0);
-	orxVECTOR ppos = Scene::createVector(-1200, -650, 0);
+	items = std::vector<orxOBJECT*>(POTIONCOUNT);
+	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
 	for (int i = 0; i < POTIONCOUNT; i++) {
-		orxOBJECT* count = orxObject_CreateFromConfig("SV");
-		orxObject_SetPosition(count, &pos);
-		potionCounts[i] = count;
-
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
-		orxObject_SetPosition(potion, &ppos);
-
-		pos.fY += 60;
-		ppos.fY += 60;
+		items[i] = potion;
+		orxObject_SetPosition(potion, &pos);
+		orxObject_Enable(potion, orxFALSE);
 	}
 
+	pos.fY += 70;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
-	orxObject_SetPosition(exit, &ppos);
+	orxObject_SetPosition(exit, &pos);
 	
 	loadPlayerData(player);
 
@@ -63,23 +58,11 @@ Shop::Shop(Player* player) : Purchasing() {
 	initializeUITextAt(Scene::createVector(-1600, -240, -0.1));
 }
 
-void Shop::loadPlayerData(Player* player) {
-	Scene::loadPlayerData(player);
-	orxCHAR text[5];
-	for (int i = 0; i < POTIONCOUNT; i++) {
-		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)i));
-		orxObject_SetTextString(potionCounts[i], text);
-	}
-	if (statViewer != orxNULL) {
-		statViewer->loadEntity(player);
-	}
-}
-
 void Shop::loadItemData() {
 	Potion* p = Potion::allPotions[currentSelection];
 	orxCHAR text[30];
 
-	orxString_Print(text, "Potion: %s", p->getName());
+	orxString_Print(text, "Potion: %s (%d owned)", p->getName(), player->amountOfPotionOwned((PotionType)currentSelection));
 	orxObject_SetTextString(potionName, text);
 
 	int price = p->getPrice();
@@ -103,6 +86,8 @@ void Shop::loadItemData() {
 			break;
 	}
 	orxObject_SetTextString(potionEffect, text);
+
+	Purchasing::loadItemData();
 }
 
 int Shop::makePurchase() {
@@ -111,10 +96,6 @@ int Shop::makePurchase() {
 		player->transaction(-quantity * potion->getPrice());
 		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
-
-		orxCHAR text[40];
-		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
-		orxObject_SetTextString(potionCounts[currentSelection], text);
 
 		orxString_Print(text, "Purchased %d vial(s) of %s", quantity, potion->getName());
 		loadUIText(text);
