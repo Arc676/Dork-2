@@ -46,8 +46,8 @@ void MainMenu::activate() {
 MainMenu::MainMenu() {
 	nameField = orxObject_CreateFromConfig("SV");
 	typeField = orxObject_CreateFromConfig("SV");
-	selector = orxObject_CreateFromConfig("MMSelector");
-	lrArrows = orxObject_CreateFromConfig("MMArrows");
+	selector = orxObject_CreateFromConfig("Selector");
+	lrArrows = orxObject_CreateFromConfig("LRArrows");
 	orxObject_CreateFromConfig("MMObjects");
 }
 

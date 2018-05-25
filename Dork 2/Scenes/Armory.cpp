@@ -22,14 +22,15 @@
 #include "Armory.h"
 
 Armory::Armory(Player* player) : Purchasing() {
+	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
+	orxObject_SetPosition(itemSelector, &pos);
+
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMark = orxObject_CreateFromConfig("TickMark");
-	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
 	orxObject_SetPosition(tickMark, &pos);
 
 	items = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	pos.fY -= 70;
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
 		items[i] = weapon;
@@ -41,9 +42,12 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
 	orxObject_SetPosition(exit, &pos);
 
+	pos.fX -= 58;
+	orxObject_SetPosition(exitArrow, &pos);
+
 	loadPlayerData(player);
 
-	pos = Scene::createVector(-1100, 750, 0);
+	pos = Scene::createVector(-1240, 850, 0);
 	weaponName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponName, &pos);
 

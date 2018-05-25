@@ -21,7 +21,10 @@
 
 #include "Purchasing.h"
 
-Purchasing::Purchasing() : Scene() {}
+Purchasing::Purchasing() : Scene() {
+	itemSelector = orxObject_CreateFromConfig("LRArrows");
+	exitArrow = orxObject_CreateFromConfig("Selector");
+}
 
 void Purchasing::activate() {
 	currentSelection = 0;
@@ -56,11 +59,7 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		return getSceneType();
 	}
 	int prevSelection = currentSelection;
-	if (getKeyDown((orxSTRING)"GoRight") && currentSelection < selectionLimit) {
-		currentSelection++;
-	} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0) {
-		currentSelection--;
-	} else if (getKeyDown((orxSTRING)"Enter")) {
+	if (getKeyDown((orxSTRING)"Enter")) {
 		if (exitSelected) {
 			return EXPLORATION;
 		} else {
@@ -75,10 +74,18 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		exitSelected = orxTRUE;
 	} else if (getKeyDown((orxSTRING)"GoUp") && exitSelected) {
 		exitSelected = orxFALSE;
+	} else if (!exitSelected) {
+		if (getKeyDown((orxSTRING)"GoRight") && currentSelection < selectionLimit) {
+			currentSelection++;
+		} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0) {
+			currentSelection--;
+		}
 	}
 	if (currentSelection != prevSelection) {
 		orxObject_AddSound(player->getEntity(), "SelectorSound");
 		loadItemData();
 	}
+	orxObject_Enable(itemSelector, !exitSelected);
+	orxObject_Enable(exitArrow, exitSelected);
 	return getSceneType();
 }

@@ -38,6 +38,10 @@ protected:
 	orxBOOL exitSelected = orxFALSE;
 	std::vector<orxOBJECT*> items;
 
+	// UI
+	orxOBJECT* itemSelector;
+	orxOBJECT* exitArrow;
+
 	/**
 	 * Purchase the selected item
 	 * @return the result of the purchase attempt

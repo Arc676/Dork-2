@@ -22,10 +22,12 @@
 #include "Shop.h"
 
 Shop::Shop(Player* player) : Purchasing() {
+	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
+	orxObject_SetPosition(itemSelector, &pos);
+
 	orxObject_CreateFromConfig("ShopHelp");
 
 	items = std::vector<orxOBJECT*>(POTIONCOUNT);
-	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
 		items[i] = potion;
@@ -36,10 +38,13 @@ Shop::Shop(Player* player) : Purchasing() {
 	pos.fY += 70;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
 	orxObject_SetPosition(exit, &pos);
+
+	pos.fX -= 58;
+	orxObject_SetPosition(exitArrow, &pos);
 	
 	loadPlayerData(player);
 
-	pos = Scene::createVector(-950, -650, 0);
+	pos = Scene::createVector(-1240, -500, 0);
 	potionName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionName, &pos);
 
@@ -97,6 +102,7 @@ int Shop::makePurchase() {
 		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
 
+		orxCHAR text[40];
 		orxString_Print(text, "Purchased %d vial(s) of %s", quantity, potion->getName());
 		loadUIText(text);
 		return PURCHASE_SUCCESSFUL;
@@ -109,15 +115,19 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		return Purchasing::update(clockInfo);
 	}
 	int prevQty = quantity;
-	if (getKeyDown((orxSTRING)"QtyDown") && quantity > 1) {
-		quantity--;
-	} else if (getKeyDown((orxSTRING)"QtyUp")) {
-		quantity++;
-	} else {
-		if ((getKeyDown((orxSTRING)"GoRight") && currentSelection < POTIONCOUNT - 1) ||
-			(getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0)) {
-			quantity = 1;
+	if (!exitSelected) {
+		if (getKeyDown((orxSTRING)"QtyDown") && quantity > 1) {
+			quantity--;
+		} else if (getKeyDown((orxSTRING)"QtyUp")) {
+			quantity++;
+		} else {
+			if ((getKeyDown((orxSTRING)"GoRight") && currentSelection < POTIONCOUNT - 1) ||
+				(getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0)) {
+				quantity = 1;
+			}
+			return Purchasing::update(clockInfo);
 		}
+	} else {
 		return Purchasing::update(clockInfo);
 	}
 	if (quantity != prevQty) {
