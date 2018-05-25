@@ -24,7 +24,6 @@
 Purchasing::Purchasing() : Scene() {}
 
 void Purchasing::activate() {
-	orxObject_SetPosition(selectorArrow, &defaultPos);
 	currentSelection = 0;
 	statViewer->reloadData();
 	loadItemData();
@@ -40,14 +39,10 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	if (paused || hadText) {
 		return getSceneType();
 	}
-	orxVECTOR pos;
-	orxObject_GetPosition(selectorArrow, &pos);
 	int prevSelection = currentSelection;
-	if (getKeyDown((orxSTRING)"GoDown") && currentSelection < selectionLimit) {
-		pos.fY += 60;
+	if (getKeyDown((orxSTRING)"GoRight") && currentSelection < selectionLimit) {
 		currentSelection++;
-	} else if (getKeyDown((orxSTRING)"GoUp") && currentSelection > 0) {
-		pos.fY -= 60;
+	} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0) {
 		currentSelection--;
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == selectionLimit) {
@@ -55,14 +50,13 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 		}
 		int result = makePurchase();
 		if (result == PURCHASE_SUCCESSFUL) {
-			orxObject_AddSound(selectorArrow, "Kaching");
+			orxObject_AddSound(player->getEntity(), "Kaching");
 		} else if (result == PURCHASE_FAILED) {
-			orxObject_AddSound(selectorArrow, "ErrorSound");
+			orxObject_AddSound(player->getEntity(), "ErrorSound");
 		}
 	}
 	if (currentSelection != prevSelection) {
-		orxObject_SetPosition(selectorArrow, &pos);
-		orxObject_AddSound(selectorArrow, "SelectorSound");
+		orxObject_AddSound(player->getEntity(), "SelectorSound");
 	}
 	if (currentSelection < selectionLimit) {
 		loadItemData();

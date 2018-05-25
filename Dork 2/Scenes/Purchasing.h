@@ -34,8 +34,6 @@ protected:
 	// player selection
 	int currentSelection = 0;
 	int selectionLimit;
-	orxOBJECT* selectorArrow;
-	orxVECTOR defaultPos;
 
 	/**
 	 * Purchase the selected item

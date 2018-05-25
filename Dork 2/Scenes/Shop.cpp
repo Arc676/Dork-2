@@ -22,9 +22,6 @@
 #include "Shop.h"
 
 Shop::Shop(Player* player) : Purchasing() {
-	selectorArrow = orxObject_CreateFromConfig("Selector");
-	defaultPos = Scene::createVector(-1300, -650, 0);
-	orxObject_SetPosition(selectorArrow, &defaultPos);
 	orxObject_CreateFromConfig("ShopHelp");
 
 	potionCounts = std::vector<orxOBJECT*>(POTIONCOUNT);
@@ -143,7 +140,7 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		return Purchasing::update(clockInfo);
 	}
 	if (quantity != prevQty) {
-		orxObject_AddSound(selectorArrow, "TickSound");
+		orxObject_AddSound(player->getEntity(), "TickSound");
 	}
 	return SHOP;
 }

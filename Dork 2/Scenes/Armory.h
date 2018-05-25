@@ -31,9 +31,16 @@
 
 class Armory : public Purchasing {
 	// interface stuff for weapons
-	std::vector<orxOBJECT*> tickMarks;
+	orxOBJECT* tickMark;
+	std::vector<orxOBJECT*> weaponSprites;
 	int lastEquipped = -1;
-	void equipWeapon(WeaponType);
+
+	/**
+	 * Equips the selection weapon for the player
+	 * or unequips the player's weapon
+	 * @param type Weapon type to equip (or NOWEAPON to unequip)
+	 */
+	void equipWeapon(WeaponType type);
 
 	// text fields
 	orxOBJECT* weaponName;
