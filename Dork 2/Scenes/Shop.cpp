@@ -57,7 +57,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_SetPosition(potionEffect, &pos);
 
 	statViewer = new StatViewer(player, Scene::createVector(-1590, -400, 0));
-	selectionLimit = POTIONCOUNT;
+	selectionLimit = POTIONCOUNT - 1;
 
 	setPauseMenuPosition(Scene::createVector(-1100, -400.0, 0));
 	initializeUITextAt(Scene::createVector(-1600, -240, -0.1));

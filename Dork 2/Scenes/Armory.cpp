@@ -25,23 +25,25 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_CreateFromConfig("ArmoryHelp");
 
 	tickMark = orxObject_CreateFromConfig("TickMark");
-	orxVECTOR pos = Scene::createVector(-1100, 1060, 0);
+	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
 	orxObject_SetPosition(tickMark, &pos);
 
 	weaponSprites = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	pos = Scene::createVector(-1200, 990, 0);
+	pos.fY -= 70;
 	for (int i = 0; i < WEAPONCOUNT; i++) {
 		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
 		weaponSprites[i] = weapon;
 		orxObject_SetPosition(weapon, &pos);
+		orxObject_Enable(weapon, orxFALSE);
 	}
 
+	pos.fY += 70;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
 	orxObject_SetPosition(exit, &pos);
 
 	loadPlayerData(player);
 
-	pos = Scene::createVector(-950, 750, 0);
+	pos = Scene::createVector(-1100, 750, 0);
 	weaponName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponName, &pos);
 
@@ -66,7 +68,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_SetPosition(weaponSpeed, &pos);
 
 	statViewer = new StatViewer(player, Scene::createVector(-1590, 1000, 0));
-	selectionLimit = WEAPONCOUNT;
+	selectionLimit = WEAPONCOUNT - 1;
 
 	setPauseMenuPosition(Scene::createVector(-1150, 1000, 0));
 	initializeUITextAt(Scene::createVector(-1600, 1160, -0.1));
@@ -91,7 +93,7 @@ void Armory::loadItemData() {
 	Weapon* w = Weapon::allWeapons[currentSelection];
 	orxCHAR text[30];
 
-	orxString_Print(text, "Weapon: %s%s", w->getName(), (lastEquipped == currentSelection ? " (Equipped" : ""));
+	orxString_Print(text, "Weapon: %s%s", w->getName(), (lastEquipped == currentSelection ? " (Equipped)" : ""));
 	orxObject_SetTextString(weaponName, text);
 
 	orxString_Print(text, "Type: %s", Entity::typeToString(w->getType()));
@@ -111,6 +113,12 @@ void Armory::loadItemData() {
 	orxObject_SetTextString(weaponSpeed, text);
 
 	orxObject_Enable(tickMark, player->ownsWeapon((WeaponType)currentSelection));
+
+	// hide previously selected weapon, show currently selected one
+	// current selection will be previous selection next time
+	orxObject_Enable(weaponSprites[prevSel], orxFALSE);
+	orxObject_Enable(weaponSprites[currentSelection], orxTRUE);
+	prevSel = currentSelection;
 }
 
 int Armory::makePurchase() {

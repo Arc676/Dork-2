@@ -34,6 +34,7 @@ protected:
 	// player selection
 	int currentSelection = 0;
 	int selectionLimit;
+	orxBOOL exitSelected = orxFALSE;
 
 	/**
 	 * Purchase the selected item

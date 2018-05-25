@@ -45,20 +45,23 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0) {
 		currentSelection--;
 	} else if (getKeyDown((orxSTRING)"Enter")) {
-		if (currentSelection == selectionLimit) {
+		if (exitSelected) {
 			return EXPLORATION;
+		} else {
+			int result = makePurchase();
+			if (result == PURCHASE_SUCCESSFUL) {
+				orxObject_AddSound(player->getEntity(), "Kaching");
+			} else if (result == PURCHASE_FAILED) {
+				orxObject_AddSound(player->getEntity(), "ErrorSound");
+			}
 		}
-		int result = makePurchase();
-		if (result == PURCHASE_SUCCESSFUL) {
-			orxObject_AddSound(player->getEntity(), "Kaching");
-		} else if (result == PURCHASE_FAILED) {
-			orxObject_AddSound(player->getEntity(), "ErrorSound");
-		}
+	} else if (getKeyDown((orxSTRING)"GoDown") && !exitSelected) {
+		exitSelected = orxTRUE;
+	} else if (getKeyDown((orxSTRING)"GoUp") && exitSelected) {
+		exitSelected = orxFALSE;
 	}
 	if (currentSelection != prevSelection) {
 		orxObject_AddSound(player->getEntity(), "SelectorSound");
-	}
-	if (currentSelection < selectionLimit) {
 		loadItemData();
 	}
 	return getSceneType();

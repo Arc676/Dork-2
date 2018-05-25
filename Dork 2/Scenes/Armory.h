@@ -34,6 +34,7 @@ class Armory : public Purchasing {
 	orxOBJECT* tickMark;
 	std::vector<orxOBJECT*> weaponSprites;
 	int lastEquipped = -1;
+	int prevSel = 0;
 
 	/**
 	 * Equips the selection weapon for the player
