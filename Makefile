@@ -9,6 +9,9 @@ LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entiti
 LIB=-l orx
 OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o Scene.o MainMenu.o Purchasing.o StatViewer.o Level.o
 
+ifdef DEBUG
+	FLAGS += -g -O0
+endif
 
 dork2: $(OBJS)
 	mkdir -p Build

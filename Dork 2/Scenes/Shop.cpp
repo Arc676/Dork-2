@@ -22,32 +22,29 @@
 #include "Shop.h"
 
 Shop::Shop(Player* player) : Purchasing() {
-	selectorArrow = orxObject_CreateFromConfig("Selector");
-	defaultPos = Scene::createVector(-1300, -650, 0);
-	orxObject_SetPosition(selectorArrow, &defaultPos);
+	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
+	orxObject_SetPosition(itemSelector, &pos);
+
 	orxObject_CreateFromConfig("ShopHelp");
 
-	potionCounts = std::vector<orxOBJECT*>(POTIONCOUNT);
-	orxVECTOR pos = Scene::createVector(-1000, -650, 0);
-	orxVECTOR ppos = Scene::createVector(-1200, -650, 0);
+	items = std::vector<orxOBJECT*>(POTIONCOUNT);
 	for (int i = 0; i < POTIONCOUNT; i++) {
-		orxOBJECT* count = orxObject_CreateFromConfig("SV");
-		orxObject_SetPosition(count, &pos);
-		potionCounts[i] = count;
-
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
-		orxObject_SetPosition(potion, &ppos);
-
-		pos.fY += 60;
-		ppos.fY += 60;
+		items[i] = potion;
+		orxObject_SetPosition(potion, &pos);
+		orxObject_Enable(potion, orxFALSE);
 	}
 
+	pos.fY += 70;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
-	orxObject_SetPosition(exit, &ppos);
+	orxObject_SetPosition(exit, &pos);
+
+	pos.fX -= 58;
+	orxObject_SetPosition(exitArrow, &pos);
 	
 	loadPlayerData(player);
 
-	pos = Scene::createVector(-950, -650, 0);
+	pos = Scene::createVector(-1240, -500, 0);
 	potionName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionName, &pos);
 
@@ -60,29 +57,17 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_SetPosition(potionEffect, &pos);
 
 	statViewer = new StatViewer(player, Scene::createVector(-1590, -400, 0));
-	selectionLimit = POTIONCOUNT;
+	selectionLimit = POTIONCOUNT - 1;
 
 	setPauseMenuPosition(Scene::createVector(-1100, -400.0, 0));
 	initializeUITextAt(Scene::createVector(-1600, -240, -0.1));
-}
-
-void Shop::loadPlayerData(Player* player) {
-	Scene::loadPlayerData(player);
-	orxCHAR text[5];
-	for (int i = 0; i < POTIONCOUNT; i++) {
-		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)i));
-		orxObject_SetTextString(potionCounts[i], text);
-	}
-	if (statViewer != orxNULL) {
-		statViewer->loadEntity(player);
-	}
 }
 
 void Shop::loadItemData() {
 	Potion* p = Potion::allPotions[currentSelection];
 	orxCHAR text[30];
 
-	orxString_Print(text, "Potion: %s", p->getName());
+	orxString_Print(text, "Potion: %s (%d owned)", p->getName(), player->amountOfPotionOwned((PotionType)currentSelection));
 	orxObject_SetTextString(potionName, text);
 
 	int price = p->getPrice();
@@ -106,6 +91,8 @@ void Shop::loadItemData() {
 			break;
 	}
 	orxObject_SetTextString(potionEffect, text);
+
+	Purchasing::loadItemData();
 }
 
 int Shop::makePurchase() {
@@ -116,9 +103,6 @@ int Shop::makePurchase() {
 		statViewer->reloadData();
 
 		orxCHAR text[40];
-		orxString_Print(text, "%d", player->amountOfPotionOwned((PotionType)currentSelection));
-		orxObject_SetTextString(potionCounts[currentSelection], text);
-
 		orxString_Print(text, "Purchased %d vial(s) of %s", quantity, potion->getName());
 		loadUIText(text);
 		return PURCHASE_SUCCESSFUL;
@@ -131,19 +115,24 @@ SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
 		return Purchasing::update(clockInfo);
 	}
 	int prevQty = quantity;
-	if (getKeyDown((orxSTRING)"GoLeft") && quantity > 0) {
-		quantity--;
-	} else if (getKeyDown((orxSTRING)"GoRight")) {
-		quantity++;
-	} else {
-		if ((getKeyDown((orxSTRING)"GoDown") && currentSelection < POTIONCOUNT) ||
-			(getKeyDown((orxSTRING)"GoUp") && currentSelection > 0)) {
-			quantity = 1;
+	if (!exitSelected) {
+		if (getKeyDown((orxSTRING)"QtyDown") && quantity > 1) {
+			quantity--;
+		} else if (getKeyDown((orxSTRING)"QtyUp")) {
+			quantity++;
+		} else {
+			if ((getKeyDown((orxSTRING)"GoRight") && currentSelection < POTIONCOUNT - 1) ||
+				(getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0)) {
+				quantity = 1;
+			}
+			return Purchasing::update(clockInfo);
 		}
+	} else {
 		return Purchasing::update(clockInfo);
 	}
 	if (quantity != prevQty) {
-		orxObject_AddSound(selectorArrow, "TickSound");
+		orxObject_AddSound(player->getEntity(), "TickSound");
+		loadItemData();
 	}
 	return SHOP;
 }

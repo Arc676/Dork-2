@@ -22,32 +22,32 @@
 #include "Armory.h"
 
 Armory::Armory(Player* player) : Purchasing() {
-	selectorArrow = orxObject_CreateFromConfig("Selector");
-	defaultPos = Scene::createVector(-1300, 750, 0);
-	orxObject_SetPosition(selectorArrow, &defaultPos);
+	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
+	orxObject_SetPosition(itemSelector, &pos);
+
 	orxObject_CreateFromConfig("ArmoryHelp");
 
-	tickMarks = std::vector<orxOBJECT*>(WEAPONCOUNT);
-	orxVECTOR pos = Scene::createVector(-1100, 750, 0);
-	orxVECTOR wpos = Scene::createVector(-1200, 750, 0);
+	tickMark = orxObject_CreateFromConfig("TickMark");
+	orxObject_SetPosition(tickMark, &pos);
+
+	items = std::vector<orxOBJECT*>(WEAPONCOUNT);
 	for (int i = 0; i < WEAPONCOUNT; i++) {
-		orxOBJECT* tick = orxObject_CreateFromConfig("TickMark");
-		orxObject_SetPosition(tick, &pos);
-		tickMarks[i] = tick;
-
 		orxOBJECT* weapon = orxObject_CreateFromConfig(Weapon::getWeaponName((WeaponType)i));
-		orxObject_SetPosition(weapon, &wpos);
-
-		pos.fY += 60;
-		wpos.fY += 60;
+		items[i] = weapon;
+		orxObject_SetPosition(weapon, &pos);
+		orxObject_Enable(weapon, orxFALSE);
 	}
 
+	pos.fY += 70;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
-	orxObject_SetPosition(exit, &wpos);
+	orxObject_SetPosition(exit, &pos);
+
+	pos.fX -= 58;
+	orxObject_SetPosition(exitArrow, &pos);
 
 	loadPlayerData(player);
 
-	pos = Scene::createVector(-950, 750, 0);
+	pos = Scene::createVector(-1240, 850, 0);
 	weaponName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponName, &pos);
 
@@ -72,44 +72,29 @@ Armory::Armory(Player* player) : Purchasing() {
 	orxObject_SetPosition(weaponSpeed, &pos);
 
 	statViewer = new StatViewer(player, Scene::createVector(-1590, 1000, 0));
-	selectionLimit = WEAPONCOUNT;
+	selectionLimit = WEAPONCOUNT - 1;
 
 	setPauseMenuPosition(Scene::createVector(-1150, 1000, 0));
 	initializeUITextAt(Scene::createVector(-1600, 1160, -0.1));
 }
 
 void Armory::loadPlayerData(Player* player) {
-	Scene::loadPlayerData(player);
-	for (int i = 0; i < WEAPONCOUNT; i++) {
-		orxObject_Enable(tickMarks[i], player->ownsWeapon((WeaponType)i));
-	}
+	Purchasing::loadPlayerData(player);
+	orxObject_Enable(tickMark, player->ownsWeapon(SWORD));
 	WeaponType type = player->getWeapon()->getWeaponType();
 	equipWeapon(type);
-	if (statViewer != orxNULL) {
-		statViewer->loadEntity(player);
-	}
 }
 
 void Armory::equipWeapon(WeaponType type) {
-	orxVECTOR pos;
-	if (lastEquipped >= 0 && lastEquipped != NOWEAPON) {
-		orxObject_GetPosition(tickMarks[lastEquipped], &pos);
-		pos.fX = -1100;
-		orxObject_SetPosition(tickMarks[lastEquipped], &pos);
-	}
 	lastEquipped = (int)type;
-	if (type != NOWEAPON) {
-		orxObject_GetPosition(tickMarks[lastEquipped], &pos);
-		pos.fX = -1050;
-		orxObject_SetPosition(tickMarks[lastEquipped], &pos);
-	}
+	orxObject_Enable(tickMark, type == currentSelection);
 }
 
 void Armory::loadItemData() {
 	Weapon* w = Weapon::allWeapons[currentSelection];
 	orxCHAR text[30];
 
-	orxString_Print(text, "Weapon: %s", w->getName());
+	orxString_Print(text, "Weapon: %s%s", w->getName(), (lastEquipped == currentSelection ? " (Equipped)" : ""));
 	orxObject_SetTextString(weaponName, text);
 
 	orxString_Print(text, "Type: %s", Entity::typeToString(w->getType()));
@@ -127,6 +112,10 @@ void Armory::loadItemData() {
 	double spd = w->getSpeedMod();
 	orxString_Print(text, "Speed: %s%d%%", (spd < 0 ? "-" : "+"), (int)abs(spd * 100));
 	orxObject_SetTextString(weaponSpeed, text);
+
+	orxObject_Enable(tickMark, player->ownsWeapon((WeaponType)currentSelection));
+
+	Purchasing::loadItemData();
 }
 
 int Armory::makePurchase() {
@@ -148,7 +137,7 @@ int Armory::makePurchase() {
 	} else if (player->getGold() >= weapon->getPrice()) {
 		player->transaction(-weapon->getPrice());
 		player->setWeaponOwnership((WeaponType)currentSelection, true);
-		orxObject_Enable(tickMarks[currentSelection], orxTRUE);
+		orxObject_Enable(tickMark, orxTRUE);
 
 		equipWeapon(type);
 		player->equipWeapon(Weapon::copyOf(type));

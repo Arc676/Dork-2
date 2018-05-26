@@ -310,10 +310,10 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			hasPotions = playerHasPotions();
 			isSelectingPotion = orxFALSE;
 			desiredQuantity = 1;
-		} else if (getKeyDown((orxSTRING)"GoDown") &&
+		} else if (getKeyDown((orxSTRING)"QtyDown") &&
 				   desiredQuantity > 1) {
 			desiredQuantity--;
-		} else if (getKeyDown((orxSTRING)"GoUp") &&
+		} else if (getKeyDown((orxSTRING)"QtyUp") &&
 				   desiredQuantity < player->amountOfPotionOwned(selectedPotion)) {
 			desiredQuantity++;
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {
