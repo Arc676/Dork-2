@@ -38,13 +38,13 @@ class Scene {
 	// pause menu objects
 	orxOBJECT* pauseSelector = orxNULL;
 	orxOBJECT* pauseMenu = orxNULL;
-
+protected:
 	// UI text objects
 	orxBOOL hasText = orxFALSE;
 	orxOBJECT* uiTextObject = orxNULL;
 	orxOBJECT* uiTextSprite = orxNULL;
 	static const orxVECTOR textMargin;
-protected:
+
 	// scene data
 	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
@@ -67,12 +67,12 @@ protected:
 	 * Load text to display in mini alert
 	 * @param text text to display
 	 */
-	void loadUIText(orxSTRING text);
+	virtual void loadUIText(orxSTRING text);
 
 	/**
 	 * Dismiss the alert
 	 */
-	void dismissUIText();
+	virtual void dismissUIText();
 
 	/**
 	 * Whether the scene is currently showing

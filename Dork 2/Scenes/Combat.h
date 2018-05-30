@@ -46,6 +46,7 @@ class Combat : public Scene {
 
 	//UI data
 	orxOBJECT* selector;
+	orxOBJECT* cui;
 	int x = 0, y = 0;
 	int specialMoveCooldown = 0;
 
@@ -89,6 +90,9 @@ class Combat : public Scene {
 	 * @return the next scene to show depending on the outcome of the action
 	 */
 	SceneType makeMove(Move move);
+protected:
+	virtual void loadUIText(orxSTRING);
+	virtual void dismissUIText();
 public:
 	/**
 	 * Construct new combat scene

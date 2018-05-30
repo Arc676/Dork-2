@@ -32,7 +32,7 @@ const orxVECTOR Combat::scaleNormal = Scene::createVector(1, 1, 0);
 Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	loadPlayerData(player);
 	selector = orxObject_CreateFromConfig("Selector");
-	orxVECTOR pos = Scene::createVector(-1400, 596, 0);
+	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
 	orxObject_SetPosition(selector, &pos);
 
 	playerStats = new StatViewer(player, Scene::createVector(-1500, 270, 0));
@@ -59,9 +59,23 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 		allPotions[i] = potion;
 	}
 
-	orxObject_CreateFromConfig("CombatUI");
+	cui = orxObject_CreateFromConfig("CombatUI");
 	setPauseMenuPosition(Scene::createVector(-1150.0, 400.0, 0));
 	initializeUITextAt(Scene::createVector(-1600, 560, -0.1));
+	orxObject_Enable(uiTextSprite, orxTRUE);
+}
+
+void Combat::loadUIText(orxSTRING text) {
+	orxObject_EnableRecursive(cui, orxFALSE);
+	orxObject_Enable(selector, orxFALSE);
+	Scene::loadUIText(text);
+}
+
+void Combat::dismissUIText() {
+	Scene::dismissUIText();
+	orxObject_Enable(uiTextSprite, orxTRUE);
+	orxObject_EnableRecursive(cui, orxTRUE);
+	orxObject_Enable(selector, orxTRUE);
 }
 
 void Combat::activate() {
@@ -82,17 +96,9 @@ void Combat::activate() {
 	Scene::activate();
 }
 
-orxBOOL Combat::playerHasPotions() {
-	for (int i = 0; i < POTIONCOUNT; i++) {
-		if (player->amountOfPotionOwned((PotionType)i) > 0) {
-			return orxTRUE;
-		}
-	}
-	return orxFALSE;
-}
-
 void Combat::deactivate() {
 	orxObject_SetLifeTime(selector, 0);
+	orxObject_SetLifeTime(cui, 0);
 	enemy->despawn();
 	playerStats->destroy();
 	enemyStats->destroy();
@@ -100,6 +106,15 @@ void Combat::deactivate() {
 	orxObject_SetScale(player->getEntity(), &scaleNormal);
 	Scene::destroy();
 	Scene::deactivate();
+}
+
+orxBOOL Combat::playerHasPotions() {
+	for (int i = 0; i < POTIONCOUNT; i++) {
+		if (player->amountOfPotionOwned((PotionType)i) > 0) {
+			return orxTRUE;
+		}
+	}
+	return orxFALSE;
 }
 
 SceneType Combat::makeMove(Move move) {
