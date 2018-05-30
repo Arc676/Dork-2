@@ -22,7 +22,7 @@
 #include "StatViewer.h"
 
 StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
-	int margin = 20;
+	int margin = 30;
 
 	labelName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(labelName, &pos);

@@ -47,27 +47,29 @@ Armory::Armory(Player* player) : Purchasing() {
 
 	loadPlayerData(player);
 
+	int margin = 30;
+
 	pos = Scene::createVector(-1240, 850, 0);
 	weaponName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponName, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	weaponType = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponType, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	weaponPrice = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponPrice, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	weaponStr = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponStr, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	weaponDef = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponDef, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	weaponSpeed = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponSpeed, &pos);
 

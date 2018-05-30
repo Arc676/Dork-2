@@ -43,16 +43,18 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_SetPosition(exitArrow, &pos);
 	
 	loadPlayerData(player);
+	
+	int margin = 30;
 
 	pos = Scene::createVector(-1240, -500, 0);
 	potionName = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionName, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	potionPrice = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionPrice, &pos);
 
-	pos.fY += 20;
+	pos.fY += margin;
 	potionEffect = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionEffect, &pos);
 
