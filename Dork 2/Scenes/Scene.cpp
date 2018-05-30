@@ -128,10 +128,6 @@ void Scene::moveUITextTo(orxVECTOR pos) {
 	orxObject_SetPosition(uiTextObject, &pos);
 }
 
-orxBOOL Scene::currentlyHasText() {
-	return hasText;
-}
-
 SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (getKeyDown((orxSTRING)"Pause")) {
 		paused = !paused;

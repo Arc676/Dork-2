@@ -75,13 +75,6 @@ protected:
 	virtual void dismissUIText();
 
 	/**
-	 * Whether the scene is currently showing
-	 * an alert
-	 * @return whether an alert is present
-	 */
-	orxBOOL currentlyHasText();
-
-	/**
 	 * Initializes UI text objects
 	 * @param pos render position for alerts
 	 */

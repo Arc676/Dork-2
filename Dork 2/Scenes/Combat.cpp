@@ -351,7 +351,7 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
 		}
 	} else {
-		orxBOOL hadText = Scene::currentlyHasText();
+		orxBOOL hadText = hasText;
 		SceneType type = Scene::update(clockInfo);
 		if (type != COMBAT) {
 			return type;

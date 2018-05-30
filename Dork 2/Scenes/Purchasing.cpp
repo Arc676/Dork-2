@@ -50,7 +50,7 @@ void Purchasing::loadPlayerData(Player* player) {
 }
 
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
-	orxBOOL hadText = Scene::currentlyHasText();
+	orxBOOL hadText = hasText;
 	SceneType type = Scene::update(clockInfo);
 	if (type != getSceneType()) {
 		return type;

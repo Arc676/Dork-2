@@ -113,7 +113,7 @@ int Shop::makePurchase() {
 }
 
 SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
-	if (paused || Scene::currentlyHasText()) {
+	if (paused || hasText) {
 		return Purchasing::update(clockInfo);
 	}
 	int prevQty = quantity;
