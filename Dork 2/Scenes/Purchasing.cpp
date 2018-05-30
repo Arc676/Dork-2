@@ -70,6 +70,7 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 				orxObject_AddSound(player->getEntity(), "ErrorSound");
 			}
 		}
+		loadItemData();
 	} else if (getKeyDown((orxSTRING)"GoDown") && !exitSelected) {
 		exitSelected = orxTRUE;
 	} else if (getKeyDown((orxSTRING)"GoUp") && exitSelected) {
