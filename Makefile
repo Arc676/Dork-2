@@ -20,11 +20,14 @@ ifdef DEBUG
 	FLAGS += -g -O0
 endif
 
-dork2: $(_OBJS)
-	mkdir -p $(OUTDIR) $(ODIR)
+dork2: $(_OBJS) copyassets
 	$(CC) $(LD) $(_OBJS) $(LIB) -o $(OUTPUT)
+
+copyassets:
+	mkdir -p $(OUTDIR) $(ODIR)
 	cp -u Assets/Sound/* $(OUTDIR)
 	cp -u Assets/Sprites/* $(OUTDIR)
+	cp -u Assets/Font/* $(OUTDIR)
 	cp -u bin/*.ini $(OUTDIR)
 
 $(ODIR)/MainMenu.o:
