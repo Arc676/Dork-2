@@ -22,7 +22,7 @@ Project available under GPLv3. The source code for the original Dork is currentl
 
 Orx game engine available under Zlib license (see [the repository](https://github.com/orx/orx) for details).
 
-Assets used in the game are available under Creative Commons licenses. See CREDITS for more details.
+Assets used in the game are mostly available under Creative Commons licenses. See CREDITS for more details.
 
 ### Contributing/Community
 

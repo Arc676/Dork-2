@@ -1,6 +1,7 @@
 # Makefile for Dork 2
-# If you're running Mac, you can build using Xcode
-# If you're running Linux, this Makefile should help you
+# On Mac, use the Xcode project
+# On Linux, use this Makefile to compile Dork 2
+# On Windows, use the Visual Studio project
 # You need to have a compiled version of Orx for your platform in the lib/ folder
 # You may need to change the compiler if you don't have g++ in your PATH
 CC=g++
@@ -14,8 +15,9 @@ ifdef DEBUG
 endif
 
 dork2: $(OBJS)
-	mkdir -p Build
+	mkdir -p Build obj
 	$(CC) $(LD) $(OBJS) $(LIB) -o Build/Dork\ 2
+	mv $(OBJS) obj
 	cp -u Music/* Build
 	cp -u Sprites/* Build
 	cp -u bin/*.ini Build
