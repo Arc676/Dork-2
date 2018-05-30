@@ -4,75 +4,79 @@
 # On Windows, use the Visual Studio project
 # You need to have a compiled version of Orx for your platform in the lib/ folder
 # You may need to change the compiler if you don't have g++ in your PATH
+ODIR=obj
+OUTDIR=Build
+OUTPUT=$(OUTDIR)/Dork\ 2
+
 CC=g++
-FLAGS=-std=c++11 -c
-LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entities -I Dork\ 2/Items  -L lib/
+FLAGS=-std=c++11 -c -o $(ODIR)/$(@F)
+LD=-I inc/ -I Dork\ 2/App -I Dork\ 2/Backend -I Dork\ 2/Scenes -I Dork\ 2/Entities -I Dork\ 2/Items -L lib/
 LIB=-l orx
+
 OBJS=Main.o StandAlone.o Enemy.o Entity.o Player.o Potion.o Weapon.o Armory.o Combat.o Exploration.o Shop.o Scene.o MainMenu.o Purchasing.o StatViewer.o Level.o
+_OBJS=$(patsubst %, $(ODIR)/%, $(OBJS))
 
 ifdef DEBUG
 	FLAGS += -g -O0
 endif
 
-dork2: $(OBJS)
-	mkdir -p Build obj
-	$(CC) $(LD) $(OBJS) $(LIB) -o Build/Dork\ 2
-	mv $(OBJS) obj
-	cp -u Music/* Build
-	cp -u Sprites/* Build
-	cp -u bin/*.ini Build
+dork2: $(_OBJS)
+	mkdir -p $(OUTDIR) $(ODIR)
+	$(CC) $(LD) $(_OBJS) $(LIB) -o $(OUTPUT)
+	cp -u Assets/Sound/* $(OUTDIR)
+	cp -u Assets/Sprites/* $(OUTDIR)
+	cp -u bin/*.ini $(OUTDIR)
 
-MainMenu.o:
+$(ODIR)/MainMenu.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/MainMenu.cpp
 
-Purchasing.o:
+$(ODIR)/Purchasing.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Purchasing.cpp
 
-StatViewer.o:
+$(ODIR)/StatViewer.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/StatViewer.cpp
 
-Enemy.o:
+$(ODIR)/Enemy.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Entities/Enemy.cpp
 
-Potion.o:
+$(ODIR)/Potion.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Items/Potion.cpp
 
-Weapon.o:
+$(ODIR)/Weapon.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Items/Weapon.cpp
 
-Armory.o:
+$(ODIR)/Armory.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Armory.cpp
 
-Combat.o:
+$(ODIR)/Combat.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Combat.cpp
 
-Exploration.o:
+$(ODIR)/Exploration.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Exploration.cpp
 
-Scene.o:
+$(ODIR)/Scene.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Scene.cpp
 
-Shop.o:
+$(ODIR)/Shop.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Scenes/Shop.cpp
 
-Entity.o:
+$(ODIR)/Entity.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Entities/Entity.cpp
 
-Main.o:
+$(ODIR)/Main.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/App/Main.cpp
 
-Player.o:
+$(ODIR)/Player.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Entities/Player.cpp
 
-StandAlone.o:
+$(ODIR)/StandAlone.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/App/StandAlone.cpp
 
-Level.o:
+$(ODIR)/Level.o:
 	$(CC) $(FLAGS) $(LD) Dork\ 2/Backend/Level.cpp
 
 clean:
-	rm -f Build/Dork\ 2 *.o
+	rm -f $(ODIR)/*.o $(OUTPUT)
 
 squeakyclean:
-	rm -rf Build
-	rm -f *.o
+	rm -rf $(OUTDIR) $(ODIR)
