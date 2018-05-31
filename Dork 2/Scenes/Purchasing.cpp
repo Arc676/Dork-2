@@ -28,7 +28,7 @@ Purchasing::Purchasing() : Scene() {
 
 void Purchasing::activate() {
 	currentSelection = 0;
-	exitSelected = orxFALSE;
+	selectedField = 0;
 	statViewer->reloadData();
 	loadItemData();
 	Scene::activate();
@@ -49,6 +49,46 @@ void Purchasing::loadPlayerData(Player* player) {
 	}
 }
 
+orxBOOL Purchasing::changeSelection(int delta) {
+	if (canChangeSelection(delta)) {
+		currentSelection += delta;
+		return orxTRUE;
+	}
+	return orxFALSE;
+}
+
+orxBOOL Purchasing::canChangeSelection(int delta) {
+	if (currentSelection + delta > selectionLimit) {
+		return orxFALSE;
+	}
+	if (currentSelection + delta < 0) {
+		return orxFALSE;
+	}
+	return orxTRUE;
+}
+
+orxBOOL Purchasing::canChangeField(int delta) {
+	if (selectedField + delta < 0) {
+		return orxFALSE;
+	}
+	if (selectedField + delta > fieldLimit) {
+		return orxFALSE;
+	}
+	return orxTRUE;
+}
+
+orxBOOL Purchasing::changeField(int delta) {
+	if (canChangeField(delta)) {
+		orxVECTOR pos;
+		orxObject_GetPosition(itemSelector, &pos);
+		selectedField += delta;
+		pos.fY += delta * 70;
+		orxObject_SetPosition(itemSelector, &pos);
+		return orxTRUE;
+	}
+	return orxFALSE;
+}
+
 SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	orxBOOL hadText = hasText;
 	SceneType type = Scene::update(clockInfo);
@@ -60,7 +100,11 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	}
 	int prevSelection = currentSelection;
 	if (getKeyDown((orxSTRING)"Enter")) {
-		if (exitSelected) {
+		if (selectedField == fieldLimit) {
+			orxVECTOR pos;
+			orxObject_GetPosition(itemSelector, &pos);
+			pos.fY -= 70 * selectedField;
+			orxObject_SetPosition(itemSelector, &pos);
 			return EXPLORATION;
 		} else {
 			int result = makePurchase();
@@ -71,22 +115,26 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 			}
 		}
 		loadItemData();
-	} else if (getKeyDown((orxSTRING)"GoDown") && !exitSelected) {
-		exitSelected = orxTRUE;
-	} else if (getKeyDown((orxSTRING)"GoUp") && exitSelected) {
-		exitSelected = orxFALSE;
-	} else if (!exitSelected) {
-		if (getKeyDown((orxSTRING)"GoRight") && currentSelection < selectionLimit) {
-			currentSelection++;
-		} else if (getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0) {
-			currentSelection--;
+	} else if (getKeyDown((orxSTRING)"GoDown")) {
+		changeField(1);
+	} else if (getKeyDown((orxSTRING)"GoUp")) {
+		changeField(-1);
+	} else if (selectedField != fieldLimit) {
+		orxBOOL success;
+		if (getKeyDown((orxSTRING)"GoRight")) {
+			success = changeSelection(1);
+		} else if (getKeyDown((orxSTRING)"GoLeft")) {
+			success = changeSelection(-1);
+		}
+		if (!success) {
+			orxObject_AddSound(player->getEntity(), "ErrorSound");
 		}
 	}
 	if (currentSelection != prevSelection) {
 		orxObject_AddSound(player->getEntity(), "SelectorSound");
 		loadItemData();
 	}
-	orxObject_Enable(itemSelector, !exitSelected);
-	orxObject_Enable(exitArrow, exitSelected);
+	orxObject_Enable(itemSelector, selectedField != fieldLimit);
+	orxObject_Enable(exitArrow, selectedField == fieldLimit);
 	return getSceneType();
 }

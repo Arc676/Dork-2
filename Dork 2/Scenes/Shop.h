@@ -25,6 +25,9 @@
 #include "Purchasing.h"
 #include "Potion.h"
 
+#define SHOP_POTION 0
+#define SHOP_QTY 1
+
 class Shop : public Purchasing {
 	int quantity = 1;
 
@@ -32,9 +35,13 @@ class Shop : public Purchasing {
 	orxOBJECT* potionName;
 	orxOBJECT* potionPrice;
 	orxOBJECT* potionEffect;
+	orxOBJECT* potionQty;
 protected:
 	virtual int makePurchase();
 	virtual void loadItemData();
+
+	virtual orxBOOL canChangeSelection(int);
+	virtual orxBOOL changeSelection(int);
 public:
 	/**
 	 * Construct new Shop scene
@@ -43,7 +50,6 @@ public:
 	Shop(Player* player);
 
 	virtual SceneType getSceneType();
-	virtual SceneType update(const orxCLOCK_INFO*);
 };
 
 #endif

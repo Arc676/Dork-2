@@ -35,7 +35,7 @@ Shop::Shop(Player* player) : Purchasing() {
 		orxObject_Enable(potion, orxFALSE);
 	}
 
-	pos.fY += 70;
+	pos.fY += 140;
 	orxOBJECT* exit = orxObject_CreateFromConfig("Exit");
 	orxObject_SetPosition(exit, &pos);
 
@@ -58,8 +58,16 @@ Shop::Shop(Player* player) : Purchasing() {
 	potionEffect = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionEffect, &pos);
 
+	pos.fY += 120;
+	pos.fX -= 40;
+	potionQty = orxObject_CreateFromConfig("SV");
+	orxObject_SetTextString(potionQty, "Quantity: 1");
+	orxObject_SetPosition(potionQty, &pos);
+
 	statViewer = new StatViewer(player, Scene::createVector(-1590, -400, 0));
 	selectionLimit = POTIONCOUNT - 1;
+
+	fieldLimit = 2;
 
 	setPauseMenuPosition(Scene::createVector(-1100, -400.0, 0));
 	initializeUITextAt(Scene::createVector(-1600, -240, -0.1));
@@ -73,8 +81,11 @@ void Shop::loadItemData() {
 	orxObject_SetTextString(potionName, text);
 
 	int price = p->getPrice();
-	orxString_Print(text, "Price: %d (%dx) = %d", price, quantity, (price * quantity));
+	orxString_Print(text, "Unit Price: %d", price);
 	orxObject_SetTextString(potionPrice, text);
+
+	orxString_Print(text, "Quantity: %d\n(Total %d)", quantity, (price * quantity));
+	orxObject_SetTextString(potionQty, text);
 
 	switch (p->getType()) {
 		case QUICKHEAL_2:
@@ -112,31 +123,31 @@ int Shop::makePurchase() {
 	return PURCHASE_FAILED;
 }
 
-SceneType Shop::update(const orxCLOCK_INFO* clockInfo) {
-	if (paused || hasText) {
-		return Purchasing::update(clockInfo);
+orxBOOL Shop::canChangeSelection(int delta) {
+	if (selectedField == SHOP_POTION) {
+		return Purchasing::canChangeSelection(delta);
 	}
-	int prevQty = quantity;
-	if (!exitSelected) {
-		if (getKeyDown((orxSTRING)"QtyDown") && quantity > 1) {
-			quantity--;
-		} else if (getKeyDown((orxSTRING)"QtyUp")) {
-			quantity++;
-		} else {
-			if ((getKeyDown((orxSTRING)"GoRight") && currentSelection < POTIONCOUNT - 1) ||
-				(getKeyDown((orxSTRING)"GoLeft") && currentSelection > 0)) {
-				quantity = 1;
-			}
-			return Purchasing::update(clockInfo);
+	if (quantity + delta < 1) {
+		return orxFALSE;
+	}
+	return orxTRUE;
+}
+
+orxBOOL Shop::changeSelection(int delta) {
+	if (selectedField == SHOP_QTY) {
+		if (canChangeSelection(delta)) {
+			quantity += delta;
+			orxObject_AddSound(player->getEntity(), "TickSound");
+			loadItemData();
+			return orxTRUE;
 		}
-	} else {
-		return Purchasing::update(clockInfo);
+		return orxFALSE;
 	}
-	if (quantity != prevQty) {
-		orxObject_AddSound(player->getEntity(), "TickSound");
-		loadItemData();
+	orxBOOL res = Purchasing::changeSelection(delta);
+	if (res) {
+		quantity = 1;
 	}
-	return SHOP;
+	return res;
 }
 
 SceneType Shop::getSceneType() {

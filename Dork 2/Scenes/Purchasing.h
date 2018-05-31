@@ -35,7 +35,10 @@ protected:
 	int currentSelection = 0;
 	int prevSel = 0;
 	int selectionLimit;
-	orxBOOL exitSelected = orxFALSE;
+
+	int selectedField = 0;
+	int fieldLimit = 1;
+	
 	std::vector<orxOBJECT*> items;
 
 	// UI
@@ -47,6 +50,37 @@ protected:
 	 * @return the result of the purchase attempt
 	 */
 	virtual int makePurchase() = 0;
+
+	/**
+	 * Determines whether the selection can be
+	 * changed in the given direction
+	 * @param delta Direction to move in
+	 * @return Whether the selection can be changed
+	 */
+	virtual orxBOOL canChangeSelection(int delta);
+
+	/**
+	 * Changes the selection in the given direction, if possible
+	 * @param delta Direction to move in
+	 * @return Whether the selection change succeeded
+	 */
+	virtual orxBOOL changeSelection(int delta);
+
+	/**
+	 * Determines whether the vertical selection (field)
+	 * can be changed in the given direction
+	 * @param delta Desired direction
+	 * @return Whether the selection can be changed
+	 */
+	orxBOOL canChangeField(int delta);
+
+	/**
+	 * Changes the vertical selection (field)
+	 * in the given direction
+	 * @param delta Desired direction
+	 * @return Whether the selection change succeeded
+	 */
+	orxBOOL changeField(int delta);
 
 	/**
 	 * Loads the stats of the selected item
