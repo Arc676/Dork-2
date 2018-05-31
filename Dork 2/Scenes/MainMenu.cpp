@@ -49,6 +49,7 @@ MainMenu::MainMenu() {
 	selector = orxObject_CreateFromConfig("Selector");
 	lrArrows = orxObject_CreateFromConfig("LRArrows");
 	orxObject_CreateFromConfig("MMObjects");
+	orxObject_CreateFromConfig("MMHelp");
 }
 
 SceneType MainMenu::getSceneType() {
