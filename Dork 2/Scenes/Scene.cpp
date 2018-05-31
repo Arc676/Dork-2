@@ -37,7 +37,7 @@ Scene::Scene() {
 	orxObject_Enable(pauseSelector, orxFALSE);
 
 	pauseMenu = orxObject_CreateFromConfig("PauseMenu");
-	orxObject_Enable(pauseMenu, orxFALSE);
+	orxObject_EnableRecursive(pauseMenu, orxFALSE);
 }
 
 void Scene::destroy() {
@@ -50,6 +50,7 @@ void Scene::setPauseMenuPosition(orxVECTOR pos) {
 	pos.fX -= 160;
 	pos.fY -= 80;
 	orxObject_SetPosition(pauseSelector, &pos);
+
 	pos.fX += 180;
 	pos.fY += 90;
 	orxObject_SetPosition(pauseMenu, &pos);
@@ -132,7 +133,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 	if (getKeyDown((orxSTRING)"Pause")) {
 		paused = !paused;
 		orxObject_Enable(pauseSelector, paused);
-		orxObject_Enable(pauseMenu, paused);
+		orxObject_EnableRecursive(pauseMenu, paused);
 	}
 	if (paused) {
 		orxVECTOR pos;
@@ -160,7 +161,7 @@ SceneType Scene::update(const orxCLOCK_INFO* clockInfo) {
 				{
 					//unpause
 					orxObject_Enable(pauseSelector, orxFALSE);
-					orxObject_Enable(pauseMenu, orxFALSE);
+					orxObject_EnableRecursive(pauseMenu, orxFALSE);
 					paused = orxFALSE;
 
 					//reset selector position
