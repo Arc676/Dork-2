@@ -21,7 +21,7 @@
 
 #include "Armory.h"
 
-Armory::Armory(Player* player) : Purchasing() {
+Armory::Armory() : Purchasing() {
 	orxVECTOR pos = Scene::createVector(-1200, 1060, 0);
 	orxObject_SetPosition(itemSelector, &pos);
 
@@ -44,8 +44,6 @@ Armory::Armory(Player* player) : Purchasing() {
 
 	pos.fX -= 58;
 	orxObject_SetPosition(exitArrow, &pos);
-
-	loadPlayerData(player);
 
 	int margin = 30;
 

@@ -21,7 +21,7 @@
 
 #include "Shop.h"
 
-Shop::Shop(Player* player) : Purchasing() {
+Shop::Shop() : Purchasing() {
 	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
 	orxObject_SetPosition(itemSelector, &pos);
 
@@ -41,9 +41,7 @@ Shop::Shop(Player* player) : Purchasing() {
 
 	pos.fX -= 58;
 	orxObject_SetPosition(exitArrow, &pos);
-	
-	loadPlayerData(player);
-	
+
 	int margin = 30;
 
 	pos = Scene::createVector(-1240, -500, 0);

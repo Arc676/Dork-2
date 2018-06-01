@@ -45,9 +45,8 @@ protected:
 public:
 	/**
 	 * Construct new Shop scene
-	 * @param player current player
 	 */
-	Shop(Player* player);
+	Shop();
 
 	virtual SceneType getSceneType();
 };

@@ -124,6 +124,11 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	armoryCam = orxViewport_GetCamera(armoryViewport);
 	orxViewport_Enable(armoryViewport, orxFALSE);
 
+	combatScene = new Combat();
+	explorationScene = new Exploration(player, combatScene, explorationCamera);
+	shopScene = new Shop();
+	armoryScene = new Armory();
+
 	orxConfig_Load("Map1.ini");
 	orxObject_CreateFromConfig("Map1");
 	paintTiles("Terrain");
@@ -155,24 +160,14 @@ void orxFASTCALL StandAlone::Exit() {
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* context) {
 	SceneType nextScene = currentScene->update(clockInfo);
 	if (nextScene != currentScene->getSceneType()) {
-		if (currentScene->getSceneType() == MAIN_MENU) {
-			if (player == orxNULL) {
-				player = currentScene->getPlayerData();
-				combatScene = new Combat();
-				explorationScene = new Exploration(player, combatScene, explorationCamera);
-				shopScene = new Shop(player);
-				armoryScene = new Armory(player);
-			} else {
-				player->despawn();
-				player = currentScene->getPlayerData();
-				explorationScene->resetWorld(player);
-				shopScene->loadPlayerData(player);
-				armoryScene->loadPlayerData(player);
-			}
-		}
 		orxViewport_Enable(currentViewport, orxFALSE);
 		currentScene->deactivate();
-		Player* player = currentScene->getPlayerData();
+		Player* newplayer = currentScene->getPlayerData();
+		if (player != orxNULL && currentScene->getSceneType() == MAIN_MENU) {
+			player->despawn();
+			explorationScene->resetWorld(player);
+		}
+		player = newplayer;
 		switch (nextScene) {
 			case EXPLORATION:
 				currentViewport = explorationViewport;
