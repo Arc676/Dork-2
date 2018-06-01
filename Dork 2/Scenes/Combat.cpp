@@ -29,14 +29,13 @@ Move Combat::moves[2][2] = {
 const orxVECTOR Combat::scaleUp = Scene::createVector(2, 2, 0);
 const orxVECTOR Combat::scaleNormal = Scene::createVector(1, 1, 0);
 
-Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
-	loadPlayerData(player);
+Combat::Combat() {
 	selector = orxObject_CreateFromConfig("Selector");
 	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
 	orxObject_SetPosition(selector, &pos);
 
-	playerStats = new StatViewer(player, Scene::createVector(-1500, 270, 0));
-	enemyStats = new StatViewer(enemy, Scene::createVector(-1000, 150, 0));
+	playerStats = new StatViewer(Scene::createVector(-1500, 270, 0));
+	enemyStats = new StatViewer(Scene::createVector(-1000, 150, 0));
 	music = orxSound_CreateFromConfig("FightMusic");
 	memset(modifiers, 0, sizeof(modifiers));
 
@@ -65,6 +64,16 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	orxObject_Enable(uiTextSprite, orxTRUE);
 }
 
+void Combat::loadPlayerData(Player* player) {
+	Scene::loadPlayerData(player);
+	playerStats->loadEntity(player);
+}
+
+void Combat::loadEnemyData(Enemy* enemy) {
+	this->enemy = enemy;
+	enemyStats->loadEntity(enemy);
+}
+
 void Combat::loadUIText(orxSTRING text) {
 	orxObject_EnableRecursive(cui, orxFALSE);
 	orxObject_Enable(selector, orxFALSE);
@@ -78,7 +87,9 @@ void Combat::dismissUIText() {
 	orxObject_Enable(selector, orxTRUE);
 }
 
-void Combat::activate() {
+void Combat::activate(Player* player) {
+	Scene::activate(player);
+	
 	playerPos = player->getPosition();
 	player->setPosition(Scene::createVector(-1200, 450, 0));
 	orxObject_SetScale(player->getEntity(), &scaleUp);
@@ -92,19 +103,12 @@ void Combat::activate() {
 	orxObject_SetTargetAnim(enemy->getEntity(), anim);
 
 	hasPotions = playerHasPotions();
-
-	Scene::activate();
 }
 
 void Combat::deactivate() {
-	orxObject_SetLifeTime(selector, 0);
-	orxObject_SetLifeTime(cui, 0);
 	enemy->despawn();
-	playerStats->destroy();
-	enemyStats->destroy();
 	player->setPosition(playerPos);
 	orxObject_SetScale(player->getEntity(), &scaleNormal);
-	Scene::destroy();
 	Scene::deactivate();
 }
 

@@ -93,15 +93,20 @@ class Combat : public Scene {
 protected:
 	virtual void loadUIText(orxSTRING);
 	virtual void dismissUIText();
+	virtual void loadPlayerData(Player*);
 public:
 	/**
 	 * Construct new combat scene
-	 * @param player current player
-	 * @param enemy enemy to battle
 	 */
-	Combat(Player* player, Enemy* enemy);
+	Combat();
 
-	virtual void activate();
+	/**
+	 * Loads entity data for the given enemy
+	 * @param enemy Relevant enemy
+	 */
+	void loadEnemyData(Enemy* enemy);
+
+	virtual void activate(Player* player);
 	virtual void deactivate();
 
 	virtual SceneType update(const orxCLOCK_INFO*);

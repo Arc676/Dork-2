@@ -54,9 +54,8 @@ protected:
 public:
 	/**
 	 * Construct new Armory scene
-	 * @param player current player
 	 */
-	Armory(Player* player);
+	Armory();
 
 	virtual void loadPlayerData(Player*);
 	virtual SceneType getSceneType();

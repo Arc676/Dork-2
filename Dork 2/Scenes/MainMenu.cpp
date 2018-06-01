@@ -21,7 +21,7 @@
 
 #include "MainMenu.h"
 
-void MainMenu::activate() {
+void MainMenu::activate(Player* player) {
 	//reset character data
 	memset(name, 0, NAMELENGTH);
 	cursorPos = 0;
@@ -40,7 +40,7 @@ void MainMenu::activate() {
 	orxObject_SetPosition(selector, &pos);
 	currentSelection = 0;
 
-	Scene::activate();
+	nextSceneType = MAIN_MENU;
 }
 
 MainMenu::MainMenu() {

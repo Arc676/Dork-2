@@ -92,7 +92,7 @@ protected:
 
 	Purchasing();
 public:
-	virtual void activate();
+	virtual void activate(Player* player);
 	virtual void loadPlayerData(Player*);
 
 	virtual SceneType update(const orxCLOCK_INFO*);

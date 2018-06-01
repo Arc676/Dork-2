@@ -26,12 +26,12 @@ Purchasing::Purchasing() : Scene() {
 	exitArrow = orxObject_CreateFromConfig("Selector");
 }
 
-void Purchasing::activate() {
+void Purchasing::activate(Player* player) {
+	Scene::activate(player);
 	currentSelection = 0;
 	selectedField = 0;
 	statViewer->reloadData();
 	loadItemData();
-	Scene::activate();
 }
 
 void Purchasing::loadItemData() {
@@ -106,21 +106,21 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 			pos.fY -= 70 * selectedField;
 			orxObject_SetPosition(itemSelector, &pos);
 			return EXPLORATION;
-		} else {
+		} else if (selectedField == fieldLimit - 1) {
 			int result = makePurchase();
 			if (result == PURCHASE_SUCCESSFUL) {
 				orxObject_AddSound(player->getEntity(), "Kaching");
 			} else if (result == PURCHASE_FAILED) {
 				orxObject_AddSound(player->getEntity(), "ErrorSound");
 			}
+			loadItemData();
 		}
-		loadItemData();
 	} else if (getKeyDown((orxSTRING)"GoDown")) {
 		changeField(1);
 	} else if (getKeyDown((orxSTRING)"GoUp")) {
 		changeField(-1);
 	} else if (selectedField != fieldLimit) {
-		orxBOOL success;
+		orxBOOL success = orxTRUE;
 		if (getKeyDown((orxSTRING)"GoRight")) {
 			success = changeSelection(1);
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {

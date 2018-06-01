@@ -22,7 +22,7 @@
 #include "Exploration.h"
 #include "Combat.h"
 
-Exploration::Exploration(Player* player, orxCAMERA* camera) : Scene(), camera(camera), existingEnemies() {
+Exploration::Exploration(Player* player, Combat* combat, orxCAMERA* camera) : Scene(), camera(camera), combatScene(combat), existingEnemies() {
 	loadPlayerData(player);
 	resetMusic();
 	canSave = orxTRUE;
@@ -158,7 +158,7 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 								orxConfig_PopSection();
 								if (isEnemy) {
 									Enemy* e = (Enemy*)orxObject_GetUserData(objs[i]);
-									nextScene = new Combat(player, e);
+									combatScene->loadEnemyData(e);
 
 									enableAnimation(orxFALSE);
 									player->pauseAnimation();
@@ -215,9 +215,9 @@ void Exploration::enableAnimation(orxBOOL enable) {
 	}
 }
 
-void Exploration::activate() {
+void Exploration::activate(Player* player) {
+	Scene::activate(player);
 	enableAnimation(orxTRUE);
-	Scene::activate();
 }
 
 SceneType Exploration::getSceneType() {

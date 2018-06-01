@@ -40,11 +40,6 @@ Scene::Scene() {
 	orxObject_EnableRecursive(pauseMenu, orxFALSE);
 }
 
-void Scene::destroy() {
-	orxObject_SetLifeTime(pauseMenu, 0);
-	orxObject_SetLifeTime(pauseSelector, 0);
-}
-
 void Scene::setPauseMenuPosition(orxVECTOR pos) {
 	pos.fZ = -0.1;
 	pos.fX -= 160;
@@ -68,10 +63,6 @@ Player* Scene::getPlayerData() {
 	return player;
 }
 
-Scene* Scene::getNextScene() {
-	return nextScene;
-}
-
 orxSTATUS Scene::EventHandler(const orxEVENT*) {
 	return orxSTATUS_SUCCESS;
 }
@@ -87,7 +78,8 @@ void Scene::toggleMusic() {
 	}
 }
 
-void Scene::activate() {
+void Scene::activate(Player* player) {
+	loadPlayerData(player);
 	nextSceneType = getSceneType();
 	if (Scene::playMusic && music != orxNULL) {
 		orxSound_Play(music);

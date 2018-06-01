@@ -25,9 +25,11 @@
 #include <list>
 
 #include "Scene.h"
+#include "Combat.h"
 
 class Exploration : public Scene {
 	orxCAMERA* camera;
+	Combat* combatScene;
 	const orxVECTOR UITextOffset = Scene::createVector(-500, 160, 0.9);
 
 	std::list<Enemy*> existingEnemies;
@@ -50,11 +52,12 @@ public:
 	/**
 	 * Construct new Exploration scene
 	 * @param player current player
+	 * @param combat Reference to combat scene
 	 * @param cam reference to the camera
 	 */
-	Exploration(Player* player, orxCAMERA* cam);
+	Exploration(Player* player, Combat* combat, orxCAMERA* cam);
 
-	virtual void activate();
+	virtual void activate(Player* player);
 
 	/**
 	 * Resets the world state by clearing enemies

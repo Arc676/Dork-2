@@ -21,7 +21,7 @@
 
 #include "Shop.h"
 
-Shop::Shop(Player* player) : Purchasing() {
+Shop::Shop() : Purchasing() {
 	orxVECTOR pos = Scene::createVector(-1200, -370, 0);
 	orxObject_SetPosition(itemSelector, &pos);
 
@@ -41,9 +41,7 @@ Shop::Shop(Player* player) : Purchasing() {
 
 	pos.fX -= 58;
 	orxObject_SetPosition(exitArrow, &pos);
-	
-	loadPlayerData(player);
-	
+
 	int margin = 30;
 
 	pos = Scene::createVector(-1240, -500, 0);
@@ -64,7 +62,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_SetTextString(potionQty, "Quantity: 1");
 	orxObject_SetPosition(potionQty, &pos);
 
-	statViewer = new StatViewer(player, Scene::createVector(-1590, -400, 0));
+	statViewer = new StatViewer(Scene::createVector(-1590, -400, 0));
 	selectionLimit = POTIONCOUNT - 1;
 
 	fieldLimit = 2;
@@ -148,6 +146,11 @@ orxBOOL Shop::changeSelection(int delta) {
 		quantity = 1;
 	}
 	return res;
+}
+
+void Shop::deactivate() {
+	quantity = 1;
+	Purchasing::deactivate();
 }
 
 SceneType Shop::getSceneType() {

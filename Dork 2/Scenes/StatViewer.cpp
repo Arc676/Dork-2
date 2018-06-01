@@ -21,7 +21,7 @@
 
 #include "StatViewer.h"
 
-StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
+StatViewer::StatViewer(orxVECTOR pos) {
 	int margin = 30;
 
 	labelName = orxObject_CreateFromConfig("SV");
@@ -58,8 +58,6 @@ StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
 	labelWeapon = orxObject_CreateFromConfig("SV");
 	pos.fY += margin;
 	orxObject_SetPosition(labelWeapon, &pos);
-
-	loadEntity(entity);
 }
 
 void StatViewer::loadEntity(Entity* entity) {
@@ -95,16 +93,4 @@ void StatViewer::reloadData() {
 
 	orxString_Print(text, "Weapon: %s", entity->getWeapon()->getName());
 	orxObject_SetTextString(labelWeapon, text);
-}
-
-void StatViewer::destroy() {
-	orxObject_SetLifeTime(labelName, 0);
-	orxObject_SetLifeTime(labelType, 0);
-	orxObject_SetLifeTime(labelHP, 0);
-	orxObject_SetLifeTime(labelSpeed, 0);
-	orxObject_SetLifeTime(labelStr, 0);
-	orxObject_SetLifeTime(labelDef, 0);
-	orxObject_SetLifeTime(labelGold, 0);
-	orxObject_SetLifeTime(labelLvl, 0);
-	orxObject_SetLifeTime(labelWeapon, 0);
 }

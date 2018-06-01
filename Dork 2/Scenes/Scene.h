@@ -46,7 +46,6 @@ protected:
 	static const orxVECTOR textMargin;
 
 	// scene data
-	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
 	orxBOOL canSave = orxFALSE;
 	SceneType nextSceneType;
@@ -95,21 +94,19 @@ protected:
 	 */
 	void setPauseMenuPosition(orxVECTOR pos);
 
-	void toggleMusic();
-
-	Scene();
-
-	/**
-	 * Destroy the pause menu
-	 */
-	void destroy();
-public:
 	/**
 	 * Load a new player
 	 * @param player player to load into scene
 	 */
 	virtual void loadPlayerData(Player* player);
 
+	/**
+	 * Toggles whether music should be played
+	 */
+	void toggleMusic();
+
+	Scene();
+public:
 	/**
 	 * Get the currently loaded player
 	 * @return loaded player
@@ -119,8 +116,9 @@ public:
 	/**
 	 * Tells the scene that it is now the active
 	 * scene
+	 * @param player Player data to load on activation
 	 */
-	virtual void activate();
+	virtual void activate(Player* player);
 
 	/**
 	 * Tells the scene that it is no longer
@@ -140,12 +138,6 @@ public:
 	 * @return scene type
 	 */
 	virtual SceneType getSceneType() = 0;
-
-	/**
-	 * Get the next scene to display
-	 * @return pointer to next scene
-	 */
-	Scene* getNextScene();
 
 	/**
 	 * Utility function to create a vector
