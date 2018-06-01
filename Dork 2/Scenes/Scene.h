@@ -98,11 +98,6 @@ protected:
 	void toggleMusic();
 
 	Scene();
-
-	/**
-	 * Destroy the pause menu
-	 */
-	void destroy();
 public:
 	/**
 	 * Load a new player

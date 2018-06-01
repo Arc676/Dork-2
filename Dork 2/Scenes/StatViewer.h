@@ -49,12 +49,6 @@ public:
 	StatViewer(Entity* entity, orxVECTOR pos);
 
 	/**
-	 * Destroy the stat viewer and all
-	 * child objects
-	 */
-	void destroy();
-
-	/**
 	 * Load stats for a new entity
 	 * @param entity entity whose stats to load
 	 */

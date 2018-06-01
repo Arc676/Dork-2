@@ -97,14 +97,9 @@ void Combat::activate() {
 }
 
 void Combat::deactivate() {
-	orxObject_SetLifeTime(selector, 0);
-	orxObject_SetLifeTime(cui, 0);
 	enemy->despawn();
-	playerStats->destroy();
-	enemyStats->destroy();
 	player->setPosition(playerPos);
 	orxObject_SetScale(player->getEntity(), &scaleNormal);
-	Scene::destroy();
 	Scene::deactivate();
 }
 

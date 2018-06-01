@@ -40,11 +40,6 @@ Scene::Scene() {
 	orxObject_EnableRecursive(pauseMenu, orxFALSE);
 }
 
-void Scene::destroy() {
-	orxObject_SetLifeTime(pauseMenu, 0);
-	orxObject_SetLifeTime(pauseSelector, 0);
-}
-
 void Scene::setPauseMenuPosition(orxVECTOR pos) {
 	pos.fZ = -0.1;
 	pos.fX -= 160;
