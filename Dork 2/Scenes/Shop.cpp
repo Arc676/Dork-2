@@ -148,6 +148,11 @@ orxBOOL Shop::changeSelection(int delta) {
 	return res;
 }
 
+void Shop::deactivate() {
+	quantity = 1;
+	Purchasing::deactivate();
+}
+
 SceneType Shop::getSceneType() {
 	return SHOP;
 }

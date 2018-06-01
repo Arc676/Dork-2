@@ -64,7 +64,13 @@ Combat::Combat() {
 	orxObject_Enable(uiTextSprite, orxTRUE);
 }
 
+void Combat::loadPlayerData(Player* player) {
+	Scene::loadPlayerData(player);
+	playerStats->loadEntity(player);
+}
+
 void Combat::loadEnemyData(Enemy* enemy) {
+	this->enemy = enemy;
 	enemyStats->loadEntity(enemy);
 }
 

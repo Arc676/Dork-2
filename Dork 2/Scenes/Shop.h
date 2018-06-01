@@ -48,6 +48,7 @@ public:
 	 */
 	Shop();
 
+	virtual void deactivate();
 	virtual SceneType getSceneType();
 };
 

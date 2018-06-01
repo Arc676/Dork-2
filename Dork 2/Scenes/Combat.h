@@ -93,6 +93,7 @@ class Combat : public Scene {
 protected:
 	virtual void loadUIText(orxSTRING);
 	virtual void dismissUIText();
+	virtual void loadPlayerData(Player*);
 public:
 	/**
 	 * Construct new combat scene
