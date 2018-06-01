@@ -215,9 +215,9 @@ void Exploration::enableAnimation(orxBOOL enable) {
 	}
 }
 
-void Exploration::activate() {
+void Exploration::activate(Player* player) {
+	Scene::activate(player);
 	enableAnimation(orxTRUE);
-	Scene::activate();
 }
 
 SceneType Exploration::getSceneType() {

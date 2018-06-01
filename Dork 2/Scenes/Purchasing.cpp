@@ -26,12 +26,12 @@ Purchasing::Purchasing() : Scene() {
 	exitArrow = orxObject_CreateFromConfig("Selector");
 }
 
-void Purchasing::activate() {
+void Purchasing::activate(Player* player) {
+	Scene::activate(player);
 	currentSelection = 0;
 	selectedField = 0;
 	statViewer->reloadData();
 	loadItemData();
-	Scene::activate();
 }
 
 void Purchasing::loadItemData() {

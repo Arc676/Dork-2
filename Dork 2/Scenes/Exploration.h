@@ -57,7 +57,7 @@ public:
 	 */
 	Exploration(Player* player, Combat* combat, orxCAMERA* cam);
 
-	virtual void activate();
+	virtual void activate(Player* player);
 
 	/**
 	 * Resets the world state by clearing enemies

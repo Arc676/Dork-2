@@ -105,7 +105,7 @@ public:
 	 */
 	void loadEnemyData(Enemy* enemy);
 
-	virtual void activate();
+	virtual void activate(Player* player);
 	virtual void deactivate();
 
 	virtual SceneType update(const orxCLOCK_INFO*);

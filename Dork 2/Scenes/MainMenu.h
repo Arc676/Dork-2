@@ -44,7 +44,7 @@ class MainMenu : public Scene {
 public:
 	MainMenu();
 	
-	virtual void activate();
+	virtual void activate(Player* player);
 
 	virtual SceneType update(const orxCLOCK_INFO*);
 	virtual SceneType getSceneType();

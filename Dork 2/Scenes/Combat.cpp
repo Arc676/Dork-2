@@ -81,7 +81,9 @@ void Combat::dismissUIText() {
 	orxObject_Enable(selector, orxTRUE);
 }
 
-void Combat::activate() {
+void Combat::activate(Player* player) {
+	Scene::activate(player);
+	
 	playerPos = player->getPosition();
 	player->setPosition(Scene::createVector(-1200, 450, 0));
 	orxObject_SetScale(player->getEntity(), &scaleUp);
@@ -95,8 +97,6 @@ void Combat::activate() {
 	orxObject_SetTargetAnim(enemy->getEntity(), anim);
 
 	hasPotions = playerHasPotions();
-
-	Scene::activate();
 }
 
 void Combat::deactivate() {

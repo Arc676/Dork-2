@@ -94,16 +94,19 @@ protected:
 	 */
 	void setPauseMenuPosition(orxVECTOR pos);
 
-	void toggleMusic();
-
-	Scene();
-public:
 	/**
 	 * Load a new player
 	 * @param player player to load into scene
 	 */
 	virtual void loadPlayerData(Player* player);
 
+	/**
+	 * Toggles whether music should be played
+	 */
+	void toggleMusic();
+
+	Scene();
+public:
 	/**
 	 * Get the currently loaded player
 	 * @return loaded player
@@ -113,8 +116,9 @@ public:
 	/**
 	 * Tells the scene that it is now the active
 	 * scene
+	 * @param player Player data to load on activation
 	 */
-	virtual void activate();
+	virtual void activate(Player* player);
 
 	/**
 	 * Tells the scene that it is no longer

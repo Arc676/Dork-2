@@ -134,7 +134,7 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	currentCamera = mainMenuCamera;
 	mainMenuScene = new MainMenu();
 	currentScene = mainMenuScene;
-	currentScene->activate();
+	currentScene->activate(orxNULL);
 
 	orxCLOCK* upClock = orxClock_FindFirst(-1.0f, orxCLOCK_TYPE_CORE);
 	orxClock_Register(upClock, Update, orxNULL, orxMODULE_ID_MAIN, orxCLOCK_PRIORITY_NORMAL);
@@ -172,32 +172,29 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		}
 		orxViewport_Enable(currentViewport, orxFALSE);
 		currentScene->deactivate();
+		Player* player = currentScene->getPlayerData();
 		switch (nextScene) {
 			case EXPLORATION:
 				currentViewport = explorationViewport;
 				currentCamera = explorationCamera;
-				explorationScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = explorationScene;
 				break;
 
 			case COMBAT:
 				currentViewport = combatViewport;
 				currentCamera = combatCam;
-				combatScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = combatScene;
 				break;
 
 			case SHOP:
 				currentViewport = shopViewport;
 				currentCamera = shopCam;
-				shopScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = shopScene;
 				break;
 
 			case ARMORY:
 				currentViewport = armoryViewport;
 				currentCamera = armoryCam;
-				armoryScene->loadPlayerData(currentScene->getPlayerData());
 				currentScene = armoryScene;
 				break;
 
@@ -208,7 +205,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 				break;
 		}
 		orxViewport_Enable(currentViewport, orxTRUE);
-		currentScene->activate();
+		currentScene->activate(player);
 	}
 }
 
