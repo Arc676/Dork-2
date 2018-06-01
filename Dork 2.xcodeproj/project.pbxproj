@@ -81,6 +81,7 @@
 		71959C481FD982CB00AF6DAF /* StrengthBoost.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C411FD982A300AF6DAF /* StrengthBoost.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C491FD982CE00AF6DAF /* DefenseBoost.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C3A1FD982A300AF6DAF /* DefenseBoost.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71BFEEA8201238E500D26A59 /* fight.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71BFEEA7201238CB00D26A59 /* fight.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		71C1706220C154E9007D7DA0 /* GhoulSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C1706120C154E2007D7DA0 /* GhoulSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71C480A1202A96AB00AE8470 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71C4809F202A96AB00AE8470 /* Level.cpp */; };
 		71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71E96C48202D3085001BE088 /* GhostSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71F208361FC3FA190001AB3F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F208341FC3FA190001AB3F /* Player.cpp */; };
@@ -103,6 +104,7 @@
 				71959C391FD97DED00AF6DAF /* Sickle.png in CopyFiles */,
 				7159CD401FD24F1E0015482A /* GoblinSpriteMap.png in CopyFiles */,
 				71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */,
+				71C1706220C154E9007D7DA0 /* GhoulSpriteMap.png in CopyFiles */,
 				7138B039206114D8001E8DA5 /* ImpSpriteMap.png in CopyFiles */,
 				712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */,
 				71959C421FD982BB00AF6DAF /* qh2.png in CopyFiles */,
@@ -331,6 +333,7 @@
 		719A38A61FDCC9EA00114FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		719A38A71FDCC9EA00114FD0 /* version.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
 		71BFEEA7201238CB00D26A59 /* fight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fight.wav; sourceTree = "<group>"; };
+		71C1706120C154E2007D7DA0 /* GhoulSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GhoulSpriteMap.png; sourceTree = "<group>"; };
 		71C4809F202A96AB00AE8470 /* Level.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		71C480A0202A96AB00AE8470 /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		71E96C48202D3085001BE088 /* GhostSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GhostSpriteMap.png; sourceTree = "<group>"; };
@@ -775,6 +778,7 @@
 				7159CD531FD3BBEE0015482A /* Arrows.png */,
 				71620F211FC823DF00EBD228 /* GoblinSpriteMap.png */,
 				71E96C48202D3085001BE088 /* GhostSpriteMap.png */,
+				71C1706120C154E2007D7DA0 /* GhoulSpriteMap.png */,
 				712467F2204557640089969C /* OgreSpriteMap.png */,
 				7138B038206114D0001E8DA5 /* ImpSpriteMap.png */,
 				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
