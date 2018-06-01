@@ -41,8 +41,8 @@ class Player : public Entity {
 public:
 	/**
 	 * Construct new player
-	 * @param name player name
-	 * @param type player's entity type
+	 * @param name Player name
+	 * @param type Player's entity type
 	 */
 	Player(orxSTRING name, EntityType type);
 	virtual orxSTRING getName();
@@ -50,58 +50,58 @@ public:
 	/**
 	 * Gets how many potions of a given type the player
 	 * owns
-	 * @param type type of potion
-	 * @return number of owned potions of that type
+	 * @param type Type of potion
+	 * @return Number of owned potions of that type
 	 */
 	int amountOfPotionOwned(PotionType type);
 
 	/**
 	 * Alter the amount of a potion owned by the player
-	 * @param type relevant potion type
-	 * @param delta amount by which the owned amount should be changed
+	 * @param type Relevant potion type
+	 * @param delta Amount by which the owned amount should be changed
 	 */
 	void changePotionAmount(PotionType type, int delta);
 
 	/**
 	 * Get whether the player owns a given weapon
-	 * @param type relevant weapon type
-	 * @return whether the player owns that weapon
+	 * @param type Relevant weapon type
+	 * @return Whether the player owns that weapon
 	 */
 	bool ownsWeapon(WeaponType type);
 
 	/**
 	 * Set whether player owns a given weapon
-	 * @param type relevant weapon type
-	 * @param ownership whether the player owns the weapon
+	 * @param type Relevant weapon type
+	 * @param ownership Whether the player owns the weapon
 	 */
 	void setWeaponOwnership(WeaponType type, bool ownership);
 
 	/**
 	 * Defeat an enemy
-	 * @param e defeated enemy
+	 * @param e Defeated enemy
 	 */
 	void defeat(Enemy* e);
 
 	/**
 	 * Update player
-	 * @param u up key pressed?
-	 * @param d down key pressed?
-	 * @param l left key pressed?
-	 * @param r right key pressed?
-	 * @param dt amount of time since last update
+	 * @param u Up key pressed?
+	 * @param d Down key pressed?
+	 * @param l Left key pressed?
+	 * @param r Right key pressed?
+	 * @param dt Amount of time since last update
 	 */
 	void update(bool u, bool d, bool l, bool r, float dt);
 
 	/**
 	 * Read player data from disk
-	 * @param name player name
-	 * @return whether the read succeeded
+	 * @param name Player name
+	 * @return Whether the read succeeded
 	 */
 	orxSTATUS read(orxSTRING name);
 
 	/**
 	 * Write player data to disk
-	 * @return whether the write succeeded
+	 * @return Whether the write succeeded
 	 */
 	orxSTATUS write();
 

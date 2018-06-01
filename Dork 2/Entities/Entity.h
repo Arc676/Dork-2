@@ -47,40 +47,40 @@ public:
 	/**
 	 * Randomly choose whether an entity can dodge another
 	 * based on stats
-	 * @param att attacking entity
-	 * @param blo blocking entity
-	 * @return whether the blocker successfully dodges the attacker
+	 * @param att Attacking entity
+	 * @param blo Blocking entity
+	 * @return Whether the blocker successfully dodges the attacker
 	 */
 	static orxBOOL dodge(Entity* att, Entity* blo);
 
 	/**
 	 * Calculate maximum possible damage that can be dealt based
 	 * on entity stats and weapons
-	 * @param att attacking entity
-	 * @param blo blocking entity
-	 * @return maximum damage that can be dealt in one turn
+	 * @param att Attacking entity
+	 * @param blo Blocking entity
+	 * @return Maximum damage that can be dealt in one turn
 	 */
 	static int maxDamage(Entity* att, Entity* blo);
 
 	/**
 	 * Apply effects of an attack
-	 * @param att attacking entity
-	 * @param blo blocking entity
-	 * @return damage dealt by attacker
+	 * @param att Attacking entity
+	 * @param blo Blocking entity
+	 * @return Damage dealt by attacker
 	 */
 	static int entityAttack(Entity* att, Entity* blo);
 
 	/**
 	 * Get name of entity type
-	 * @param type relevant type
-	 * @return human readable form of entity type
+	 * @param type Relevant type
+	 * @return Human readable form of entity type
 	 */
 	static orxSTRING typeToString(EntityType type);
 
 	/**
 	 * Get a given entity type's weakness
-	 * @param type relevant type
-	 * @return entity type that is effective against that type
+	 * @param type Relevant type
+	 * @return Entity type that is effective against that type
 	 */
 	static EntityType weaknessForType(EntityType type);
 

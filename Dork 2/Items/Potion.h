@@ -41,7 +41,7 @@ class Potion {
 
 	/**
 	 * Obtains the name of a potion
-	 * @param type relevant potion type
+	 * @param type Relevant potion type
 	 * @return Human readable potion name
 	 */
 	static orxSTRING typeToString(PotionType type);
@@ -53,7 +53,7 @@ class Potion {
 
 	/**
 	 * Copy a potion
-	 * @return a new Potion pointer with the same properties
+	 * @return A new Potion pointer with the same properties
 	 */
 	Potion* copy();
 public:
@@ -62,9 +62,9 @@ public:
 	
 	/**
 	 * Construct a new potion
-	 * @param type potion type
-	 * @param effect amount by which the relevant stat is improved
-	 * @param price potion price
+	 * @param type Potion type
+	 * @param effect Amount by which the relevant stat is improved
+	 * @param price Potion price
 	 */
 	Potion(PotionType type, double effect, int price);
 
@@ -75,15 +75,15 @@ public:
 
 	/**
 	 * Get the abbreviation used in config for a given potion type
-	 * @param type relevant potion type
-	 * @return abbreviation used to represent potion in config files
+	 * @param type Relevant potion type
+	 * @return Abbreviation used to represent potion in config files
 	 */
 	static orxSTRING configCodeForType(PotionType type);
 
 	/**
 	 * Get a copy of a given potion
-	 * @param type desired potion type
-	 * @return a copy of the desired potion
+	 * @param type Desired potion type
+	 * @return A copy of the desired potion
 	 */
 	static Potion* getCopyOf(PotionType type);
 };

@@ -51,9 +51,9 @@ class Enemy : public Entity {
 
 	/**
 	 * Create a random stat
-	 * @param base base value for stat
-	 * @param scale maximum amount by which the stat could be scaled up from the base
-	 * @return random stat based on and scaled from the base stat
+	 * @param base Base value for stat
+	 * @param scale Maximum amount by which the stat could be scaled up from the base
+	 * @return Random stat based on and scaled from the base stat
 	 */
 	static int randomStat(int base, float scale);
 
@@ -66,38 +66,38 @@ class Enemy : public Entity {
 public:
 	/**
 	 * Get enemy name
-	 * @param type type of relevant enemy
-	 * @return human readable name for enemy
+	 * @param type Type of relevant enemy
+	 * @return Human readable name for enemy
 	 */
 	static orxSTRING typeToString(EnemyType type);
 
 	/**
 	 * Get the entity type associated with an enemy
-	 * @param type the type of enemy
-	 * @return the associated entity type
+	 * @param type The mob type of the enemy
+	 * @return The associated entity type
 	 */
 	static EntityType entityTypeForEnemy(EnemyType type);
 
 	/**
 	 * Creates a random enemy
-	 * @param type desired enemy type
-	 * @param player the current player
-	 * @param pos the spawn position of the enemy
-	 * @return pointer to the newly spawned enemy
+	 * @param type Desired enemy type
+	 * @param player The current player
+	 * @param pos The spawn position of the enemy
+	 * @return Pointer to the newly spawned enemy
 	 */
 	static Enemy* createRandomEnemy(EnemyType type, Player* player, orxVECTOR pos);
 
 	/**
 	 * Construct new enemy
-	 * @param type type of enemy
-	 * @param HP enemy's HP on spawn
-	 * @param speed enemy's speed stat on spawn
-	 * @param str enemy's strength stat on spawn
-	 * @param def enemy's defense stat on spawn
-	 * @param w weapon with which enemy spawns
-	 * @param gold gold carried by enemy
-	 * @param lv enemy's level
-	 * @param pos enemy's spawn position
+	 * @param type Type of enemy
+	 * @param HP Enemy's HP on spawn
+	 * @param speed Enemy's speed stat on spawn
+	 * @param str Enemy's strength stat on spawn
+	 * @param def Enemy's defense stat on spawn
+	 * @param w Weapon with which enemy spawns
+	 * @param gold Gold carried by enemy
+	 * @param lv Enemy's level
+	 * @param pos Enemy's spawn position
 	 */
 	Enemy(EnemyType type, int HP, int speed, int str, int def, Weapon* w, int gold, Level lv, orxVECTOR pos);
 
@@ -106,7 +106,7 @@ public:
 
 	/**
 	 * Update enemy
-	 * @param dt amount of time passed since last update
+	 * @param dt Amount of time passed since last update
 	 */
 	void update(float dt);
 

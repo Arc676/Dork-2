@@ -57,14 +57,14 @@ protected:
 	/**
 	 * Gets whether a key was pressed while only
 	 * triggering on the first key down event
-	 * @param key desired key
-	 * @return whether the key has been pressed (only first key down)
+	 * @param key Desired key
+	 * @return Whether the key has been pressed (only first key down)
 	 */
 	static orxBOOL getKeyDown(orxSTRING key);
 
 	/**
 	 * Load text to display in mini alert
-	 * @param text text to display
+	 * @param text Text to display
 	 */
 	virtual void loadUIText(orxSTRING text);
 
@@ -75,13 +75,13 @@ protected:
 
 	/**
 	 * Initializes UI text objects
-	 * @param pos render position for alerts
+	 * @param pos Render position for alerts
 	 */
 	void initializeUITextAt(orxVECTOR pos);
 
 	/**
 	 * Move the UI text objects
-	 * @param pos new render position for alerts
+	 * @param pos New render position for alerts
 	 */
 	void moveUITextTo(orxVECTOR pos);
 
@@ -90,13 +90,13 @@ protected:
 
 	/**
 	 * Set location of pause menu in world space
-	 * @param pos new position for pause menu
+	 * @param pos New position for pause menu
 	 */
 	void setPauseMenuPosition(orxVECTOR pos);
 
 	/**
 	 * Load a new player
-	 * @param player player to load into scene
+	 * @param player Player to load into scene
 	 */
 	virtual void loadPlayerData(Player* player);
 
@@ -109,7 +109,7 @@ protected:
 public:
 	/**
 	 * Get the currently loaded player
-	 * @return loaded player
+	 * @return Loaded player
 	 */
 	Player* getPlayerData();
 
@@ -128,8 +128,8 @@ public:
 	
 	/**
 	 * Update the scene
-	 * @param clockInfo clock information provided by Orx
-	 * @return next scene to display based on what happens in the update
+	 * @param clockInfo Clock information provided by Orx
+	 * @return Next scene to display based on what happens in the update
 	 */
 	virtual SceneType update(const orxCLOCK_INFO* clockInfo);
 
@@ -141,10 +141,10 @@ public:
 
 	/**
 	 * Utility function to create a vector
-	 * @param x x component
-	 * @param y y component
-	 * @param z z component
-	 * @return a vector with the given Cartesian components
+	 * @param x X component
+	 * @param y Y component
+	 * @param z Z component
+	 * @return A vector with the given Cartesian components
 	 */
 	static orxVECTOR createVector(orxFLOAT x, orxFLOAT y, orxFLOAT z);
 

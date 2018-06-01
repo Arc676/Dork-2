@@ -41,7 +41,7 @@ class Weapon {
 
 	/**
 	 * Copy a weapon
-	 * @return a new Weapon pointer with the same properties
+	 * @return A new Weapon pointer with the same properties
 	 */
 	Weapon* copy();
 
@@ -57,32 +57,32 @@ public:
 	
 	/**
 	 * Get name of weapon
-	 * @param type the kind of weapon
-	 * @return human readable name for the weapon
+	 * @param type The kind of weapon
+	 * @return Human readable name for the weapon
 	 */
 	static orxSTRING getWeaponName(WeaponType type);
 
 	/**
 	 * Get a copy of a weapon
-	 * @param type desired weapon type
-	 * @return copy of weapon with the desired type
+	 * @param type Desired weapon type
+	 * @return Copy of weapon with the desired type
 	 */
 	static Weapon* copyOf(WeaponType type);
 
 	/**
 	 * Get entity type associated with a given weapon
-	 * @param type type of weapon
-	 * @return the associated entity type
+	 * @param type Type of weapon
+	 * @return The associated entity type
 	 */
 	static EntityType getTypeForWeapon(WeaponType type);
 
 	/**
 	 * Construct a new weapon
-	 * @param type type of weapon
-	 * @param str strength modifier
-	 * @param def defense modifier
-	 * @param speed speed modifier
-	 * @param price weapon price
+	 * @param type Type of weapon
+	 * @param str Strength modifier
+	 * @param def Defense modifier
+	 * @param speed Speed modifier
+	 * @param price Weapon price
 	 */
 	Weapon(WeaponType type, double str, double def, double speed, int price);
 

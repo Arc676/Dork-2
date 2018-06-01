@@ -45,15 +45,15 @@ class Exploration : public Scene {
 	/**
 	 * Tells entities in the scene whether animations
 	 * should be playing
-	 * @param enable whether animations should be enabled
+	 * @param enable Whether animations should be enabled
 	 */
 	void enableAnimation(orxBOOL enable);
 public:
 	/**
 	 * Construct new Exploration scene
-	 * @param player current player
+	 * @param player Current player
 	 * @param combat Reference to combat scene
-	 * @param cam reference to the camera
+	 * @param cam Reference to the camera
 	 */
 	Exploration(Player* player, Combat* combat, orxCAMERA* cam);
 
@@ -62,7 +62,7 @@ public:
 	/**
 	 * Resets the world state by clearing enemies
 	 * and resetting music and position
-	 * @param player player to load into reset world
+	 * @param player Player to load into reset world
 	 */
 	void resetWorld(Player* player);
 

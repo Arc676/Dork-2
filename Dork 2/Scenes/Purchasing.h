@@ -47,7 +47,7 @@ protected:
 
 	/**
 	 * Purchase the selected item
-	 * @return the result of the purchase attempt
+	 * @return The result of the purchase attempt
 	 */
 	virtual int makePurchase() = 0;
 

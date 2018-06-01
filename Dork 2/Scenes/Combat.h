@@ -63,7 +63,7 @@ class Combat : public Scene {
 
 	/**
 	 * Whether the player has any potions to consume
-	 * @return whether the player owns any potions
+	 * @return Whether the player owns any potions
 	 */
 	orxBOOL playerHasPotions();
 
@@ -74,7 +74,7 @@ class Combat : public Scene {
 
 	/**
 	 * Change the potion selection
-	 * @param dir direction for potion switching (+1 for right, -1 for left)
+	 * @param dir Direction for potion switching (+1 for right, -1 for left)
 	 */
 	void selectPotion(int dir);
 
@@ -86,8 +86,8 @@ class Combat : public Scene {
 
 	/**
 	 * Make the move selected by the player
-	 * @param move selected move
-	 * @return the next scene to show depending on the outcome of the action
+	 * @param move Selected move
+	 * @return The next scene to show depending on the outcome of the action
 	 */
 	SceneType makeMove(Move move);
 protected:
