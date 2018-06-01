@@ -63,10 +63,6 @@ Player* Scene::getPlayerData() {
 	return player;
 }
 
-Scene* Scene::getNextScene() {
-	return nextScene;
-}
-
 orxSTATUS Scene::EventHandler(const orxEVENT*) {
 	return orxSTATUS_SUCCESS;
 }

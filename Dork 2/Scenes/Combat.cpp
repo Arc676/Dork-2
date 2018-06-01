@@ -65,6 +65,10 @@ Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
 	orxObject_Enable(uiTextSprite, orxTRUE);
 }
 
+void Combat::loadEnemyData(Enemy* enemy) {
+	enemyStats->loadEntity(enemy);
+}
+
 void Combat::loadUIText(orxSTRING text) {
 	orxObject_EnableRecursive(cui, orxFALSE);
 	orxObject_Enable(selector, orxFALSE);

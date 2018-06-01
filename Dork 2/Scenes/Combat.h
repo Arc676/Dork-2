@@ -101,6 +101,12 @@ public:
 	 */
 	Combat(Player* player, Enemy* enemy);
 
+	/**
+	 * Loads entity data for the given enemy
+	 * @param enemy Relevant enemy
+	 */
+	void loadEnemyData(Enemy* enemy);
+
 	virtual void activate();
 	virtual void deactivate();
 

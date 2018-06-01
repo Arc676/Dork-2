@@ -46,7 +46,6 @@ protected:
 	static const orxVECTOR textMargin;
 
 	// scene data
-	Scene* nextScene = orxNULL;
 	Player* player = orxNULL;
 	orxBOOL canSave = orxFALSE;
 	SceneType nextSceneType;
@@ -135,12 +134,6 @@ public:
 	 * @return scene type
 	 */
 	virtual SceneType getSceneType() = 0;
-
-	/**
-	 * Get the next scene to display
-	 * @return pointer to next scene
-	 */
-	Scene* getNextScene();
 
 	/**
 	 * Utility function to create a vector
