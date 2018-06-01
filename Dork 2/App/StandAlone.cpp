@@ -25,10 +25,8 @@ StandAlone* StandAlone::m_Instance = orxNULL;
 
 Scene* StandAlone::currentScene = orxNULL;
 orxVIEWPORT* StandAlone::currentViewport = orxNULL;
-orxCAMERA* StandAlone::currentCamera = orxNULL;
 
 orxVIEWPORT* StandAlone::mainMenuViewport = orxNULL;
-orxCAMERA* StandAlone::mainMenuCamera = orxNULL;
 MainMenu* StandAlone::mainMenuScene = orxNULL;
 
 orxVIEWPORT* StandAlone::explorationViewport = orxNULL;
@@ -36,15 +34,12 @@ orxCAMERA* StandAlone::explorationCamera = orxNULL;
 Exploration* StandAlone::explorationScene = orxNULL;
 
 orxVIEWPORT* StandAlone::combatViewport = orxNULL;
-orxCAMERA* StandAlone::combatCam = orxNULL;
 Combat* StandAlone::combatScene = orxNULL;
 
 orxVIEWPORT* StandAlone::shopViewport = orxNULL;
-orxCAMERA* StandAlone::shopCam = orxNULL;
 Shop* StandAlone::shopScene = orxNULL;
 
 orxVIEWPORT* StandAlone::armoryViewport = orxNULL;
-orxCAMERA* StandAlone::armoryCam = orxNULL;
 Armory* StandAlone::armoryScene = orxNULL;
 
 Player* StandAlone::player = orxNULL;
@@ -106,22 +101,18 @@ void StandAlone::paintTiles(const orxSTRING mapSection) {
 
 orxSTATUS orxFASTCALL StandAlone::Init() {
 	mainMenuViewport = orxViewport_CreateFromConfig("MainMenuViewport");
-	mainMenuCamera = orxViewport_GetCamera(mainMenuViewport);
 
 	explorationViewport = orxViewport_CreateFromConfig("Viewport");
 	explorationCamera = orxViewport_GetCamera(explorationViewport);
 	orxViewport_Enable(explorationViewport, orxFALSE);
 
 	combatViewport = orxViewport_CreateFromConfig("CombatViewport");
-	combatCam = orxViewport_GetCamera(combatViewport);
 	orxViewport_Enable(combatViewport, orxFALSE);
 
 	shopViewport = orxViewport_CreateFromConfig("ShopViewport");
-	shopCam = orxViewport_GetCamera(shopViewport);
 	orxViewport_Enable(shopViewport, orxFALSE);
 
 	armoryViewport = orxViewport_CreateFromConfig("ArmoryViewport");
-	armoryCam = orxViewport_GetCamera(armoryViewport);
 	orxViewport_Enable(armoryViewport, orxFALSE);
 
 	combatScene = new Combat();
@@ -136,7 +127,6 @@ orxSTATUS orxFASTCALL StandAlone::Init() {
 	paintTiles("Shrubs");
 
 	currentViewport = mainMenuViewport;
-	currentCamera = mainMenuCamera;
 	mainMenuScene = new MainMenu();
 	currentScene = mainMenuScene;
 	currentScene->activate(orxNULL);
@@ -171,31 +161,26 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		switch (nextScene) {
 			case EXPLORATION:
 				currentViewport = explorationViewport;
-				currentCamera = explorationCamera;
 				currentScene = explorationScene;
 				break;
 
 			case COMBAT:
 				currentViewport = combatViewport;
-				currentCamera = combatCam;
 				currentScene = combatScene;
 				break;
 
 			case SHOP:
 				currentViewport = shopViewport;
-				currentCamera = shopCam;
 				currentScene = shopScene;
 				break;
 
 			case ARMORY:
 				currentViewport = armoryViewport;
-				currentCamera = armoryCam;
 				currentScene = armoryScene;
 				break;
 
 			case MAIN_MENU:
 				currentViewport = mainMenuViewport;
-				currentCamera = mainMenuCamera;
 				currentScene = mainMenuScene;
 				break;
 		}
@@ -203,15 +188,6 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		currentScene->activate(player);
 	}
 }
-
-//orxVECTOR orxFASTCALL StandAlone::GetMouseWorldPosition() {
-//	orxVECTOR worldpos, screenpos;
-//
-//	orxRender_GetWorldPosition(orxMouse_GetPosition(&screenpos), orxNULL, &worldpos);
-//	worldpos.fZ = 0;
-//
-//	return worldpos;
-//}
 
 orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* currentEvent) {
 	return currentScene->EventHandler(currentEvent);

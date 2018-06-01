@@ -60,10 +60,8 @@ private:
 	// scene in game
 	static Scene* currentScene;
 	static orxVIEWPORT* currentViewport;
-	static orxCAMERA* currentCamera;
 
 	static orxVIEWPORT* mainMenuViewport;
-	static orxCAMERA* mainMenuCamera;
 	static MainMenu* mainMenuScene;
 
 	static orxVIEWPORT* explorationViewport;
@@ -71,15 +69,12 @@ private:
 	static Exploration* explorationScene;
 
 	static orxVIEWPORT* combatViewport;
-	static orxCAMERA* combatCam;
 	static Combat* combatScene;
 
 	static orxVIEWPORT* shopViewport;
-	static orxCAMERA* shopCam;
 	static Shop* shopScene;
 
 	static orxVIEWPORT* armoryViewport;
-	static orxCAMERA* armoryCam;
 	static Armory* armoryScene;
 };
 
