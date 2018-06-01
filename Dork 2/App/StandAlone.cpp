@@ -37,6 +37,7 @@ Exploration* StandAlone::explorationScene = orxNULL;
 
 orxVIEWPORT* StandAlone::combatViewport = orxNULL;
 orxCAMERA* StandAlone::combatCam = orxNULL;
+Combat* StandAlone::combatScene = orxNULL;
 
 orxVIEWPORT* StandAlone::shopViewport = orxNULL;
 orxCAMERA* StandAlone::shopCam = orxNULL;
@@ -157,7 +158,8 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 		if (currentScene->getSceneType() == MAIN_MENU) {
 			if (player == orxNULL) {
 				player = currentScene->getPlayerData();
-				explorationScene = new Exploration(player, explorationCamera);
+				combatScene = new Combat();
+				explorationScene = new Exploration(player, combatScene, explorationCamera);
 				shopScene = new Shop(player);
 				armoryScene = new Armory(player);
 			} else {
@@ -181,9 +183,8 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* clockInfo, void* contex
 			case COMBAT:
 				currentViewport = combatViewport;
 				currentCamera = combatCam;
-				if (currentScene->getNextScene() != orxNULL) {
-					currentScene = currentScene->getNextScene();
-				}
+				combatScene->loadPlayerData(currentScene->getPlayerData());
+				currentScene = combatScene;
 				break;
 
 			case SHOP:

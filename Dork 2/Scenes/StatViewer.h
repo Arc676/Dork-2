@@ -43,10 +43,9 @@ class StatViewer {
 public:
 	/**
 	 * Construct new StatViewer
-	 * @param entity entity whose stats to show
 	 * @param pos render position of stat viewer
 	 */
-	StatViewer(Entity* entity, orxVECTOR pos);
+	StatViewer(orxVECTOR pos);
 
 	/**
 	 * Load stats for a new entity

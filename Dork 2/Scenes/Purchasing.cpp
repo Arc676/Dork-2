@@ -120,7 +120,7 @@ SceneType Purchasing::update(const orxCLOCK_INFO* clockInfo) {
 	} else if (getKeyDown((orxSTRING)"GoUp")) {
 		changeField(-1);
 	} else if (selectedField != fieldLimit) {
-		orxBOOL success;
+		orxBOOL success = orxTRUE;
 		if (getKeyDown((orxSTRING)"GoRight")) {
 			success = changeSelection(1);
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {

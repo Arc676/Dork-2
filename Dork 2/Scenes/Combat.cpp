@@ -29,14 +29,13 @@ Move Combat::moves[2][2] = {
 const orxVECTOR Combat::scaleUp = Scene::createVector(2, 2, 0);
 const orxVECTOR Combat::scaleNormal = Scene::createVector(1, 1, 0);
 
-Combat::Combat(Player* player, Enemy* enemy) : Scene(), enemy(enemy) {
-	loadPlayerData(player);
+Combat::Combat() {
 	selector = orxObject_CreateFromConfig("Selector");
 	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
 	orxObject_SetPosition(selector, &pos);
 
-	playerStats = new StatViewer(player, Scene::createVector(-1500, 270, 0));
-	enemyStats = new StatViewer(enemy, Scene::createVector(-1000, 150, 0));
+	playerStats = new StatViewer(Scene::createVector(-1500, 270, 0));
+	enemyStats = new StatViewer(Scene::createVector(-1000, 150, 0));
 	music = orxSound_CreateFromConfig("FightMusic");
 	memset(modifiers, 0, sizeof(modifiers));
 

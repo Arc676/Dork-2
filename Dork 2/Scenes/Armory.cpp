@@ -73,7 +73,7 @@ Armory::Armory(Player* player) : Purchasing() {
 	weaponSpeed = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(weaponSpeed, &pos);
 
-	statViewer = new StatViewer(player, Scene::createVector(-1590, 1000, 0));
+	statViewer = new StatViewer(Scene::createVector(-1590, 1000, 0));
 	selectionLimit = WEAPONCOUNT - 1;
 
 	setPauseMenuPosition(Scene::createVector(-1150, 1000, 0));

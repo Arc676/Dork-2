@@ -64,7 +64,7 @@ Shop::Shop(Player* player) : Purchasing() {
 	orxObject_SetTextString(potionQty, "Quantity: 1");
 	orxObject_SetPosition(potionQty, &pos);
 
-	statViewer = new StatViewer(player, Scene::createVector(-1590, -400, 0));
+	statViewer = new StatViewer(Scene::createVector(-1590, -400, 0));
 	selectionLimit = POTIONCOUNT - 1;
 
 	fieldLimit = 2;

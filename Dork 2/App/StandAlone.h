@@ -72,6 +72,7 @@ private:
 
 	static orxVIEWPORT* combatViewport;
 	static orxCAMERA* combatCam;
+	static Combat* combatScene;
 
 	static orxVIEWPORT* shopViewport;
 	static orxCAMERA* shopCam;

@@ -21,7 +21,7 @@
 
 #include "StatViewer.h"
 
-StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
+StatViewer::StatViewer(orxVECTOR pos) {
 	int margin = 30;
 
 	labelName = orxObject_CreateFromConfig("SV");
@@ -58,8 +58,6 @@ StatViewer::StatViewer(Entity* entity, orxVECTOR pos) {
 	labelWeapon = orxObject_CreateFromConfig("SV");
 	pos.fY += margin;
 	orxObject_SetPosition(labelWeapon, &pos);
-
-	loadEntity(entity);
 }
 
 void StatViewer::loadEntity(Entity* entity) {

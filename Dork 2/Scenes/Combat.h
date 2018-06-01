@@ -96,10 +96,8 @@ protected:
 public:
 	/**
 	 * Construct new combat scene
-	 * @param player current player
-	 * @param enemy enemy to battle
 	 */
-	Combat(Player* player, Enemy* enemy);
+	Combat();
 
 	/**
 	 * Loads entity data for the given enemy
