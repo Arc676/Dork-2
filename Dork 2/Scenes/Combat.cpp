@@ -34,22 +34,27 @@ Combat::Combat() {
 	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
 	orxObject_SetPosition(selector, &pos);
 
-	playerStats = new StatViewer(Scene::createVector(-1500, 270, 0));
+	playerStats = new StatViewer(Scene::createVector(-1550, 270, 0));
 	enemyStats = new StatViewer(Scene::createVector(-1000, 150, 0));
 	music = orxSound_CreateFromConfig("FightMusic");
 	memset(modifiers, 0, sizeof(modifiers));
 
 	potionName = orxObject_CreateFromConfig("SV");
-	pos = Scene::createVector(-1000, 470, 0);
+	pos = Scene::createVector(-1080, 440, 0);
 	orxObject_SetPosition(potionName, &pos);
 	orxObject_Enable(potionName, orxFALSE);
 
-	potionEffect = orxObject_CreateFromConfig("SV");
 	pos.fY += 20;
+	potionEffect = orxObject_CreateFromConfig("SV");
 	orxObject_SetPosition(potionEffect, &pos);
 	orxObject_Enable(potionEffect, orxFALSE);
 
-	pos = Scene::createVector(-1060, 480, 0);
+	pos.fY += 40;
+	potionHelp = orxObject_CreateFromConfig("PotionHelp");
+	orxObject_SetPosition(potionHelp, &pos);
+	orxObject_EnableRecursive(potionHelp, orxFALSE);
+
+	pos = Scene::createVector(-1140, 480, 0);
 	allPotions = std::vector<orxOBJECT*>(POTIONCOUNT);
 	for (int i = 0; i < POTIONCOUNT; i++) {
 		orxOBJECT* potion = orxObject_CreateFromConfig(Potion::configCodeForType((PotionType)i));
@@ -91,7 +96,7 @@ void Combat::activate(Player* player) {
 	Scene::activate(player);
 	
 	playerPos = player->getPosition();
-	player->setPosition(Scene::createVector(-1200, 450, 0));
+	player->setPosition(Scene::createVector(-1230, 450, 0));
 	orxObject_SetScale(player->getEntity(), &scaleUp);
 
 	enemy->setPosition(Scene::createVector(-1100, 200, 0));
@@ -254,6 +259,7 @@ SceneType Combat::makeMove(Move move) {
 				orxObject_Enable(potionName, orxTRUE);
 				orxObject_Enable(potionEffect, orxTRUE);
 				orxObject_Enable(allPotions[selectedPotion], orxTRUE);
+				orxObject_EnableRecursive(potionHelp, orxTRUE);
 				if (player->amountOfPotionOwned(selectedPotion) == 0) {
 					selectPotion(1);
 				}
@@ -329,10 +335,10 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			hasPotions = playerHasPotions();
 			isSelectingPotion = orxFALSE;
 			desiredQuantity = 1;
-		} else if (getKeyDown((orxSTRING)"QtyDown") &&
+		} else if (getKeyDown((orxSTRING)"GoDown") &&
 				   desiredQuantity > 1) {
 			desiredQuantity--;
-		} else if (getKeyDown((orxSTRING)"QtyUp") &&
+		} else if (getKeyDown((orxSTRING)"GoUp") &&
 				   desiredQuantity < player->amountOfPotionOwned(selectedPotion)) {
 			desiredQuantity++;
 		} else if (getKeyDown((orxSTRING)"GoLeft")) {
@@ -353,6 +359,7 @@ SceneType Combat::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_Enable(potionName, orxFALSE);
 			orxObject_Enable(potionEffect, orxFALSE);
 			orxObject_Enable(allPotions[selectedPotion], orxFALSE);
+			orxObject_EnableRecursive(potionHelp, orxFALSE);
 		}
 	} else {
 		orxBOOL hadText = hasText;

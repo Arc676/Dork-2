@@ -645,16 +645,16 @@
 		715FF6B21FBEE3FF005B1ED4 /* bin */ = {
 			isa = PBXGroup;
 			children = (
-				712AA50320C10C6A005ABE4D /* Armory.ini */,
 				712AA50220C10C69005ABE4D /* Manaspace.ini */,
 				712AA50120C10C69005ABE4D /* ManaspaceBig.ini */,
-				712AA50020C10C69005ABE4D /* Shop.ini */,
 				715FF6B31FBEE3FF005B1ED4 /* Dork 2.ini */,
 				715FF6B51FBEE3FF005B1ED4 /* Main.ini */,
 				7159CD501FD3B93B0015482A /* MainMenu.ini */,
 				7159CD471FD250B80015482A /* Exploration.ini */,
 				7159CD461FD250B70015482A /* Combat.ini */,
 				7159CD451FD250B70015482A /* Shops.ini */,
+				712AA50320C10C6A005ABE4D /* Armory.ini */,
+				712AA50020C10C69005ABE4D /* Shop.ini */,
 				7159CD481FD250B80015482A /* StatViewer.ini */,
 				71F208371FC43BEB0001AB3F /* Map1.ini */,
 				71620F271FCA5B0A00EBD228 /* GenericEntity.ini */,

@@ -88,7 +88,7 @@ void StatViewer::reloadData() {
 	orxString_Print(text, "Gold: %d", entity->getGold());
 	orxObject_SetTextString(labelGold, text);
 
-	orxString_Print(text, "Level %d; %d XP", entity->getLevel().getLevel(), entity->getLevel().getXP());
+	orxString_Print(text, "Level %d (+%d XP)", entity->getLevel().getLevel(), entity->getLevel().getXP());
 	orxObject_SetTextString(labelLvl, text);
 
 	orxString_Print(text, "Weapon: %s", entity->getWeapon()->getName());

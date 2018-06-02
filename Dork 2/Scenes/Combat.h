@@ -60,6 +60,7 @@ class Combat : public Scene {
 	std::vector<orxOBJECT*> allPotions;
 	orxOBJECT* potionName;
 	orxOBJECT* potionEffect;
+	orxOBJECT* potionHelp;
 
 	/**
 	 * Whether the player has any potions to consume
