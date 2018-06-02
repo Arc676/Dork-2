@@ -86,7 +86,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	int prevSelection = currentSelection;
 	EntityType prevType = chosenType;
 	if (getKeyDown((orxSTRING)"GoDown")) {
-		if (currentSelection < 3) {
+		if (currentSelection < 4) {
 			currentSelection++;
 			pos.fY += 60;
 		} else {
@@ -112,6 +112,10 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 			orxObject_AddSound(selector, "ErrorSound");
 		}
 	} else if (getKeyDown((orxSTRING)"Enter")) {
+		if (currentSelection == 4){
+				orxEvent_SendShort(orxEVENT_TYPE_SYSTEM,orxSYSTEM_EVENT_CLOSE);
+				
+			}
 		if (cursorPos > 0 && currentSelection >= 2) {
 			player = new Player(name, chosenType);
 			if (currentSelection == 3) {
