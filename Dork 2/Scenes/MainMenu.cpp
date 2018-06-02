@@ -27,16 +27,12 @@ void MainMenu::activate(Player* player) {
 	cursorPos = 0;
 	orxKeyboard_ClearBuffer();
 
-	orxVECTOR pos = Scene::createVector(-1216, 1592, 0);
 	orxObject_SetTextString(nameField, "Type alphanumeric name");
-	orxObject_SetPosition(nameField, &pos);
 
-	pos = Scene::createVector(-1125, 1652, 0);
 	orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
-	orxObject_SetPosition(typeField, &pos);
 
 	//reset selector
-	pos = Scene::createVector(-1250, 1600, 0);
+	orxVECTOR pos = Scene::createVector(-1250, 1600, 0);
 	orxObject_SetPosition(selector, &pos);
 	currentSelection = 0;
 
@@ -45,9 +41,18 @@ void MainMenu::activate(Player* player) {
 
 MainMenu::MainMenu() {
 	nameField = orxObject_CreateFromConfig("SV");
+	orxVECTOR pos = Scene::createVector(-1239, 1592, 0);
+	orxObject_SetPosition(nameField, &pos);
+
 	typeField = orxObject_CreateFromConfig("SV");
+	pos = Scene::createVector(-1125, 1652, 0);
+	orxObject_SetPosition(typeField, &pos);
+
 	selector = orxObject_CreateFromConfig("Selector");
+
 	lrArrows = orxObject_CreateFromConfig("LRArrows");
+	orxObject_Enable(lrArrows, orxFALSE);
+
 	orxObject_CreateFromConfig("MMObjects");
 	orxObject_CreateFromConfig("MMHelp");
 }
@@ -113,9 +118,8 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 		}
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == 4){
-				orxEvent_SendShort(orxEVENT_TYPE_SYSTEM,orxSYSTEM_EVENT_CLOSE);
-				
-			}
+			orxEvent_SendShort(orxEVENT_TYPE_SYSTEM, orxSYSTEM_EVENT_CLOSE);
+		}
 		if (cursorPos > 0 && currentSelection >= 2) {
 			player = new Player(name, chosenType);
 			if (currentSelection == 3) {
@@ -132,10 +136,11 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	if (currentSelection != prevSelection) {
 		orxObject_SetPosition(selector, &pos);
 		orxObject_AddSound(selector, "SelectorSound");
+		orxObject_Enable(lrArrows, currentSelection == 1);
+		orxObject_Enable(selector, currentSelection != 1);
 	} else if (chosenType != prevType) {
 		orxObject_AddSound(selector, "TickSound");
 		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	}
-	orxObject_Enable(lrArrows, currentSelection == 1);
 	return MAIN_MENU;
 }
