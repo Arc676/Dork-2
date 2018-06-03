@@ -422,13 +422,13 @@ void Combat::updatePotionDescription() {
 		case QUICKHEAL_10:
 		case QUICKHEAL_20:
 		case QUICKHEAL_50:
-			orxString_Print(text, "Heals: %d (%dx) -> %d",
+			orxString_Print(text, "Heals: %d (%dx) > %d",
 							(int)p->getAmount(), desiredQuantity, (int)(p->getAmount() * desiredQuantity));
 			break;
 		case STRBOOST:
 		case SPEEDBOOST:
 		case DEFBOOST:
-			orxString_Print(text, "Effect: +%d%% (%dx) -> +%d%%",
+			orxString_Print(text, "Effect: +%d%% (%dx) > +%d%%",
 							(int)(p->getAmount() * 100), desiredQuantity,
 							(int)(pow(1 + p->getAmount(), desiredQuantity) * 100 - 100));
 			break;

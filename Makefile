@@ -20,7 +20,7 @@ ifdef DEBUG
 	FLAGS += -g -O0
 endif
 
-dork2: $(_OBJS) copyassets
+dork2: copyassets $(_OBJS)
 	$(CC) $(LD) $(_OBJS) $(LIB) -o $(OUTPUT)
 
 copyassets:
