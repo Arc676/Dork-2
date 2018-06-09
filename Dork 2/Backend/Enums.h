@@ -24,13 +24,27 @@
 
 #define WEAPONCOUNT 7
 enum WeaponType : int {
-	SWORD = 0,
+        //melee
+        SWORD = 0,
 	CLUB,
-	STAFF,
 	SICKLE,
-	DAGGER,
 	AXE,
+        //speed
+        DAGGER,
+        RAPIER,
+        SAI, 
+        WHIP,
+        //range
 	SPEAR,
+        BOW, 
+        CROSSBOW,
+        BOOMERANG,
+        //magic
+        ORB,
+        TOME,
+        STAFF, 
+        RELIC,
+        //other
 	NOWEAPON
 };
 

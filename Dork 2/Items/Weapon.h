@@ -31,11 +31,20 @@ class Weapon {
 	// static instances of each weapon
 	static Weapon* sword;
 	static Weapon* club;
-	static Weapon* staff;
 	static Weapon* sickle;
 	static Weapon* axe;
 	static Weapon* dagger;
+	static Weapon* rapier; 
+	static Weapon* sai; 
+	static Weapon* whip; 
 	static Weapon* spear;
+	static Weapon* bow; 
+	static Weapon* crossbow; 
+	static Weapon* boomerang; 
+	static Weapon* orb; 
+	static Weapon* tome; 
+	static Weapon* staff;
+	static Weapon* relic; 
 
 	static Weapon* noWeapon;
 
