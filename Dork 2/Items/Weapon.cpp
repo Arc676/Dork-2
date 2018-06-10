@@ -5,6 +5,8 @@
 //  Created by Alessandro Vinciguerra on 20/11/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017-8 Arc676/Alessandro Vinciguerra
+//  Edited by Tyrel Clayton on 10/06/2018
+//Copyright (C) 2018 Tyresius92/Tyrel Clayton
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
