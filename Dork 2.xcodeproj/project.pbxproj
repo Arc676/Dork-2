@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7102497120CCD13C009A7F77 /* Bow.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7102497020CCD120009A7F77 /* Bow.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7102497220CCD13C009A7F77 /* Crossbow.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7102496F20CCD11F009A7F77 /* Crossbow.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		711189021FDAC93700344EC8 /* error.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189011FDAC92D00344EC8 /* error.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189031FDBF0E500344EC8 /* tiles_12.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712467F2204557640089969C /* OgreSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -101,6 +103,8 @@
 				71959C361FD97DE500AF6DAF /* Dagger.png in CopyFiles */,
 				71959C371FD97DE700AF6DAF /* Spear.png in CopyFiles */,
 				71959C381FD97DEA00AF6DAF /* Axe.png in CopyFiles */,
+				7102497120CCD13C009A7F77 /* Bow.png in CopyFiles */,
+				7102497220CCD13C009A7F77 /* Crossbow.png in CopyFiles */,
 				71959C391FD97DED00AF6DAF /* Sickle.png in CopyFiles */,
 				7159CD401FD24F1E0015482A /* GoblinSpriteMap.png in CopyFiles */,
 				71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */,
@@ -163,6 +167,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7102496F20CCD11F009A7F77 /* Crossbow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crossbow.png; sourceTree = "<group>"; };
+		7102497020CCD120009A7F77 /* Bow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bow.png; sourceTree = "<group>"; };
 		711189011FDAC92D00344EC8 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		711189031FDBF0E500344EC8 /* tiles_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_12.png; sourceTree = "<group>"; };
 		712467F2204557640089969C /* OgreSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OgreSpriteMap.png; sourceTree = "<group>"; };
@@ -772,6 +778,8 @@
 				71959C311FD97C0700AF6DAF /* Dagger.png */,
 				71959C321FD97C0700AF6DAF /* Spear.png */,
 				71959C2F1FD9726400AF6DAF /* Axe.png */,
+				7102497020CCD120009A7F77 /* Bow.png */,
+				7102496F20CCD11F009A7F77 /* Crossbow.png */,
 				71959C2E1FD9726400AF6DAF /* Sickle.png */,
 				712CA3961FD7853C0063E22E /* Tick.png */,
 				712CA3941FD77E230063E22E /* PauseMenu.png */,
