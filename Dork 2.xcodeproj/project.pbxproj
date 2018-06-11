@@ -68,6 +68,9 @@
 		716D1AFA1FC2757900D827D1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AF81FC2757900D827D1 /* Enemy.cpp */; };
 		716D1AFE1FC29E2B00D827D1 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1AFC1FC29E2B00D827D1 /* Weapon.cpp */; };
 		716D1B031FC3045000D827D1 /* Potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 716D1B011FC3045000D827D1 /* Potion.cpp */; };
+		718E814120CE30A00017BCBA /* Orb.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E814020CE30890017BCBA /* Orb.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718E814220CE30A00017BCBA /* Rapier.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813F20CE30890017BCBA /* Rapier.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718E814320CE30A00017BCBA /* Tome.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813E20CE30880017BCBA /* Tome.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C341FD97DDC00AF6DAF /* Staff.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C331FD97D9E00AF6DAF /* Staff.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C351FD97DE300AF6DAF /* Club.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C301FD97C0700AF6DAF /* Club.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C361FD97DE500AF6DAF /* Dagger.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C311FD97C0700AF6DAF /* Dagger.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -106,6 +109,9 @@
 				7102497120CCD13C009A7F77 /* Bow.png in CopyFiles */,
 				7102497220CCD13C009A7F77 /* Crossbow.png in CopyFiles */,
 				71959C391FD97DED00AF6DAF /* Sickle.png in CopyFiles */,
+				718E814120CE30A00017BCBA /* Orb.png in CopyFiles */,
+				718E814220CE30A00017BCBA /* Rapier.png in CopyFiles */,
+				718E814320CE30A00017BCBA /* Tome.png in CopyFiles */,
 				7159CD401FD24F1E0015482A /* GoblinSpriteMap.png in CopyFiles */,
 				71E96C49202D308D001BE088 /* GhostSpriteMap.png in CopyFiles */,
 				71C1706220C154E9007D7DA0 /* GhoulSpriteMap.png in CopyFiles */,
@@ -322,6 +328,9 @@
 		718B57DF1FC43D4300A457C8 /* forest_tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forest_tiles.png; sourceTree = "<group>"; };
 		718B57E21FC443AD00A457C8 /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = "<group>"; };
 		718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainGuySpriteSheet.png; sourceTree = "<group>"; };
+		718E813E20CE30880017BCBA /* Tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tome.png; sourceTree = "<group>"; };
+		718E813F20CE30890017BCBA /* Rapier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rapier.png; sourceTree = "<group>"; };
+		718E814020CE30890017BCBA /* Orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orb.png; sourceTree = "<group>"; };
 		71959C2E1FD9726400AF6DAF /* Sickle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sickle.png; sourceTree = "<group>"; };
 		71959C2F1FD9726400AF6DAF /* Axe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Axe.png; sourceTree = "<group>"; };
 		71959C301FD97C0700AF6DAF /* Club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Club.png; sourceTree = "<group>"; };
@@ -781,6 +790,9 @@
 				7102497020CCD120009A7F77 /* Bow.png */,
 				7102496F20CCD11F009A7F77 /* Crossbow.png */,
 				71959C2E1FD9726400AF6DAF /* Sickle.png */,
+				718E814020CE30890017BCBA /* Orb.png */,
+				718E813F20CE30890017BCBA /* Rapier.png */,
+				718E813E20CE30880017BCBA /* Tome.png */,
 				712CA3961FD7853C0063E22E /* Tick.png */,
 				712CA3941FD77E230063E22E /* PauseMenu.png */,
 				7159CD531FD3BBEE0015482A /* Arrows.png */,

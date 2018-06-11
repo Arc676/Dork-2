@@ -24,7 +24,7 @@
 #ifndef Enums_h
 #define Enums_h
 
-#define WEAPONCOUNT 7
+#define WEAPONCOUNT 16
 enum WeaponType : int {
 	//melee
 	SWORD = 0,
