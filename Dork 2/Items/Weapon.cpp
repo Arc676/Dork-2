@@ -5,6 +5,8 @@
 //  Created by Alessandro Vinciguerra on 20/11/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017-8 Arc676/Alessandro Vinciguerra
+//  Edited by Tyrel Clayton on 10/06/2018
+//Copyright (C) 2018 Tyresius92/Tyrel Clayton
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -27,30 +29,66 @@ Weapon* Weapon::sword = new Weapon(
 Weapon* Weapon::club = new Weapon(
 	CLUB, 0.15, 0.15, -0.05, 10
 );
-Weapon* Weapon::staff = new Weapon(
-	STAFF, 0.6, 0.4, -0.05, 150
-);
 Weapon* Weapon::sickle = new Weapon(
 	SICKLE, 0.3, 0.2, 0, 60
-);
-Weapon* Weapon::dagger = new Weapon(
-	DAGGER, 0.25, 0.15, 0.05, 40
 );
 Weapon* Weapon::axe = new Weapon(
 	AXE, 0.3, 0.1, -0.05, 50
 );
+Weapon* Weapon::dagger = new Weapon(
+	DAGGER, 0.25, 0.15, 0.05, 40
+);
+Weapon* Weapon::rapier = new Weapon(
+	RAPIER, 0.4, 0.25, 0.05, 175
+);
+Weapon* Weapon::sai = new Weapon(
+	SAI, 0.2, 0.2, 0.1, 100
+);
+Weapon* Weapon::whip = new Weapon(
+	WHIP, 0.3, 0.1, 0.05, 60
+);
 Weapon* Weapon::spear = new Weapon(
 	SPEAR, 0.4, 0.1, -0.2, 35
+);
+Weapon* Weapon::bow = new Weapon(
+	BOW, 0.15, 0.2, 0, 50
+);
+Weapon* Weapon::crossbow = new Weapon(
+	CROSSBOW, 0.5, 0.2, -0.05, 100
+);
+Weapon* Weapon::boomerang = new Weapon(
+	BOOMERANG, 0.3, 0.2, 0, 125
+);
+Weapon* Weapon::orb = new Weapon(
+	ORB, 0.3, 0.2, 0, 70
+);
+Weapon* Weapon::tome = new Weapon(
+	TOME, 0.4, 0.3, 0.05, 100
+);
+Weapon* Weapon::staff = new Weapon(
+	STAFF, 0.6, 0.4, -0.05, 150
+);
+Weapon* Weapon::relic = new Weapon(
+	RELIC, 0.2, 0.1, 0, 40
 );
 
 std::vector<Weapon*> Weapon::allWeapons = {
 	sword,
 	club,
-	staff,
 	sickle,
-	dagger,
 	axe,
-	spear
+	dagger,
+	rapier, 
+	sai, 
+	whip, 
+	spear, 
+	bow, 
+	crossbow, 
+	boomerang,
+	orb, 
+	tome,
+	staff, 
+	relic
 };
 
 Weapon* Weapon::noWeapon = new Weapon(
@@ -65,16 +103,34 @@ orxSTRING Weapon::getWeaponName(WeaponType type) {
 			return (orxSTRING)"Sword";
 		case CLUB:
 			return (orxSTRING)"Club";
-		case STAFF:
-			return (orxSTRING)"Staff";
 		case SICKLE:
 			return (orxSTRING)"Sickle";
-		case DAGGER:
-			return (orxSTRING)"Dagger";
 		case AXE:
 			return (orxSTRING)"Axe";
+		case DAGGER:
+			return (orxSTRING)"Dagger";
+		case RAPIER:
+			return (orxSTRING)"Rapier";
+		case SAI:
+			return (orxSTRING)"Sai";
+		case WHIP: 
+			return (orxSTRING)"Whip";
 		case SPEAR:
 			return (orxSTRING)"Spear";
+		case BOW: 
+			return (orxSTRING)"Bow";
+		case CROSSBOW:
+			return (orxSTRING)"Crossbow"; 
+		case BOOMERANG:
+			return (orxSTRING)"Boomerang";
+		case ORB:
+			return (orxSTRING)"Orb";
+		case TOME: 
+			return (orxSTRING)"Tome"; 
+		case STAFF:
+			return (orxSTRING)"Staff";
+		case RELIC: 
+			return (orxSTRING)"Relic"; 
 		case NOWEAPON:
 			return (orxSTRING)"No weapon";
 		default:
@@ -85,19 +141,25 @@ orxSTRING Weapon::getWeaponName(WeaponType type) {
 EntityType Weapon::getTypeForWeapon(WeaponType weaponType) {
 	switch (weaponType) {
 		case SWORD:
-			return MELEE;
 		case CLUB:
-			return MELEE;
-		case STAFF:
-			return MAGIC;
 		case SICKLE:
-			return MELEE;
-		case DAGGER:
-			return SPEED;
 		case AXE:
 			return MELEE;
+		case DAGGER:
+		case RAPIER:
+		case SAI:
+		case WHIP:
+			return SPEED;
 		case SPEAR:
+		case BOW: 
+		case CROSSBOW:
+		case BOOMERANG: 
 			return RANGE;
+		case ORB:
+		case TOME:
+		case STAFF:
+		case RELIC:
+			return MAGIC;
 		default:
 			return NOTYPE;
 	}
@@ -113,16 +175,34 @@ Weapon* Weapon::copyOf(WeaponType type) {
 			return Weapon::sword->copy();
 		case CLUB:
 			return Weapon::club->copy();
-		case STAFF:
-			return Weapon::staff->copy();
 		case SICKLE:
 			return Weapon::sickle->copy();
-		case DAGGER:
-			return Weapon::dagger->copy();
 		case AXE:
 			return Weapon::axe->copy();
+		case DAGGER:
+			return Weapon::dagger->copy();
+		case RAPIER: 
+			return Weapon::rapier->copy();
+		case SAI: 
+			return Weapon::sai->copy();
+		case WHIP: 
+			return Weapon::whip->copy();
 		case SPEAR:
 			return Weapon::spear->copy();
+		case BOW:
+			return Weapon::bow->copy();
+		case CROSSBOW: 
+			return Weapon::crossbow->copy();
+		case BOOMERANG:
+			return Weapon::boomerang->copy();
+		case ORB:
+			return Weapon::orb->copy();
+		case TOME:
+			return Weapon::tome->copy(); 
+		case STAFF:
+			return Weapon::staff->copy();
+		case RELIC: 
+			return Weapon::relic->copy();
 		default:
 			return Weapon::noWeapon->copy();
 	}

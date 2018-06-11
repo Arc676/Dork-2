@@ -5,6 +5,8 @@
 //  Created by Alessandro Vinciguerra on 20/11/2017.
 //      <alesvinciguerra@gmail.com>
 //Copyright (C) 2017-8 Arc676/Alessandro Vinciguerra
+//  Edited by Tyrel Clayton on 10/06/2018
+//Copyright (C) 2018 Tyresius92/Tyrel Clayton
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -31,11 +33,20 @@ class Weapon {
 	// static instances of each weapon
 	static Weapon* sword;
 	static Weapon* club;
-	static Weapon* staff;
 	static Weapon* sickle;
 	static Weapon* axe;
 	static Weapon* dagger;
+	static Weapon* rapier; 
+	static Weapon* sai; 
+	static Weapon* whip; 
 	static Weapon* spear;
+	static Weapon* bow; 
+	static Weapon* crossbow; 
+	static Weapon* boomerang; 
+	static Weapon* orb; 
+	static Weapon* tome; 
+	static Weapon* staff;
+	static Weapon* relic; 
 
 	static Weapon* noWeapon;
 
