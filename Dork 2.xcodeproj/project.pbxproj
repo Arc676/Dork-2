@@ -71,6 +71,7 @@
 		718E814120CE30A00017BCBA /* Orb.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E814020CE30890017BCBA /* Orb.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718E814220CE30A00017BCBA /* Rapier.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813F20CE30890017BCBA /* Rapier.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718E814320CE30A00017BCBA /* Tome.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813E20CE30880017BCBA /* Tome.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718E814520CE37440017BCBA /* Sai.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E814420CE373C0017BCBA /* Sai.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C341FD97DDC00AF6DAF /* Staff.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C331FD97D9E00AF6DAF /* Staff.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C351FD97DE300AF6DAF /* Club.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C301FD97C0700AF6DAF /* Club.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C361FD97DE500AF6DAF /* Dagger.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C311FD97C0700AF6DAF /* Dagger.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -101,6 +102,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				7159CD3F1FD24F1E0015482A /* Sword.png in CopyFiles */,
+				718E814520CE37440017BCBA /* Sai.png in CopyFiles */,
 				71959C341FD97DDC00AF6DAF /* Staff.png in CopyFiles */,
 				71959C351FD97DE300AF6DAF /* Club.png in CopyFiles */,
 				71959C361FD97DE500AF6DAF /* Dagger.png in CopyFiles */,
@@ -331,6 +333,7 @@
 		718E813E20CE30880017BCBA /* Tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tome.png; sourceTree = "<group>"; };
 		718E813F20CE30890017BCBA /* Rapier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rapier.png; sourceTree = "<group>"; };
 		718E814020CE30890017BCBA /* Orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orb.png; sourceTree = "<group>"; };
+		718E814420CE373C0017BCBA /* Sai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sai.png; sourceTree = "<group>"; };
 		71959C2E1FD9726400AF6DAF /* Sickle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sickle.png; sourceTree = "<group>"; };
 		71959C2F1FD9726400AF6DAF /* Axe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Axe.png; sourceTree = "<group>"; };
 		71959C301FD97C0700AF6DAF /* Club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Club.png; sourceTree = "<group>"; };
@@ -782,6 +785,7 @@
 				71959C411FD982A300AF6DAF /* StrengthBoost.png */,
 				71959C3A1FD982A300AF6DAF /* DefenseBoost.png */,
 				7159CD2C1FD24ED00015482A /* Sword.png */,
+				718E814420CE373C0017BCBA /* Sai.png */,
 				71959C331FD97D9E00AF6DAF /* Staff.png */,
 				71959C301FD97C0700AF6DAF /* Club.png */,
 				71959C311FD97C0700AF6DAF /* Dagger.png */,

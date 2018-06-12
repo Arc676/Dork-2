@@ -69,6 +69,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 				if (cursorPos > 0) {
 					name[--cursorPos] = 0;
 					orxObject_SetTextString(nameField, name);
+					orxObject_AddSound(nameField, "TickSound");
 				}
 			} else {
 				if (cursorPos < NAMELENGTH) {
@@ -77,6 +78,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 					if (orxString_IsCharacterAlphaNumeric(c)) {
 						name[cursorPos++] = c;
 						orxObject_SetTextString(nameField, name);
+						orxObject_AddSound(nameField, "TickSound");
 					}
 				}
 			}
@@ -119,8 +121,7 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	} else if (getKeyDown((orxSTRING)"Enter")) {
 		if (currentSelection == 4){
 			orxEvent_SendShort(orxEVENT_TYPE_SYSTEM, orxSYSTEM_EVENT_CLOSE);
-		}
-		if (cursorPos > 0 && currentSelection >= 2) {
+		} else if (cursorPos > 0 && currentSelection >= 2) {
 			player = new Player(name, chosenType);
 			if (currentSelection == 3) {
 				if (player->read(name) != orxSTATUS_SUCCESS) {
@@ -135,11 +136,11 @@ SceneType MainMenu::update(const orxCLOCK_INFO* clockInfo) {
 	}
 	if (currentSelection != prevSelection) {
 		orxObject_SetPosition(selector, &pos);
-		orxObject_AddSound(selector, "SelectorSound");
+		orxObject_AddSound(nameField, "SelectorSound");
 		orxObject_Enable(lrArrows, currentSelection == 1);
 		orxObject_Enable(selector, currentSelection != 1);
 	} else if (chosenType != prevType) {
-		orxObject_AddSound(selector, "TickSound");
+		orxObject_AddSound(nameField, "TickSound");
 		orxObject_SetTextString(typeField, Entity::typeToString(chosenType));
 	}
 	return MAIN_MENU;
