@@ -72,6 +72,7 @@
 		718E814220CE30A00017BCBA /* Rapier.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813F20CE30890017BCBA /* Rapier.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718E814320CE30A00017BCBA /* Tome.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E813E20CE30880017BCBA /* Tome.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		718E814520CE37440017BCBA /* Sai.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E814420CE373C0017BCBA /* Sai.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		718E814920D10F8E0017BCBA /* Boomerang.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 718E814820D10F650017BCBA /* Boomerang.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C341FD97DDC00AF6DAF /* Staff.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C331FD97D9E00AF6DAF /* Staff.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C351FD97DE300AF6DAF /* Club.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C301FD97C0700AF6DAF /* Club.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		71959C361FD97DE500AF6DAF /* Dagger.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71959C311FD97C0700AF6DAF /* Dagger.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -110,6 +111,7 @@
 				71959C381FD97DEA00AF6DAF /* Axe.png in CopyFiles */,
 				7102497120CCD13C009A7F77 /* Bow.png in CopyFiles */,
 				7102497220CCD13C009A7F77 /* Crossbow.png in CopyFiles */,
+				718E814920D10F8E0017BCBA /* Boomerang.png in CopyFiles */,
 				71959C391FD97DED00AF6DAF /* Sickle.png in CopyFiles */,
 				718E814120CE30A00017BCBA /* Orb.png in CopyFiles */,
 				718E814220CE30A00017BCBA /* Rapier.png in CopyFiles */,
@@ -334,6 +336,7 @@
 		718E813F20CE30890017BCBA /* Rapier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rapier.png; sourceTree = "<group>"; };
 		718E814020CE30890017BCBA /* Orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orb.png; sourceTree = "<group>"; };
 		718E814420CE373C0017BCBA /* Sai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sai.png; sourceTree = "<group>"; };
+		718E814820D10F650017BCBA /* Boomerang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boomerang.png; sourceTree = "<group>"; };
 		71959C2E1FD9726400AF6DAF /* Sickle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sickle.png; sourceTree = "<group>"; };
 		71959C2F1FD9726400AF6DAF /* Axe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Axe.png; sourceTree = "<group>"; };
 		71959C301FD97C0700AF6DAF /* Club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Club.png; sourceTree = "<group>"; };
@@ -793,6 +796,7 @@
 				71959C2F1FD9726400AF6DAF /* Axe.png */,
 				7102497020CCD120009A7F77 /* Bow.png */,
 				7102496F20CCD11F009A7F77 /* Crossbow.png */,
+				718E814820D10F650017BCBA /* Boomerang.png */,
 				71959C2E1FD9726400AF6DAF /* Sickle.png */,
 				718E814020CE30890017BCBA /* Orb.png */,
 				718E813F20CE30890017BCBA /* Rapier.png */,
