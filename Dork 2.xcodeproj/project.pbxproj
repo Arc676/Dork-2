@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7102497120CCD13C009A7F77 /* Bow.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7102497020CCD120009A7F77 /* Bow.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		7102497220CCD13C009A7F77 /* Crossbow.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7102496F20CCD11F009A7F77 /* Crossbow.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7110C6B620FDED7A00FC7110 /* TrollSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7110C6B520FDED6400FC7110 /* TrollSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		711189021FDAC93700344EC8 /* error.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189011FDAC92D00344EC8 /* error.wav */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		711189041FDBF0F600344EC8 /* tiles_12.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 711189031FDBF0E500344EC8 /* tiles_12.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712467F2204557640089969C /* OgreSpriteMap.png */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -127,6 +128,7 @@
 				7138B039206114D8001E8DA5 /* ImpSpriteMap.png in CopyFiles */,
 				712467F32045576D0089969C /* OgreSpriteMap.png in CopyFiles */,
 				7136F47820D2747B008349DC /* OrcSpriteMap.png in CopyFiles */,
+				7110C6B620FDED7A00FC7110 /* TrollSpriteMap.png in CopyFiles */,
 				71959C421FD982BB00AF6DAF /* qh2.png in CopyFiles */,
 				71959C431FD982BE00AF6DAF /* qh5.png in CopyFiles */,
 				71959C441FD982C100AF6DAF /* qh10.png in CopyFiles */,
@@ -185,6 +187,7 @@
 /* Begin PBXFileReference section */
 		7102496F20CCD11F009A7F77 /* Crossbow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crossbow.png; sourceTree = "<group>"; };
 		7102497020CCD120009A7F77 /* Bow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bow.png; sourceTree = "<group>"; };
+		7110C6B520FDED6400FC7110 /* TrollSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrollSpriteMap.png; sourceTree = "<group>"; };
 		711189011FDAC92D00344EC8 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		711189031FDBF0E500344EC8 /* tiles_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_12.png; sourceTree = "<group>"; };
 		712467F2204557640089969C /* OgreSpriteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OgreSpriteMap.png; sourceTree = "<group>"; };
@@ -821,8 +824,9 @@
 				7138B038206114D0001E8DA5 /* ImpSpriteMap.png */,
 				712467F2204557640089969C /* OgreSpriteMap.png */,
 				7136F47720D27464008349DC /* OrcSpriteMap.png */,
-				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
+				7110C6B520FDED6400FC7110 /* TrollSpriteMap.png */,
 				718B57E31FC4440200A457C8 /* MainGuySpriteSheet.png */,
+				71620F1D1FC7BB4C00EBD228 /* Selector.png */,
 				718B57DF1FC43D4300A457C8 /* forest_tiles.png */,
 				711189031FDBF0E500344EC8 /* tiles_12.png */,
 			);

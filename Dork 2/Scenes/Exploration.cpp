@@ -68,7 +68,7 @@ void Exploration::spawnEnemy() {
 		return;
 	}
 	Enemy* e = Enemy::createRandomEnemy(
-							 IMP,//(EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
+							 (EnemyType)orxMath_GetRandomU32(0, ENEMYCOUNT - 1),
 							 player, pos
 							 );
 	existingEnemies.push_back(e);
