@@ -99,7 +99,7 @@ void Player::update(bool up, bool down, bool left, bool right, float dt) {
 
 orxSTATUS Player::read(orxSTRING filename) {
 	if (!orxConfig_HasSection("PlayerData")) {
-		orxCHAR path[30];
+		orxCHAR path[50];
 		orxString_Print(path, "Dork2/%s", name);
 		orxConfig_Load(orxFile_GetApplicationSaveDirectory(path));
 	}
@@ -143,7 +143,7 @@ orxSTATUS Player::write() {
 
 		const orxSTRING potions[POTIONCOUNT];
 		for (int i = 0; i < POTIONCOUNT; i++) {
-			orxCHAR str[5];
+			orxCHAR str[100];
 			orxString_Print(str, "%d", ownedPotions[i]);
 			potions[i] = str;
 		}
@@ -156,7 +156,7 @@ orxSTATUS Player::write() {
 		orxConfig_SetListString("OwnedWeapons", weapons, WEAPONCOUNT);
 
 		orxConfig_PopSection();
-		orxCHAR path[30];
+		orxCHAR path[50];
 		orxString_Print(path, "Dork2/%s", name);
 		return orxConfig_Save(orxFile_GetApplicationSaveDirectory(path), orxFALSE, sectionFilter);
 	}

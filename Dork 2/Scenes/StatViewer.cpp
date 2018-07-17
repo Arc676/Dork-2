@@ -66,7 +66,7 @@ void StatViewer::loadEntity(Entity* entity) {
 }
 
 void StatViewer::reloadData() {
-	orxCHAR text[30];
+	orxCHAR text[100];
 
 	orxObject_SetTextString(labelName, entity->getName());
 

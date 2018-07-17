@@ -165,7 +165,7 @@ orxSTATUS Exploration::EventHandler(const orxEVENT* currentEvent) {
 									existingEnemies.remove(e);
 
 									nextSceneType = COMBAT;
-									orxCHAR text[40];
+									orxCHAR text[100];
 									orxString_Print(text, "%s encountered a(n) %s!",
 													player->getName(), e->getName());
 

@@ -92,7 +92,7 @@ void Armory::equipWeapon(WeaponType type) {
 
 void Armory::loadItemData() {
 	Weapon* w = Weapon::allWeapons[currentSelection];
-	orxCHAR text[30];
+	orxCHAR text[100];
 
 	orxString_Print(text, "Weapon: %s%s", w->getName(), (lastEquipped == currentSelection ? " (Equipped)" : ""));
 	orxObject_SetTextString(weaponName, text);
@@ -129,7 +129,7 @@ int Armory::makePurchase() {
 		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
 
-		orxCHAR text[40];
+		orxCHAR text[100];
 		orxString_Print(text, "%squipped %s", (type == NOWEAPON ? "Un-e" : "E"), weapon->getName());
 		loadUIText(text);
 
@@ -143,7 +143,7 @@ int Armory::makePurchase() {
 		player->equipWeapon(Weapon::copyOf(type));
 		statViewer->reloadData();
 
-		orxCHAR text[40];
+		orxCHAR text[100];
 		orxString_Print(text, "Purchased %s", weapon->getName());
 		loadUIText(text);
 

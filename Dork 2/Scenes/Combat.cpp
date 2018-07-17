@@ -103,11 +103,17 @@ void Combat::activate(Player* player) {
 	orxObject_SetScale(enemy->getEntity(), &scaleUp);
 
 	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
-	orxCHAR anim[30];
+	orxCHAR anim[40];
 	orxString_Print(anim, "IdleDAnim%s", enemy->getName());
 	orxObject_SetTargetAnim(enemy->getEntity(), anim);
 
+	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
+	orxObject_SetPosition(selector, &pos);
+	x = 0;
+	y = 0;
+
 	hasPotions = playerHasPotions();
+	specialMoveCooldown = 0;
 }
 
 void Combat::deactivate() {
@@ -128,7 +134,7 @@ orxBOOL Combat::playerHasPotions() {
 
 SceneType Combat::makeMove(Move move) {
 	SceneType toReturn = COMBAT;
-	orxCHAR uiText[200];
+	orxCHAR uiText[600];
 	switch (move) {
 		case RUN:
 			orxString_Print(uiText, "Ran away.");
@@ -143,13 +149,13 @@ SceneType Combat::makeMove(Move move) {
 					break;
 				}
 			}
-			orxCHAR mods[100];
+			orxCHAR mods[300];
 			memset(mods, 0, sizeof(mods));
 			if (hasMods) {
 				player->alterSpeed(modifiers[0]);
 				player->alterStrength(modifiers[1]);
 				player->alterDefense(modifiers[2]);
-				orxString_Print(mods, "Obtained %d speed, %d strength, %d defense for this turn.\n",
+				orxString_Print(mods, "Obtained %d SPD, %d STR, %d DEF this turn.\n",
 								modifiers[0], modifiers[1], modifiers[2]);
 			}
 
@@ -160,7 +166,7 @@ SceneType Combat::makeMove(Move move) {
 				secondAttacker = player;
 			}
 
-			orxCHAR attacks[100];
+			orxCHAR attacks[300];
 			int dmg = Entity::entityAttack(firstAttacker, secondAttacker);
 			orxString_Print(attacks, "%s dealt %d damage.",
 							firstAttacker->getName(), dmg);
@@ -187,7 +193,7 @@ SceneType Combat::makeMove(Move move) {
 		{
 			if (specialMoveCooldown > 0) {
 				orxObject_AddSound(selector, "ErrorSound");
-				orxString_Print(uiText, "Special move requires %d more turns to cool down.",
+				orxString_Print(uiText, "Special move requires %d more turns\nto cool down.",
 								specialMoveCooldown);
 				loadUIText(uiText);
 				return COMBAT;
@@ -286,8 +292,8 @@ SceneType Combat::makeMove(Move move) {
 
 void Combat::consumePotions() {
 	Potion* p = Potion::getCopyOf(selectedPotion);
-	orxCHAR text[100];
-	orxCHAR effect[50];
+	orxCHAR text[200];
+	orxCHAR effect[100];
 	double delta;
 	switch (selectedPotion) {
 		case SPEEDBOOST:
@@ -412,7 +418,7 @@ void Combat::selectPotion(int direction) {
 void Combat::updatePotionDescription() {
 	Potion* p = Potion::allPotions[selectedPotion];
 
-	orxCHAR text[30];
+	orxCHAR text[100];
 	orxString_Print(text, "Potion: %s", p->getName());
 	orxObject_SetTextString(potionName, text);
 

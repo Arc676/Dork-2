@@ -73,7 +73,7 @@ Shop::Shop() : Purchasing() {
 
 void Shop::loadItemData() {
 	Potion* p = Potion::allPotions[currentSelection];
-	orxCHAR text[30];
+	orxCHAR text[100];
 
 	orxString_Print(text, "Potion: %s (%d owned)", p->getName(), player->amountOfPotionOwned((PotionType)currentSelection));
 	orxObject_SetTextString(potionName, text);
@@ -113,7 +113,7 @@ int Shop::makePurchase() {
 		player->changePotionAmount((PotionType)currentSelection, quantity);
 		statViewer->reloadData();
 
-		orxCHAR text[40];
+		orxCHAR text[100];
 		orxString_Print(text, "Purchased %d vial(s) of %s", quantity, potion->getName());
 		loadUIText(text);
 		return PURCHASE_SUCCESSFUL;
