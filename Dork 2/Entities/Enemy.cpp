@@ -80,7 +80,7 @@ void Enemy::newRandomDirection() {
 		default:
 			break;
 	}
-	orxString_Print(animation, "Walk%sAnim%s", strDir, getName());
+	orxString_Print(animation, "Walk%sAnim", strDir);
 	resumeAnimation();
 	distanceTravelled = 0;
 }

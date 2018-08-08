@@ -104,7 +104,7 @@ void Combat::activate(Player* player) {
 
 	orxObject_SetTargetAnim(player->getEntity(), "IdleUAnim");
 	orxCHAR anim[40];
-	orxString_Print(anim, "IdleDAnim%s", enemy->getName());
+	orxString_Print(anim, "IdleDAnim");
 	orxObject_SetTargetAnim(enemy->getEntity(), anim);
 
 	orxVECTOR pos = Scene::createVector(-1400, 596, -0.2);
