@@ -1052,6 +1052,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "inc/**";
 			};
@@ -1070,6 +1071,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "inc/**";
 			};
